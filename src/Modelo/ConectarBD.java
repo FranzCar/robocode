@@ -17,10 +17,10 @@ public class ConectarBD {
     Connection conectar = null;
     
     String user = "root";
-    String password = "root";//*********** colocar el password de su base de datos
+    String password = "asdfg";//*********** colocar el password de su base de datos
     String dataBase = "ventasgobd";
     String server = "localhost";
-    String puerto = "3308";
+    String puerto = "3306";
     String driver = "com.mysql.cj.jdbc.Driver";
     
     String cadena = "jdbc:mysql://"+server+":"+puerto+"/"+dataBase;
