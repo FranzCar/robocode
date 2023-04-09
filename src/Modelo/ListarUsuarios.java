@@ -32,11 +32,21 @@ public class ListarUsuarios {
         modelo.addColumn("Telefono");
         modelo.addColumn("Usuario");
         modelo.addColumn("Direccion");
-        jTableUsuario.setModel(modelo);
-        TableRowSorter<TableModel> sorter = new TableRowSorter<>(modelo);
-        jTableUsuario.setRowSorter(sorter);
-        sorter.setSortable(0, false); // deshabilitar ordenamiento en la columna del ID de usuario
-        sorter.setSortKeys(Arrays.asList(new RowSorter.SortKey(1, SortOrder.ASCENDING))); // ordenar por nombreUsuario ascendente
+        String consultasql = new String();
+        consultasql = "SELECT codUsuario, nombreUsuario, ciUsuario, telefonoUsuario, idUsuario, direccionUsuario From usuarios ORDER BY nombreUsuario ASC";
+        Statement st;
+        try{
+            conexion=con.establecerConexion(); 
+            sentencia=conexion.createStatement();
+            ResultSet rs = sentencia.executeQuery(consultasql);
+            while(rs.next()){
+                Object [] lista = {rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)};
+                modelo.addRow(lista);
+            }
+            tabla.setModel(modelo);
+        }catch(Exception e){
+            System.out.println("ERROR AL LISTAR LOS DATOS" + e);
+        }
 
     }
     public void MostrarTablaBuscar(JTable tabla,String palabra){
