@@ -66,11 +66,11 @@ public class InterfazAdministrarUsuario extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Cod Usuario", "Nombre", "CI", "Telefono", "Usuario", "Direccion"
+                "Cod Usuario", "Nombre", "CI", "Telefono", "Usuario", "Fecha Inicio", "Direccion"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
