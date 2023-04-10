@@ -120,7 +120,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(245, 245, 245));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(245, 245, 245));
         jLabel1.setText("Nombre de Usuario");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
@@ -142,7 +142,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 320, -1));
 
         jLabel7.setBackground(new java.awt.Color(245, 245, 245));
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(245, 245, 245));
         jLabel7.setText("Id Usuario");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
@@ -161,7 +161,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         jPanel1.add(jTextFieldIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 320, -1));
 
         jLabel5.setBackground(new java.awt.Color(245, 245, 245));
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(245, 245, 245));
         jLabel5.setText("Contraseña");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
@@ -180,7 +180,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         jPanel1.add(jTextFieldContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 320, 30));
 
         jLabel3.setBackground(new java.awt.Color(245, 245, 245));
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(245, 245, 245));
         jLabel3.setText("Telefono");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
@@ -197,7 +197,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         jPanel1.add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 320, -1));
 
         jLabel4.setBackground(new java.awt.Color(245, 245, 245));
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(245, 245, 245));
         jLabel4.setText("Fecha de inicio");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
@@ -225,13 +225,13 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         jPanel1.add(jDateChooserFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 320, 30));
 
         jLabel6.setBackground(new java.awt.Color(245, 245, 245));
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(245, 245, 245));
         jLabel6.setText("Direccion");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, -1, -1));
 
         jLabel2.setBackground(new java.awt.Color(245, 245, 245));
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(245, 245, 245));
         jLabel2.setText("Carnet de Identidad");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
@@ -247,7 +247,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldCi, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 320, -1));
 
-        jButtonEditar.setBackground(new java.awt.Color(97, 150, 180));
+        jButtonEditar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonEditar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonEditar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/editarUser.png"))); // NOI18N
@@ -257,9 +257,9 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
                 jButtonEditarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 550, -1, -1));
+        jPanel1.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 550, -1, -1));
 
-        jButtonCancelar.setBackground(new java.awt.Color(97, 150, 180));
+        jButtonCancelar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar.png"))); // NOI18N
@@ -269,12 +269,12 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 550, -1, -1));
+        jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 550, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("EDITAR USUARIO");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
 
         lbAvisoDirec.setBackground(new java.awt.Color(204, 204, 255));
         lbAvisoDirec.setForeground(new java.awt.Color(204, 204, 255));
@@ -302,13 +302,13 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
 
         lbAvisoNombre.setBackground(new java.awt.Color(204, 204, 255));
         lbAvisoNombre.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel1.add(lbAvisoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 190, 32));
+        jPanel1.add(lbAvisoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, 190, 32));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 863, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 829, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
