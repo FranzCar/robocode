@@ -141,7 +141,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
                 jTextFieldNombreKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 320, -1));
+        jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 320, 30));
 
         jLabel7.setBackground(new java.awt.Color(245, 245, 245));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -160,7 +160,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
                 jTextFieldIdUsuarioKeyReleased(evt);
             }
         });
-        jPanel1.add(jTextFieldIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 320, -1));
+        jPanel1.add(jTextFieldIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 320, 30));
 
         jLabel5.setBackground(new java.awt.Color(245, 245, 245));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -196,7 +196,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
                 jTextFieldTelefonoKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 320, -1));
+        jPanel1.add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 320, 30));
 
         jLabel4.setBackground(new java.awt.Color(245, 245, 245));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -247,7 +247,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
                 jTextFieldCiKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextFieldCi, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 320, -1));
+        jPanel1.add(jTextFieldCi, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 320, 30));
 
         jButtonEditar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonEditar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
