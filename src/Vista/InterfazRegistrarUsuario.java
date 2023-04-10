@@ -96,7 +96,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel3.setText("Telefono");
+        jLabel3.setText("Teléfono");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(245, 245, 245));
@@ -108,11 +108,11 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel5.setText("Contrasenia");
+        jLabel5.setText("Contraseña");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel6.setText("Direccion");
+        jLabel6.setText("Dirección");
 
         jTextFieldNombre.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
