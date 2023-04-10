@@ -31,16 +31,17 @@ public class ListarUsuarios {
         modelo.addColumn("Ci");
         modelo.addColumn("Telefono");
         modelo.addColumn("Usuario");
+        modelo.addColumn("Fecha Inicio");
         modelo.addColumn("Direccion");
         String consultasql = new String();
-        consultasql = "SELECT codUsuario, nombreUsuario, ciUsuario, telefonoUsuario, idUsuario, direccionUsuario From usuarios ORDER BY nombreUsuario ASC";
+        consultasql = "SELECT codUsuario, nombreUsuario, ciUsuario, telefonoUsuario, idUsuario, fechaInicioUsuario, direccionUsuario From usuarios ORDER BY nombreUsuario ASC";
         Statement st;
         try{
             conexion=con.establecerConexion(); 
             sentencia=conexion.createStatement();
             ResultSet rs = sentencia.executeQuery(consultasql);
             while(rs.next()){
-                Object [] lista = {rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)};
+                Object [] lista = {rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7)};
                 modelo.addRow(lista);
             }
             tabla.setModel(modelo);
@@ -56,9 +57,10 @@ public class ListarUsuarios {
     modelo.addColumn("Ci");
     modelo.addColumn("Telefono");
     modelo.addColumn("Usuario");
+    modelo.addColumn("Fecha Inicio");
     modelo.addColumn("Direccion");
     String consultasql = new String();
-    consultasql = "SELECT codUsuario, nombreUsuario, ciUsuario, telefonoUsuario, idUsuario, direccionUsuario FROM usuarios WHERE nombreUsuario LIKE \"%"+palabra+"%\"  ORDER BY nombreUsuario";
+    consultasql = "SELECT codUsuario, nombreUsuario, ciUsuario, telefonoUsuario, idUsuario, fechaInicioUsuario, direccionUsuario FROM usuarios WHERE nombreUsuario LIKE \"%"+palabra+"%\"  ORDER BY nombreUsuario";
     
     try{
         conexion=con.establecerConexion(); 
@@ -66,7 +68,7 @@ public class ListarUsuarios {
         if (sentencia != null) {  // Agregado para validar que la sentencia no es null
             ResultSet rs = sentencia.executeQuery(consultasql);
             while(rs.next()){
-                Object [] lista = {rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)};
+                Object [] lista = {rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6), rs.getString(7)};
                 modelo.addRow(lista);
             }
             tabla.setModel(modelo);
