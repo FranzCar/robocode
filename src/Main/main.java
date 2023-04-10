@@ -10,7 +10,7 @@ import Vista.InterfazAdministrarUsuario;
 
 /**
  *
- * @author HP
+ * @author Santos Flores
  */
 public class main {
     public static void main (String[] args){

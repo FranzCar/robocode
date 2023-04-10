@@ -115,7 +115,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(jTextFieldCi, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 157, 300, 40));
 
-        jTextFieldContrasenia.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jTextFieldContrasenia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldContrasenia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldContraseniaActionPerformed(evt);
@@ -128,7 +128,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(jTextFieldContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 300, -1));
 
-        jTextFieldDireccion.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jTextFieldDireccion.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldDireccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldDireccionActionPerformed(evt);
@@ -144,7 +144,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 472, 300, -1));
 
-        jTextFieldTelefono.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jTextFieldTelefono.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldTelefonoActionPerformed(evt);
@@ -213,9 +213,9 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 550, 170, -1));
+        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 550, 190, -1));
 
-        jTextFieldIdUsuario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jTextFieldIdUsuario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldIdUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldIdUsuarioActionPerformed(evt);
@@ -233,7 +233,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
         jLabel7.setText("IdUsuario");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 350, -1, -1));
 
-        jDateChooserFechaInicio.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jDateChooserFechaInicio.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jDateChooserFechaInicio.setMaxSelectableDate(new java.util.Date(253370782906000L));
         jDateChooserFechaInicio.setMinSelectableDate(new java.util.Date(-62135751494000L));
         getContentPane().add(jDateChooserFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 283, 300, 38));

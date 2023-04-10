@@ -184,6 +184,7 @@ public class InterfazEliminarUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 97, 300, -1));
 
+        jTextFieldCi.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldCi.setPreferredSize(new java.awt.Dimension(7, 33));
         jTextFieldCi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,6 +201,7 @@ public class InterfazEliminarUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(jTextFieldCi, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 161, 300, -1));
 
+        jTextFieldTelefono.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldTelefono.setPreferredSize(new java.awt.Dimension(7, 33));
         jTextFieldTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,6 +218,7 @@ public class InterfazEliminarUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 220, 300, -1));
 
+        jTextFieldContrasenia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldContrasenia.setPreferredSize(new java.awt.Dimension(7, 33));
         jTextFieldContrasenia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,6 +232,7 @@ public class InterfazEliminarUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(jTextFieldContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 387, 300, -1));
 
+        jTextFieldDireccion.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldDireccion.setPreferredSize(new java.awt.Dimension(7, 33));
         jTextFieldDireccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,6 +254,7 @@ public class InterfazEliminarUsuario extends javax.swing.JFrame {
         jLabel7.setText("Id Usuario");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 333, -1, -1));
 
+        jTextFieldIdUsuario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldIdUsuario.setPreferredSize(new java.awt.Dimension(7, 33));
         jTextFieldIdUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -264,6 +269,7 @@ public class InterfazEliminarUsuario extends javax.swing.JFrame {
         getContentPane().add(jTextFieldIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 327, 300, -1));
 
         jDateChooserFechaInicio.setBackground(new java.awt.Color(255, 255, 255));
+        jDateChooserFechaInicio.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jDateChooserFechaInicio.setPreferredSize(new java.awt.Dimension(80, 33));
         getContentPane().add(jDateChooserFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 276, 215, -1));
 
