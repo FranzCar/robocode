@@ -274,7 +274,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("EDITAR USUARIO");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
 
         lbAvisoDirec.setBackground(new java.awt.Color(204, 204, 255));
         lbAvisoDirec.setForeground(new java.awt.Color(204, 204, 255));
