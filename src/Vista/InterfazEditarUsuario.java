@@ -184,7 +184,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         jLabel3.setBackground(new java.awt.Color(245, 245, 245));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel3.setText("Telefono");
+        jLabel3.setText("Teléfono");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
         jTextFieldTelefono.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -229,7 +229,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         jLabel6.setBackground(new java.awt.Color(245, 245, 245));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel6.setText("Direccion");
+        jLabel6.setText("Dirección");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, -1, -1));
 
         jLabel2.setBackground(new java.awt.Color(245, 245, 245));
