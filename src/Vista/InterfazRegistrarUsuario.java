@@ -104,7 +104,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel7.setText("IdUsuario");
+        jLabel7.setText("Id Usuario");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(245, 245, 245));
@@ -202,19 +202,26 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
             }
         });
 
-        avisoDireccion.setForeground(new java.awt.Color(245, 245, 245));
+        avisoDireccion.setBackground(new java.awt.Color(204, 204, 255));
+        avisoDireccion.setForeground(new java.awt.Color(204, 204, 255));
 
-        avisoContrasenia.setForeground(new java.awt.Color(245, 245, 245));
+        avisoContrasenia.setBackground(new java.awt.Color(204, 204, 255));
+        avisoContrasenia.setForeground(new java.awt.Color(204, 204, 255));
 
-        avisoIDusuario.setForeground(new java.awt.Color(245, 245, 245));
+        avisoIDusuario.setBackground(new java.awt.Color(204, 204, 255));
+        avisoIDusuario.setForeground(new java.awt.Color(204, 204, 255));
 
-        avisoFecha.setForeground(new java.awt.Color(245, 245, 245));
+        avisoFecha.setBackground(new java.awt.Color(204, 204, 255));
+        avisoFecha.setForeground(new java.awt.Color(204, 204, 255));
 
-        avisoTelefono.setForeground(new java.awt.Color(245, 245, 245));
+        avisoTelefono.setBackground(new java.awt.Color(204, 204, 255));
+        avisoTelefono.setForeground(new java.awt.Color(204, 204, 255));
 
-        avisoCI.setForeground(new java.awt.Color(245, 245, 245));
+        avisoCI.setBackground(new java.awt.Color(204, 204, 255));
+        avisoCI.setForeground(new java.awt.Color(204, 204, 255));
 
-        avisoNombre.setForeground(new java.awt.Color(245, 245, 245));
+        avisoNombre.setBackground(new java.awt.Color(204, 204, 255));
+        avisoNombre.setForeground(new java.awt.Color(204, 204, 255));
 
         jButtonGuardar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonGuardar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -295,7 +302,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(avisoContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(193, 193, 193)
+                        .addGap(205, 205, 205)
                         .addComponent(jLabel8)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -358,7 +365,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
                 .addGap(63, 63, 63))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 630));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 630));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
