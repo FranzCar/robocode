@@ -369,12 +369,15 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
     }
     
     public void validacionCaracteres(java.awt.event.KeyEvent evento){
-        if(evento.getKeyChar()>=33 && evento.getKeyChar()<=64 || 
+        if(evento.getKeyChar()>=33 && evento.getKeyChar()<=34 ||
+            evento.getKeyChar()>=36 && evento.getKeyChar()<=43 ||
+            evento.getKeyChar()>=60 && evento.getKeyChar()<=64 ||
             evento.getKeyChar()>=91 && evento.getKeyChar()<=96 ||
             evento.getKeyChar()>=123 && evento.getKeyChar()<=208||
             evento.getKeyChar()>=210 && evento.getKeyChar()<=240||
             evento.getKeyChar()>=242 && evento.getKeyChar()<=255){
     evento.consume();
+  
     JOptionPane.showMessageDialog(this, "No se permite Caracteres Especiales");
     }
     }
