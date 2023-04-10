@@ -109,8 +109,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(37, 77, 116));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setBackground(new java.awt.Color(0, 51, 102));
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 500));
         jPanel1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -175,6 +174,9 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         jTextFieldContrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldContraseniaKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldContraseniaKeyTyped(evt);
             }
         });
         jPanel1.add(jTextFieldContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, 320, 30));
@@ -386,20 +388,35 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
     }
 
 public void validarCamposVacios(){
-    if(jTextFieldNombre.getText().isEmpty()){
+     
+if(jTextFieldNombre.getText().isEmpty()){
      lbAvisoNombre.setText("Campo Obligatorio");
     }else{
-        lbAvisoNombre.setText("");         
+        if(jTextFieldNombre.getText().length()<=2){
+             lbAvisoNombre.setText("Minimo 3 Caracteres");  
+        }   
+         else{lbAvisoNombre.setText(""); } 
+        
     }
     if(jTextFieldCi.getText().isEmpty()){
      lbAvisoCi.setText("Campo Obligatorio");
     }else{
-             lbAvisoCi.setText("");         
+        if(jTextFieldCi.getText().length()<7){
+             lbAvisoCi.setText("Se requiere de 7 digitos");  
+        }else{
+         lbAvisoCi.setText(""); 
+                     
+    }
+    
     }
     if(jTextFieldTelefono.getText().isEmpty()){
      lbAvisoTel.setText("Campo Obligatorio");
     }else{
-             lbAvisoTel.setText("");         
+        if(jTextFieldTelefono.getText().length()<=7){
+             lbAvisoTel.setText("Minimo 8 Caracteres");  
+        }   
+         else{lbAvisoTel.setText(""); }
+    
     }
     //if(jDateChooserFechaInicio.getDate().{
      //lbAvisoFeIni.setText("Campo Obligatorio");
@@ -413,12 +430,20 @@ public void validarCamposVacios(){
     if(jTextFieldContrasenia.getText().isEmpty()){
      lbAvisoContra.setText("Campo Obligatorio");
     }else{
-             lbAvisoContra.setText("");         
+        if(jTextFieldContrasenia.getText().length()>=8){
+             lbAvisoContra.setText("Solo se permiten 8 caracteres");  
+        }
+    else{lbAvisoContra.setText(""); }
     }
+    
     if(jTextFieldDireccion.getText().isEmpty()){
      lbAvisoDirec.setText("Campo Obligatorio");
     }else{
-             lbAvisoDirec.setText("");         
+        if(jTextFieldDireccion.getText().length()>=18){
+             lbAvisoDirec.setText("Solo se permiten 18 caracteres");  
+        }
+    else{lbAvisoDirec.setText(""); }
+    
     }
 }
 
@@ -428,7 +453,11 @@ public void habilitarBoton(){
             || jTextFieldTelefono.getText().isEmpty()
             || jTextFieldIdUsuario.getText().isEmpty()
             || jTextFieldContrasenia.getText().isEmpty()
-            || jTextFieldDireccion.getText().isEmpty()){
+            || jTextFieldDireccion.getText().isEmpty()
+            ||jTextFieldNombre.getText().length()<=2
+            ||jTextFieldTelefono.getText().length()<=7
+            ||jTextFieldCi.getText().length()<7){
+        
         jButtonEditar.setEnabled(false);
     }else{
     jButtonEditar.setEnabled(true);
@@ -499,11 +528,28 @@ public void habilitarBoton(){
 
     private void jTextFieldDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDireccionKeyTyped
           validacionCaracteres(evt);
+           if(jTextFieldDireccion.getText().length()>=18){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
     }//GEN-LAST:event_jTextFieldDireccionKeyTyped
 
     private void jTextFieldCiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiKeyTyped
+       
        validacionNumeros(evt);
+        if(jTextFieldCi.getText().length()>=9){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
     }//GEN-LAST:event_jTextFieldCiKeyTyped
+
+    private void jTextFieldContraseniaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldContraseniaKeyTyped
+        // TODO add your handling code here:
+         if(jTextFieldContrasenia.getText().length()>=8){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_jTextFieldContraseniaKeyTyped
 
     /**
      * @param args the command line arguments
