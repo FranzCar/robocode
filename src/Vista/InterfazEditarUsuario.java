@@ -33,7 +33,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
     int id=idUsuarioTabla;
     public InterfazEditarUsuario() {
         initComponents();
-       
+        jTextFieldFechaInicioEncima.setBackground(new java.awt.Color(0,0,0,1));
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(1);
         jButtonEditar.setEnabled(false);
@@ -91,6 +91,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         jTextFieldTelefono = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTextFieldDireccion = new javax.swing.JTextField();
+        jTextFieldFechaInicioEncima = new javax.swing.JTextField();
         jDateChooserFechaInicio = new com.toedter.calendar.JDateChooser();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -113,7 +114,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(37, 77, 116));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setPreferredSize(new java.awt.Dimension(803, 608));
         jPanel1.setRequestFocusEnabled(false);
         jPanel1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -230,6 +231,9 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, 320, 30));
+
+        jTextFieldFechaInicioEncima.setEnabled(false);
+        jPanel1.add(jTextFieldFechaInicioEncima, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 300, 30));
 
         jDateChooserFechaInicio.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jPanel1.add(jDateChooserFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 320, 30));
@@ -670,6 +674,7 @@ public void habilitarBoton(){
     private javax.swing.JTextField jTextFieldCi;
     private javax.swing.JTextField jTextFieldContrasenia;
     private javax.swing.JTextField jTextFieldDireccion;
+    private javax.swing.JTextField jTextFieldFechaInicioEncima;
     private javax.swing.JTextField jTextFieldIdUsuario;
     private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldTelefono;
