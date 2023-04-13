@@ -458,6 +458,17 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "El Carnet de Identidad ya existe. Por favor ingrese otro.");
                 return;
             }
+            
+             //Para validar que la contraseña no sea duplicado
+            
+            String sentenciaSQLCON = "SELECT COUNT(*) FROM usuarios WHERE contraseniaUsuario = '" + objUsuario.Contrasenia + "'";
+            ResultSet resultadoCON = sentencia.executeQuery(sentenciaSQLCON);
+            resultadoCON.next();
+            int count5 = resultadoCON.getInt(1);
+            if (count5 > 0) {
+                JOptionPane.showMessageDialog(this, "Esta Contraseña ya existe. Por favor ingrese otro.");
+                return;
+            }
            
             // Si no esta duplicado, se realiza el registro
             
