@@ -161,16 +161,14 @@
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="102" attributes="0">
                                                           <Group type="103" groupAlignment="3" attributes="0">
-                                                              <Component id="jTextFieldContrasenia" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                                              <Component id="jTextFieldContrasenia" alignment="3" min="-2" max="-2" attributes="0"/>
                                                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                                                           </Group>
                                                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                                           <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                                  <Component id="jTextFieldDireccion" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                                              </Group>
+                                                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                                               <Component id="avisoDireccion" min="-2" pref="30" max="-2" attributes="0"/>
+                                                              <Component id="jTextFieldDireccion" alignment="0" min="-2" max="-2" attributes="0"/>
                                                           </Group>
                                                       </Group>
                                                       <Component id="avisoContrasenia" min="-2" pref="30" max="-2" attributes="0"/>
@@ -187,7 +185,7 @@
                       </Group>
                       <Component id="avisoCI" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="54" max="32767" attributes="0"/>
+                  <EmptySpace pref="48" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButtonCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -333,6 +331,7 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldIdUsuarioActionPerformed"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldIdUsuarioKeyReleased"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldIdUsuarioKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldContrasenia">
@@ -344,6 +343,7 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldContraseniaActionPerformed"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldContraseniaKeyReleased"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldContraseniaKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldDireccion">
@@ -443,7 +443,6 @@
               <Image iconType="3" name="/iconos/registrado.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="GUARDAR"/>
-            <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonGuardarActionPerformed"/>

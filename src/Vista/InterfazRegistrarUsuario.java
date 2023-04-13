@@ -173,6 +173,9 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldIdUsuarioKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldIdUsuarioKeyTyped(evt);
+            }
         });
 
         jTextFieldContrasenia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -184,6 +187,9 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
         jTextFieldContrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldContraseniaKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldContraseniaKeyTyped(evt);
             }
         });
 
@@ -345,20 +351,19 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
                                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                            .addComponent(jTextFieldContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(jTextFieldContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addComponent(jLabel5))
                                                         .addGap(25, 25, 25)
                                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                .addComponent(jLabel6)
-                                                                .addComponent(jTextFieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                            .addComponent(avisoDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                            .addComponent(jLabel6)
+                                                            .addComponent(avisoDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(jTextFieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                     .addComponent(avisoContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                             .addComponent(avisoIDusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(avisoFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(avisoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(avisoCI, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelar)
                     .addComponent(jButtonGuardar))
@@ -371,7 +376,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
     private void jTextFieldCiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCiActionPerformed
@@ -501,34 +506,44 @@ public void validarCamposVacios(){
         if(jTextFieldCi.getText().length()<7){
              avisoCI.setText("Se requiere de 7 digitos");  
         }else{
-         avisoCI.setText(""); 
-                     
-    }
+         avisoCI.setText("");}
     
     }
+    
     if(jTextFieldTelefono.getText().isEmpty()){
      avisoTelefono.setText("Campo Obligatorio");
     }else{
-             avisoTelefono.setText("");         
+        if(jTextFieldTelefono.getText().length()<=7){
+             avisoTelefono.setText("Se requiere 8 digitos");
+        }
+        else {avisoTelefono.setText("");}        
     }
-    //if(jDateChooserFechaInicio.getDate().{
-     //lbAvisoFeIni.setText("Campo Obligatorio");
-    //}else{
-            // lbAvisoFeIni.setText("");         
+    
     if(jTextFieldIdUsuario.getText().isEmpty()){
      avisoIDusuario.setText("Campo Obligatorio");
     }else{
-             avisoIDusuario.setText("");         
+        if (jTextFieldIdUsuario.getText().length()<=2){
+            avisoIDusuario.setText("Se requiere 3 caracteres");
+        }
+        else{avisoIDusuario.setText("");}         
     }
+    
     if(jTextFieldContrasenia.getText().isEmpty()){
      avisoContrasenia.setText("Campo Obligatorio");
     }else{
-             avisoContrasenia.setText("");         
+        if(jTextFieldContrasenia.getText().length()<8){
+            avisoContrasenia.setText("Se requiere 8 caracteres");
+        }
+        else{avisoContrasenia.setText("");}     
     }
+    
     if(jTextFieldDireccion.getText().isEmpty()){
      avisoDireccion.setText("Campo Obligatorio");
     }else{
-             avisoDireccion.setText("");         
+        if(jTextFieldDireccion.getText().length()<=18){
+            avisoDireccion.setText("Se requiere 18 caracteres");
+        }
+        else{avisoDireccion.setText("");}      
     }
 }
 public void habilitarBoton(){
@@ -539,7 +554,11 @@ public void habilitarBoton(){
             || jTextFieldContrasenia.getText().isEmpty()
             || jTextFieldDireccion.getText().isEmpty()
             || jTextFieldNombre.getText().length()<=2
-            || jTextFieldCi.getText().length()<7){
+            || jTextFieldCi.getText().length()<7
+            || jTextFieldTelefono.getText().length()<8
+            || jTextFieldIdUsuario.getText().length()<3
+            || jTextFieldContrasenia.getText().length()<8
+            || jTextFieldDireccion.getText().length()<18){
         jButtonGuardar.setEnabled(false);
     }else{
     jButtonGuardar.setEnabled(true);
@@ -559,6 +578,7 @@ public void habilitarBoton(){
 
     private void jTextFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyTyped
         validacionCaracteres(evt);
+        //
     }//GEN-LAST:event_jTextFieldNombreKeyTyped
 
     private void jTextFieldTelefonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoKeyReleased
@@ -568,9 +588,12 @@ public void habilitarBoton(){
 
     private void jTextFieldTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoKeyTyped
         validacionNumeros(evt);
+        jTextFieldTelefono.setText(jTextFieldTelefono.getText().trim());
         if(jTextFieldTelefono.getText().length()>=8){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
         }
     }//GEN-LAST:event_jTextFieldTelefonoKeyTyped
 
@@ -591,6 +614,13 @@ public void habilitarBoton(){
 
     private void jTextFieldDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDireccionKeyTyped
         validacionCaracteresDireccion(evt);
+        jTextFieldDireccion.setText(jTextFieldDireccion.getText().trim());
+        if(jTextFieldDireccion.getText().length()>=50){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
     }//GEN-LAST:event_jTextFieldDireccionKeyTyped
 
     private void jTextFieldCiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiKeyReleased
@@ -599,12 +629,31 @@ public void habilitarBoton(){
     }//GEN-LAST:event_jTextFieldCiKeyReleased
 
     private void jTextFieldCiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiKeyTyped
+        habilitarBoton();
         validacionNumeros(evt);
+        jTextFieldCi.setText(jTextFieldCi.getText().trim());
          if(jTextFieldCi.getText().length()>=9){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
          }
     }//GEN-LAST:event_jTextFieldCiKeyTyped
+
+    private void jTextFieldIdUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdUsuarioKeyTyped
+        jTextFieldIdUsuario.setText(jTextFieldIdUsuario.getText().trim());
+    }//GEN-LAST:event_jTextFieldIdUsuarioKeyTyped
+
+    private void jTextFieldContraseniaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldContraseniaKeyTyped
+        jTextFieldContrasenia.setText(jTextFieldContrasenia.getText().trim());
+          jTextFieldContrasenia.setText(jTextFieldContrasenia.getText().trim());
+         if(jTextFieldContrasenia.getText().length()>=20){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+         }
+    }//GEN-LAST:event_jTextFieldContraseniaKeyTyped
 
     /**
      * @param args the command line arguments
