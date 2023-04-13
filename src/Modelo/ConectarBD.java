@@ -17,7 +17,11 @@ public class ConectarBD {
     Connection conectar = null;
     
     String user = "root";
+<<<<<<< HEAD
     String password = "root";//*********** colocar el password de su base de datos
+=======
+    String password = "root1010";//*********** colocar el password de su base de datos
+>>>>>>> a4eafecd7251f17b5709a2e644fc005f785bb522
     String dataBase = "ventasgobd";
     String server = "localhost";
     String puerto = "3306";
