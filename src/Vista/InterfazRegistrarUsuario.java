@@ -447,6 +447,17 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "El Nombre de Usuario ya existe. Por favor ingrese otro Nombre.");
                 return;
             }
+            
+             //Para validar que el carnetDeIdentidad no sea duplicado
+            
+            String sentenciaSQLCI = "SELECT COUNT(*) FROM usuarios WHERE ciUsuario = '" + objUsuario.carnetDeIdentidad + "'";
+            ResultSet resultadoCI = sentencia.executeQuery(sentenciaSQLCI);
+            resultadoCI.next();
+            int count4 = resultadoCI.getInt(1);
+            if (count4 > 0) {
+                JOptionPane.showMessageDialog(this, "El Carnet de Identidad ya existe. Por favor ingrese otro.");
+                return;
+            }
            
             // Si no esta duplicado, se realiza el registro
             
