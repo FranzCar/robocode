@@ -646,6 +646,13 @@ public void habilitarBoton(){
 
     private void jTextFieldContraseniaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldContraseniaKeyTyped
         jTextFieldContrasenia.setText(jTextFieldContrasenia.getText().trim());
+          jTextFieldContrasenia.setText(jTextFieldContrasenia.getText().trim());
+         if(jTextFieldContrasenia.getText().length()>=20){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+         }
     }//GEN-LAST:event_jTextFieldContraseniaKeyTyped
 
     /**
