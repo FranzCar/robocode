@@ -376,10 +376,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
-        String text = jTextFieldNombre.getText();
-                if (text.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "No se permite texto vacío");
-                }
+
     }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
     private void jTextFieldCiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCiActionPerformed
@@ -581,7 +578,7 @@ public void habilitarBoton(){
 
     private void jTextFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyTyped
         validacionCaracteres(evt);
-         jTextFieldNombre.setText(jTextFieldNombre.getText().trim());
+        //
     }//GEN-LAST:event_jTextFieldNombreKeyTyped
 
     private void jTextFieldTelefonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoKeyReleased
