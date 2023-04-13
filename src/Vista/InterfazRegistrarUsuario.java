@@ -27,7 +27,6 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
     static Connection conexion=null;
     static Statement sentencia=null;
     static ResultSet resultado=null;
-    //static ResultSet resultado3=null;
     static Usuario objUsuario;
     int id;
     ConectarBD con = new ConectarBD();    
@@ -416,7 +415,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
             objUsuario.Contrasenia=jTextFieldContrasenia.getText();
             objUsuario.direccion=jTextFieldDireccion.getText();
             
-            //Para validar que el usuario no sea duplicado
+            //Para validar que el id usuario no sea duplicado
             
             String sentenciaSQL2 = "SELECT COUNT(*) FROM usuarios WHERE idUsuario = '" + objUsuario.idUsuario + "'";
             ResultSet resultado = sentencia.executeQuery(sentenciaSQL2);
@@ -438,8 +437,6 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
                 return;
             }
             
-                 
-        
             // Si no esta duplicado, se realiza el registro
             
                 String sentenciaSQL1 = new String();
