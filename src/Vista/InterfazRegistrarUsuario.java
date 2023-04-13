@@ -422,7 +422,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
             resultado.next();
             int count = resultado.getInt(1);
             if (count > 0) {
-                JOptionPane.showMessageDialog(this, "El nombre de IdUsuario ya existe. Por favor ingrese otro nombre.");
+                JOptionPane.showMessageDialog(this, "El nombre de IdUsuario ya existe. Por favor ingrese otro idUsuario.");
                 return;
             }
             
@@ -436,7 +436,18 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "El Telefono ya existe. Por favor ingrese otro numero.");
                 return;
             }
+             
+            //Para validar que el Nombre de usuario no sea duplicado
             
+            String sentenciaSQLNU = "SELECT COUNT(*) FROM usuarios WHERE nombreUsuario = '" + objUsuario.nombreDeUsuario + "'";
+            ResultSet resultadoNU = sentencia.executeQuery(sentenciaSQLNU);
+            resultadoNU.next();
+            int count3 = resultadoNU.getInt(1);
+            if (count3 > 0) {
+                JOptionPane.showMessageDialog(this, "El Nombre de Usuario ya existe. Por favor ingrese otro Nombre.");
+                return;
+            }
+           
             // Si no esta duplicado, se realiza el registro
             
                 String sentenciaSQL1 = new String();
