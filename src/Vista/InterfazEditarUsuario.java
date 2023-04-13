@@ -377,16 +377,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
                 sentenciaSQL1="update USUARIOS set nombreUsuario='"+objUsuario.nombreDeUsuario+"', ciUsuario='"+objUsuario.carnetDeIdentidad+"', telefonoUsuario='"+objUsuario.telefono+
                         "', fechaInicioUsuario='"+fecha+"', idUsuario='"+objUsuario.idUsuario+"', contraseniaUsuario='"+objUsuario.Contrasenia+
                         "', direccionUsuario='"+objUsuario.direccion+"' where codUsuario='"+id+"'";
-              //Para validar que el id usuario no sea duplicado
-            
-            String sentenciaSQL2 = "SELECT COUNT(*) FROM usuarios WHERE idUsuario = '" + objUsuario.idUsuario + "'";
-            ResultSet resultado = sentencia.executeQuery(sentenciaSQL2);
-            resultado.next();
-            int count = resultado.getInt(1);
-            if (count > 0) {
-                JOptionPane.showMessageDialog(this, "El nombre de IdUsuario ya existe. Por favor ingrese otro nombre.");
-                return;
-            }
+              
                 
                 sentencia.execute(sentenciaSQL1); 
             JOptionPane.showMessageDialog(this, "Editado Correctamente"); 
