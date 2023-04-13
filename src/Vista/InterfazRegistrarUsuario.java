@@ -540,8 +540,8 @@ public void validarCamposVacios(){
     if(jTextFieldDireccion.getText().isEmpty()){
      avisoDireccion.setText("Campo Obligatorio");
     }else{
-        if(jTextFieldDireccion.getText().length()<=3){
-            avisoDireccion.setText("Se requiere 4 caracteres");
+        if(jTextFieldDireccion.getText().length()<=18){
+            avisoDireccion.setText("Se requiere 18 caracteres");
         }
         else{avisoDireccion.setText("");}      
     }
@@ -558,7 +558,7 @@ public void habilitarBoton(){
             || jTextFieldTelefono.getText().length()<8
             || jTextFieldIdUsuario.getText().length()<3
             || jTextFieldContrasenia.getText().length()<8
-            || jTextFieldDireccion.getText().length()<4){
+            || jTextFieldDireccion.getText().length()<18){
         jButtonGuardar.setEnabled(false);
     }else{
     jButtonGuardar.setEnabled(true);
@@ -614,6 +614,13 @@ public void habilitarBoton(){
 
     private void jTextFieldDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDireccionKeyTyped
         validacionCaracteresDireccion(evt);
+        jTextFieldDireccion.setText(jTextFieldDireccion.getText().trim());
+        if(jTextFieldDireccion.getText().length()>=50){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
     }//GEN-LAST:event_jTextFieldDireccionKeyTyped
 
     private void jTextFieldCiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiKeyReleased
