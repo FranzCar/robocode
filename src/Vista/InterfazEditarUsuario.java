@@ -443,6 +443,10 @@ if(jTextFieldNombre.getText().isEmpty()){
              lbAvisoContra.setText("Solo se permiten 8 caracteres");  
         }
     else{lbAvisoContra.setText(""); }
+        if(jTextFieldContrasenia.getText().length()<=3){
+             lbAvisoContra.setText("Minimo 4 Caracteres");  
+        }   
+         else{lbAvisoContra.setText(""); } 
     }
     
     if(jTextFieldDireccion.getText().isEmpty()){
@@ -476,6 +480,7 @@ public void habilitarBoton(){
             || jTextFieldDireccion.getText().isEmpty()
             ||jTextFieldNombre.getText().length()<=2
             ||jTextFieldTelefono.getText().length()<=7
+            ||jTextFieldContrasenia.getText().length()<=3
             ||jTextFieldCi.getText().length()<7){
         
         jButtonEditar.setEnabled(false);
