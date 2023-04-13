@@ -57,7 +57,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
                 jTextFieldCi.setText(rs.getString("ciUsuario"));
                 jTextFieldTelefono.setText(rs.getString("telefonoUsuario"));
                 jTextFieldDireccion.setText(rs.getString("direccionUsuario"));
-                jTextFieldContrasenia.setText(rs.getString("contraseniaUsuario"));
+                jPasswordField.setText(rs.getString("contraseniaUsuario"));
                 jTextFieldIdUsuario.setText(rs.getString("idUsuario"));
                 java.util.Date date2 = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getString("fechaInicioUsuario"));
                 jDateChooserFechaInicio.setDate(date2);
@@ -86,7 +86,6 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jTextFieldIdUsuario = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextFieldContrasenia = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldTelefono = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -106,6 +105,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         lbAvisoTel = new javax.swing.JLabel();
         lbAvisoCi = new javax.swing.JLabel();
         lbAvisoNombre = new javax.swing.JLabel();
+        jPasswordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(803, 630));
@@ -173,22 +173,6 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(245, 245, 245));
         jLabel5.setText("Contraseña");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
-
-        jTextFieldContrasenia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jTextFieldContrasenia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldContraseniaActionPerformed(evt);
-            }
-        });
-        jTextFieldContrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldContraseniaKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldContraseniaKeyTyped(evt);
-            }
-        });
-        jPanel1.add(jTextFieldContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 320, 30));
 
         jLabel3.setBackground(new java.awt.Color(245, 245, 245));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -318,6 +302,13 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         lbAvisoNombre.setForeground(new java.awt.Color(204, 204, 255));
         jPanel1.add(lbAvisoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, 190, 32));
 
+        jPasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordFieldActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 320, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -332,10 +323,6 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContraseniaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldContraseniaActionPerformed
-
     private void jTextFieldDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDireccionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDireccionActionPerformed
@@ -349,7 +336,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         String ci=jTextFieldCi.getText().trim();
         String tel=jTextFieldTelefono.getText().trim();
         String direc=jTextFieldDireccion.getText().trim();
-        String contra=jTextFieldContrasenia.getText().trim();
+        String contra=jPasswordField.getText().trim();
         String idusuario=jTextFieldIdUsuario.getText().trim();
         if(nombre.isEmpty()|| nombre.startsWith(" ")|| nombre.startsWith("-")){
             JOptionPane.showMessageDialog(null, "Asegurese que el campo nombre este correcto");
@@ -384,7 +371,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
             objUsuario.fechaDeInicio=date.getTime();
             java.sql.Date fecha=new java.sql.Date(objUsuario.fechaDeInicio);
             objUsuario.idUsuario=jTextFieldIdUsuario.getText();
-            objUsuario.Contrasenia=jTextFieldContrasenia.getText();
+            objUsuario.Contrasenia=jPasswordField.getText();
             objUsuario.direccion=jTextFieldDireccion.getText();                    
                 String sentenciaSQL1 = new String();
                 sentenciaSQL1="update USUARIOS set nombreUsuario='"+objUsuario.nombreDeUsuario+"', ciUsuario='"+objUsuario.carnetDeIdentidad+"', telefonoUsuario='"+objUsuario.telefono+
@@ -471,14 +458,14 @@ if(jTextFieldNombre.getText().isEmpty()){
     }else{
              lbAvisoIdUsuario.setText("");         
     }
-    if(jTextFieldContrasenia.getText().isEmpty()){
+    if(jPasswordField.getText().isEmpty()){
      lbAvisoContra.setText("Campo Obligatorio");
     }else{
-        if(jTextFieldContrasenia.getText().length()>=8){
+        if(jPasswordField.getText().length()>=8){
              lbAvisoContra.setText("Solo se permiten 8 caracteres");  
         }
     else{lbAvisoContra.setText(""); }
-        if(jTextFieldContrasenia.getText().length()<=3){
+        if(jPasswordField.getText().length()<=3){
              lbAvisoContra.setText("Minimo 4 Caracteres");  
         }   
          else{lbAvisoContra.setText(""); } 
@@ -499,7 +486,7 @@ public void validacionEspacio(java.awt.event.KeyEvent evento){
          ||jTextFieldCi.getText().startsWith(" ")
          ||jTextFieldTelefono.getText().startsWith(" ")
          ||jTextFieldIdUsuario.getText().startsWith(" ")
-         ||jTextFieldContrasenia.getText().startsWith(" ")
+         ||jPasswordField.getText().startsWith(" ")
          ||jTextFieldDireccion.getText().startsWith(" ")){
     evento.consume();
             JOptionPane.showMessageDialog(this, "No puedes ingresar Espacio como primer caracter");
@@ -512,11 +499,11 @@ public void habilitarBoton(){
             || jTextFieldCi.getText().isEmpty()
             || jTextFieldTelefono.getText().isEmpty()
             || jTextFieldIdUsuario.getText().isEmpty()
-            || jTextFieldContrasenia.getText().isEmpty()
+            || jPasswordField.getText().isEmpty()
             || jTextFieldDireccion.getText().isEmpty()
             ||jTextFieldNombre.getText().length()<=2
             ||jTextFieldTelefono.getText().length()<=7
-            ||jTextFieldContrasenia.getText().length()<=3
+            ||jPasswordField.getText().length()<=3
             ||jTextFieldCi.getText().length()<7){
         
         jButtonEditar.setEnabled(false);
@@ -578,12 +565,6 @@ public void habilitarBoton(){
         validarCamposVacios();
     }//GEN-LAST:event_jTextFieldIdUsuarioKeyReleased
 
-    private void jTextFieldContraseniaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldContraseniaKeyReleased
-        // TODO add your handling code here:
-          habilitarBoton();
-        validarCamposVacios();
-    }//GEN-LAST:event_jTextFieldContraseniaKeyReleased
-
     private void jTextFieldDireccionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDireccionKeyReleased
         // TODO add your handling code here:
           habilitarBoton();
@@ -608,19 +589,14 @@ public void habilitarBoton(){
         }
     }//GEN-LAST:event_jTextFieldCiKeyTyped
 
-    private void jTextFieldContraseniaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldContraseniaKeyTyped
-        // TODO add your handling code here:
-        validacionEspacio(evt);
-         if(jTextFieldContrasenia.getText().length()>=8){
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        }
-    }//GEN-LAST:event_jTextFieldContraseniaKeyTyped
-
     private void jTextFieldIdUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdUsuarioKeyTyped
         // TODO add your handling code here:
         validacionEspacio(evt);
     }//GEN-LAST:event_jTextFieldIdUsuarioKeyTyped
+
+    private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -671,8 +647,8 @@ public void habilitarBoton(){
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JTextField jTextFieldCi;
-    private javax.swing.JTextField jTextFieldContrasenia;
     private javax.swing.JTextField jTextFieldDireccion;
     private javax.swing.JTextField jTextFieldFechaInicioEncima;
     private javax.swing.JTextField jTextFieldIdUsuario;
