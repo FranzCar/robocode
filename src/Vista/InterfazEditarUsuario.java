@@ -11,6 +11,7 @@ import Modelo.ListarUsuarios;
 import static Vista.InterfazAdministrarUsuario.idUsuarioTabla;
 import static Vista.InterfazAdministrarUsuario.jTableUsuario;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -23,7 +24,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class InterfazEditarUsuario extends javax.swing.JFrame {
-
+   
     static Connection conexion=null;
     static Statement sentencia=null;
     static ResultSet resultado=null;     
@@ -32,6 +33,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
     int id=idUsuarioTabla;
     public InterfazEditarUsuario() {
         initComponents();
+       
         this.setLocationRelativeTo(null);
         
         jButtonEditar.setEnabled(false);
@@ -339,7 +341,36 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-
+        String nombre=jTextFieldNombre.getText().trim();
+        String ci=jTextFieldCi.getText().trim();
+        String tel=jTextFieldTelefono.getText().trim();
+        String direc=jTextFieldDireccion.getText().trim();
+        String contra=jTextFieldContrasenia.getText().trim();
+        String idusuario=jTextFieldIdUsuario.getText().trim();
+        if(nombre.isEmpty()|| nombre.startsWith(" ")|| nombre.startsWith("-")){
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo nombre este correcto");
+            return;
+        }
+         if(ci.isEmpty()|| ci.startsWith(" ")|| ci.startsWith("-")){
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo carnet de identidad este correcto");
+            return;
+        }
+          if(tel.isEmpty()|| tel.startsWith(" ")|| tel.startsWith("-")){
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo tel este correcto");
+            return;
+        }
+           if(direc.isEmpty()|| direc.startsWith(" ")|| direc.startsWith("-")){
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo direccion este correcto");
+            return;
+        }
+            if(contra.isEmpty()|| contra.startsWith(" ")|| contra.startsWith("-")){
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo contrasenia este correcto");
+            return;
+        }
+             if(idusuario.isEmpty()|| idusuario.startsWith(" ")|| idusuario.startsWith("-")){
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo idusuario este correcto");
+            return;
+        }
         try {
             sentencia=conexion.createStatement();
             objUsuario.nombreDeUsuario=jTextFieldNombre.getText();
@@ -471,6 +502,7 @@ public void validacionEspacio(java.awt.event.KeyEvent evento){
 }
 }
 
+
 public void habilitarBoton(){
     if(jTextFieldNombre.getText().isEmpty()
             || jTextFieldCi.getText().isEmpty()
@@ -509,11 +541,12 @@ public void habilitarBoton(){
     private void jPanel1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyReleased
         validarCamposVacios();
     }//GEN-LAST:event_jPanel1KeyReleased
-
+ 
     private void jTextFieldNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyReleased
         // TODO add your handling code here:
         habilitarBoton();
         validarCamposVacios();
+        
     }//GEN-LAST:event_jTextFieldNombreKeyReleased
 
     private void jTextFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyTyped
