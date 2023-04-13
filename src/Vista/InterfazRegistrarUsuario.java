@@ -494,7 +494,13 @@ public void habilitarBoton(){
 
     private void jTextFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyTyped
         validacionCaracteres(evt);
-        //
+        jTextFieldNombre.setText(jTextFieldNombre.getText().trim());
+        if(jTextFieldNombre.getText().length()>=30){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
     }//GEN-LAST:event_jTextFieldNombreKeyTyped
 
     private void jTextFieldTelefonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoKeyReleased
