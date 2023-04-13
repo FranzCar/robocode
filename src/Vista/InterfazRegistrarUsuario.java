@@ -26,7 +26,8 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
 
     static Connection conexion=null;
     static Statement sentencia=null;
-    static ResultSet resultado=null;     
+    static ResultSet resultado=null;
+    //static ResultSet resultado3=null;
     static Usuario objUsuario;
     int id;
     ConectarBD con = new ConectarBD();    
@@ -34,6 +35,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
     public InterfazRegistrarUsuario() {
         initComponents();
         habilitarBoton();//habilitar boton de inicio
+        
         this.setDefaultCloseOperation(1);
         this.setLocationRelativeTo(null);
         
@@ -235,7 +237,6 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
         jButtonGuardar.setForeground(new java.awt.Color(245, 245, 245));
         jButtonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/registrado.png"))); // NOI18N
         jButtonGuardar.setText("GUARDAR");
-        jButtonGuardar.setOpaque(false);
         jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGuardarActionPerformed(evt);
@@ -426,6 +427,19 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
                 return;
             }
             
+           //Para validar que el telefono de usuario no sea duplicado
+            
+            String sentenciaSQL3 = "SELECT COUNT(*) FROM usuarios WHERE telefonoUsuario = '" + objUsuario.telefono + "'";
+            ResultSet resultado3 = sentencia.executeQuery(sentenciaSQL3);
+            resultado3.next();
+            int count2 = resultado3.getInt(1);
+            if (count2 > 0) {
+                JOptionPane.showMessageDialog(this, "El Telefono ya existe. Por favor ingrese otro numero.");
+                return;
+            }
+            
+                 
+        
             // Si no esta duplicado, se realiza el registro
             
                 String sentenciaSQL1 = new String();
