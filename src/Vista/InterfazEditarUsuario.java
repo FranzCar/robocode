@@ -35,7 +35,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         initComponents();
        
         this.setLocationRelativeTo(null);
-        
+        this.setDefaultCloseOperation(1);
         jButtonEditar.setEnabled(false);
         objUsuario=new Usuario();
               
@@ -113,7 +113,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(37, 77, 116));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(null));
         jPanel1.setPreferredSize(new java.awt.Dimension(803, 608));
         jPanel1.setRequestFocusEnabled(false);
         jPanel1.addKeyListener(new java.awt.event.KeyAdapter() {

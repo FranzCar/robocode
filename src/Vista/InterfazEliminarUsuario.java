@@ -36,6 +36,7 @@ public class InterfazEliminarUsuario extends javax.swing.JFrame {
     public InterfazEliminarUsuario() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(1);
         jButtonEliminar.setEnabled(true);
         
         objUsuario=new Usuario();
@@ -137,7 +138,7 @@ public class InterfazEliminarUsuario extends javax.swing.JFrame {
         getContentPane().add(lbAvisoDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 444, 181, 33));
 
         jPanel1.setBackground(new java.awt.Color(37, 77, 116));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(null));
         jPanel1.setPreferredSize(new java.awt.Dimension(630, 579));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N

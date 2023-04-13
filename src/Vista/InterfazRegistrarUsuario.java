@@ -34,6 +34,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
     public InterfazRegistrarUsuario() {
         initComponents();
         habilitarBoton();//habilitar boton de inicio
+        this.setDefaultCloseOperation(1);
         this.setLocationRelativeTo(null);
         
         objUsuario=new Usuario(); 
