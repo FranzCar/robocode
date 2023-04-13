@@ -467,7 +467,7 @@ public void habilitarBoton(){
     }
 }
     private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
     private void jTextFieldIdUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdUsuarioActionPerformed
