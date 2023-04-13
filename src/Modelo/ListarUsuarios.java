@@ -25,7 +25,13 @@ public class ListarUsuarios {
     ConectarBD con = new ConectarBD();    
     
     public void MostrarTabla(JTable tabla){
-        DefaultTableModel modelo = new DefaultTableModel();
+        DefaultTableModel modelo = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int x, int y){
+                return false;
+            }
+        };
+                
         modelo.addColumn("Cod Usuario");
         modelo.addColumn("Nombre");
         modelo.addColumn("Ci");
