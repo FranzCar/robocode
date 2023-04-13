@@ -372,8 +372,36 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
             java.sql.Date fecha=new java.sql.Date(objUsuario.fechaDeInicio);
             objUsuario.idUsuario=jTextFieldIdUsuario.getText();
             objUsuario.Contrasenia=jPasswordField.getText();
-            objUsuario.direccion=jTextFieldDireccion.getText();                    
-                String sentenciaSQL1 = new String();
+            objUsuario.direccion=jTextFieldDireccion.getText();
+            
+             String idUsuarioAnterior = null;
+        String sentenciaSQLSelect = "SELECT idUsuario FROM usuarios WHERE codUsuario='" + id + "'";
+        ResultSet resultadoSelect = sentencia.executeQuery(sentenciaSQLSelect);
+        if (resultadoSelect.next()) {
+            idUsuarioAnterior = resultadoSelect.getString("idUsuario");
+        }
+        
+        // Para validar que el id usuario no sea duplicado
+        String sentenciaSQL1 = "SELECT COUNT(*) FROM usuarios WHERE idUsuario='" + objUsuario.idUsuario + "' AND codUsuario<>'" + id + "'";
+        ResultSet resultado = sentencia.executeQuery(sentenciaSQL1);
+        resultado.next();
+        int count = resultado.getInt(1);
+        if (count > 0) {
+            JOptionPane.showMessageDialog(this, "El nombre de IdUsuario ya existe. Por favor ingrese otro nombre.");
+            return;
+        }
+        
+         //Para validar que el número de teléfono no sea duplicado
+        String sentenciaSQL2 = "SELECT COUNT(*) FROM usuarios WHERE telefonoUsuario = '" + objUsuario.telefono + "' AND codUsuario != '" + id + "'";
+        ResultSet resultado2 = sentencia.executeQuery(sentenciaSQL2);
+        resultado2.next();
+        int count2 = resultado2.getInt(1);
+        if (count2 > 0) {
+            JOptionPane.showMessageDialog(this, "El número de teléfono ya existe. Por favor ingrese otro número.");
+            return;
+        }
+        
+                String sentenciaSQL3 = new String();
                 sentenciaSQL1="update USUARIOS set nombreUsuario='"+objUsuario.nombreDeUsuario+"', ciUsuario='"+objUsuario.carnetDeIdentidad+"', telefonoUsuario='"+objUsuario.telefono+
                         "', fechaInicioUsuario='"+fecha+"', idUsuario='"+objUsuario.idUsuario+"', contraseniaUsuario='"+objUsuario.Contrasenia+
                         "', direccionUsuario='"+objUsuario.direccion+"' where codUsuario='"+id+"'";
