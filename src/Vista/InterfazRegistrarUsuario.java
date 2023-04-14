@@ -533,6 +533,16 @@ public void validacionNumeros(java.awt.event.KeyEvent evento){
     }
     
 }
+public void validacionCaracteresID(java.awt.event.KeyEvent evento){
+    if(evento.getKeyChar()>=32 && evento.getKeyChar()<=47 || 
+            evento.getKeyChar()>=58 && evento.getKeyChar()<=64 ||
+            evento.getKeyChar()>=91 && evento.getKeyChar()<=96||
+            evento.getKeyChar()>=123&& evento.getKeyChar()<=255)
+            {
+    evento.consume();
+    JOptionPane.showMessageDialog(this, "No se permite Caracteres Especiales");
+    }
+}
     
 public void validarCamposVacios(){
     if(jTextFieldNombre.getText().isEmpty()){
@@ -686,6 +696,7 @@ public void habilitarBoton(){
     }//GEN-LAST:event_jTextFieldCiKeyTyped
 
     private void jTextFieldIdUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdUsuarioKeyTyped
+        validacionCaracteresID(evt);
         jTextFieldIdUsuario.setText(jTextFieldIdUsuario.getText().trim());
     }//GEN-LAST:event_jTextFieldIdUsuarioKeyTyped
 
