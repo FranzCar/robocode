@@ -633,7 +633,7 @@ public void habilitarBoton(){
 
     private void jTextFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyTyped
         validacionCaracteres(evt);
-        jTextFieldNombre.setText(jTextFieldNombre.getText().trim());
+        jTextFieldNombre.setText(jTextFieldNombre.getText());
         if(jTextFieldNombre.getText().length()>=30){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
