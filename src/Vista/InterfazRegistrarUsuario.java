@@ -16,7 +16,9 @@ import java.sql.Statement;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComponent;
 import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 
 /**
  *
@@ -34,6 +36,14 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
     public InterfazRegistrarUsuario() {
         initComponents();
         habilitarBoton();//habilitar boton de inicio
+        
+        disableCopyPaste(jTextFieldNombre);
+        disableCopyPaste(jTextFieldCi);
+        disableCopyPaste(jTextFieldTelefono);
+        disableCopyPaste(jDateChooserFechaInicio);
+        disableCopyPaste(jTextFieldIdUsuario);
+        disableCopyPaste(jTextFieldContrasenia);
+        disableCopyPaste(jTextFieldDireccion);
         
         this.setDefaultCloseOperation(1);
         this.setLocationRelativeTo(null);
@@ -500,6 +510,17 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
     
     public static boolean validar(String datos){
     return datos.matches("[0-9][1,8]");
+    }
+    
+    private void disableCopy(JComponent component){
+        component.getInputMap().put(KeyStroke.getKeyStroke("control C"),"none");
+    }
+    private void disablePaste(JComponent component){
+        component.getInputMap().put(KeyStroke.getKeyStroke("control V"),"none");
+    }
+    private void disableCopyPaste(JComponent component){
+        disableCopy(component);
+        disablePaste(component);
     }
     
 public void validacionCaracteres(java.awt.event.KeyEvent evento){
