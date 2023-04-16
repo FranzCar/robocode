@@ -444,10 +444,9 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
             evento.getKeyChar()>=123 && evento.getKeyChar()<=208||
             evento.getKeyChar()>=210 && evento.getKeyChar()<=240||
             evento.getKeyChar()>=242 && evento.getKeyChar()<=255){
-    evento.consume();
-  
-    JOptionPane.showMessageDialog(this, "No se permite Caracteres Especiales");
-    }
+            evento.consume();
+            JOptionPane.showMessageDialog(this, "No se permite Caracteres Especiales");
+        }
     }
     
     public void validacionNumeros(java.awt.event.KeyEvent evento){

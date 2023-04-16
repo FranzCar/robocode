@@ -270,6 +270,11 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
         jLabel8.setText("REGISTRAR USUARIO");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 14, -1, -1));
 
+        jTextFieldContrasenia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldContraseniaActionPerformed(evt);
+            }
+        });
         jTextFieldContrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldContraseniaKeyReleased(evt);
@@ -383,19 +388,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
             if (count4 > 0) {
                 JOptionPane.showMessageDialog(this, "El Carnet de Identidad ya existe. Por favor ingrese otro.");
                 return;
-            }
-            
-             //Para validar que la contraseña no sea duplicado
-            
-            String sentenciaSQLCON = "SELECT COUNT(*) FROM usuarios WHERE contraseniaUsuario = '" + objUsuario.Contrasenia + "'";
-            ResultSet resultadoCON = sentencia.executeQuery(sentenciaSQLCON);
-            resultadoCON.next();
-            int count5 = resultadoCON.getInt(1);
-            if (count5 > 0) {
-                JOptionPane.showMessageDialog(this, "Esta Contraseña ya existe. Por favor ingrese otro.");
-                return;
-            }
-           
+            }           
             // Si no esta duplicado, se realiza el registro
             
                 String sentenciaSQL1 = new String();
@@ -643,6 +636,10 @@ public void habilitarBoton(){
             JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
          }
     }//GEN-LAST:event_jTextFieldContraseniaKeyTyped
+
+    private void jTextFieldContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContraseniaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldContraseniaActionPerformed
 
     /**
      * @param args the command line arguments
