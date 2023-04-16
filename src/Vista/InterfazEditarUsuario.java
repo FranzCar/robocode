@@ -317,6 +317,14 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
                 jPasswordFieldActionPerformed(evt);
             }
         });
+        jPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jPasswordFieldKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jPasswordFieldKeyTyped(evt);
+            }
+        });
         jPanel1.add(jPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 320, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -437,25 +445,54 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
     }
     
     public void validacionCaracteres(java.awt.event.KeyEvent evento){
-        if(evento.getKeyChar()>=33 && evento.getKeyChar()<=34 ||
-            evento.getKeyChar()>=36 && evento.getKeyChar()<=43 ||
-            evento.getKeyChar()>=60 && evento.getKeyChar()<=64 ||
-            evento.getKeyChar()>=91 && evento.getKeyChar()<=96 ||
-            evento.getKeyChar()>=123 && evento.getKeyChar()<=208||
-            evento.getKeyChar()>=210 && evento.getKeyChar()<=240||
-            evento.getKeyChar()>=242 && evento.getKeyChar()<=255){
+        if((evento.getKeyChar()<97 || evento.getKeyChar()>122)&&
+           (evento.getKeyChar()<65 || evento.getKeyChar()>90)&&
+            evento.getKeyChar()!=209&&evento.getKeyChar()!=241&&
+            evento.getKeyChar()!=8&&evento.getKeyChar()!=32&&
+            evento.getKeyChar()!=225&&evento.getKeyChar()!=233&&
+            evento.getKeyChar()!=237&&evento.getKeyChar()!=243&&
+            evento.getKeyChar()!=250&&evento.getKeyChar()!=193&&
+            evento.getKeyChar()!=201&&evento.getKeyChar()!=205&&
+            evento.getKeyChar()!=211&&evento.getKeyChar()!=218){
             evento.consume();
-            JOptionPane.showMessageDialog(this, "No se permite Caracteres Especiales");
+  
+                JOptionPane.showMessageDialog(this, "No se permite Caracteres Especiales");
+                }
+}
+
+public void validacionCaracteresDireccion(java.awt.event.KeyEvent evento){
+    if((evento.getKeyChar()<97 || evento.getKeyChar()>122)&& //a-z
+        (evento.getKeyChar()<65 || evento.getKeyChar()>90)&& //A-Z
+        (evento.getKeyChar()<48 || evento.getKeyChar()>57)&& //0-9
+        evento.getKeyChar()!=209&&evento.getKeyChar()!=241&&
+        evento.getKeyChar()!=8&&evento.getKeyChar()!=32&&
+        evento.getKeyChar()!=225&&evento.getKeyChar()!=233&&
+        evento.getKeyChar()!=237&&evento.getKeyChar()!=243&&
+        evento.getKeyChar()!=250&&evento.getKeyChar()!=193&&
+        evento.getKeyChar()!=201&&evento.getKeyChar()!=205&&
+        evento.getKeyChar()!=211&&evento.getKeyChar()!=218){
+        evento.consume();
+  
+           JOptionPane.showMessageDialog(this, "No se permite Caracteres Especiales");
         }
+    
+}
+public void validacionNumeros(java.awt.event.KeyEvent evento){
+    if((evento.getKeyChar()<48 || evento.getKeyChar()>57)&&evento.getKeyChar()!=8){
+        evento.consume();
+    JOptionPane.showMessageDialog(this, "Solo se permiten Numeros");
     }
     
-    public void validacionNumeros(java.awt.event.KeyEvent evento){
-        if(evento.getKeyChar()>=33 && evento.getKeyChar()<=47 || 
-            evento.getKeyChar()>=58 && evento.getKeyChar()<=255){
-            evento.consume();
-            JOptionPane.showMessageDialog(this, "Solo Se Permiten Numeros");
-        }
+}
+public void validacionCaracteresID(java.awt.event.KeyEvent evento){
+    if((evento.getKeyChar()<97 || evento.getKeyChar()>122)&& //a-z
+        (evento.getKeyChar()<65 || evento.getKeyChar()>90)&& //A-Z
+        (evento.getKeyChar()<48 || evento.getKeyChar()>57)&& //0-9
+        evento.getKeyChar()!=8){
+    evento.consume();
+    JOptionPane.showMessageDialog(this, "No se permite Caracteres Especiales");
     }
+}
 
 public void validarCamposVacios(){
      
@@ -551,7 +588,7 @@ public void habilitarBoton(){
     }
 }
     private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
-
+        
     }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
     private void jTextFieldIdUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdUsuarioActionPerformed
@@ -560,12 +597,13 @@ public void habilitarBoton(){
 
     private void jTextFieldTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoKeyTyped
         // TODO add your handling code here:
-        jTextFieldTelefono.setText(jTextFieldTelefono.getText().trim());
-        validacionEspacio(evt);
         validacionNumeros(evt);
+        jTextFieldTelefono.setText(jTextFieldTelefono.getText().trim());
         if(jTextFieldTelefono.getText().length()>=8){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
         }
     }//GEN-LAST:event_jTextFieldTelefonoKeyTyped
 
@@ -581,9 +619,14 @@ public void habilitarBoton(){
     }//GEN-LAST:event_jTextFieldNombreKeyReleased
 
     private void jTextFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyTyped
-        // TODO add your handling code here:
         validacionEspacio(evt);
         validacionCaracteres(evt);
+        if(jTextFieldNombre.getText().length()>=40){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
         
     }//GEN-LAST:event_jTextFieldNombreKeyTyped
 
@@ -595,7 +638,7 @@ public void habilitarBoton(){
 
     private void jTextFieldTelefonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoKeyReleased
         // TODO add your handling code here:
-          habilitarBoton();
+        habilitarBoton();
         validarCamposVacios();
     }//GEN-LAST:event_jTextFieldTelefonoKeyReleased
 
@@ -613,27 +656,38 @@ public void habilitarBoton(){
 
     private void jTextFieldDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDireccionKeyTyped
         validacionEspacio(evt);  
-        validacionCaracteres(evt);
-           if(jTextFieldDireccion.getText().length()>=18){
+       validacionCaracteresDireccion(evt);
+        
+        if(jTextFieldDireccion.getText().length()>=80){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
         }
     }//GEN-LAST:event_jTextFieldDireccionKeyTyped
 
     private void jTextFieldCiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiKeyTyped
         validacionEspacio(evt);
+        validacionNumeros(evt);
         jTextFieldCi.setText(jTextFieldCi.getText().trim());
-       validacionNumeros(evt);
-        if(jTextFieldCi.getText().length()>=9){
+         if(jTextFieldCi.getText().length()>=9){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
-        }
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+         }
     }//GEN-LAST:event_jTextFieldCiKeyTyped
 
     private void jTextFieldIdUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdUsuarioKeyTyped
         // TODO add your handling code here:
+        validacionCaracteresID(evt);
         jTextFieldIdUsuario.setText(jTextFieldIdUsuario.getText().trim());
-        validacionEspacio(evt);
+        if(jTextFieldIdUsuario.getText().length()>=45){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
     }//GEN-LAST:event_jTextFieldIdUsuarioKeyTyped
 
     private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
@@ -647,6 +701,23 @@ public void habilitarBoton(){
     private void jTextFieldTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldTelefonoActionPerformed
+
+    private void jPasswordFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldKeyTyped
+        habilitarBoton();        
+        jPasswordField.setText(jPasswordField.getText());
+         if(jPasswordField.getText().length()>=15){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+         }
+    }//GEN-LAST:event_jPasswordFieldKeyTyped
+
+    private void jPasswordFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldKeyReleased
+        validarCamposVacios();
+        habilitarBoton();
+        
+    }//GEN-LAST:event_jPasswordFieldKeyReleased
 
     /**
      * @param args the command line arguments
