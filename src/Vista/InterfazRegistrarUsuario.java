@@ -3,9 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
-import Controlador.Usuario;
-import Modelo.ConectarBD;
-import Modelo.ListarUsuarios;
+import Conexion.ConectarBD;
+import Modelo.Usuario;
+import Controlador.ListarUsuarios;
 import static Vista.InterfazAdministrarUsuario.jTableUsuario;
 import java.awt.Toolkit;
 
@@ -16,9 +16,7 @@ import java.sql.Statement;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JComponent;
 import javax.swing.JOptionPane;
-import javax.swing.KeyStroke;
 
 /**
  *
@@ -36,15 +34,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
     public InterfazRegistrarUsuario() {
         initComponents();
         habilitarBoton();//habilitar boton de inicio
-        
-        disableCopyPaste(jTextFieldNombre);
-        disableCopyPaste(jTextFieldCi);
-        disableCopyPaste(jTextFieldTelefono);
-        disableCopyPaste(jDateChooserFechaInicio);
-        disableCopyPaste(jTextFieldIdUsuario);
-        disableCopyPaste(jTextFieldContrasenia);
-        disableCopyPaste(jTextFieldDireccion);
-        
+        jTextFieldFechaInicioEncima.setBackground(new java.awt.Color(0,0,0,1));
         this.setDefaultCloseOperation(1);
         this.setLocationRelativeTo(null);
         
@@ -75,9 +65,9 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
         jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldCi = new javax.swing.JTextField();
         jTextFieldTelefono = new javax.swing.JTextField();
+        jTextFieldFechaInicioEncima = new javax.swing.JTextField();
         jDateChooserFechaInicio = new com.toedter.calendar.JDateChooser();
         jTextFieldIdUsuario = new javax.swing.JTextField();
-        jTextFieldContrasenia = new javax.swing.JTextField();
         jTextFieldDireccion = new javax.swing.JTextField();
         avisoDireccion = new javax.swing.JLabel();
         avisoContrasenia = new javax.swing.JLabel();
@@ -89,6 +79,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
         jButtonGuardar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        jTextFieldContrasenia = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("AcadEref", 0, 24)); // NOI18N
@@ -97,34 +88,42 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(37, 77, 116));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(245, 245, 245));
         jLabel1.setText("Nombre de Usuario");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 108, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(245, 245, 245));
         jLabel2.setText("Carnet de Identidad");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 162, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(245, 245, 245));
         jLabel3.setText("Teléfono");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 216, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(245, 245, 245));
         jLabel4.setText("Fecha de Inicio");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 269, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(245, 245, 245));
         jLabel7.setText("Id Usuario");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 327, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(245, 245, 245));
         jLabel5.setText("Contraseña");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 389, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(245, 245, 245));
         jLabel6.setText("Dirección");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 444, -1, -1));
 
         jTextFieldNombre.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +139,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
                 jTextFieldNombreKeyTyped(evt);
             }
         });
+        jPanel2.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(277, 106, 300, 30));
 
         jTextFieldCi.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldCi.addActionListener(new java.awt.event.ActionListener() {
@@ -155,6 +155,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
                 jTextFieldCiKeyTyped(evt);
             }
         });
+        jPanel2.add(jTextFieldCi, new org.netbeans.lib.awtextra.AbsoluteConstraints(277, 160, 300, 30));
 
         jTextFieldTelefono.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldTelefono.addActionListener(new java.awt.event.ActionListener() {
@@ -170,10 +171,15 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
                 jTextFieldTelefonoKeyTyped(evt);
             }
         });
+        jPanel2.add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(277, 214, 300, 30));
+
+        jTextFieldFechaInicioEncima.setEnabled(false);
+        jPanel2.add(jTextFieldFechaInicioEncima, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 270, 278, 30));
 
         jDateChooserFechaInicio.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jDateChooserFechaInicio.setMaxSelectableDate(new java.util.Date(253370782906000L));
         jDateChooserFechaInicio.setMinSelectableDate(new java.util.Date(-62135751494000L));
+        jPanel2.add(jDateChooserFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(277, 269, 300, 30));
 
         jTextFieldIdUsuario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldIdUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -189,21 +195,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
                 jTextFieldIdUsuarioKeyTyped(evt);
             }
         });
-
-        jTextFieldContrasenia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jTextFieldContrasenia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldContraseniaActionPerformed(evt);
-            }
-        });
-        jTextFieldContrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldContraseniaKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldContraseniaKeyTyped(evt);
-            }
-        });
+        jPanel2.add(jTextFieldIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(277, 327, 300, 30));
 
         jTextFieldDireccion.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldDireccion.addActionListener(new java.awt.event.ActionListener() {
@@ -219,27 +211,35 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
                 jTextFieldDireccionKeyTyped(evt);
             }
         });
+        jPanel2.add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(277, 444, 300, -1));
 
         avisoDireccion.setBackground(new java.awt.Color(204, 204, 255));
         avisoDireccion.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel2.add(avisoDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 444, 181, 30));
 
         avisoContrasenia.setBackground(new java.awt.Color(204, 204, 255));
         avisoContrasenia.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel2.add(avisoContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 386, 181, 30));
 
         avisoIDusuario.setBackground(new java.awt.Color(204, 204, 255));
         avisoIDusuario.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel2.add(avisoIDusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 327, 181, 30));
 
         avisoFecha.setBackground(new java.awt.Color(204, 204, 255));
         avisoFecha.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel2.add(avisoFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 269, 181, 30));
 
         avisoTelefono.setBackground(new java.awt.Color(204, 204, 255));
         avisoTelefono.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel2.add(avisoTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 214, 181, 30));
 
         avisoCI.setBackground(new java.awt.Color(204, 204, 255));
         avisoCI.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel2.add(avisoCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 160, 181, 30));
 
         avisoNombre.setBackground(new java.awt.Color(204, 204, 255));
         avisoNombre.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel2.add(avisoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 106, 181, 30));
 
         jButtonGuardar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonGuardar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -251,6 +251,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
                 jButtonGuardarActionPerformed(evt);
             }
         });
+        jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 525, 170, -1));
 
         jButtonCancelar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -262,124 +263,22 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
                 jButtonCancelarActionPerformed(evt);
             }
         });
+        jPanel2.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(449, 525, 190, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(245, 245, 245));
         jLabel8.setText("REGISTRAR USUARIO");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 14, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(jButtonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(142, 142, 142)
-                        .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(54, 54, 54)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jTextFieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(avisoDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jTextFieldIdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(avisoIDusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jDateChooserFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(avisoFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jTextFieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(avisoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jTextFieldCi, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(avisoCI, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(avisoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jTextFieldContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(avisoContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(205, 205, 205)
-                        .addComponent(jLabel8)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8)
-                .addGap(44, 44, 44)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(avisoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jTextFieldCi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jTextFieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(25, 25, 25)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jDateChooserFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(28, 28, 28)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel7)
-                                                    .addComponent(jTextFieldIdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(29, 29, 29)
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                            .addComponent(jTextFieldContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(jLabel5))
-                                                        .addGap(25, 25, 25)
-                                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(jLabel6)
-                                                            .addComponent(avisoDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(jTextFieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                    .addComponent(avisoContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addComponent(avisoIDusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(avisoFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(avisoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(avisoCI, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonCancelar)
-                    .addComponent(jButtonGuardar))
-                .addGap(63, 63, 63))
-        );
+        jTextFieldContrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldContraseniaKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldContraseniaKeyTyped(evt);
+            }
+        });
+        jPanel2.add(jTextFieldContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 388, 300, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 630));
 
@@ -393,10 +292,6 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
     private void jTextFieldCiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCiActionPerformed
-
-    private void jTextFieldContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContraseniaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldContraseniaActionPerformed
 
     private void jTextFieldDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDireccionActionPerformed
         // TODO add your handling code here:
@@ -413,6 +308,37 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+        String nombre=jTextFieldNombre.getText().trim();
+        String ci=jTextFieldCi.getText().trim();
+        String tel=jTextFieldTelefono.getText().trim();
+        String direc=jTextFieldDireccion.getText().trim();
+        String contra=jTextFieldContrasenia.getText().trim();
+        String idusuario=jTextFieldIdUsuario.getText().trim();
+        if(nombre.isEmpty()|| nombre.startsWith(" ")|| nombre.startsWith("-")){
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo nombre este correcto");
+            return;
+        }
+         if(ci.isEmpty()|| ci.startsWith(" ")|| ci.startsWith("-")){
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo carnet de identidad este correcto");
+            return;
+        }
+          if(tel.isEmpty()|| tel.startsWith(" ")|| tel.startsWith("-")){
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo tel este correcto");
+            return;
+        }
+           if(direc.isEmpty()|| direc.startsWith(" ")|| direc.startsWith("-")){
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo direccion este correcto");
+            return;
+        }
+            if(contra.isEmpty()|| contra.startsWith(" ")|| contra.startsWith("-")){
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo contrasenia este correcto");
+            return;
+        }
+             if(idusuario.isEmpty()|| idusuario.startsWith(" ")|| idusuario.startsWith("-")){
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo idusuario este correcto");
+            return;
+        }
+             
         try {
             sentencia=conexion.createStatement();
             objUsuario.nombreDeUsuario=jTextFieldNombre.getText();
@@ -446,17 +372,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "El Telefono ya existe. Por favor ingrese otro numero.");
                 return;
             }
-             
-            //Para validar que el Nombre de usuario no sea duplicado
-            
-            String sentenciaSQLNU = "SELECT COUNT(*) FROM usuarios WHERE nombreUsuario = '" + objUsuario.nombreDeUsuario + "'";
-            ResultSet resultadoNU = sentencia.executeQuery(sentenciaSQLNU);
-            resultadoNU.next();
-            int count3 = resultadoNU.getInt(1);
-            if (count3 > 0) {
-                JOptionPane.showMessageDialog(this, "El Nombre de Usuario ya existe. Por favor ingrese otro Nombre.");
-                return;
-            }
+                       
             
              //Para validar que el carnetDeIdentidad no sea duplicado
             
@@ -510,17 +426,6 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
     
     public static boolean validar(String datos){
     return datos.matches("[0-9][1,8]");
-    }
-    
-    private void disableCopy(JComponent component){
-        component.getInputMap().put(KeyStroke.getKeyStroke("control C"),"none");
-    }
-    private void disablePaste(JComponent component){
-        component.getInputMap().put(KeyStroke.getKeyStroke("control V"),"none");
-    }
-    private void disableCopyPaste(JComponent component){
-        disableCopy(component);
-        disablePaste(component);
     }
     
 public void validacionCaracteres(java.awt.event.KeyEvent evento){
@@ -643,10 +548,6 @@ public void habilitarBoton(){
     
 }
     
-    private void jTextFieldIdUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldIdUsuarioActionPerformed
-
     private void jTextFieldNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyReleased
         habilitarBoton();
         validarCamposVacios();
@@ -654,8 +555,8 @@ public void habilitarBoton(){
 
     private void jTextFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyTyped
         validacionCaracteres(evt);
-        jTextFieldNombre.setText(jTextFieldNombre.getText());
-        if(jTextFieldNombre.getText().length()>=30){
+        
+        if(jTextFieldNombre.getText().length()>=40){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
             getToolkit().beep();
@@ -679,16 +580,6 @@ public void habilitarBoton(){
         }
     }//GEN-LAST:event_jTextFieldTelefonoKeyTyped
 
-    private void jTextFieldIdUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdUsuarioKeyReleased
-        habilitarBoton();
-        validarCamposVacios();
-    }//GEN-LAST:event_jTextFieldIdUsuarioKeyReleased
-
-    private void jTextFieldContraseniaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldContraseniaKeyReleased
-        habilitarBoton();
-        validarCamposVacios();
-    }//GEN-LAST:event_jTextFieldContraseniaKeyReleased
-
     private void jTextFieldDireccionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDireccionKeyReleased
         habilitarBoton();
         validarCamposVacios();
@@ -696,8 +587,8 @@ public void habilitarBoton(){
 
     private void jTextFieldDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDireccionKeyTyped
         validacionCaracteresDireccion(evt);
-        jTextFieldDireccion.setText(jTextFieldDireccion.getText().trim());
-        if(jTextFieldDireccion.getText().length()>=50){
+        
+        if(jTextFieldDireccion.getText().length()>=80){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
             getToolkit().beep();
@@ -727,9 +618,24 @@ public void habilitarBoton(){
         jTextFieldIdUsuario.setText(jTextFieldIdUsuario.getText().trim());
     }//GEN-LAST:event_jTextFieldIdUsuarioKeyTyped
 
+    private void jTextFieldIdUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdUsuarioKeyReleased
+        habilitarBoton();
+        validarCamposVacios();
+    }//GEN-LAST:event_jTextFieldIdUsuarioKeyReleased
+
+    private void jTextFieldIdUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldIdUsuarioActionPerformed
+
+    private void jTextFieldContraseniaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldContraseniaKeyReleased
+        validarCamposVacios();
+        habilitarBoton();
+    }//GEN-LAST:event_jTextFieldContraseniaKeyReleased
+
     private void jTextFieldContraseniaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldContraseniaKeyTyped
+        validacionCaracteresID(evt);
+         habilitarBoton();        
         jTextFieldContrasenia.setText(jTextFieldContrasenia.getText().trim());
-          jTextFieldContrasenia.setText(jTextFieldContrasenia.getText().trim());
          if(jTextFieldContrasenia.getText().length()>=20){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
@@ -795,8 +701,9 @@ public void habilitarBoton(){
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextFieldCi;
-    private javax.swing.JTextField jTextFieldContrasenia;
+    private javax.swing.JPasswordField jTextFieldContrasenia;
     private javax.swing.JTextField jTextFieldDireccion;
+    private javax.swing.JTextField jTextFieldFechaInicioEncima;
     private javax.swing.JTextField jTextFieldIdUsuario;
     private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldTelefono;

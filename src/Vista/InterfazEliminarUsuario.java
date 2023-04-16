@@ -4,9 +4,9 @@
  */
 package Vista;
 
-import Controlador.Usuario;
-import Modelo.ConectarBD;
-import Modelo.ListarUsuarios;
+import Conexion.ConectarBD;
+import Modelo.Usuario;
+import Controlador.ListarUsuarios;
 import static Vista.InterfazAdministrarUsuario.idUsuarioTabla;
 import static Vista.InterfazAdministrarUsuario.jTableUsuario;
 import java.awt.Toolkit;
@@ -101,7 +101,6 @@ public class InterfazEliminarUsuario extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldDireccion = new javax.swing.JTextField();
-        jTextFieldContrasenia = new javax.swing.JTextField();
         jTextFieldIdUsuario = new javax.swing.JTextField();
         jDateChooserFechaInicio = new com.toedter.calendar.JDateChooser();
         jTextFieldTelefono = new javax.swing.JTextField();
@@ -110,6 +109,7 @@ public class InterfazEliminarUsuario extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jButtonCancelar = new javax.swing.JButton();
         jButtonEliminar = new javax.swing.JButton();
+        jTextFieldContrasenia = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -138,8 +138,7 @@ public class InterfazEliminarUsuario extends javax.swing.JFrame {
         getContentPane().add(lbAvisoDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 444, 181, 33));
 
         jPanel1.setBackground(new java.awt.Color(37, 77, 116));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(null));
-        jPanel1.setPreferredSize(new java.awt.Dimension(630, 579));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(245, 245, 245));
@@ -181,18 +180,6 @@ public class InterfazEliminarUsuario extends javax.swing.JFrame {
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldDireccionKeyTyped(evt);
-            }
-        });
-
-        jTextFieldContrasenia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jTextFieldContrasenia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldContraseniaActionPerformed(evt);
-            }
-        });
-        jTextFieldContrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldContraseniaKeyReleased(evt);
             }
         });
 
@@ -283,6 +270,12 @@ public class InterfazEliminarUsuario extends javax.swing.JFrame {
             }
         });
 
+        jTextFieldContrasenia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldContraseniaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -305,9 +298,9 @@ public class InterfazEliminarUsuario extends javax.swing.JFrame {
                             .addComponent(jTextFieldNombre)
                             .addComponent(jTextFieldTelefono)
                             .addComponent(jTextFieldIdUsuario)
-                            .addComponent(jTextFieldContrasenia)
                             .addComponent(jTextFieldDireccion)
-                            .addComponent(jDateChooserFechaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)))
+                            .addComponent(jDateChooserFechaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                            .addComponent(jTextFieldContrasenia)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(111, 111, 111)
                         .addComponent(jButtonEliminar)
@@ -316,7 +309,7 @@ public class InterfazEliminarUsuario extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(150, 150, 150)
                         .addComponent(jLabel9)))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,11 +336,11 @@ public class InterfazEliminarUsuario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jTextFieldIdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextFieldContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                    .addComponent(jTextFieldContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jTextFieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -358,7 +351,7 @@ public class InterfazEliminarUsuario extends javax.swing.JFrame {
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 590));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 590));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -446,10 +439,6 @@ public void habilitarBoton(){
         habilitarBoton();
     }//GEN-LAST:event_jTextFieldIdUsuarioKeyReleased
 
-    private void jTextFieldContraseniaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldContraseniaKeyReleased
-        habilitarBoton();
-    }//GEN-LAST:event_jTextFieldContraseniaKeyReleased
-
     private void jTextFieldDireccionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDireccionKeyReleased
         habilitarBoton();
     }//GEN-LAST:event_jTextFieldDireccionKeyReleased
@@ -521,7 +510,7 @@ public void habilitarBoton(){
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextFieldCi;
-    private javax.swing.JTextField jTextFieldContrasenia;
+    private javax.swing.JPasswordField jTextFieldContrasenia;
     private javax.swing.JTextField jTextFieldDireccion;
     private javax.swing.JTextField jTextFieldIdUsuario;
     private javax.swing.JTextField jTextFieldNombre;

@@ -1,8 +1,10 @@
+package Conexion;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package Conexion;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,7 +19,7 @@ public class ConectarBD {
     Connection conectar = null;
     
     String user = "root";
-    String password = "root";//*********** colocar el password de su base de datos
+    String password = "";//*********** colocar el password de su base de datos
     String dataBase = "ventasgobd";
     String server = "localhost";
     String puerto = "3306";

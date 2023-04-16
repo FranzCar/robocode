@@ -4,7 +4,6 @@
  */
 package Main;
 
-import Conexion.ConectarBD;
 import Vista.InterfazAdministrarUsuario;
 
 

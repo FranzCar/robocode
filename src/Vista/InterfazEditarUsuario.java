@@ -5,9 +5,9 @@
 package Vista;
 
 
-import Controlador.Usuario;
-import Modelo.ConectarBD;
-import Modelo.ListarUsuarios;
+import Conexion.ConectarBD;
+import Modelo.Usuario;
+import Controlador.ListarUsuarios;
 import static Vista.InterfazAdministrarUsuario.idUsuarioTabla;
 import static Vista.InterfazAdministrarUsuario.jTableUsuario;
 import java.awt.Toolkit;
@@ -181,6 +181,11 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
         jTextFieldTelefono.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jTextFieldTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldTelefonoActionPerformed(evt);
+            }
+        });
         jTextFieldTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldTelefonoKeyReleased(evt);
@@ -235,6 +240,11 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
 
         jTextFieldCi.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jTextFieldCi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCiActionPerformed(evt);
+            }
+        });
         jTextFieldCi.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldCiKeyReleased(evt);
@@ -338,6 +348,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         String direc=jTextFieldDireccion.getText().trim();
         String contra=jPasswordField.getText().trim();
         String idusuario=jTextFieldIdUsuario.getText().trim();
+        
         if(nombre.isEmpty()|| nombre.startsWith(" ")|| nombre.startsWith("-")){
             JOptionPane.showMessageDialog(null, "Asegurese que el campo nombre este correcto");
             return;
@@ -503,8 +514,8 @@ if(jTextFieldNombre.getText().isEmpty()){
     if(jTextFieldDireccion.getText().isEmpty()){
      lbAvisoDirec.setText("Campo Obligatorio");
     }else{
-        if(jTextFieldDireccion.getText().length()>=18){
-             lbAvisoDirec.setText("Solo se permiten 18 caracteres");  
+        if(jTextFieldDireccion.getText().length()>=80){
+             lbAvisoDirec.setText("Solo se permiten 80 caracteres");  
         }
     else{lbAvisoDirec.setText(""); }
     
@@ -550,6 +561,7 @@ public void habilitarBoton(){
 
     private void jTextFieldTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoKeyTyped
         // TODO add your handling code here:
+        jTextFieldTelefono.setText(jTextFieldTelefono.getText().trim());
         validacionEspacio(evt);
         validacionNumeros(evt);
         if(jTextFieldTelefono.getText().length()>=8){
@@ -611,6 +623,7 @@ public void habilitarBoton(){
 
     private void jTextFieldCiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiKeyTyped
         validacionEspacio(evt);
+        jTextFieldCi.setText(jTextFieldCi.getText().trim());
        validacionNumeros(evt);
         if(jTextFieldCi.getText().length()>=9){
             evt.consume();
@@ -620,12 +633,21 @@ public void habilitarBoton(){
 
     private void jTextFieldIdUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdUsuarioKeyTyped
         // TODO add your handling code here:
+        jTextFieldIdUsuario.setText(jTextFieldIdUsuario.getText().trim());
         validacionEspacio(evt);
     }//GEN-LAST:event_jTextFieldIdUsuarioKeyTyped
 
     private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordFieldActionPerformed
+
+    private void jTextFieldCiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCiActionPerformed
+
+    private void jTextFieldTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldTelefonoActionPerformed
 
     /**
      * @param args the command line arguments
