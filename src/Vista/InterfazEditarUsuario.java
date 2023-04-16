@@ -8,6 +8,9 @@ package Vista;
 import Conexion.ConectarBD;
 import Modelo.Usuario;
 import Controlador.ListarUsuarios;
+import static Vista.InterfazAdministrarUsuario.bEditar;
+import static Vista.InterfazAdministrarUsuario.bEliminar;
+import static Vista.InterfazAdministrarUsuario.bRegistrar;
 import static Vista.InterfazAdministrarUsuario.idUsuarioTabla;
 import static Vista.InterfazAdministrarUsuario.jTableUsuario;
 import java.awt.Toolkit;
@@ -21,6 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 public class InterfazEditarUsuario extends javax.swing.JFrame {
@@ -260,6 +264,11 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         jButtonEditar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/editarUser.png"))); // NOI18N
         jButtonEditar.setText("EDITAR");
+        jButtonEditar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonEditarMouseClicked(evt);
+            }
+        });
         jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEditarActionPerformed(evt);
@@ -272,6 +281,11 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar.png"))); // NOI18N
         jButtonCancelar.setText("CANCELAR");
+        jButtonCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonCancelarMouseClicked(evt);
+            }
+        });
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
@@ -346,6 +360,9 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldDireccionActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        bEliminar.setEnabled(true);
+        bEditar.setEnabled(true);
+        bRegistrar.setEnabled(true);
         dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
@@ -436,7 +453,9 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         
         ListarUsuarios Administrar=new ListarUsuarios();
         Administrar.MostrarTabla(jTableUsuario);
+        bRegistrar.setEnabled(true);
         dispose();
+        
       
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
@@ -587,6 +606,8 @@ public void habilitarBoton(){
     jButtonEditar.setEnabled(true);
     }
 }
+
+
     private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
         
     }//GEN-LAST:event_jTextFieldNombreActionPerformed
@@ -598,7 +619,7 @@ public void habilitarBoton(){
     private void jTextFieldTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoKeyTyped
         // TODO add your handling code here:
         validacionNumeros(evt);
-        jTextFieldTelefono.setText(jTextFieldTelefono.getText().trim());
+        jTextFieldTelefono.setText(jTextFieldTelefono.getText());
         if(jTextFieldTelefono.getText().length()>=8){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
@@ -681,7 +702,7 @@ public void habilitarBoton(){
     private void jTextFieldIdUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdUsuarioKeyTyped
         // TODO add your handling code here:
         validacionCaracteresID(evt);
-        jTextFieldIdUsuario.setText(jTextFieldIdUsuario.getText().trim());
+        jTextFieldIdUsuario.setText(jTextFieldIdUsuario.getText());
         if(jTextFieldIdUsuario.getText().length()>=45){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
@@ -718,6 +739,14 @@ public void habilitarBoton(){
         habilitarBoton();
         
     }//GEN-LAST:event_jPasswordFieldKeyReleased
+
+    private void jButtonEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarMouseClicked
+        
+    }//GEN-LAST:event_jButtonEditarMouseClicked
+
+    private void jButtonCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCancelarMouseClicked
 
     /**
      * @param args the command line arguments

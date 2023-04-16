@@ -7,6 +7,9 @@ package Vista;
 import Conexion.ConectarBD;
 import Modelo.Usuario;
 import Controlador.ListarUsuarios;
+import static Vista.InterfazAdministrarUsuario.bEditar;
+import static Vista.InterfazAdministrarUsuario.bEliminar;
+import static Vista.InterfazAdministrarUsuario.bRegistrar;
 import static Vista.InterfazAdministrarUsuario.idUsuarioTabla;
 import static Vista.InterfazAdministrarUsuario.jTableUsuario;
 import java.awt.Toolkit;
@@ -393,6 +396,10 @@ public void habilitarBoton(){
     }
 }
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        
+        bEliminar.setEnabled(true);
+        bEditar.setEnabled(true);
+        bRegistrar.setEnabled(true);
         dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 

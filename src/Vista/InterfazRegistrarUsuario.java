@@ -6,6 +6,10 @@ package Vista;
 import Conexion.ConectarBD;
 import Modelo.Usuario;
 import Controlador.ListarUsuarios;
+import static Vista.InterfazAdministrarUsuario.bEditar;
+import static Vista.InterfazAdministrarUsuario.bEliminar;
+import static Vista.InterfazAdministrarUsuario.bRegistrar;
+import static Vista.InterfazAdministrarUsuario.idUsuarioTabla;
 import static Vista.InterfazAdministrarUsuario.jTableUsuario;
 import java.awt.Toolkit;
 
@@ -307,6 +311,13 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldTelefonoActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        if (idUsuarioTabla>0){
+            bRegistrar.setEnabled(true);
+            bEditar.setEnabled(true);
+            bEliminar.setEnabled(true);
+        }else{
+            bRegistrar.setEnabled(true);
+        }
         
         dispose();
         
@@ -621,7 +632,7 @@ public void habilitarBoton(){
     private void jTextFieldCiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiKeyTyped
         validacionEspacio(evt);
         validacionNumeros(evt);
-        jTextFieldCi.setText(jTextFieldCi.getText().trim());
+        jTextFieldCi.setText(jTextFieldCi.getText());
          if(jTextFieldCi.getText().length()>=9){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
@@ -632,7 +643,7 @@ public void habilitarBoton(){
 
     private void jTextFieldIdUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdUsuarioKeyTyped
         validacionCaracteresID(evt);
-        jTextFieldIdUsuario.setText(jTextFieldIdUsuario.getText().trim());
+        jTextFieldIdUsuario.setText(jTextFieldIdUsuario.getText());
         if(jTextFieldIdUsuario.getText().length()>=45){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
@@ -659,7 +670,7 @@ public void habilitarBoton(){
     private void jTextFieldContraseniaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldContraseniaKeyTyped
         
         habilitarBoton();        
-        jTextFieldContrasenia.setText(jTextFieldContrasenia.getText().trim());
+        jTextFieldContrasenia.setText(jTextFieldContrasenia.getText());
          if(jTextFieldContrasenia.getText().length()>=15){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
