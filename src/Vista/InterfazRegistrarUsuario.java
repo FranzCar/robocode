@@ -17,6 +17,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,14 +35,16 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
     static Usuario objUsuario;
     int id;
     ConectarBD con = new ConectarBD();    
+    Date today=new Date();
     
     public InterfazRegistrarUsuario() {
         initComponents();
+        today.getTime();
         habilitarBoton();//habilitar boton de inicio
         jTextFieldFechaInicioEncima.setBackground(new java.awt.Color(0,0,0,1));
         this.setDefaultCloseOperation(1);
         this.setLocationRelativeTo(null);
-        
+        jDateChooserFechaInicio.setMaxSelectableDate(today);
         objUsuario=new Usuario(); 
         try {
             conexion=con.establecerConexion();
@@ -183,6 +186,21 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
         jDateChooserFechaInicio.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jDateChooserFechaInicio.setMaxSelectableDate(new java.util.Date(253370782906000L));
         jDateChooserFechaInicio.setMinSelectableDate(new java.util.Date(-62135751494000L));
+        jDateChooserFechaInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jDateChooserFechaInicioMouseClicked(evt);
+            }
+        });
+        jDateChooserFechaInicio.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jDateChooserFechaInicioPropertyChange(evt);
+            }
+        });
+        jDateChooserFechaInicio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jDateChooserFechaInicioKeyTyped(evt);
+            }
+        });
         jPanel2.add(jDateChooserFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(277, 269, 300, 30));
 
         jTextFieldIdUsuario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -274,6 +292,7 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
         jLabel8.setText("REGISTRAR USUARIO");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 14, -1, -1));
 
+        jTextFieldContrasenia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldContrasenia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldContraseniaActionPerformed(evt);
@@ -551,6 +570,18 @@ public void validarCamposVacios(){
         else{avisoDireccion.setText("");}      
     }
 }
+
+public boolean isEmptyFecha(Date date){
+    if (date==null){
+        return true;
+    }else{
+        return false;
+    }
+        
+}
+
+
+
 public void habilitarBoton(){
     if(jTextFieldNombre.getText().isEmpty()
             || jTextFieldCi.getText().isEmpty()
@@ -558,11 +589,12 @@ public void habilitarBoton(){
             || jTextFieldIdUsuario.getText().isEmpty()
             || jTextFieldContrasenia.getText().isEmpty()
             || jTextFieldDireccion.getText().isEmpty()
+            || isEmptyFecha(jDateChooserFechaInicio.getDate())
             || jTextFieldNombre.getText().length()<=2
             || jTextFieldCi.getText().length()<7
             || jTextFieldTelefono.getText().length()<8
             || jTextFieldIdUsuario.getText().length()<3
-            || jTextFieldContrasenia.getText().length()<8
+            || jTextFieldContrasenia.getText().length()<4
             || jTextFieldDireccion.getText().length()<18){
         jButtonGuardar.setEnabled(false);
     }else{
@@ -682,6 +714,19 @@ public void habilitarBoton(){
     private void jTextFieldContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContraseniaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldContraseniaActionPerformed
+
+    private void jDateChooserFechaInicioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDateChooserFechaInicioKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jDateChooserFechaInicioKeyTyped
+
+    private void jDateChooserFechaInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDateChooserFechaInicioMouseClicked
+        
+        
+    }//GEN-LAST:event_jDateChooserFechaInicioMouseClicked
+
+    private void jDateChooserFechaInicioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooserFechaInicioPropertyChange
+        habilitarBoton();
+    }//GEN-LAST:event_jDateChooserFechaInicioPropertyChange
 
     /**
      * @param args the command line arguments

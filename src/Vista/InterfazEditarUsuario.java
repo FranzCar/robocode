@@ -14,8 +14,6 @@ import static Vista.InterfazAdministrarUsuario.bRegistrar;
 import static Vista.InterfazAdministrarUsuario.idUsuarioTabla;
 import static Vista.InterfazAdministrarUsuario.jTableUsuario;
 import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,7 +22,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 public class InterfazEditarUsuario extends javax.swing.JFrame {
@@ -35,11 +32,17 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
     static Usuario objUsuario;
     ConectarBD con = new ConectarBD();
     int id=idUsuarioTabla;
+    Date today=new Date();
+    long fechaInicialComparar;
+            
     public InterfazEditarUsuario() {
         initComponents();
+        today.getTime();
+        
         jTextFieldFechaInicioEncima.setBackground(new java.awt.Color(0,0,0,1));
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(1);
+        jDateChooserFechaInicio.setMaxSelectableDate(today);
         jButtonEditar.setEnabled(false);
         objUsuario=new Usuario();
               
@@ -47,8 +50,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
             conexion=con.establecerConexion();           
         } catch (Exception e) {
             
-        }
-        
+        }        
         String consultasql = new String();
         consultasql = "SELECT *FROM USUARIOS WHERE codUsuario="+id;        
         
@@ -65,12 +67,14 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
                 jTextFieldIdUsuario.setText(rs.getString("idUsuario"));
                 java.util.Date date2 = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getString("fechaInicioUsuario"));
                 jDateChooserFechaInicio.setDate(date2);
-                
+                fechaInicialComparar=date2.getTime();
                                       
             }
         }catch(Exception e){
             System.out.println("ERROR AL LISTAR LOS DATOS" + e);
         }
+        
+
     }
 
 
@@ -116,11 +120,21 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(790, 600));
         setResizable(false);
+        addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                formPropertyChange(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(37, 77, 116));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setPreferredSize(new java.awt.Dimension(803, 608));
         jPanel1.setRequestFocusEnabled(false);
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel1MouseClicked(evt);
+            }
+        });
         jPanel1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jPanel1KeyReleased(evt);
@@ -226,9 +240,47 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         jPanel1.add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, 320, 30));
 
         jTextFieldFechaInicioEncima.setEnabled(false);
+        jTextFieldFechaInicioEncima.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldFechaInicioEncimaActionPerformed(evt);
+            }
+        });
         jPanel1.add(jTextFieldFechaInicioEncima, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 300, 30));
 
         jDateChooserFechaInicio.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jDateChooserFechaInicio.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                jDateChooserFechaInicioComponentAdded(evt);
+            }
+        });
+        jDateChooserFechaInicio.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jDateChooserFechaInicioFocusGained(evt);
+            }
+        });
+        jDateChooserFechaInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jDateChooserFechaInicioMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jDateChooserFechaInicioMousePressed(evt);
+            }
+        });
+        jDateChooserFechaInicio.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                jDateChooserFechaInicioComponentHidden(evt);
+            }
+        });
+        jDateChooserFechaInicio.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jDateChooserFechaInicioPropertyChange(evt);
+            }
+        });
+        jDateChooserFechaInicio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jDateChooserFechaInicioKeyTyped(evt);
+            }
+        });
         jPanel1.add(jDateChooserFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 320, 30));
 
         jLabel6.setBackground(new java.awt.Color(245, 245, 245));
@@ -326,6 +378,7 @@ public class InterfazEditarUsuario extends javax.swing.JFrame {
         lbAvisoNombre.setForeground(new java.awt.Color(204, 204, 255));
         jPanel1.add(lbAvisoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, 190, 32));
 
+        jPasswordField.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordFieldActionPerformed(evt);
@@ -587,7 +640,14 @@ public void validacionEspacio(java.awt.event.KeyEvent evento){
             JOptionPane.showMessageDialog(this, "No puedes ingresar Espacio como primer caracter");
 }
 }
-
+public boolean isEmptyFecha(Date date){
+    if (date==null){
+        return true;
+    }else{
+        return false;
+    }
+        
+}
 
 public void habilitarBoton(){
     if(jTextFieldNombre.getText().isEmpty()
@@ -596,15 +656,31 @@ public void habilitarBoton(){
             || jTextFieldIdUsuario.getText().isEmpty()
             || jPasswordField.getText().isEmpty()
             || jTextFieldDireccion.getText().isEmpty()
-            ||jTextFieldNombre.getText().length()<=2
-            ||jTextFieldTelefono.getText().length()<=7
-            ||jPasswordField.getText().length()<=3
-            ||jTextFieldCi.getText().length()<7){
+            || isEmptyFecha(jDateChooserFechaInicio.getDate())
+            || jTextFieldNombre.getText().length()<=2
+            || jTextFieldCi.getText().length()<7
+            || jTextFieldTelefono.getText().length()<8
+            || jTextFieldIdUsuario.getText().length()<3
+            || jPasswordField.getText().length()<4
+            || jTextFieldDireccion.getText().length()<18){
         
         jButtonEditar.setEnabled(false);
     }else{
     jButtonEditar.setEnabled(true);
     }
+}
+public void seCambio(Date date){
+    
+    if (date==null){
+        jButtonEditar.setEnabled(false);       
+    }else if (fechaInicialComparar==0 ){
+        jButtonEditar.setEnabled(false);        
+    }else if (date.getTime()!=fechaInicialComparar ){
+        jButtonEditar.setEnabled(true);        
+    }else{
+        jButtonEditar.setEnabled(true);  
+    }
+        
 }
 
 
@@ -747,6 +823,46 @@ public void habilitarBoton(){
     private void jButtonCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelarMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonCancelarMouseClicked
+
+    private void jDateChooserFechaInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDateChooserFechaInicioMouseClicked
+
+    }//GEN-LAST:event_jDateChooserFechaInicioMouseClicked
+
+    private void jDateChooserFechaInicioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooserFechaInicioPropertyChange
+        seCambio(jDateChooserFechaInicio.getDate());
+    }//GEN-LAST:event_jDateChooserFechaInicioPropertyChange
+
+    private void jDateChooserFechaInicioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDateChooserFechaInicioKeyTyped
+
+    }//GEN-LAST:event_jDateChooserFechaInicioKeyTyped
+
+    private void jDateChooserFechaInicioComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jDateChooserFechaInicioComponentHidden
+        
+    }//GEN-LAST:event_jDateChooserFechaInicioComponentHidden
+
+    private void jDateChooserFechaInicioComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jDateChooserFechaInicioComponentAdded
+        
+    }//GEN-LAST:event_jDateChooserFechaInicioComponentAdded
+
+    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+
+    }//GEN-LAST:event_jPanel1MouseClicked
+
+    private void formPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_formPropertyChange
+        
+    }//GEN-LAST:event_formPropertyChange
+
+    private void jDateChooserFechaInicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDateChooserFechaInicioMousePressed
+
+    }//GEN-LAST:event_jDateChooserFechaInicioMousePressed
+
+    private void jDateChooserFechaInicioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jDateChooserFechaInicioFocusGained
+
+    }//GEN-LAST:event_jDateChooserFechaInicioFocusGained
+
+    private void jTextFieldFechaInicioEncimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFechaInicioEncimaActionPerformed
+        
+    }//GEN-LAST:event_jTextFieldFechaInicioEncimaActionPerformed
 
     /**
      * @param args the command line arguments

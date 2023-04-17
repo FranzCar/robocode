@@ -262,6 +262,7 @@ public class InterfazAdministrarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
+        deshabilitar();
         InterfazEliminarUsuario ventanaEliminar=new InterfazEliminarUsuario();
         ventanaEliminar.setVisible(true);
         ventanaEliminar.setLocationRelativeTo(null);
@@ -269,13 +270,14 @@ public class InterfazAdministrarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        
+        deshabilitar();
         InterfazEditarUsuario ventadaEditar=new InterfazEditarUsuario();
         ventadaEditar.setVisible(true);
         ventadaEditar.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
+        deshabilitar();
         InterfazRegistrarUsuario ventana=new InterfazRegistrarUsuario();
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);
@@ -307,15 +309,15 @@ public class InterfazAdministrarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBuscarMouseClicked
 
     private void jButtonRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistrarMouseClicked
-        deshabilitar();
+        
     }//GEN-LAST:event_jButtonRegistrarMouseClicked
 
     private void jButtonEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarMouseClicked
-        deshabilitar();
+        
     }//GEN-LAST:event_jButtonEditarMouseClicked
 
     private void jButtonEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarMouseClicked
-        deshabilitar();
+        
     }//GEN-LAST:event_jButtonEliminarMouseClicked
 
     /**
