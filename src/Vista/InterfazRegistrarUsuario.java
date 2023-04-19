@@ -398,7 +398,6 @@ public class InterfazRegistrarUsuario extends javax.swing.JFrame {
             }
             
            //Para validar que el telefono de usuario no sea duplicado
-            
             String sentenciaSQL3 = "SELECT COUNT(*) FROM usuarios WHERE telefonoUsuario = '" + objUsuario.telefono + "'";
             ResultSet resultado3 = sentencia.executeQuery(sentenciaSQL3);
             resultado3.next();
