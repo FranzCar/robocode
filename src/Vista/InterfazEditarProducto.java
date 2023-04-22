@@ -15,6 +15,7 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
      */
     public InterfazEditarProducto() {
         initComponents();
+        this.setDefaultCloseOperation(1);
         this.setLocationRelativeTo(null);
     }
 
@@ -151,7 +152,7 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
-System.exit(0);
+        dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**

@@ -145,7 +145,9 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonkProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonkProductoActionPerformed
-        // TODO add your handling code here:
+        InterfazAdministrarProducto administrarProducto=new InterfazAdministrarProducto();
+        administrarProducto.setVisible(true);
+        administrarProducto.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButtonkProductoActionPerformed
 
     private void jButtonUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUsuarioActionPerformed

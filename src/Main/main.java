@@ -4,7 +4,8 @@
  */
 package Main;
 
-import Vista.InterfazAdministrarUsuario;
+
+import Vista.InterfazPantallaInicio;
 
 
 /**
@@ -13,7 +14,7 @@ import Vista.InterfazAdministrarUsuario;
  */
 public class main {
     public static void main (String[] args){
-        InterfazAdministrarUsuario ventana=new InterfazAdministrarUsuario();
+        InterfazPantallaInicio ventana=new InterfazPantallaInicio();
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);
 }

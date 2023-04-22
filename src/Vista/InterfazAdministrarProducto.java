@@ -36,8 +36,10 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         jButtonEditar = new javax.swing.JButton();
         jButtonEliminar = new javax.swing.JButton();
         jButtonRegistrar = new javax.swing.JButton();
+        jButtonHome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(37, 77, 116));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -128,6 +130,14 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 540, -1, -1));
 
+        jButtonHome.setText("home");
+        jButtonHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -184,6 +194,10 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         registrarPro.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
+    private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButtonHomeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -223,6 +237,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonEliminar;
+    private javax.swing.JButton jButtonHome;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

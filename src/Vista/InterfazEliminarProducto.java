@@ -15,6 +15,8 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
      */
     public InterfazEliminarProducto() {
         initComponents();
+        this.setDefaultCloseOperation(1);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -98,6 +100,11 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
         jPanel1.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, -1, -1));
 
         jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 490, -1, -1));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -136,6 +143,10 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
     private void jTextFieldMarca4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMarca4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldMarca4ActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**
      * @param args the command line arguments
