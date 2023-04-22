@@ -29,10 +29,10 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButtonUsuario = new javax.swing.JButton();
+        jButtonkProducto = new javax.swing.JButton();
+        jButtonVenta = new javax.swing.JButton();
+        jButtonProveedores = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -47,7 +47,6 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1042, 650));
 
         jPanel2.setBackground(new java.awt.Color(37, 77, 116));
         jPanel2.setPreferredSize(new java.awt.Dimension(1042, 650));
@@ -59,26 +58,31 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
         jLabel1.setMinimumSize(new java.awt.Dimension(431, 48));
         jLabel1.setPreferredSize(new java.awt.Dimension(431, 48));
 
-        jButton1.setBackground(new java.awt.Color(95, 143, 169));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButton1.setText("Administrar Usuarios");
-
-        jButton2.setBackground(new java.awt.Color(95, 143, 169));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButton2.setText("Administrar Productos");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonUsuario.setBackground(new java.awt.Color(95, 143, 169));
+        jButtonUsuario.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonUsuario.setText("Administrar Usuarios");
+        jButtonUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonUsuarioActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(95, 143, 169));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButton3.setText("Registro de Ventas");
+        jButtonkProducto.setBackground(new java.awt.Color(95, 143, 169));
+        jButtonkProducto.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonkProducto.setText("Administrar Productos");
+        jButtonkProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonkProductoActionPerformed(evt);
+            }
+        });
 
-        jButton4.setBackground(new java.awt.Color(95, 143, 169));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButton4.setText("Administrar Proveedores");
+        jButtonVenta.setBackground(new java.awt.Color(95, 143, 169));
+        jButtonVenta.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonVenta.setText("Registro de Ventas");
+
+        jButtonProveedores.setBackground(new java.awt.Color(95, 143, 169));
+        jButtonProveedores.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonProveedores.setText("Administrar Proveedores");
 
         jButton5.setBackground(new java.awt.Color(95, 143, 169));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -97,12 +101,12 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(143, 143, 143)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButtonVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(112, 112, 112)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jButtonkProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                            .addComponent(jButtonProveedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(295, 295, 295)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -115,12 +119,12 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonkProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(71, 71, 71)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(jButton5)
                 .addGap(38, 38, 38))
@@ -140,9 +144,15 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonkProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonkProductoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonkProductoActionPerformed
+
+    private void jButtonUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUsuarioActionPerformed
+        InterfazAdministrarUsuario administrarUsuario=new InterfazAdministrarUsuario();
+        administrarUsuario.setVisible(true);
+        administrarUsuario.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButtonUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,11 +190,11 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButtonProveedores;
+    private javax.swing.JButton jButtonUsuario;
+    private javax.swing.JButton jButtonVenta;
+    private javax.swing.JButton jButtonkProducto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
