@@ -63,7 +63,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jTextFieldBuscarCoincidenciaKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextFieldBuscarCoincidencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 260, -1));
+        jPanel1.add(jTextFieldBuscarCoincidencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 260, 30));
 
         jButtonBuscar.setBackground(new java.awt.Color(0, 102, 153));
         jButtonBuscar.setFont(new java.awt.Font("Segoe UI", 3, 20)); // NOI18N
@@ -84,12 +84,12 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jButtonBuscarKeyPressed(evt);
             }
         });
-        jPanel1.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, -1, -1));
+        jPanel1.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, -1, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre de Producto");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 210, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 210, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -112,7 +112,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jButtonEditarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 540, -1, -1));
+        jPanel1.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 530, 80, 30));
 
         jButtonEliminar.setText("Eliminar");
         jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +120,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jButtonEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 540, -1, -1));
+        jPanel1.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 530, 90, 30));
 
         jButtonRegistrar.setText("Registrar");
         jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +128,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jButtonRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 540, -1, -1));
+        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 530, 90, 30));
 
         jButtonHome.setText("home");
         jButtonHome.addActionListener(new java.awt.event.ActionListener() {
@@ -136,7 +136,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jButtonHomeActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+        jPanel1.add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
