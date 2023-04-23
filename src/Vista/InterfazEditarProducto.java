@@ -73,7 +73,7 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Caracteristicas:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, 30));
         jPanel1.add(jTextFieldMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 288, 30));
 
         jTextFieldModelo.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +90,7 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
                 jTextFieldMarcaCaracteristicasActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldMarcaCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 290, 120));
+        jPanel1.add(jTextFieldMarcaCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 290, 130));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -112,7 +112,7 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
                 jButtonGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 490, 170, -1));
+        jPanel1.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 500, 170, -1));
 
         jButtonCancelar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -123,7 +123,7 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, 190, -1));
+        jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 500, 190, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
