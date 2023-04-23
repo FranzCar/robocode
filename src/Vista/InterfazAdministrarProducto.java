@@ -106,29 +106,35 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 860, 190));
 
+        jButtonEditar.setBackground(new java.awt.Color(95, 143, 169));
+        jButtonEditar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonEditar.setText("Editar");
         jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEditarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 530, 80, 30));
+        jPanel1.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 550, 80, 30));
 
+        jButtonEliminar.setBackground(new java.awt.Color(95, 143, 169));
+        jButtonEliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonEliminar.setText("Eliminar");
         jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 530, 90, 30));
+        jPanel1.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 550, 90, 30));
 
+        jButtonRegistrar.setBackground(new java.awt.Color(95, 143, 169));
+        jButtonRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonRegistrar.setText("Registrar");
         jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 530, 90, 30));
+        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 550, 90, 30));
 
         jButtonHome.setText("home");
         jButtonHome.addActionListener(new java.awt.event.ActionListener() {
