@@ -4,19 +4,46 @@
  */
 package Vista;
 
+import javax.swing.JOptionPane;
+import Conexion.ConectarBD;
+import Modelo.Usuario;
+import java.awt.Image;
+
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Date;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 /**
  *
  * @author HP
  */
 public class InterfazRegistrarProducto extends javax.swing.JFrame {
+    static Connection conexion=null;
+    static Statement sentencia=null;
+    static ResultSet resultado=null;
+    static Usuario objUsuario;
+    int id;
+    ConectarBD con = new ConectarBD();    
+    //Date today=new Date();
 
-    /**
-     * Creates new form InterfazRegistrarProducto
-     */
     public InterfazRegistrarProducto() {
         initComponents();
         this.setDefaultCloseOperation(1);
         this.setLocationRelativeTo(null);
+        
+        //habilitarBoton();//habilitar boton de inicio
+        this.setDefaultCloseOperation(1);
+        this.setLocationRelativeTo(null);
+        objUsuario=new Usuario(); 
+        try {
+            conexion=con.establecerConexion();
+        } catch (Exception e) {   
+        }
     }
 
     /**
@@ -39,10 +66,11 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jTextFieldPrecio = new javax.swing.JTextField();
         jTextFieldStock = new javax.swing.JTextField();
         jTextFieldMarcaCaracteristicas = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        lblImagen = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButtonGuardar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(37, 77, 116));
@@ -92,11 +120,11 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldMarcaCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 288, 50));
 
-        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("             fotografia");
-        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 152, 134, 258));
+        lblImagen.setBackground(new java.awt.Color(255, 255, 255));
+        lblImagen.setForeground(new java.awt.Color(255, 255, 255));
+        lblImagen.setText("                         fotografia");
+        lblImagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 152, 220, 200));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,6 +153,15 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(449, 525, 190, -1));
 
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jButton1.setText("Seleccionar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 380, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -148,12 +185,124 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldMarcaCaracteristicasActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+
+         String Marca=jTextFieldMarca.getText().trim();
+        String Modelo=jTextFieldModelo.getText().trim();
+        String Precio=jTextFieldPrecio.getText().trim();
+        String Stock=jTextFieldStock.getText().trim();
+        String Caracteristicas=jTextFieldMarcaCaracteristicas.getText().trim();
         
+        if(Marca.isEmpty()|| Marca.startsWith(" ")|| Marca.startsWith("-")){
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo Marca este correcto");
+            return;
+        }
+         if(Modelo.isEmpty()|| Modelo.startsWith(" ")|| Modelo.startsWith("-")){
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo Modelo este correcto");
+            return;
+        }
+          if(Precio.isEmpty()|| Precio.startsWith(" ")|| Precio.startsWith("-")){
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo Precio este correcto");
+            return;
+        }
+           if(Stock.isEmpty()|| Stock.startsWith(" ")|| Stock.startsWith("-")){
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo Stock este correcto");
+            return;
+        }
+            if(Caracteristicas.isEmpty()|| Caracteristicas.startsWith(" ")|| Caracteristicas.startsWith("-")){
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo Caracteristicas este correcto");
+            return;
+        }
+            
+        try {
+            sentencia=conexion.createStatement();
+            objUsuario.Marca=jTextFieldMarca.getText();
+            objUsuario.carnetDeIdentidad=jTextFieldModelo.getText();
+            objUsuario.telefono=jTextFieldPrecio.getText();
+            objUsuario.idUsuario=jTextFieldStock.getText();
+            objUsuario.Contrasenia=jTextFieldMarcaCaracteristicas.getText();
+            
+            //objUsuario.direccion=jTextFieldDireccion.getText();
+            
+            //Para validar que el id usuario no sea duplicado
+            
+            String sentenciaSQL2 = "SELECT COUNT(*) FROM usuarios WHERE idUsuario = '" + objUsuario.idUsuario + "'";
+            ResultSet resultado = sentencia.executeQuery(sentenciaSQL2);
+            resultado.next();
+            int count = resultado.getInt(1);
+            if (count > 0) {
+                JOptionPane.showMessageDialog(this, "El nombre de IdUsuario ya existe. Por favor ingrese otro idUsuario.");
+                return;
+            }
+            
+           //Para validar que el telefono de usuario no sea duplicado
+            String sentenciaSQL3 = "SELECT COUNT(*) FROM usuarios WHERE telefonoUsuario = '" + objUsuario.telefono + "'";
+            ResultSet resultado3 = sentencia.executeQuery(sentenciaSQL3);
+            resultado3.next();
+            int count2 = resultado3.getInt(1);
+            if (count2 > 0) {
+                JOptionPane.showMessageDialog(this, "El Telefono ya existe. Por favor ingrese otro numero.");
+                return;
+            }
+                       
+            
+             //Para validar que el carnetDeIdentidad no sea duplicado
+            
+            String sentenciaSQLCI = "SELECT COUNT(*) FROM usuarios WHERE ciUsuario = '" + objUsuario.carnetDeIdentidad + "'";
+            ResultSet resultadoCI = sentencia.executeQuery(sentenciaSQLCI);
+            resultadoCI.next();
+            int count4 = resultadoCI.getInt(1);
+            if (count4 > 0) {
+                JOptionPane.showMessageDialog(this, "El Carnet de Identidad ya existe. Por favor ingrese otro.");
+                return;
+            }           
+            // Si no esta duplicado, se realiza el registro
+            
+                String sentenciaSQL1 = new String();
+                sentenciaSQL1="INSERT INTO producto(marcaProducto,marcaProducto,modeloProducto,precioProducto,stockProducto,caracteristicasProducto,fotoProducto)";
+                sentenciaSQL1= sentenciaSQL1+"VALUES('"+objUsuario.nombreDeUsuario+"','"+objUsuario.carnetDeIdentidad+"','"+objUsuario.telefono+
+                                    "','"+fecha+"','"+objUsuario.idUsuario+"','"+objUsuario.Contrasenia+"','"+objUsuario.direccion+"')";
+                sentencia.execute(sentenciaSQL1); 
+                
+            // Se muestra mensaje de exito
+            JOptionPane.showMessageDialog(this, "Guardado con exito"); 
+            
+            //Se actualiza la tabla de usuarios
+            ListarUsuarios Administrar=new ListarUsuarios();
+            Administrar.MostrarTabla(jTableUsuario);
+            
+        } catch (SQLException e) {
+            Logger.getLogger(InterfazRegistrarUsuario.class.getName()).log(Level.SEVERE,null,e);
+        }
+        jTextFieldCi.setText("");
+        jTextFieldContrasenia.setText("");
+        jTextFieldDireccion.setText("");
+        jTextFieldNombre.setText("");
+        jTextFieldTelefono.setText("");
+        jTextFieldIdUsuario.setText("");
+        jDateChooserFechaInicio.setDate(null);
+    
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String Ruta = "";
+        JFileChooser jFileChooser = new JFileChooser();
+        FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JGP, PNG","jpg", "png");
+        jFileChooser.setFileFilter(filtrado);
+        
+        int respuesta = jFileChooser.showOpenDialog(this);
+        if (respuesta == JFileChooser.APPROVE_OPTION){
+            Ruta = jFileChooser.getSelectedFile().getPath();
+            
+            Image mImagen = new ImageIcon(Ruta).getImage();
+            ImageIcon mIcono = new ImageIcon(mImagen.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
+            lblImagen.setIcon(mIcono);
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,6 +340,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JLabel jLabel2;
@@ -198,7 +348,6 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextFieldMarca;
@@ -206,5 +355,6 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldModelo;
     private javax.swing.JTextField jTextFieldPrecio;
     private javax.swing.JTextField jTextFieldStock;
+    private javax.swing.JLabel lblImagen;
     // End of variables declaration//GEN-END:variables
 }
