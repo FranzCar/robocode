@@ -156,7 +156,7 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
                 jButtonEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 500, 150, 30));
+        jPanel1.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 490, 140, 40));
 
         jButtonCancelar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -167,7 +167,7 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, 140, 30));
+        jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, 140, 40));
 
         jLabelFoto.setBackground(new java.awt.Color(255, 255, 255));
         jLabelFoto.setForeground(new java.awt.Color(255, 255, 255));
