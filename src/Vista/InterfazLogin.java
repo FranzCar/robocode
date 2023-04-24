@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Vista;
 
 /**
@@ -9,12 +5,13 @@ package Vista;
  * @author njesp
  */
 public class InterfazLogin extends javax.swing.JFrame {
-
-    /**
-     * Creates new form InterfazLogin
-     */
+    
     public InterfazLogin() {
         initComponents();
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+        this.setTitle("Login - Sistema de Ventas Go ");
+        this.setSize(new Dimension(700, 500));
     }
 
     /**
