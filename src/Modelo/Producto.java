@@ -6,13 +6,15 @@ package Modelo;
 
 /**
  *
- * @author HP PAVILION
+ * @author PC
  */
 public class Producto {
-    public String idProducto;
-    public String Marca;
-    public String Modelo;
-    public String Precio;
-    public String Caracteristicas;
-    public String Fotografia;
+    public String marca;
+    public String modelo;
+    public String precio;
+    public int stock;
+    public String caracteristicas;
+    public int foto;
+    
+    
 }

@@ -3,11 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/HP%20PAVILION/Desktop/IS_robocode/Oficial/robocode/src/Controlador/ListarUsuarios.java</file>
-            <file>file:/C:/Users/HP%20PAVILION/Desktop/IS_robocode/Oficial/robocode/src/Controlador/ListarProductos.java</file>
-            <file>file:/C:/Users/HP%20PAVILION/Desktop/IS_robocode/Oficial/robocode/src/Vista/InterfazAdministrarUsuario.java</file>
-            <file>file:/C:/Users/HP%20PAVILION/Desktop/IS_robocode/Oficial/robocode/src/Vista/InterfazAdministrarProducto.java</file>
-            <file>file:/C:/Users/HP%20PAVILION/Desktop/IS_robocode/Oficial/robocode/src/Vista/InterfazRegistrarProducto.java</file>
+            <file>file:/D:/MY%20STUFF/UMSS/INGENIERIA%20DE%20SOFTWARE/xxx/robocode/src/Controlador/ListarUsuarios.java</file>
+            <file>file:/D:/MY%20STUFF/UMSS/INGENIERIA%20DE%20SOFTWARE/xxx/robocode/src/Vista/InterfazRegistrarProducto.java</file>
+            <file>file:/D:/MY%20STUFF/UMSS/INGENIERIA%20DE%20SOFTWARE/xxx/robocode/src/Vista/InterfazEliminarProducto.java</file>
+            <file>file:/D:/MY%20STUFF/UMSS/INGENIERIA%20DE%20SOFTWARE/xxx/robocode/src/Vista/InterfazAdministrarUsuario.java</file>
+            <file>file:/D:/MY%20STUFF/UMSS/INGENIERIA%20DE%20SOFTWARE/xxx/robocode/src/Conexion/ConectarBD.java</file>
+            <file>file:/D:/MY%20STUFF/UMSS/INGENIERIA%20DE%20SOFTWARE/xxx/robocode/src/Vista/InterfazEliminarUsuario.java</file>
+            <file>file:/D:/MY%20STUFF/UMSS/INGENIERIA%20DE%20SOFTWARE/xxx/robocode/src/Vista/InterfazAdministrarProducto.java</file>
+            <file>file:/D:/MY%20STUFF/UMSS/INGENIERIA%20DE%20SOFTWARE/xxx/robocode/src/Modelo/Producto.java</file>
         </group>
     </open-files>
 </project-private>
