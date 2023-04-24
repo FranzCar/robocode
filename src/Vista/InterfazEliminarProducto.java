@@ -149,6 +149,7 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
 
         jButtonEliminar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonEliminar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonEliminar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEliminar.setText("GUARDAR");
         jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,6 +160,7 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
 
         jButtonCancelar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCancelar.setText("CANCELAR");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
