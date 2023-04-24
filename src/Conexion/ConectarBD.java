@@ -19,10 +19,14 @@ public class ConectarBD {
     Connection conectar = null;
     
     String user = "root";
+<<<<<<< HEAD
     String password = "root1010";//*********** colocar el password de su base de datos
+=======
+    String password = "root";//*********** colocar el password de su base de datos
+>>>>>>> feature/ListaProducto
     String dataBase = "ventasgobd";
     String server = "localhost";
-    String puerto = "3306";
+    String puerto = "3308";
     String driver = "com.mysql.cj.jdbc.Driver";
     
     String cadena = "jdbc:mysql://"+server+":"+puerto+"/"+dataBase;
