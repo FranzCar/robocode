@@ -141,7 +141,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("ADMINISTRAR PRODUCTO");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, -1, -1));
 
         jTextFieldBuscarCoincidencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldBuscarCoincidencia.addActionListener(new java.awt.event.ActionListener() {
@@ -191,7 +191,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jButtonEditarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 540, -1, -1));
+        jPanel1.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 590, -1, -1));
 
         jButtonEliminar.setText("Eliminar");
         jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -199,7 +199,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jButtonEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 540, -1, -1));
+        jPanel1.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 590, -1, -1));
 
         jButtonRegistrar.setText("Registrar");
         jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -207,7 +207,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jButtonRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 540, -1, -1));
+        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 590, -1, -1));
 
         jButtonHome.setText("home");
         jButtonHome.addActionListener(new java.awt.event.ActionListener() {
@@ -215,7 +215,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jButtonHomeActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+        jPanel1.add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
 
         jLabelFoto1.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFoto1.setText("foto1");
@@ -226,15 +226,15 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jLabelFoto1MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabelFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 140, 110));
+        jPanel1.add(jLabelFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 140, 110));
 
         jLabelMarcaFoto1.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMarcaFoto1.setText("jLabel3");
-        jPanel1.add(jLabelMarcaFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 110, -1));
+        jPanel1.add(jLabelMarcaFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 110, -1));
 
         jLabelModeloFoto1.setForeground(new java.awt.Color(255, 255, 255));
         jLabelModeloFoto1.setText("jLabel4");
-        jPanel1.add(jLabelModeloFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
+        jPanel1.add(jLabelModeloFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, -1));
 
         jLabelFoto2.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFoto2.setText("foto2");
@@ -244,15 +244,15 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jLabelFoto2MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabelFoto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 140, 110));
+        jPanel1.add(jLabelFoto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 140, 110));
 
         jLabelMarcaFoto2.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMarcaFoto2.setText("jLabel6");
-        jPanel1.add(jLabelMarcaFoto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, -1, -1));
+        jPanel1.add(jLabelMarcaFoto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, -1, -1));
 
         jLabelModeloFoto2.setForeground(new java.awt.Color(255, 255, 255));
         jLabelModeloFoto2.setText("jLabel5");
-        jPanel1.add(jLabelModeloFoto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, -1, -1));
+        jPanel1.add(jLabelModeloFoto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, -1, -1));
 
         jLabelFoto3.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFoto3.setText("foto3");
@@ -262,91 +262,92 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jLabelFoto3MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabelFoto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 140, 110));
+        jPanel1.add(jLabelFoto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 140, 110));
 
         jLabelMarcaFoto3.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMarcaFoto3.setText("jLabel3");
-        jPanel1.add(jLabelMarcaFoto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, -1, -1));
+        jPanel1.add(jLabelMarcaFoto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, -1, -1));
 
         jLabelModeloFoto3.setForeground(new java.awt.Color(255, 255, 255));
         jLabelModeloFoto3.setText("jLabel4");
-        jPanel1.add(jLabelModeloFoto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, -1, -1));
+        jPanel1.add(jLabelModeloFoto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, -1, -1));
 
         jLabelFoto4.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFoto4.setText("foto4");
         jLabelFoto4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabelFoto4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, 140, 110));
+        jPanel1.add(jLabelFoto4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, 140, 110));
 
         jLabel3.setText("jLabel3");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, -1, -1));
 
         jLabel4.setText("jLabel4");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 320, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, -1, -1));
 
+        jLabelFoto5.setBackground(new java.awt.Color(0, 0, 0));
         jLabelFoto5.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFoto5.setText("foto5");
-        jPanel1.add(jLabelFoto5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 170, 140, 110));
+        jPanel1.add(jLabelFoto5, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 220, 140, 110));
 
         jLabel5.setText("jLabel5");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 290, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 340, -1, -1));
 
         jLabel6.setText("jLabel6");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 320, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 370, -1, -1));
 
         jLabelFoto6.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFoto6.setText("foto6");
         jLabelFoto6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabelFoto6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 140, 110));
+        jPanel1.add(jLabelFoto6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 140, 110));
 
         jLabel7.setText("jLabel7");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 520, -1, -1));
 
         jLabel8.setText("jLabel8");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 550, -1, -1));
 
         jLabelFoto7.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFoto7.setText("foto7");
         jLabelFoto7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabelFoto7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 140, 110));
+        jPanel1.add(jLabelFoto7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, 140, 110));
 
         jLabel9.setText("jLabel9");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 520, -1, -1));
 
         jLabel10.setText("jLabel10");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 500, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 550, -1, -1));
 
         jLabelFoto8.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFoto8.setText("foto8");
         jLabelFoto8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabelFoto8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 350, 140, 110));
+        jPanel1.add(jLabelFoto8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, 140, 110));
 
         jLabel11.setText("jLabel11");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 480, -1, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 530, -1, -1));
 
         jLabel12.setText("jLabel12");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 510, -1, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 560, -1, -1));
 
         jLabelFoto9.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFoto9.setText("foto9");
         jLabelFoto9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabelFoto9, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 350, 140, 110));
+        jPanel1.add(jLabelFoto9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, 140, 110));
 
         jLabel13.setText("jLabel13");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, -1, -1));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 520, -1, -1));
 
         jLabel14.setText("jLabel14");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 500, -1, -1));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 550, -1, -1));
 
         jLabelFoto10.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFoto10.setText("foto10");
         jLabelFoto10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabelFoto10, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 350, 140, 110));
+        jPanel1.add(jLabelFoto10, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 400, 140, 110));
 
         jLabel15.setText("jLabel15");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 470, -1, -1));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 520, -1, -1));
 
         jLabel16.setText("jLabel16");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 500, -1, -1));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 550, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
