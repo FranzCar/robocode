@@ -4,12 +4,30 @@
  */
 package Vista;
 
+import Conexion.ConectarBD;
+import static Vista.InterfazAdministrarProducto.codigoNumero;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.sql.Blob;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 /**
  *
  * @author HP
  */
 public class InterfazEditarProducto extends javax.swing.JFrame {
-
+    static Connection conexion=null;
+    ConectarBD con = new ConectarBD();
     /**
      * Creates new form InterfazRegistrarProducto
      */
@@ -17,6 +35,40 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         initComponents();
         this.setDefaultCloseOperation(1);
         this.setLocationRelativeTo(null);
+        try {
+                
+                conexion=con.establecerConexion();
+                PreparedStatement pst = conexion.prepareStatement("SELECT * FROM PRODUCTO WHERE codProducto ='"+codigoNumero+"'");
+                ResultSet rs = pst.executeQuery();
+                
+                if(rs.next()){
+                    //Datos consultados
+                    jTextFieldMarca.setText(rs.getString("marcaProducto"));
+                    jTextFieldModelo.setText(rs.getString("modeloProducto"));
+                    jTextFieldPrecio.setText(rs.getString("precioProducto"));
+                    jTextFieldStock.setText(rs.getString("stockProducto"));
+                    jTextFieldCaracteristicas.setText(rs.getString("caracteristicasProducto"));
+                    
+                    //leer Binario
+                    Blob blob = rs.getBlob("fotoProducto");
+                    //pasar el binario a imagen
+                    byte[] data = blob.getBytes(1, (int) blob.length());
+                    //lee la imagen
+                    BufferedImage img = null;
+                    try {
+                        img = ImageIO.read(new ByteArrayInputStream(data));
+                    } catch (IOException e) {
+                        Logger.getLogger(InterfazEliminarProducto.class.getName()).log(Level.SEVERE, null, e);
+                    }                    
+                    ImageIcon icono = new ImageIcon(img);
+                    Icon imagen = new ImageIcon(icono.getImage().getScaledInstance(jLabelFoto.getWidth(), jLabelFoto.getHeight(), Image.SCALE_DEFAULT));
+                    jLabelFoto.setIcon(imagen);
+                }
+                
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "¡Error al cargar!");
+                System.out.println("Error al cargar foto: " + e);
+            }
     }
 
     /**
@@ -38,8 +90,8 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         jTextFieldModelo = new javax.swing.JTextField();
         jTextFieldPrecio = new javax.swing.JTextField();
         jTextFieldStock = new javax.swing.JTextField();
-        jTextFieldMarcaCaracteristicas = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        jTextFieldCaracteristicas = new javax.swing.JTextField();
+        jLabelFoto = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButtonGuardar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
@@ -85,18 +137,18 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         jPanel1.add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 288, -1));
         jPanel1.add(jTextFieldStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 288, -1));
 
-        jTextFieldMarcaCaracteristicas.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldCaracteristicas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldMarcaCaracteristicasActionPerformed(evt);
+                jTextFieldCaracteristicasActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldMarcaCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 288, 110));
+        jPanel1.add(jTextFieldCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 288, 110));
 
-        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("             fotografia");
-        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(574, 130, 140, 258));
+        jLabelFoto.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelFoto.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelFoto.setText("             fotografia");
+        jLabelFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jLabelFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(574, 130, 140, 258));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -143,9 +195,9 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldModeloActionPerformed
 
-    private void jTextFieldMarcaCaracteristicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMarcaCaracteristicasActionPerformed
+    private void jTextFieldCaracteristicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCaracteristicasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldMarcaCaracteristicasActionPerformed
+    }//GEN-LAST:event_jTextFieldCaracteristicasActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
         
@@ -199,11 +251,11 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelFoto;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextFieldCaracteristicas;
     private javax.swing.JTextField jTextFieldMarca;
-    private javax.swing.JTextField jTextFieldMarcaCaracteristicas;
     private javax.swing.JTextField jTextFieldModelo;
     private javax.swing.JTextField jTextFieldPrecio;
     private javax.swing.JTextField jTextFieldStock;
