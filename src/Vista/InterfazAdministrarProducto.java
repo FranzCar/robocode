@@ -37,6 +37,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
     public static int [] codProdutoLista=new int [10];
     public static int codigoNumero;
     ListarProducto listaImagenes=new ListarProducto();
+    int offset=0;
     /**
      * Creates new form InterfazAdministrarProducto
      */
@@ -131,6 +132,8 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         jLabelFoto10 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        jButtonIzquierda = new javax.swing.JButton();
+        jButtonDerecha = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -157,7 +160,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jTextFieldBuscarCoincidenciaKeyTyped(evt);
             }
         });
-        jPanelAdministrarProducto.add(jTextFieldBuscarCoincidencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 260, 30));
+        jPanelAdministrarProducto.add(jTextFieldBuscarCoincidencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 260, 30));
 
         jButtonBuscar.setBackground(new java.awt.Color(0, 102, 153));
         jButtonBuscar.setFont(new java.awt.Font("Segoe UI", 3, 20)); // NOI18N
@@ -178,12 +181,12 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jButtonBuscarKeyPressed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, -1, 30));
+        jPanelAdministrarProducto.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, -1, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre de Producto");
-        jPanelAdministrarProducto.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 210, -1));
+        jPanelAdministrarProducto.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 210, -1));
 
         jButtonEditar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonEditar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -369,6 +372,22 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         jLabel16.setText("jLabel16");
         jPanelAdministrarProducto.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 550, -1, -1));
 
+        jButtonIzquierda.setText("left");
+        jButtonIzquierda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIzquierdaActionPerformed(evt);
+            }
+        });
+        jPanelAdministrarProducto.add(jButtonIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, -1));
+
+        jButtonDerecha.setText("right");
+        jButtonDerecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDerechaActionPerformed(evt);
+            }
+        });
+        jPanelAdministrarProducto.add(jButtonDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -443,6 +462,17 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         codigoNumero=codProdutoLista[2];
     }//GEN-LAST:event_jLabelFoto3MouseClicked
 
+    private void jButtonIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIzquierdaActionPerformed
+        offset=offset-10;
+        listaImagenes.paginarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista,offset);
+    }//GEN-LAST:event_jButtonIzquierdaActionPerformed
+
+    private void jButtonDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDerechaActionPerformed
+        offset=offset+10;
+        listaImagenes.limpiarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto);
+        listaImagenes.paginarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista,offset);
+    }//GEN-LAST:event_jButtonDerechaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -480,9 +510,11 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscar;
+    private javax.swing.JButton jButtonDerecha;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonHome;
+    private javax.swing.JButton jButtonIzquierda;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
