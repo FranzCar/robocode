@@ -11,6 +11,7 @@ import static Vista.InterfazAdministrarProducto.codProdutoLista;
 import static Vista.InterfazAdministrarProducto.jLabelFoto;
 import static Vista.InterfazAdministrarProducto.jLabelMarca;
 import static Vista.InterfazAdministrarProducto.jLabelModelo;
+import static Vista.InterfazAdministrarProducto.offset;
 import java.awt.Image;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -204,12 +205,14 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
             jTextFieldPrecio.setText("");
             jTextFieldStock.setText("");
             jTextFieldCaracteristicas.setText("");        
-            jLabelFoto.setText("Foto");
+            jLabelFoto.setIcon(null);
             JOptionPane.showMessageDialog(null, "Registro Exitoso");
         }catch(SQLException e){
             Logger.getLogger(InterfazRegistrarUsuario.class.getName()).log(Level.SEVERE,null,e);
         }
+        offset=0;
         listaImagenes.mostrarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista);
+        
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed

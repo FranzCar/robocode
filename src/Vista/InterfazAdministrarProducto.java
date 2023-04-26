@@ -37,7 +37,8 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
     public static int [] codProdutoLista=new int [10];
     public static int codigoNumero;
     ListarProducto listaImagenes=new ListarProducto();
-    int offset=0;
+    public static int offset=0;
+    
     /**
      * Creates new form InterfazAdministrarProducto
      */
