@@ -5,7 +5,12 @@
 package Vista;
 
 import Conexion.ConectarBD;
+import Controlador.ListarProducto;
 import Modelo.Producto;
+import static Vista.InterfazAdministrarProducto.codProdutoLista;
+import static Vista.InterfazAdministrarProducto.jLabelFoto;
+import static Vista.InterfazAdministrarProducto.jLabelMarca;
+import static Vista.InterfazAdministrarProducto.jLabelModelo;
 import java.awt.Image;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -20,6 +25,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import static Vista.InterfazAdministrarProducto.jPanelAdministrarProducto;
 
 /**
  *
@@ -32,6 +38,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
     private FileInputStream file;
     static Producto objProducto;
     ConectarBD con = new ConectarBD();
+    ListarProducto listaImagenes=new ListarProducto();
     public InterfazRegistrarProducto() {
         initComponents();
         this.setDefaultCloseOperation(1);
@@ -202,6 +209,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         }catch(SQLException e){
             Logger.getLogger(InterfazRegistrarUsuario.class.getName()).log(Level.SEVERE,null,e);
         }
+        listaImagenes.mostrarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista);
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
