@@ -39,9 +39,9 @@ public class ListarProducto {
             PreparedStatement pst = conexion.prepareStatement("SELECT * FROM PRODUCTO ORDER BY marcaProducto ASC LIMIT 10");
             ResultSet rs = pst.executeQuery();
             while(rs.next()){
-                a=(JLabel) d.getComponent(8+i);
-                b=(JLabel) d.getComponent(9+i);
-                c=(JLabel) d.getComponent(10+i);
+                a=(JLabel) d.getComponent(18+i);
+                b=(JLabel) d.getComponent(19+i);
+                c=(JLabel) d.getComponent(20+i);
                 i=i+3;
                 f[j]=rs.getInt("codProducto");
                 j++;
@@ -76,9 +76,9 @@ public class ListarProducto {
             PreparedStatement pst = conexion.prepareStatement("SELECT * FROM PRODUCTO ORDER BY marcaProducto ASC LIMIT 10 OFFSET "+offset);
             ResultSet rs = pst.executeQuery();
             while(rs.next()){
-                a=(JLabel) d.getComponent(8+i);
-                b=(JLabel) d.getComponent(9+i);
-                c=(JLabel) d.getComponent(10+i);
+                a=(JLabel) d.getComponent(18+i);
+                b=(JLabel) d.getComponent(19+i);
+                c=(JLabel) d.getComponent(20+i);
                 i=i+3;
                 f[j]=rs.getInt("codProducto");
                 j++;
@@ -108,9 +108,9 @@ public class ListarProducto {
     public void limpiarFotoInicio(JLabel a,JLabel b, JLabel c, JPanel d){
         int i=0;
         for(int j=0;j<10;j++){
-            a=(JLabel) d.getComponent(8+i);
-            b=(JLabel) d.getComponent(9+i);
-            c=(JLabel) d.getComponent(10+i);
+            a=(JLabel) d.getComponent(18+i);
+            b=(JLabel) d.getComponent(19+i);
+            c=(JLabel) d.getComponent(20+i);
             i=i+3;
             a.setIcon(null);
             b.setText("");
