@@ -26,6 +26,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import static Vista.InterfazAdministrarProducto.jPanelAdministrarProducto;
+import java.awt.Shape;
+import java.awt.geom.RoundRectangle2D;
+import javax.swing.JFrame;
 
 /**
  *
@@ -39,15 +42,23 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
     static Producto objProducto;
     ConectarBD con = new ConectarBD();
     ListarProducto listaImagenes=new ListarProducto();
+    
     public InterfazRegistrarProducto() {
+        
         initComponents();
         this.setDefaultCloseOperation(1);
         this.setLocationRelativeTo(null);
+       
+        //bordes redondeados
+        JFrame frame = new JFrame();
+        frame.setUndecorated(true);
+        this.setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 25, 25));
+        
         objProducto=new Producto();
         try {
             conexion=con.establecerConexion();
         } catch (Exception e) {   
-        }
+        }       
     }
 
     /**
@@ -77,6 +88,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(37, 77, 116));
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(37, 77, 116));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -143,6 +155,8 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jButtonGuardar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonGuardar.setForeground(new java.awt.Color(245, 245, 245));
         jButtonGuardar.setText("GUARDAR");
+        jButtonGuardar.setBorderPainted(false);
+        jButtonGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGuardarActionPerformed(evt);
@@ -154,6 +168,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonCancelar.setForeground(new java.awt.Color(245, 245, 245));
         jButtonCancelar.setText("CANCELAR");
+        jButtonCancelar.setBorderPainted(false);
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
