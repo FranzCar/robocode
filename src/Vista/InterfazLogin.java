@@ -51,6 +51,18 @@ public class InterfazLogin extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel3.setText("Contraseña :");
 
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyPressed(evt);
+            }
+        });
+
+        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPasswordKeyPressed(evt);
+            }
+        });
+
         btnAcceder.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         btnAcceder.setText("Acceder ");
         btnAcceder.addActionListener(new java.awt.event.ActionListener() {
@@ -130,6 +142,16 @@ public class InterfazLogin extends javax.swing.JFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
+        if (evt.getKeyCode()== evt.VK_ENTER) {
+            txtPassword.requestFocus();
+        }
+    }//GEN-LAST:event_txtUsuarioKeyPressed
+
+    private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordKeyPressed
 
     /**
      * @param args the command line arguments
