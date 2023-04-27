@@ -150,7 +150,8 @@ public class InterfazLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsuarioKeyPressed
 
     private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed
-        // TODO add your handling code here:
+         if (evt.getKeyCode()== evt.VK_ENTER) {
+            this.Login();
     }//GEN-LAST:event_txtPasswordKeyPressed
 
     /**
