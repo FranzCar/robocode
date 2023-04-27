@@ -1,13 +1,14 @@
 package Vista;
 
 import java.awt.Dimension;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author njesp
  */
 public class InterfazLogin extends javax.swing.JFrame {
-    
+
     public InterfazLogin() {
         initComponents();
         this.setResizable(false);
@@ -144,19 +145,19 @@ public class InterfazLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
-        if (evt.getKeyCode()== evt.VK_ENTER) {
+        if (evt.getKeyCode() == evt.VK_ENTER) {
             txtPassword.requestFocus();
         }
     }//GEN-LAST:event_txtUsuarioKeyPressed
 
     private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed
-         if (evt.getKeyCode()== evt.VK_ENTER) {
+        if (evt.getKeyCode() == evt.VK_ENTER) {
             this.Login();
     }//GEN-LAST:event_txtPasswordKeyPressed
 
     /**
-     * @param args the command line arguments
-     */
+         * @param args the command line arguments
+         */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -200,4 +201,15 @@ public class InterfazLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+    private void Login (){
+        if (!txtUsuario.getText().isEmpty() && !txtPassword.getText().isEmpty() ) {
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingrese  sus credenciales ");
+        }
+        }
+    }
+
+    
+
 }
