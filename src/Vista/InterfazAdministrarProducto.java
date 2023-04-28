@@ -25,6 +25,9 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabelModelo;
     public static int [] codProdutoLista=new int [10];
     public static int codigoNumero;
+    public static javax.swing.JButton bProdEditar;
+    public static javax.swing.JButton bProdEliminar;
+    public static javax.swing.JButton bProdRegistrar;
     ListarProducto listaImagenes=new ListarProducto();
     public static int offset=0;
     Border border= BorderFactory.createLineBorder(twhite,4);
@@ -35,7 +38,9 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
      */
     public InterfazAdministrarProducto() {
         initComponents();        
-        
+        bProdEditar=jButtonEditar;
+        bProdEliminar=jButtonEliminar;
+        bProdRegistrar=jButtonRegistrar;
         listaImagenes.mostrarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista);
     }
 

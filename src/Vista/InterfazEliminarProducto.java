@@ -5,9 +5,13 @@
 package Vista;
 
 import Conexion.ConectarBD;
+import static Vista.InterfazAdministrarProducto.bProdEditar;
+import static Vista.InterfazAdministrarProducto.bProdEliminar;
+import static Vista.InterfazAdministrarProducto.bProdRegistrar;
 import static Vista.InterfazAdministrarProducto.codigoNumero;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.sql.Statement;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.sql.Blob;
@@ -28,7 +32,10 @@ import javax.swing.JOptionPane;
  */
 public class InterfazEliminarProducto extends javax.swing.JFrame {
     static Connection conexion=null;
+    static Statement sentencia=null;
     ConectarBD con = new ConectarBD();
+    
+    
     /**
      * Creates new form InterfazEliminarProducto
      */
@@ -37,6 +44,7 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
         initComponents();
         this.setDefaultCloseOperation(1);
         this.setLocationRelativeTo(null);
+        jButtonEliminar.setEnabled(true);
         
         try {
                 
@@ -203,11 +211,26 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCaracteristicasActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        bProdEliminar.setEnabled(true);
+        bProdEditar.setEnabled(true);
+        bProdRegistrar.setEnabled(true);
         dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
-        
+        try {
+            sentencia=conexion.createStatement();
+                   
+            String sentenciaSQL1 = new String();
+            sentenciaSQL1="DELETE FROM PRODUCTO WHERE codProducto="+codigoNumero;
+                 
+            sentencia.execute(sentenciaSQL1); 
+            JOptionPane.showMessageDialog(this, "Eliminado con exito"); 
+            dispose();
+
+        } catch (SQLException e) {
+            Logger.getLogger(InterfazRegistrarUsuario.class.getName()).log(Level.SEVERE,null,e);
+        }
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     /**
