@@ -73,10 +73,7 @@ public class ListarProducto {
                     a.setIcon(null);
                     b.setText("");
                     c.setText("");
-                    a=(JLabel) d.getComponent(8+i);
-                    b=(JLabel) d.getComponent(18+i);
-                    a.setEnabled(true);
-                    b.setEnabled(true);
+
                     
                 }
             }
@@ -125,10 +122,7 @@ public class ListarProducto {
                     a.setIcon(null);
                     b.setText("");
                     c.setText("");
-                    a=(JLabel) d.getComponent(8+k);
-                    b=(JLabel) d.getComponent(18+k);
-                    //a.setBorder(BorderFactory.createLineBorder(Color.RED,2));
-                    b.setEnabled(false);                    
+                   
                 }                
             }
         } catch (SQLException e) {
@@ -147,8 +141,7 @@ public class ListarProducto {
             a.setIcon(null);
             b.setText("");
             c.setText("");
-        }
-        
+        }        
     }
     public void buscarImagenInicio(JLabel a,JLabel b, JLabel c, JPanel d, int [] f, String palabra){
         int i=0;
@@ -188,11 +181,7 @@ public class ListarProducto {
                     i=i+3;
                     a.setIcon(null);
                     b.setText("");
-                    c.setText("");
-                    a=(JLabel) d.getComponent(8+k);
-                    b=(JLabel) d.getComponent(18+k);
-                    //a.setBorder(BorderFactory.createLineBorder(Color.RED,2));
-                    b.setEnabled(false);                    
+                    c.setText("");                 
                 }
                 
             }

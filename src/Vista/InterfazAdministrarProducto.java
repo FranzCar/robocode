@@ -530,7 +530,9 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBuscarMouseClicked
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        //listaImagenes.limpiarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto);
+        if(jTextFieldBuscarCoincidencia.getText().equals("")){            
+            offset=0;         
+        }
         listaImagenes.buscarImagenInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista, jTextFieldBuscarCoincidencia.getText());
         jButtonEditar.setEnabled(false);
         jButtonEliminar.setEnabled(false);
