@@ -41,6 +41,8 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         bProdEditar=jButtonEditar;
         bProdEliminar=jButtonEliminar;
         bProdRegistrar=jButtonRegistrar;
+        bProdEditar.setEnabled(false);
+        bProdEliminar.setEnabled(false);
         ultimoMarcado=jLabelMark1;
         listaImagenes.mostrarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista);
     }
@@ -530,7 +532,9 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         //listaImagenes.limpiarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto);
         listaImagenes.buscarImagenInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista, jTextFieldBuscarCoincidencia.getText());
-        
+        jButtonEditar.setEnabled(false);
+        jButtonEliminar.setEnabled(false);
+        ultimoMarcado.setBorder(null);
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonBuscarKeyPressed
@@ -574,12 +578,18 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
     private void jButtonIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIzquierdaActionPerformed
         offset=offset-10;
         listaImagenes.paginarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista,offset);
+        jButtonEditar.setEnabled(false);
+        jButtonEliminar.setEnabled(false);
+        ultimoMarcado.setBorder(null);
     }//GEN-LAST:event_jButtonIzquierdaActionPerformed
 
     private void jButtonDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDerechaActionPerformed
         offset=offset+10;
         //listaImagenes.limpiarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto);
         listaImagenes.paginarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista,offset);
+        jButtonEditar.setEnabled(false);
+        jButtonEliminar.setEnabled(false);
+        ultimoMarcado.setBorder(null);
     }//GEN-LAST:event_jButtonDerechaActionPerformed
 
     private void jLabelHover1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover1MouseEntered
@@ -599,6 +609,11 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
             codigoNumero=codProdutoLista[0];
             jLabelMark1.setBorder(border2);
             ultimoMarcado=jLabelMark1;
+            jButtonEditar.setEnabled(true);
+            jButtonEliminar.setEnabled(true);
+        }else{
+            jButtonEditar.setEnabled(false);
+            jButtonEliminar.setEnabled(false);
         }        
     }//GEN-LAST:event_jLabelHover1MouseClicked
 
@@ -711,6 +726,11 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
             codigoNumero=codProdutoLista[1];
             jLabelMark2.setBorder(border2);
             ultimoMarcado=jLabelMark2;
+            jButtonEditar.setEnabled(true);
+            jButtonEliminar.setEnabled(true);
+        }else{
+            jButtonEditar.setEnabled(false);
+            jButtonEliminar.setEnabled(false);
         }
         
     }//GEN-LAST:event_jLabelHover2MouseClicked
@@ -721,6 +741,11 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
             codigoNumero=codProdutoLista[2];
             jLabelMark3.setBorder(border2);
             ultimoMarcado=jLabelMark3;
+            jButtonEditar.setEnabled(true);
+            jButtonEliminar.setEnabled(true);
+        }else{
+            jButtonEditar.setEnabled(false);
+            jButtonEliminar.setEnabled(false);
         }
         
     }//GEN-LAST:event_jLabelHover3MouseClicked
@@ -731,6 +756,11 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
             codigoNumero=codProdutoLista[3];
             jLabelMark4.setBorder(border2);
             ultimoMarcado=jLabelMark4;
+            jButtonEditar.setEnabled(true);
+            jButtonEliminar.setEnabled(true);
+        }else{
+            jButtonEditar.setEnabled(false);
+            jButtonEliminar.setEnabled(false);
         }
         
     }//GEN-LAST:event_jLabelHover4MouseClicked
@@ -741,6 +771,11 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
             codigoNumero=codProdutoLista[4];
             jLabelMark5.setBorder(border2);
             ultimoMarcado=jLabelMark5;
+            jButtonEditar.setEnabled(true);
+            jButtonEliminar.setEnabled(true);
+        }else{
+            jButtonEditar.setEnabled(false);
+            jButtonEliminar.setEnabled(false);
         }
         
     }//GEN-LAST:event_jLabelHover5MouseClicked
@@ -751,6 +786,11 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
             codigoNumero=codProdutoLista[5];
             jLabelMark6.setBorder(border2);
             ultimoMarcado=jLabelMark6;
+            jButtonEditar.setEnabled(true);
+            jButtonEliminar.setEnabled(true);
+        }else{
+            jButtonEditar.setEnabled(false);
+            jButtonEliminar.setEnabled(false);
         }
         
     }//GEN-LAST:event_jLabelHover6MouseClicked
@@ -761,6 +801,11 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
             codigoNumero=codProdutoLista[6];
             jLabelMark7.setBorder(border2);
             ultimoMarcado=jLabelMark7;
+            jButtonEditar.setEnabled(true);
+            jButtonEliminar.setEnabled(true);
+        }else{
+            jButtonEditar.setEnabled(false);
+            jButtonEliminar.setEnabled(false);
         }
         
     }//GEN-LAST:event_jLabelHover7MouseClicked
@@ -771,6 +816,11 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
             codigoNumero=codProdutoLista[7];
             jLabelMark8.setBorder(border2);
             ultimoMarcado=jLabelMark8;
+            jButtonEditar.setEnabled(true);
+            jButtonEliminar.setEnabled(true);            
+        }else{
+            jButtonEditar.setEnabled(false);
+            jButtonEliminar.setEnabled(false);
         }        
     }//GEN-LAST:event_jLabelHover8MouseClicked
 
@@ -780,15 +830,25 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
             codigoNumero=codProdutoLista[8];
             jLabelMark9.setBorder(border2);
             ultimoMarcado=jLabelMark9;
+            jButtonEditar.setEnabled(true);
+            jButtonEliminar.setEnabled(true);            
+        }else{
+            jButtonEditar.setEnabled(false);
+            jButtonEliminar.setEnabled(false);
         }        
     }//GEN-LAST:event_jLabelHover9MouseClicked
 
     private void jLabelHover10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover10MouseClicked
         ultimoMarcado.setBorder(null);
-        if(jLabelFoto10.getIcon()!=null){
+        if(jLabelFoto10.getIcon()!=null){           
             codigoNumero=codProdutoLista[9];
             jLabelMark10.setBorder(border2);
             ultimoMarcado=jLabelMark10;
+            jButtonEditar.setEnabled(true);
+            jButtonEliminar.setEnabled(true);
+        }else{
+            jButtonEditar.setEnabled(false);
+            jButtonEliminar.setEnabled(false);
         }        
     }//GEN-LAST:event_jLabelHover10MouseClicked
 
