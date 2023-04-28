@@ -232,7 +232,17 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
             Logger.getLogger(InterfazRegistrarUsuario.class.getName()).log(Level.SEVERE,null,e);
         }
     }//GEN-LAST:event_jButtonEliminarActionPerformed
-
+public void habilitarBoton(){
+    if(jTextFieldMarca.getText().isEmpty()
+            || jTextFieldModelo.getText().isEmpty()
+            || jTextFieldPrecio.getText().isEmpty()
+            || jTextFieldStock.getText().isEmpty()
+            || jTextFieldCaracteristicas.getText().isEmpty()){
+        jButtonEliminar.setEnabled(false);
+    }else{
+    jButtonEliminar.setEnabled(true);
+    }
+}
     /**
      * @param args the command line arguments
      */
