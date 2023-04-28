@@ -20,27 +20,28 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
     static Connection conexion=null;
     ConectarBD con = new ConectarBD();
     Color twhite=new Color(255,255,255,128);
+    Color newColor=new Color(195,224,229,240);
     public static javax.swing.JLabel jLabelFoto;
     public static javax.swing.JLabel jLabelMarca;
     public static javax.swing.JLabel jLabelModelo;
     public static int [] codProdutoLista=new int [10];
-    public static int codigoNumero;
     public static javax.swing.JButton bProdEditar;
     public static javax.swing.JButton bProdEliminar;
     public static javax.swing.JButton bProdRegistrar;
+    public static int codigoNumero;
     ListarProducto listaImagenes=new ListarProducto();
     public static int offset=0;
     Border border= BorderFactory.createLineBorder(twhite,4);
-    Border border2= BorderFactory.createLineBorder(Color.red,1);
-    Border border3=BorderFactory.createLoweredBevelBorder();
-    /**
-     * Creates new form InterfazAdministrarProducto
-     */
+    Border border2= BorderFactory.createLineBorder(newColor,4);
+    //Border border= BorderFactory.createLineBorder(Color.red,1);
+    //Border border=BorderFactory.createLoweredBevelBorder();
+    private javax.swing.JLabel ultimoMarcado;
     public InterfazAdministrarProducto() {
-        initComponents();        
+        initComponents();
         bProdEditar=jButtonEditar;
         bProdEliminar=jButtonEliminar;
         bProdRegistrar=jButtonRegistrar;
+        ultimoMarcado=jLabelMark1;
         listaImagenes.mostrarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista);
     }
 
@@ -72,6 +73,16 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         jLabelHover8 = new javax.swing.JLabel();
         jLabelHover9 = new javax.swing.JLabel();
         jLabelHover10 = new javax.swing.JLabel();
+        jLabelMark1 = new javax.swing.JLabel();
+        jLabelMark2 = new javax.swing.JLabel();
+        jLabelMark3 = new javax.swing.JLabel();
+        jLabelMark4 = new javax.swing.JLabel();
+        jLabelMark5 = new javax.swing.JLabel();
+        jLabelMark6 = new javax.swing.JLabel();
+        jLabelMark7 = new javax.swing.JLabel();
+        jLabelMark8 = new javax.swing.JLabel();
+        jLabelMark9 = new javax.swing.JLabel();
+        jLabelMark10 = new javax.swing.JLabel();
         jLabelFoto1 = new javax.swing.JLabel();
         jLabelMarcaFoto1 = new javax.swing.JLabel();
         jLabelModeloFoto1 = new javax.swing.JLabel();
@@ -104,16 +115,6 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         jLabelModeloFoto10 = new javax.swing.JLabel();
         jButtonIzquierda = new javax.swing.JButton();
         jButtonDerecha = new javax.swing.JButton();
-        jLabelMark5 = new javax.swing.JLabel();
-        jLabelMark1 = new javax.swing.JLabel();
-        jLabelMark3 = new javax.swing.JLabel();
-        jLabelMark4 = new javax.swing.JLabel();
-        jLabelMark2 = new javax.swing.JLabel();
-        jLabelMark6 = new javax.swing.JLabel();
-        jLabelMark7 = new javax.swing.JLabel();
-        jLabelMark8 = new javax.swing.JLabel();
-        jLabelMark9 = new javax.swing.JLabel();
-        jLabelMark10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -222,7 +223,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jLabelHover1MouseExited(evt);
             }
         });
-        jPanelAdministrarProducto.add(jLabelHover1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 140, 160));
+        jPanelAdministrarProducto.add(jLabelHover1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 140, 160));
 
         jLabelHover2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -235,7 +236,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jLabelHover2MouseExited(evt);
             }
         });
-        jPanelAdministrarProducto.add(jLabelHover2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 140, 160));
+        jPanelAdministrarProducto.add(jLabelHover2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 140, 160));
 
         jLabelHover3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -248,7 +249,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jLabelHover3MouseExited(evt);
             }
         });
-        jPanelAdministrarProducto.add(jLabelHover3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 140, 160));
+        jPanelAdministrarProducto.add(jLabelHover3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 140, 160));
 
         jLabelHover4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -261,7 +262,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jLabelHover4MouseExited(evt);
             }
         });
-        jPanelAdministrarProducto.add(jLabelHover4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, 140, 160));
+        jPanelAdministrarProducto.add(jLabelHover4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 140, 160));
 
         jLabelHover5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -274,7 +275,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jLabelHover5MouseExited(evt);
             }
         });
-        jPanelAdministrarProducto.add(jLabelHover5, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 220, 140, 160));
+        jPanelAdministrarProducto.add(jLabelHover5, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 190, 140, 160));
 
         jLabelHover6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -287,7 +288,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jLabelHover6MouseExited(evt);
             }
         });
-        jPanelAdministrarProducto.add(jLabelHover6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 140, 160));
+        jPanelAdministrarProducto.add(jLabelHover6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 140, 160));
 
         jLabelHover7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -300,7 +301,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jLabelHover7MouseExited(evt);
             }
         });
-        jPanelAdministrarProducto.add(jLabelHover7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, 140, 160));
+        jPanelAdministrarProducto.add(jLabelHover7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 140, 160));
 
         jLabelHover8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -313,7 +314,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jLabelHover8MouseExited(evt);
             }
         });
-        jPanelAdministrarProducto.add(jLabelHover8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, 140, 160));
+        jPanelAdministrarProducto.add(jLabelHover8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 140, 160));
 
         jLabelHover9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -326,7 +327,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jLabelHover9MouseExited(evt);
             }
         });
-        jPanelAdministrarProducto.add(jLabelHover9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, 140, 160));
+        jPanelAdministrarProducto.add(jLabelHover9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 140, 160));
 
         jLabelHover10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -339,136 +340,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jLabelHover10MouseExited(evt);
             }
         });
-        jPanelAdministrarProducto.add(jLabelHover10, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 400, 140, 160));
-
-        jLabelFoto1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelFoto1.setName(""); // NOI18N
-        jLabelFoto1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelFoto1MouseClicked(evt);
-            }
-        });
-        jPanelAdministrarProducto.add(jLabelFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 140, 110));
-
-        jLabelMarcaFoto1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabelMarcaFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 110, -1));
-
-        jLabelModeloFoto1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabelModeloFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, -1, -1));
-
-        jLabelFoto2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelFoto2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelFoto2MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabelFoto2MouseEntered(evt);
-            }
-        });
-        jPanelAdministrarProducto.add(jLabelFoto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 140, 110));
-
-        jLabelMarcaFoto2.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabelMarcaFoto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, -1, -1));
-
-        jLabelModeloFoto2.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabelModeloFoto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, -1, -1));
-
-        jLabelFoto3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelFoto3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelFoto3MouseClicked(evt);
-            }
-        });
-        jPanelAdministrarProducto.add(jLabelFoto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 140, 110));
-
-        jLabelMarcaFoto3.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabelMarcaFoto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, -1, -1));
-
-        jLabelModeloFoto3.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabelModeloFoto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, -1, -1));
-
-        jLabelFoto4.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabelFoto4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, 140, 110));
-
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, -1, -1));
-
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 360, -1, -1));
-
-        jLabelFoto5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelFoto5.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabelFoto5, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 220, 140, 110));
-
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 340, -1, -1));
-
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 360, -1, -1));
-
-        jLabelFoto6.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabelFoto6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 140, 110));
-
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, -1, -1));
-
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, -1, -1));
-
-        jLabelFoto7.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabelFoto7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, 140, 110));
-
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 520, -1, -1));
-
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 540, -1, -1));
-
-        jLabelFoto8.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabelFoto8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, 140, 110));
-
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 520, -1, -1));
-
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 540, -1, -1));
-
-        jLabelFoto9.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabelFoto9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, 140, 110));
-
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 520, -1, -1));
-
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 540, -1, -1));
-
-        jLabelFoto10.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabelFoto10, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 400, 140, 110));
-
-        jLabelMarcaFoto10.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabelMarcaFoto10, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 520, -1, -1));
-
-        jLabelModeloFoto10.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabelModeloFoto10, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 540, -1, -1));
-
-        jButtonIzquierda.setText("left");
-        jButtonIzquierda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIzquierdaActionPerformed(evt);
-            }
-        });
-        jPanelAdministrarProducto.add(jButtonIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, -1));
-
-        jButtonDerecha.setText("right");
-        jButtonDerecha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDerechaActionPerformed(evt);
-            }
-        });
-        jPanelAdministrarProducto.add(jButtonDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, -1, -1));
-
-        jLabelMark5.setText("jLabel15");
-        jPanelAdministrarProducto.add(jLabelMark5, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 220, 140, 160));
+        jPanelAdministrarProducto.add(jLabelHover10, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 370, 140, 160));
 
         jLabelMark1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -486,31 +358,142 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jLabelMark1MouseExited(evt);
             }
         });
-        jPanelAdministrarProducto.add(jLabelMark1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 140, 160));
+        jPanelAdministrarProducto.add(jLabelMark1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 140, 160));
+        jPanelAdministrarProducto.add(jLabelMark2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 140, 160));
+        jPanelAdministrarProducto.add(jLabelMark3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 140, 160));
+        jPanelAdministrarProducto.add(jLabelMark4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 140, 160));
+        jPanelAdministrarProducto.add(jLabelMark5, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 190, 140, 160));
+        jPanelAdministrarProducto.add(jLabelMark6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 140, 160));
+        jPanelAdministrarProducto.add(jLabelMark7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 140, 160));
+        jPanelAdministrarProducto.add(jLabelMark8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 140, 160));
+        jPanelAdministrarProducto.add(jLabelMark9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 140, 160));
+        jPanelAdministrarProducto.add(jLabelMark10, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 370, 140, 160));
 
-        jLabelMark3.setText("jLabel15");
-        jPanelAdministrarProducto.add(jLabelMark3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 140, 160));
+        jLabelFoto1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelFoto1.setName(""); // NOI18N
+        jLabelFoto1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelFoto1MouseClicked(evt);
+            }
+        });
+        jPanelAdministrarProducto.add(jLabelFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 140, 110));
 
-        jLabelMark4.setText("jLabel15");
-        jPanelAdministrarProducto.add(jLabelMark4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, 140, 160));
+        jLabelMarcaFoto1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabelMarcaFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 110, -1));
 
-        jLabelMark2.setText("jLabel15");
-        jPanelAdministrarProducto.add(jLabelMark2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 140, 160));
+        jLabelModeloFoto1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabelModeloFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, -1));
 
-        jLabelMark6.setText("jLabel15");
-        jPanelAdministrarProducto.add(jLabelMark6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 140, 160));
+        jLabelFoto2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelFoto2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelFoto2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelFoto2MouseEntered(evt);
+            }
+        });
+        jPanelAdministrarProducto.add(jLabelFoto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 140, 110));
 
-        jLabelMark7.setText("jLabel15");
-        jPanelAdministrarProducto.add(jLabelMark7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, 140, 160));
+        jLabelMarcaFoto2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabelMarcaFoto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, -1, -1));
 
-        jLabelMark8.setText("jLabel15");
-        jPanelAdministrarProducto.add(jLabelMark8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, 140, 160));
+        jLabelModeloFoto2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabelModeloFoto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, -1, -1));
 
-        jLabelMark9.setText("jLabel15");
-        jPanelAdministrarProducto.add(jLabelMark9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, 140, 160));
+        jLabelFoto3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelFoto3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelFoto3MouseClicked(evt);
+            }
+        });
+        jPanelAdministrarProducto.add(jLabelFoto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 140, 110));
 
-        jLabelMark10.setText("jLabel15");
-        jPanelAdministrarProducto.add(jLabelMark10, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 400, 140, 160));
+        jLabelMarcaFoto3.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabelMarcaFoto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, -1, -1));
+
+        jLabelModeloFoto3.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabelModeloFoto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, -1, -1));
+
+        jLabelFoto4.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabelFoto4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 140, 110));
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, -1, -1));
+
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 330, -1, -1));
+
+        jLabelFoto5.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelFoto5.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabelFoto5, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 190, 140, 110));
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 310, -1, -1));
+
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 330, -1, -1));
+
+        jLabelFoto6.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabelFoto6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 140, 110));
+
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, -1, -1));
+
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 510, -1, -1));
+
+        jLabelFoto7.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabelFoto7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 140, 110));
+
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 490, -1, -1));
+
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, -1, -1));
+
+        jLabelFoto8.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabelFoto8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 140, 110));
+
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, -1, -1));
+
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 510, -1, -1));
+
+        jLabelFoto9.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabelFoto9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 140, 110));
+
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 490, -1, -1));
+
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 510, -1, -1));
+
+        jLabelFoto10.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabelFoto10, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 370, 140, 110));
+
+        jLabelMarcaFoto10.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabelMarcaFoto10, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 490, -1, -1));
+
+        jLabelModeloFoto10.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelAdministrarProducto.add(jLabelModeloFoto10, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 510, -1, -1));
+
+        jButtonIzquierda.setText("left");
+        jButtonIzquierda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIzquierdaActionPerformed(evt);
+            }
+        });
+        jPanelAdministrarProducto.add(jButtonIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 570, -1, -1));
+
+        jButtonDerecha.setText("right");
+        jButtonDerecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDerechaActionPerformed(evt);
+            }
+        });
+        jPanelAdministrarProducto.add(jButtonDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -545,7 +528,9 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBuscarMouseClicked
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-
+        //listaImagenes.limpiarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto);
+        listaImagenes.buscarImagenInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista, jTextFieldBuscarCoincidencia.getText());
+        
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonBuscarKeyPressed
@@ -593,7 +578,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
 
     private void jButtonDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDerechaActionPerformed
         offset=offset+10;
-        listaImagenes.limpiarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto);
+        //listaImagenes.limpiarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto);
         listaImagenes.paginarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista,offset);
     }//GEN-LAST:event_jButtonDerechaActionPerformed
 
@@ -606,12 +591,16 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover1FocusGained
 
     private void jLabelHover1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover1MouseClicked
+        ultimoMarcado.setBorder(null);
         codigoNumero=codProdutoLista[0];
         jLabelMark1.setBorder(border);
+        ultimoMarcado=jLabelMark1;
     }//GEN-LAST:event_jLabelHover1MouseClicked
 
     private void jLabelHover1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover1MouseExited
-        jLabelHover1.setBorder(null);
+        if(jLabelFoto1.getIcon()!=null){
+            jLabelHover1.setBorder(border);
+        }
     }//GEN-LAST:event_jLabelHover1MouseExited
 
     private void jLabelFoto2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFoto2MouseEntered
@@ -619,39 +608,62 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelFoto2MouseEntered
 
     private void jLabelHover2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover2MouseEntered
-        jLabelHover2.setBorder(border);
+        if(jLabelFoto2.getIcon()!=null){
+            jLabelHover2.setBorder(border);
+        }
+        
     }//GEN-LAST:event_jLabelHover2MouseEntered
 
     private void jLabelHover3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover3MouseEntered
-        jLabelHover3.setBorder(border);
+        if(jLabelFoto3.getIcon()!=null){
+            jLabelHover3.setBorder(border);
+        }
+        
     }//GEN-LAST:event_jLabelHover3MouseEntered
 
     private void jLabelHover4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover4MouseEntered
-        jLabelHover4.setBorder(border);
+        if(jLabelFoto4.getIcon()!=null){
+            jLabelHover4.setBorder(border);
+        }
+        
     }//GEN-LAST:event_jLabelHover4MouseEntered
 
     private void jLabelHover5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover5MouseEntered
-        jLabelHover5.setBorder(border);
+        if(jLabelFoto5.getIcon()!=null){
+            jLabelHover5.setBorder(border);
+        }
+        
     }//GEN-LAST:event_jLabelHover5MouseEntered
 
     private void jLabelHover6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover6MouseEntered
-        jLabelHover6.setBorder(border);
+        if(jLabelFoto6.getIcon()!=null){
+            jLabelHover6.setBorder(border);
+        }
+        
     }//GEN-LAST:event_jLabelHover6MouseEntered
 
     private void jLabelHover7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover7MouseEntered
-        jLabelHover7.setBorder(border);
+        if(jLabelFoto7.getIcon()!=null){
+            jLabelHover7.setBorder(border);
+        }        
     }//GEN-LAST:event_jLabelHover7MouseEntered
 
     private void jLabelHover8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover8MouseEntered
-        jLabelHover8.setBorder(border);
+        if(jLabelFoto8.getIcon()!=null){
+            jLabelHover8.setBorder(border);
+        }
     }//GEN-LAST:event_jLabelHover8MouseEntered
 
     private void jLabelHover9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover9MouseEntered
-        jLabelHover9.setBorder(border);
+        if(jLabelFoto9.getIcon()!=null){
+            jLabelHover9.setBorder(border);
+        }
     }//GEN-LAST:event_jLabelHover9MouseEntered
 
     private void jLabelHover10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover10MouseEntered
-        jLabelHover10.setBorder(border);
+        if(jLabelFoto10.getIcon()!=null){
+            jLabelHover10.setBorder(border);
+        }
     }//GEN-LAST:event_jLabelHover10MouseEntered
 
     private void jLabelHover2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover2MouseExited
@@ -691,48 +703,78 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover10MouseExited
 
     private void jLabelHover2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover2MouseClicked
-        codigoNumero=codProdutoLista[1];
-        jLabelMark2.setBorder(border);
+        ultimoMarcado.setBorder(null);
+        if(jLabelFoto2.getIcon()!=null){
+            codigoNumero=codProdutoLista[1];
+            jLabelMark2.setBorder(border2);
+            ultimoMarcado=jLabelMark2;
+        }
+        
     }//GEN-LAST:event_jLabelHover2MouseClicked
 
     private void jLabelHover3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover3MouseClicked
-        codigoNumero=codProdutoLista[2];
-        jLabelMark3.setBorder(border);
+        ultimoMarcado.setBorder(null);
+        if(jLabelFoto3.getIcon()!=null){
+            codigoNumero=codProdutoLista[2];
+            jLabelMark3.setBorder(border2);
+            ultimoMarcado=jLabelMark3;
+        }
+        
     }//GEN-LAST:event_jLabelHover3MouseClicked
 
     private void jLabelHover4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover4MouseClicked
+        ultimoMarcado.setBorder(null);
         codigoNumero=codProdutoLista[3];
-        jLabelMark4.setBorder(border);
+        jLabelMark4.setBorder(border2);
+        ultimoMarcado=jLabelMark4;
     }//GEN-LAST:event_jLabelHover4MouseClicked
 
     private void jLabelHover5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover5MouseClicked
+        ultimoMarcado.setBorder(null);
         codigoNumero=codProdutoLista[4];
-        jLabelMark5.setBorder(border);
+        jLabelMark5.setBorder(border2);
+        ultimoMarcado=jLabelMark5;
     }//GEN-LAST:event_jLabelHover5MouseClicked
 
     private void jLabelHover6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover6MouseClicked
+        ultimoMarcado.setBorder(null);
         codigoNumero=codProdutoLista[5];
-        jLabelMark6.setBorder(border);
+        jLabelMark6.setBorder(border2);
+        ultimoMarcado=jLabelMark6;
     }//GEN-LAST:event_jLabelHover6MouseClicked
 
     private void jLabelHover7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover7MouseClicked
-        codigoNumero=codProdutoLista[6];
-        jLabelMark7.setBorder(border);
+        ultimoMarcado.setBorder(null);
+        if(jLabelFoto7.getIcon()!=null){
+            codigoNumero=codProdutoLista[6];
+            jLabelMark7.setBorder(border2);
+            ultimoMarcado=jLabelMark7;
+        }
+        
     }//GEN-LAST:event_jLabelHover7MouseClicked
 
     private void jLabelHover8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover8MouseClicked
-        codigoNumero=codProdutoLista[7];
-        jLabelMark8.setBorder(border);
+        ultimoMarcado.setBorder(null);
+        if(jLabelFoto8.getIcon()!=null){
+            codigoNumero=codProdutoLista[7];
+            jLabelMark8.setBorder(border2);
+            ultimoMarcado=jLabelMark8;
+        }
+        
     }//GEN-LAST:event_jLabelHover8MouseClicked
 
     private void jLabelHover9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover9MouseClicked
+        ultimoMarcado.setBorder(null);
         codigoNumero=codProdutoLista[8];
-        jLabelMark9.setBorder(border);
+        jLabelMark9.setBorder(border2);
+        ultimoMarcado=jLabelMark9;
     }//GEN-LAST:event_jLabelHover9MouseClicked
 
     private void jLabelHover10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover10MouseClicked
+        ultimoMarcado.setBorder(null);
         codigoNumero=codProdutoLista[9];
-        jLabelMark10.setBorder(border);
+        jLabelMark10.setBorder(border2);
+        ultimoMarcado=jLabelMark10;
     }//GEN-LAST:event_jLabelHover10MouseClicked
 
     private void jLabelMark1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLabelMark1FocusGained
