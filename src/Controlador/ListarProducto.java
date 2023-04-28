@@ -157,29 +157,44 @@ public class ListarProducto {
             conexion=con.establecerConexion();
             PreparedStatement pst = conexion.prepareStatement("SELECT * FROM PRODUCTO WHERE modeloProducto LIKE \"%"+palabra+"%\" ORDER BY modeloProducto ASC LIMIT 10");
             ResultSet rs = pst.executeQuery();
-            while(rs.next()){
-                a=(JLabel) d.getComponent(28+i);
-                b=(JLabel) d.getComponent(29+i);
-                c=(JLabel) d.getComponent(30+i);
-                i=i+3;
-                f[j]=rs.getInt("codProducto");
-                j++;
-                b.setText(rs.getString("marcaProducto"));
-                c.setText(rs.getString("modeloProducto"));
-                    
-                Blob blob = rs.getBlob("fotoProducto");
-                //pasar el binario a imagen
-                byte[] data = blob.getBytes(1, (int) blob.length());
-                //lee la imagen
-                BufferedImage img = null;
-                try {
-                    img = ImageIO.read(new ByteArrayInputStream(data));
-                } catch (IOException e) {
-                    System.out.println("Error al cargar foto: " + e);
-                }                    
-                ImageIcon icono = new ImageIcon(img);
-                Icon imagen = new ImageIcon(icono.getImage().getScaledInstance(a.getWidth(), a.getHeight(), Image.SCALE_DEFAULT));
-                a.setIcon(imagen);
+            for(int k=0;k<10;k++){
+                if(rs.next()){
+                    a=(JLabel) d.getComponent(28+i);
+                    b=(JLabel) d.getComponent(29+i);
+                    c=(JLabel) d.getComponent(30+i);
+                    i=i+3;
+                    f[j]=rs.getInt("codProducto");
+                    j++;
+                    b.setText(rs.getString("marcaProducto"));
+                    c.setText(rs.getString("modeloProducto"));
+
+                    Blob blob = rs.getBlob("fotoProducto");
+                    //pasar el binario a imagen
+                    byte[] data = blob.getBytes(1, (int) blob.length());
+                    //lee la imagen
+                    BufferedImage img = null;
+                    try {
+                        img = ImageIO.read(new ByteArrayInputStream(data));
+                    } catch (IOException e) {
+                        System.out.println("Error al cargar foto: " + e);
+                    }                    
+                    ImageIcon icono = new ImageIcon(img);
+                    Icon imagen = new ImageIcon(icono.getImage().getScaledInstance(a.getWidth(), a.getHeight(), Image.SCALE_DEFAULT));
+                    a.setIcon(imagen);
+                }else{
+                    a=(JLabel) d.getComponent(28+i);
+                    b=(JLabel) d.getComponent(29+i);
+                    c=(JLabel) d.getComponent(30+i);
+                    i=i+3;
+                    a.setIcon(null);
+                    b.setText("");
+                    c.setText("");
+                    a=(JLabel) d.getComponent(8+k);
+                    b=(JLabel) d.getComponent(18+k);
+                    //a.setBorder(BorderFactory.createLineBorder(Color.RED,2));
+                    b.setEnabled(false);                    
+                }
+                
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "¡Error al cargar!");

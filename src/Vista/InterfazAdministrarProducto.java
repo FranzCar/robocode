@@ -583,7 +583,10 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonDerechaActionPerformed
 
     private void jLabelHover1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover1MouseEntered
-        jLabelHover1.setBorder(border);
+        if(jLabelFoto1.getIcon()!=null){
+            jLabelHover1.setBorder(border);
+        }
+        
     }//GEN-LAST:event_jLabelHover1MouseEntered
 
     private void jLabelHover1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLabelHover1FocusGained
@@ -592,15 +595,15 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
 
     private void jLabelHover1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover1MouseClicked
         ultimoMarcado.setBorder(null);
-        codigoNumero=codProdutoLista[0];
-        jLabelMark1.setBorder(border);
-        ultimoMarcado=jLabelMark1;
+        if(jLabelFoto1.getIcon()!=null){
+            codigoNumero=codProdutoLista[0];
+            jLabelMark1.setBorder(border2);
+            ultimoMarcado=jLabelMark1;
+        }        
     }//GEN-LAST:event_jLabelHover1MouseClicked
 
     private void jLabelHover1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover1MouseExited
-        if(jLabelFoto1.getIcon()!=null){
-            jLabelHover1.setBorder(border);
-        }
+        jLabelHover1.setBorder(null);        
     }//GEN-LAST:event_jLabelHover1MouseExited
 
     private void jLabelFoto2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFoto2MouseEntered
@@ -724,23 +727,32 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
 
     private void jLabelHover4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover4MouseClicked
         ultimoMarcado.setBorder(null);
-        codigoNumero=codProdutoLista[3];
-        jLabelMark4.setBorder(border2);
-        ultimoMarcado=jLabelMark4;
+        if(jLabelFoto4.getIcon()!=null){
+            codigoNumero=codProdutoLista[3];
+            jLabelMark4.setBorder(border2);
+            ultimoMarcado=jLabelMark4;
+        }
+        
     }//GEN-LAST:event_jLabelHover4MouseClicked
 
     private void jLabelHover5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover5MouseClicked
         ultimoMarcado.setBorder(null);
-        codigoNumero=codProdutoLista[4];
-        jLabelMark5.setBorder(border2);
-        ultimoMarcado=jLabelMark5;
+        if(jLabelFoto5.getIcon()!=null){
+            codigoNumero=codProdutoLista[4];
+            jLabelMark5.setBorder(border2);
+            ultimoMarcado=jLabelMark5;
+        }
+        
     }//GEN-LAST:event_jLabelHover5MouseClicked
 
     private void jLabelHover6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover6MouseClicked
         ultimoMarcado.setBorder(null);
-        codigoNumero=codProdutoLista[5];
-        jLabelMark6.setBorder(border2);
-        ultimoMarcado=jLabelMark6;
+        if(jLabelFoto6.getIcon()!=null){
+            codigoNumero=codProdutoLista[5];
+            jLabelMark6.setBorder(border2);
+            ultimoMarcado=jLabelMark6;
+        }
+        
     }//GEN-LAST:event_jLabelHover6MouseClicked
 
     private void jLabelHover7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover7MouseClicked
@@ -759,22 +771,25 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
             codigoNumero=codProdutoLista[7];
             jLabelMark8.setBorder(border2);
             ultimoMarcado=jLabelMark8;
-        }
-        
+        }        
     }//GEN-LAST:event_jLabelHover8MouseClicked
 
     private void jLabelHover9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover9MouseClicked
         ultimoMarcado.setBorder(null);
-        codigoNumero=codProdutoLista[8];
-        jLabelMark9.setBorder(border2);
-        ultimoMarcado=jLabelMark9;
+        if(jLabelFoto9.getIcon()!=null){
+            codigoNumero=codProdutoLista[8];
+            jLabelMark9.setBorder(border2);
+            ultimoMarcado=jLabelMark9;
+        }        
     }//GEN-LAST:event_jLabelHover9MouseClicked
 
     private void jLabelHover10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover10MouseClicked
         ultimoMarcado.setBorder(null);
-        codigoNumero=codProdutoLista[9];
-        jLabelMark10.setBorder(border2);
-        ultimoMarcado=jLabelMark10;
+        if(jLabelFoto10.getIcon()!=null){
+            codigoNumero=codProdutoLista[9];
+            jLabelMark10.setBorder(border2);
+            ultimoMarcado=jLabelMark10;
+        }        
     }//GEN-LAST:event_jLabelHover10MouseClicked
 
     private void jLabelMark1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLabelMark1FocusGained
