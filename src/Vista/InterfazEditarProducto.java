@@ -5,22 +5,43 @@
 package Vista;
 
 import Conexion.ConectarBD;
+import Controlador.ListarProducto;
+import Modelo.Producto;
+import Modelo.Usuario;
+import static Vista.InterfazAdministrarProducto.codProdutoLista;
 import static Vista.InterfazAdministrarProducto.codigoNumero;
+import static Vista.InterfazAdministrarProducto.jLabelMarca;
+import static Vista.InterfazAdministrarProducto.jLabelModelo;
+import static Vista.InterfazAdministrarProducto.jPanelAdministrarProducto;
+import static Vista.InterfazAdministrarProducto.offset;
+import static Vista.InterfazEditarUsuario.objUsuario;
+import static Vista.InterfazEditarUsuario.sentencia;
+import static Vista.InterfazRegistrarProducto.conexion;
+import static Vista.InterfazRegistrarProducto.objProducto;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.ByteBuffer;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 /**
  *
  * @author HP
@@ -28,13 +49,38 @@ import javax.swing.JOptionPane;
 public class InterfazEditarProducto extends javax.swing.JFrame {
     static Connection conexion=null;
     ConectarBD con = new ConectarBD();
-    /**
+     static Statement sentencia=null;
+     static Producto objProducto;
+    static ResultSet resultado=null;     
+     static int cod=codigoNumero;
+     private FileInputStream file;
+     ListarProducto listaImagenes=new ListarProducto();
+  
+    /*
      * Creates new form InterfazRegistrarProducto
      */
     public InterfazEditarProducto() {
         initComponents();
         this.setDefaultCloseOperation(1);
         this.setLocationRelativeTo(null);
+        objProducto=new Producto();
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(InterfazEditarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(InterfazEditarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(InterfazEditarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(InterfazEditarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        
         try {
                 
                 conexion=con.establecerConexion();
@@ -147,8 +193,13 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         jLabelFoto.setBackground(new java.awt.Color(255, 255, 255));
         jLabelFoto.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFoto.setText("             fotografia");
-        jLabelFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabelFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(574, 130, 140, 258));
+        jLabelFoto.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jLabelFoto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelFotoMouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabelFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, 140, 250));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -200,12 +251,90 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCaracteristicasActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-        
+     
+       
+
+    try {
+        sentencia = conexion.createStatement();
+        objProducto.marca = jTextFieldMarca.getText();
+        objProducto.modelo = jTextFieldModelo.getText();
+        objProducto.precio = jTextFieldPrecio.getText();
+        objProducto.stock = Integer.parseInt(jTextFieldStock.getText());
+        objProducto.caracteristicas = jTextFieldCaracteristicas.getText();
+
+        // Obtener el codProducto anterior
+        String codProductoAnterior = null;
+        String sentenciaSQLSelect = "SELECT codProducto FROM producto WHERE codProducto=" + cod;
+        ResultSet resultadoSelect = sentencia.executeQuery(sentenciaSQLSelect);
+
+        if (resultadoSelect.next()) {
+            codProductoAnterior = resultadoSelect.getString("codProducto");
+        }
+
+        String sentenciaSQL = "UPDATE producto SET marcaProducto = ?, modeloProducto = ?, precioProducto = ?, stockProducto = ?, caracteristicasProducto = ?";
+        PreparedStatement ps = null;
+        if (file != null) {
+            sentenciaSQL += ", fotoProducto = ?";
+            ps = conexion.prepareStatement(sentenciaSQL);
+            ps.setBlob(4, file, objProducto.foto);
+        } else {
+            ps = conexion.prepareStatement(sentenciaSQL);
+        }
+        sentenciaSQL += " WHERE codProducto = " + codProductoAnterior;
+        ps = conexion.prepareStatement(sentenciaSQL);
+
+        ps.setString(1, objProducto.marca);
+        ps.setString(2, objProducto.modelo);
+        ps.setString(3, objProducto.precio);
+        ps.setInt(4, objProducto.stock);
+        ps.setString(5, objProducto.caracteristicas);
+
+        if (file != null) {
+            ps.setBlob(6, file, objProducto.foto);
+        }
+
+        int resultado = ps.executeUpdate();
+
+        if (resultado > 0) {
+            JOptionPane.showMessageDialog(this, "Producto actualizado correctamente.");
+        } else {
+            JOptionPane.showMessageDialog(this, "No se pudo actualizar el producto.");
+        }
+
+        dispose();
+    } catch (SQLException e) {
+        Logger.getLogger(InterfazEditarProducto.class.getName()).log(Level.SEVERE, null, e);
+    }
+offset=0;
+        listaImagenes.mostrarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista);
+
+                                  
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jLabelFotoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFotoMouseClicked
+        // TODO add your handling code here:
+        
+        JFileChooser se = new JFileChooser();
+        se.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int estado = se.showOpenDialog(null);
+        if (estado == JFileChooser.APPROVE_OPTION) {
+            try {
+
+                file = new FileInputStream(se.getSelectedFile());
+                
+                objProducto.foto = (int) se.getSelectedFile().length();
+                Image icono = ImageIO.read(se.getSelectedFile()).getScaledInstance(jLabelFoto.getWidth(), jLabelFoto.getHeight(), Image.SCALE_DEFAULT);
+                jLabelFoto.setIcon(new ImageIcon(icono));
+                jLabelFoto.updateUI();            
+            } catch (IOException e) {                
+                System.out.println("Error");
+            }
+        }
+    }//GEN-LAST:event_jLabelFotoMouseClicked
 
     /**
      * @param args the command line arguments
