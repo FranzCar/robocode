@@ -164,22 +164,7 @@ public class InterfazLogin extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InterfazLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InterfazLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InterfazLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterfazLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+        
         //</editor-fold>
 
         /* Create and display the form */
@@ -203,13 +188,19 @@ public class InterfazLogin extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     private void Login (){
         if (!txtUsuario.getText().isEmpty() && !txtPassword.getText().isEmpty() ) {
+            Ctrl_Usuario controlUsuario = new Ctrl_Usuario();
+            Usuario usuario = new New Usuario();
+            usuario.setUsuario(txtUsuario.getText().trim());
+            usuario.setPassword(txtPassword.getText().trim());
+            if (controlUsuario.loginUser(usuario)) {
+                JOptionPane.showMessageDialog(null,"Login Correcto..");
+            } else {
+                JOptionPane.showMessageDialog(null,"Usuario 0 Clave INcorrectos ");
+            }
+            }
             
         } else {
             JOptionPane.showMessageDialog(null, "Ingrese  sus credenciales ");
         }
-        }
     }
-
-    
-
 }
