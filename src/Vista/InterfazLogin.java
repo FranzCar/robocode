@@ -164,7 +164,7 @@ public class InterfazLogin extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        
+
         //</editor-fold>
 
         /* Create and display the form */
@@ -186,19 +186,17 @@ public class InterfazLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
-    private void Login (){
-        if (!txtUsuario.getText().isEmpty() && !txtPassword.getText().isEmpty() ) {
+    private void Login() {
+        if (!txtUsuario.getText().isEmpty() && !txtPassword.getText().isEmpty()) {
             Ctrl_Usuario controlUsuario = new Ctrl_Usuario();
-            Usuario usuario = new New Usuario();
+            Usuario usuario = new Usuario();
             usuario.setUsuario(txtUsuario.getText().trim());
             usuario.setPassword(txtPassword.getText().trim());
             if (controlUsuario.loginUser(usuario)) {
-                JOptionPane.showMessageDialog(null,"Login Correcto..");
+                JOptionPane.showMessageDialog(null, "Login Correcto..");
             } else {
-                JOptionPane.showMessageDialog(null,"Usuario 0 Clave INcorrectos ");
+                JOptionPane.showMessageDialog(null, "Usuario 0 Clave INcorrectos ");
             }
-            }
-            
         } else {
             JOptionPane.showMessageDialog(null, "Ingrese  sus credenciales ");
         }
