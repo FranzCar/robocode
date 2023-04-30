@@ -44,6 +44,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         bProdEditar.setEnabled(false);
         bProdEliminar.setEnabled(false);
         ultimoMarcado=jLabelMark1;
+        //jButtonDerecha.setEnabled(false);
         listaImagenes.mostrarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista);
     }
 
@@ -179,7 +180,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jButtonEditarActionPerformed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 610, -1, 30));
+        jPanelAdministrarProducto.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 640, -1, 30));
 
         jButtonEliminar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonEliminar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -189,7 +190,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jButtonEliminarActionPerformed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 610, -1, 30));
+        jPanelAdministrarProducto.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 640, -1, 30));
 
         jButtonRegistrar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -199,7 +200,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jButtonRegistrarActionPerformed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 610, -1, 30));
+        jPanelAdministrarProducto.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 640, -1, 30));
 
         jButtonHome.setText("home");
         jButtonHome.addActionListener(new java.awt.event.ActionListener() {
@@ -481,21 +482,27 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         jLabelModeloFoto10.setForeground(new java.awt.Color(255, 255, 255));
         jPanelAdministrarProducto.add(jLabelModeloFoto10, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 510, -1, -1));
 
-        jButtonIzquierda.setText("left");
+        jButtonIzquierda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/izquierda.png"))); // NOI18N
+        jButtonIzquierda.setBorder(null);
+        jButtonIzquierda.setContentAreaFilled(false);
+        jButtonIzquierda.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/izquierdaLight.png"))); // NOI18N
         jButtonIzquierda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIzquierdaActionPerformed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 570, -1, -1));
+        jPanelAdministrarProducto.add(jButtonIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, 64, 64));
 
-        jButtonDerecha.setText("right");
+        jButtonDerecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/derecha.png"))); // NOI18N
+        jButtonDerecha.setBorder(null);
+        jButtonDerecha.setContentAreaFilled(false);
+        jButtonDerecha.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/derechaLight.png"))); // NOI18N
         jButtonDerecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDerechaActionPerformed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, -1, -1));
+        jPanelAdministrarProducto.add(jButtonDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 530, 64, 64));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -505,9 +512,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelAdministrarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanelAdministrarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
