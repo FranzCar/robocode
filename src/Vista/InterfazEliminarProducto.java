@@ -80,6 +80,11 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "¡Error al cargar!");
                 System.out.println("Error al cargar foto: " + e);
             }
+            jTextFieldMarca.setEditable(false);
+            jTextFieldModelo.setEditable(false);
+            jTextFieldPrecio.setEditable(false);
+            jTextFieldStock.setEditable(false);
+            jTextFieldCaracteristicas.setEditable(false);
         
     }
 
