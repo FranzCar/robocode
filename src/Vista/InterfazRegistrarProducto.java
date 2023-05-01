@@ -215,7 +215,6 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 530, 190, -1));
 
         avisoMarca.setBackground(new java.awt.Color(255, 255, 255));
-<<<<<<< HEAD
         avisoMarca.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(avisoMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 160, 20));
 
@@ -234,7 +233,6 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         avisoCaracteristicas.setBackground(new java.awt.Color(255, 255, 255));
         avisoCaracteristicas.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(avisoCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, 170, 20));
-=======
         avisoMarca.setForeground(new java.awt.Color(204, 204, 255));
         jPanel1.add(avisoMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 290, 20));
 
@@ -249,7 +247,6 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
 
         avisoCaracteristicas.setForeground(new java.awt.Color(204, 204, 255));
         jPanel1.add(avisoCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 290, 20));
->>>>>>> feature/InterfazRegistrarProducto
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
