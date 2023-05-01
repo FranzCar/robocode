@@ -162,7 +162,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
                 jTextFieldCaracteristicasKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextFieldCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 288, 120));
+        jPanel1.add(jTextFieldCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 288, 100));
 
         jLabelFoto.setBackground(new java.awt.Color(255, 255, 255));
         jLabelFoto.setForeground(new java.awt.Color(255, 255, 255));
@@ -211,11 +211,11 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 530, 190, -1));
 
         avisoMarca.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(avisoMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 160, 10));
-        jPanel1.add(avisoModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 170, 20));
-        jPanel1.add(avisoPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 140, 10));
-        jPanel1.add(avisoStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 190, 20));
-        jPanel1.add(avisoCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, 160, 20));
+        jPanel1.add(avisoMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 290, 20));
+        jPanel1.add(avisoModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 290, 20));
+        jPanel1.add(avisoPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 290, 20));
+        jPanel1.add(avisoStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 290, 20));
+        jPanel1.add(avisoCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 290, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
