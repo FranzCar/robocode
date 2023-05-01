@@ -6,6 +6,7 @@ package Vista;
 
 import Conexion.ConectarBD;
 import Controlador.ListarProducto;
+import Controlador.Validaciones;
 import Modelo.Producto;
 import static Vista.InterfazAdministrarProducto.codProdutoLista;
 import static Vista.InterfazAdministrarProducto.jLabelFoto;
@@ -120,6 +121,9 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
         jTextFieldMarca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldMarcaKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldMarcaKeyTyped(evt);
             }
@@ -162,7 +166,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
                 jTextFieldCaracteristicasKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextFieldCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 288, 120));
+        jPanel1.add(jTextFieldCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 288, 90));
 
         jLabelFoto.setBackground(new java.awt.Color(255, 255, 255));
         jLabelFoto.setForeground(new java.awt.Color(255, 255, 255));
@@ -211,11 +215,20 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 530, 190, -1));
 
         avisoMarca.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(avisoMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 160, 10));
-        jPanel1.add(avisoModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 170, 20));
-        jPanel1.add(avisoPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 140, 10));
-        jPanel1.add(avisoStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 190, 20));
-        jPanel1.add(avisoCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, 160, 20));
+        avisoMarca.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel1.add(avisoMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 290, 20));
+
+        avisoModelo.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel1.add(avisoModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 290, 20));
+
+        avisoPrecio.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel1.add(avisoPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 290, 20));
+
+        avisoStock.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel1.add(avisoStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 290, 20));
+
+        avisoCaracteristicas.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel1.add(avisoCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 290, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -240,6 +253,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCaracteristicasActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+       
         try{
             
             objProducto.marca=jTextFieldMarca.getText();
@@ -295,7 +309,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
     private void jTextFieldMarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMarcaKeyTyped
         // TODO add your handling code here:
        
-        habilitarBotonP();
+       // habilitarBotonP();
     }//GEN-LAST:event_jTextFieldMarcaKeyTyped
 
     private void jButtonGuardarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonGuardarKeyPressed
@@ -304,23 +318,28 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
 
     private void jTextFieldModeloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldModeloKeyTyped
       
-        habilitarBotonP();
+       // habilitarBotonP();
     }//GEN-LAST:event_jTextFieldModeloKeyTyped
 
     private void jTextFieldPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPrecioKeyTyped
        
-        habilitarBotonP();
+        //habilitarBotonP();
     }//GEN-LAST:event_jTextFieldPrecioKeyTyped
 
     private void jTextFieldStockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldStockKeyTyped
     
-        habilitarBotonP();
+        //habilitarBotonP();
     }//GEN-LAST:event_jTextFieldStockKeyTyped
 
     private void jTextFieldCaracteristicasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCaracteristicasKeyTyped
 
-        habilitarBotonP();
+        //habilitarBotonP();
     }//GEN-LAST:event_jTextFieldCaracteristicasKeyTyped
+
+    private void jTextFieldMarcaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMarcaKeyReleased
+        //habilitarBotonP();
+        validarCamposVacios();
+    }//GEN-LAST:event_jTextFieldMarcaKeyReleased
 
    
 
@@ -346,6 +365,72 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jButtonGuardar.setEnabled(true);
  }
     }
+        
+public void validacionEspacio(java.awt.event.KeyEvent evento){
+    if (jTextFieldMarca.getText().startsWith(" ")
+         ||jTextFieldModelo.getText().startsWith(" ")
+         ||jTextFieldPrecio.getText().startsWith(" ")
+         ||jTextFieldStock.getText().startsWith(" ")
+         ||jTextFieldCaracteristicas.getText().startsWith(" ")){
+    evento.consume();
+            JOptionPane.showMessageDialog(this, "No puedes ingresar Espacio como primer caracter");
+}
+}
+    
+public void validarCamposVacios(){
+    //marca
+    if(jTextFieldMarca.getText().isEmpty()){
+     avisoMarca.setText("Campo Obligatorio");
+     }else {
+            if (jTextFieldMarca.getText().length()<3){
+             avisoMarca.setText("Se requiere de 3 caracteres");  
+        }else{
+         avisoMarca.setText("");}
+            }
+    
+    //Modelo
+    if(jTextFieldModelo.getText().isEmpty()){
+     avisoModelo.setText("Campo Obligatorio");
+    }else{
+        if(jTextFieldModelo.getText().length()<3){
+            avisoModelo.setText("Se requiere de 3 caracteres");  
+        }else{
+         avisoModelo.setText("");}
+    }
+    
+    //Precio
+    if(jTextFieldPrecio.getText().isEmpty()){
+     avisoPrecio.setText("Campo Obligatorio");
+    }else{
+        if(jTextFieldPrecio.getText().length()<2){
+             avisoPrecio.setText("Se requiere 2 digito");
+        }else{
+            avisoPrecio.setText("");}        
+    }
+    
+    //Stock
+    if(jTextFieldStock.getText().isEmpty()){
+     avisoStock.setText("Campo Obligatorio");
+    }else{
+        if (jTextFieldStock.getText().length()<1){
+            avisoStock.setText("Se requiere 1 digito");
+        }else{
+            avisoStock.setText("");}         
+    }
+    
+    //Caracteristicas
+    if(jTextFieldCaracteristicas.getText().isEmpty()){
+    avisoCaracteristicas.setText("Campo Obligatorio");
+    }else{
+        if(jTextFieldCaracteristicas.getText().length()<10){
+            avisoCaracteristicas.setText("Se requiere 10 caracteres");
+        }
+        else{
+           avisoCaracteristicas.setText("");}     
+    }
+}
+    
+    
     /**
      * @param args the command line arguments
      */
