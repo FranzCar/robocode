@@ -216,11 +216,24 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 530, 190, -1));
 
         avisoMarca.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(avisoMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 160, 10));
-        jPanel1.add(avisoModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 170, 20));
-        jPanel1.add(avisoPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 140, 10));
-        jPanel1.add(avisoStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 190, 20));
-        jPanel1.add(avisoCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, 160, 20));
+        avisoMarca.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(avisoMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 160, 20));
+
+        avisoModelo.setBackground(new java.awt.Color(255, 255, 255));
+        avisoModelo.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(avisoModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 170, 20));
+
+        avisoPrecio.setBackground(new java.awt.Color(255, 255, 255));
+        avisoPrecio.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(avisoPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 150, 20));
+
+        avisoStock.setBackground(new java.awt.Color(255, 255, 255));
+        avisoStock.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(avisoStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 190, 20));
+
+        avisoCaracteristicas.setBackground(new java.awt.Color(255, 255, 255));
+        avisoCaracteristicas.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(avisoCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, 170, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
