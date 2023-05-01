@@ -49,11 +49,6 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         initComponents();
         this.setDefaultCloseOperation(1);
         this.setLocationRelativeTo(null);
-       
-        //bordes redondeados
-        JFrame frame = new JFrame();
-        frame.setUndecorated(true);
-        this.setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 25, 25));
         
         objProducto=new Producto();
         try {
