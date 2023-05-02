@@ -10,8 +10,10 @@ import java.awt.Color;
 import java.sql.Connection;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
-
-
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import java.sql.SQLException;
 /**
  *
  * @author PC
@@ -35,6 +37,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
     Border border2= BorderFactory.createLineBorder(newColor,4);
     //Border border= BorderFactory.createLineBorder(Color.red,1);
     //Border border=BorderFactory.createLoweredBevelBorder();
+    int cantidadElementos;
     private javax.swing.JLabel ultimoMarcado;
     public InterfazAdministrarProducto() {
         initComponents();
@@ -43,9 +46,12 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         bProdRegistrar=jButtonRegistrar;
         bProdEditar.setEnabled(false);
         bProdEliminar.setEnabled(false);
+        jButtonIzquierda.setEnabled(false);
         ultimoMarcado=jLabelMark1;
         //jButtonDerecha.setEnabled(false);
         listaImagenes.mostrarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista);
+        
+
     }
 
     /**
@@ -584,15 +590,35 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
 
     private void jButtonIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIzquierdaActionPerformed
         offset=offset-10;
+        if(offset==0){
+            jButtonIzquierda.setEnabled(false);
+        }
+        jButtonDerecha.setEnabled(true);
         listaImagenes.paginarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista,offset);
         jButtonEditar.setEnabled(false);
         jButtonEliminar.setEnabled(false);
-        ultimoMarcado.setBorder(null);
+        ultimoMarcado.setBorder(null);               
     }//GEN-LAST:event_jButtonIzquierdaActionPerformed
 
     private void jButtonDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDerechaActionPerformed
         offset=offset+10;
-        //listaImagenes.limpiarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto);
+        try {
+            conexion=con.establecerConexion();
+            PreparedStatement pst = conexion.prepareStatement("SELECT COUNT(*) FROM producto;");
+            ResultSet rs = pst.executeQuery();            
+            if(rs.next()){
+                cantidadElementos=rs.getInt(1);                
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "¡Error al cargar!");
+            System.out.println("Error " + e);
+        }
+        if(offset>0){
+            jButtonIzquierda.setEnabled(true);
+        }
+        if(cantidadElementos-offset<10){
+            jButtonDerecha.setEnabled(false);
+        }
         listaImagenes.paginarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista,offset);
         jButtonEditar.setEnabled(false);
         jButtonEliminar.setEnabled(false);
