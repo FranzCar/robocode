@@ -10,8 +10,10 @@ import java.awt.Color;
 import java.sql.Connection;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
-
-
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import java.sql.SQLException;
 /**
  *
  * @author PC
@@ -35,6 +37,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
     Border border2= BorderFactory.createLineBorder(newColor,4);
     //Border border= BorderFactory.createLineBorder(Color.red,1);
     //Border border=BorderFactory.createLoweredBevelBorder();
+    int cantidadElementos;
     private javax.swing.JLabel ultimoMarcado;
     public InterfazAdministrarProducto() {
         initComponents();
@@ -43,9 +46,12 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         bProdRegistrar=jButtonRegistrar;
         bProdEditar.setEnabled(false);
         bProdEliminar.setEnabled(false);
+        jButtonIzquierda.setEnabled(false);
         ultimoMarcado=jLabelMark1;
         //jButtonDerecha.setEnabled(false);
         listaImagenes.mostrarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista);
+        
+
     }
 
     /**
@@ -382,10 +388,10 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         jPanelAdministrarProducto.add(jLabelFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 140, 110));
 
         jLabelMarcaFoto1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabelMarcaFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 110, -1));
+        jPanelAdministrarProducto.add(jLabelMarcaFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 110, -1));
 
         jLabelModeloFoto1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabelModeloFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, -1));
+        jPanelAdministrarProducto.add(jLabelModeloFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, -1, -1));
 
         jLabelFoto2.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFoto2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -432,55 +438,55 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         jPanelAdministrarProducto.add(jLabelFoto5, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 190, 140, 110));
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 310, -1, -1));
+        jPanelAdministrarProducto.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 310, -1, -1));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 330, -1, -1));
+        jPanelAdministrarProducto.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 330, -1, -1));
 
         jLabelFoto6.setForeground(new java.awt.Color(255, 255, 255));
         jPanelAdministrarProducto.add(jLabelFoto6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 140, 110));
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, -1, -1));
+        jPanelAdministrarProducto.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 490, -1, -1));
 
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 510, -1, -1));
+        jPanelAdministrarProducto.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, -1, -1));
 
         jLabelFoto7.setForeground(new java.awt.Color(255, 255, 255));
         jPanelAdministrarProducto.add(jLabelFoto7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 140, 110));
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 490, -1, -1));
+        jPanelAdministrarProducto.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 490, -1, -1));
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, -1, -1));
+        jPanelAdministrarProducto.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 510, -1, -1));
 
         jLabelFoto8.setForeground(new java.awt.Color(255, 255, 255));
         jPanelAdministrarProducto.add(jLabelFoto8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 140, 110));
 
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, -1, -1));
+        jPanelAdministrarProducto.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 490, -1, -1));
 
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 510, -1, -1));
+        jPanelAdministrarProducto.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 510, -1, -1));
 
         jLabelFoto9.setForeground(new java.awt.Color(255, 255, 255));
         jPanelAdministrarProducto.add(jLabelFoto9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 140, 110));
 
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 490, -1, -1));
+        jPanelAdministrarProducto.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 490, -1, -1));
 
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 510, -1, -1));
+        jPanelAdministrarProducto.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 510, -1, -1));
 
         jLabelFoto10.setForeground(new java.awt.Color(255, 255, 255));
         jPanelAdministrarProducto.add(jLabelFoto10, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 370, 140, 110));
 
         jLabelMarcaFoto10.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabelMarcaFoto10, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 490, -1, -1));
+        jPanelAdministrarProducto.add(jLabelMarcaFoto10, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 490, -1, -1));
 
         jLabelModeloFoto10.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelAdministrarProducto.add(jLabelModeloFoto10, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 510, -1, -1));
+        jPanelAdministrarProducto.add(jLabelModeloFoto10, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 510, -1, -1));
 
         jButtonIzquierda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/izquierda.png"))); // NOI18N
         jButtonIzquierda.setBorder(null);
@@ -584,15 +590,35 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
 
     private void jButtonIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIzquierdaActionPerformed
         offset=offset-10;
+        if(offset==0){
+            jButtonIzquierda.setEnabled(false);
+        }
+        jButtonDerecha.setEnabled(true);
         listaImagenes.paginarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista,offset);
         jButtonEditar.setEnabled(false);
         jButtonEliminar.setEnabled(false);
-        ultimoMarcado.setBorder(null);
+        ultimoMarcado.setBorder(null);               
     }//GEN-LAST:event_jButtonIzquierdaActionPerformed
 
     private void jButtonDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDerechaActionPerformed
         offset=offset+10;
-        //listaImagenes.limpiarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto);
+        try {
+            conexion=con.establecerConexion();
+            PreparedStatement pst = conexion.prepareStatement("SELECT COUNT(*) FROM producto;");
+            ResultSet rs = pst.executeQuery();            
+            if(rs.next()){
+                cantidadElementos=rs.getInt(1);                
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "¡Error al cargar!");
+            System.out.println("Error " + e);
+        }
+        if(offset>0){
+            jButtonIzquierda.setEnabled(true);
+        }
+        if(cantidadElementos-offset<10){
+            jButtonDerecha.setEnabled(false);
+        }
         listaImagenes.paginarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista,offset);
         jButtonEditar.setEnabled(false);
         jButtonEliminar.setEnabled(false);
@@ -611,17 +637,24 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover1FocusGained
 
     private void jLabelHover1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover1MouseClicked
-        ultimoMarcado.setBorder(null);
-        if(jLabelFoto1.getIcon()!=null){
-            codigoNumero=codProdutoLista[0];
-            jLabelMark1.setBorder(border2);
-            ultimoMarcado=jLabelMark1;
-            jButtonEditar.setEnabled(true);
-            jButtonEliminar.setEnabled(true);
+        if(evt.getClickCount()==2){
+            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+            mostrar.setVisible(true);
+            mostrar.setLocationRelativeTo(null);
         }else{
-            jButtonEditar.setEnabled(false);
-            jButtonEliminar.setEnabled(false);
-        }        
+            ultimoMarcado.setBorder(null);
+            if(jLabelFoto1.getIcon()!=null){
+                codigoNumero=codProdutoLista[0];
+                jLabelMark1.setBorder(border2);
+                ultimoMarcado=jLabelMark1;
+                jButtonEditar.setEnabled(true);
+                jButtonEliminar.setEnabled(true);
+            }else{
+                jButtonEditar.setEnabled(false);
+                jButtonEliminar.setEnabled(false);
+            }  
+        }
+              
     }//GEN-LAST:event_jLabelHover1MouseClicked
 
     private void jLabelHover1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover1MouseExited
@@ -728,134 +761,183 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover10MouseExited
 
     private void jLabelHover2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover2MouseClicked
-        ultimoMarcado.setBorder(null);
-        if(jLabelFoto2.getIcon()!=null){
-            codigoNumero=codProdutoLista[1];
-            jLabelMark2.setBorder(border2);
-            ultimoMarcado=jLabelMark2;
-            jButtonEditar.setEnabled(true);
-            jButtonEliminar.setEnabled(true);
+        if(evt.getClickCount()==2){
+            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+            mostrar.setVisible(true);
+            mostrar.setLocationRelativeTo(null);
         }else{
-            jButtonEditar.setEnabled(false);
-            jButtonEliminar.setEnabled(false);
+            ultimoMarcado.setBorder(null);
+            if(jLabelFoto2.getIcon()!=null){
+                codigoNumero=codProdutoLista[1];
+                jLabelMark2.setBorder(border2);
+                ultimoMarcado=jLabelMark2;
+                jButtonEditar.setEnabled(true);
+                jButtonEliminar.setEnabled(true);
+            }else{
+                jButtonEditar.setEnabled(false);
+                jButtonEliminar.setEnabled(false);
+            }
         }
         
     }//GEN-LAST:event_jLabelHover2MouseClicked
 
     private void jLabelHover3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover3MouseClicked
-        ultimoMarcado.setBorder(null);
-        if(jLabelFoto3.getIcon()!=null){
-            codigoNumero=codProdutoLista[2];
-            jLabelMark3.setBorder(border2);
-            ultimoMarcado=jLabelMark3;
-            jButtonEditar.setEnabled(true);
-            jButtonEliminar.setEnabled(true);
+        if(evt.getClickCount()==2){
+            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+            mostrar.setVisible(true);
+            mostrar.setLocationRelativeTo(null);
         }else{
-            jButtonEditar.setEnabled(false);
-            jButtonEliminar.setEnabled(false);
+            ultimoMarcado.setBorder(null);
+            if(jLabelFoto3.getIcon()!=null){
+                codigoNumero=codProdutoLista[2];
+                jLabelMark3.setBorder(border2);
+                ultimoMarcado=jLabelMark3;
+                jButtonEditar.setEnabled(true);
+                jButtonEliminar.setEnabled(true);
+            }else{
+                jButtonEditar.setEnabled(false);
+                jButtonEliminar.setEnabled(false);
+            }
         }
-        
     }//GEN-LAST:event_jLabelHover3MouseClicked
 
     private void jLabelHover4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover4MouseClicked
-        ultimoMarcado.setBorder(null);
-        if(jLabelFoto4.getIcon()!=null){
-            codigoNumero=codProdutoLista[3];
-            jLabelMark4.setBorder(border2);
-            ultimoMarcado=jLabelMark4;
-            jButtonEditar.setEnabled(true);
-            jButtonEliminar.setEnabled(true);
+        if(evt.getClickCount()==2){
+            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+            mostrar.setVisible(true);
+            mostrar.setLocationRelativeTo(null);
         }else{
-            jButtonEditar.setEnabled(false);
-            jButtonEliminar.setEnabled(false);
+            ultimoMarcado.setBorder(null);
+            if(jLabelFoto4.getIcon()!=null){
+                codigoNumero=codProdutoLista[3];
+                jLabelMark4.setBorder(border2);
+                ultimoMarcado=jLabelMark4;
+                jButtonEditar.setEnabled(true);
+                jButtonEliminar.setEnabled(true);
+            }else{
+                jButtonEditar.setEnabled(false);
+                jButtonEliminar.setEnabled(false);
+            }
         }
-        
     }//GEN-LAST:event_jLabelHover4MouseClicked
 
     private void jLabelHover5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover5MouseClicked
-        ultimoMarcado.setBorder(null);
-        if(jLabelFoto5.getIcon()!=null){
-            codigoNumero=codProdutoLista[4];
-            jLabelMark5.setBorder(border2);
-            ultimoMarcado=jLabelMark5;
-            jButtonEditar.setEnabled(true);
-            jButtonEliminar.setEnabled(true);
+        if(evt.getClickCount()==2){
+            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+            mostrar.setVisible(true);
+            mostrar.setLocationRelativeTo(null);
         }else{
-            jButtonEditar.setEnabled(false);
-            jButtonEliminar.setEnabled(false);
+            ultimoMarcado.setBorder(null);
+            if(jLabelFoto5.getIcon()!=null){
+                codigoNumero=codProdutoLista[4];
+                jLabelMark5.setBorder(border2);
+                ultimoMarcado=jLabelMark5;
+                jButtonEditar.setEnabled(true);
+                jButtonEliminar.setEnabled(true);
+            }else{
+                jButtonEditar.setEnabled(false);
+                jButtonEliminar.setEnabled(false);
+            }
         }
-        
     }//GEN-LAST:event_jLabelHover5MouseClicked
 
     private void jLabelHover6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover6MouseClicked
-        ultimoMarcado.setBorder(null);
-        if(jLabelFoto6.getIcon()!=null){
-            codigoNumero=codProdutoLista[5];
-            jLabelMark6.setBorder(border2);
-            ultimoMarcado=jLabelMark6;
-            jButtonEditar.setEnabled(true);
-            jButtonEliminar.setEnabled(true);
+        if(evt.getClickCount()==2){
+            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+            mostrar.setVisible(true);
+            mostrar.setLocationRelativeTo(null);
         }else{
-            jButtonEditar.setEnabled(false);
-            jButtonEliminar.setEnabled(false);
+            ultimoMarcado.setBorder(null);
+            if(jLabelFoto6.getIcon()!=null){
+                codigoNumero=codProdutoLista[5];
+                jLabelMark6.setBorder(border2);
+                ultimoMarcado=jLabelMark6;
+                jButtonEditar.setEnabled(true);
+                jButtonEliminar.setEnabled(true);
+            }else{
+                jButtonEditar.setEnabled(false);
+                jButtonEliminar.setEnabled(false);
+            }
         }
-        
     }//GEN-LAST:event_jLabelHover6MouseClicked
 
     private void jLabelHover7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover7MouseClicked
-        ultimoMarcado.setBorder(null);
-        if(jLabelFoto7.getIcon()!=null){
-            codigoNumero=codProdutoLista[6];
-            jLabelMark7.setBorder(border2);
-            ultimoMarcado=jLabelMark7;
-            jButtonEditar.setEnabled(true);
-            jButtonEliminar.setEnabled(true);
+        if(evt.getClickCount()==2){
+            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+            mostrar.setVisible(true);
+            mostrar.setLocationRelativeTo(null);
         }else{
-            jButtonEditar.setEnabled(false);
-            jButtonEliminar.setEnabled(false);
+            ultimoMarcado.setBorder(null);
+            if(jLabelFoto7.getIcon()!=null){
+                codigoNumero=codProdutoLista[6];
+                jLabelMark7.setBorder(border2);
+                ultimoMarcado=jLabelMark7;
+                jButtonEditar.setEnabled(true);
+                jButtonEliminar.setEnabled(true);
+            }else{
+                jButtonEditar.setEnabled(false);
+                jButtonEliminar.setEnabled(false);
+            }
         }
-        
     }//GEN-LAST:event_jLabelHover7MouseClicked
 
     private void jLabelHover8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover8MouseClicked
-        ultimoMarcado.setBorder(null);
-        if(jLabelFoto8.getIcon()!=null){
-            codigoNumero=codProdutoLista[7];
-            jLabelMark8.setBorder(border2);
-            ultimoMarcado=jLabelMark8;
-            jButtonEditar.setEnabled(true);
-            jButtonEliminar.setEnabled(true);            
+        if(evt.getClickCount()==2){
+            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+            mostrar.setVisible(true);
+            mostrar.setLocationRelativeTo(null);
         }else{
-            jButtonEditar.setEnabled(false);
-            jButtonEliminar.setEnabled(false);
+            ultimoMarcado.setBorder(null);
+            if(jLabelFoto8.getIcon()!=null){
+                codigoNumero=codProdutoLista[7];
+                jLabelMark8.setBorder(border2);
+                ultimoMarcado=jLabelMark8;
+                jButtonEditar.setEnabled(true);
+                jButtonEliminar.setEnabled(true);            
+            }else{
+                jButtonEditar.setEnabled(false);
+                jButtonEliminar.setEnabled(false);
+            }
         }        
     }//GEN-LAST:event_jLabelHover8MouseClicked
 
     private void jLabelHover9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover9MouseClicked
-        ultimoMarcado.setBorder(null);
-        if(jLabelFoto9.getIcon()!=null){
-            codigoNumero=codProdutoLista[8];
-            jLabelMark9.setBorder(border2);
-            ultimoMarcado=jLabelMark9;
-            jButtonEditar.setEnabled(true);
-            jButtonEliminar.setEnabled(true);            
+        if(evt.getClickCount()==2){
+            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+            mostrar.setVisible(true);
+            mostrar.setLocationRelativeTo(null);
         }else{
-            jButtonEditar.setEnabled(false);
-            jButtonEliminar.setEnabled(false);
+            ultimoMarcado.setBorder(null);
+            if(jLabelFoto9.getIcon()!=null){
+                codigoNumero=codProdutoLista[8];
+                jLabelMark9.setBorder(border2);
+                ultimoMarcado=jLabelMark9;
+                jButtonEditar.setEnabled(true);
+                jButtonEliminar.setEnabled(true);            
+            }else{
+                jButtonEditar.setEnabled(false);
+                jButtonEliminar.setEnabled(false);
+            }
         }        
     }//GEN-LAST:event_jLabelHover9MouseClicked
 
     private void jLabelHover10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover10MouseClicked
-        ultimoMarcado.setBorder(null);
-        if(jLabelFoto10.getIcon()!=null){           
-            codigoNumero=codProdutoLista[9];
-            jLabelMark10.setBorder(border2);
-            ultimoMarcado=jLabelMark10;
-            jButtonEditar.setEnabled(true);
-            jButtonEliminar.setEnabled(true);
+        if(evt.getClickCount()==2){
+            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+            mostrar.setVisible(true);
+            mostrar.setLocationRelativeTo(null);
         }else{
-            jButtonEditar.setEnabled(false);
-            jButtonEliminar.setEnabled(false);
+            ultimoMarcado.setBorder(null);
+            if(jLabelFoto10.getIcon()!=null){           
+                codigoNumero=codProdutoLista[9];
+                jLabelMark10.setBorder(border2);
+                ultimoMarcado=jLabelMark10;
+                jButtonEditar.setEnabled(true);
+                jButtonEliminar.setEnabled(true);
+            }else{
+                jButtonEditar.setEnabled(false);
+                jButtonEliminar.setEnabled(false);
+            }
         }        
     }//GEN-LAST:event_jLabelHover10MouseClicked
 
