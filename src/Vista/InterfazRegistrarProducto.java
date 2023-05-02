@@ -498,7 +498,7 @@ public void validarCamposVacios(){
      avisoPrecio.setText("Campo Obligatorio");
     }else{
         if(jTextFieldPrecio.getText().length()<2){
-             avisoPrecio.setText("Se requiere 2 digito");
+             avisoPrecio.setText("Se requiere 3 digitos");
         }else{
             avisoPrecio.setText("");}        
     }
