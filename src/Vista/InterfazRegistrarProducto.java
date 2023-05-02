@@ -412,27 +412,27 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
 
     private void jTextFieldMarcaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMarcaKeyReleased
         validarCamposVacios();
-      //habilitarBotonP();
+        habilitarBotonP();
     }//GEN-LAST:event_jTextFieldMarcaKeyReleased
 
     private void jTextFieldModeloKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldModeloKeyReleased
         validarCamposVacios();
-      //habilitarBotonP();
+        habilitarBotonP();
     }//GEN-LAST:event_jTextFieldModeloKeyReleased
 
     private void jTextFieldPrecioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPrecioKeyReleased
         validarCamposVacios();
-      //habilitarBotonP();
+        habilitarBotonP();
     }//GEN-LAST:event_jTextFieldPrecioKeyReleased
 
     private void jTextFieldStockKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldStockKeyReleased
         validarCamposVacios();
-      //habilitarBotonP();
+        habilitarBotonP();
     }//GEN-LAST:event_jTextFieldStockKeyReleased
 
     private void jTextFieldCaracteristicasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCaracteristicasKeyReleased
         validarCamposVacios();
-      //habilitarBotonP();
+        habilitarBotonP();
     }//GEN-LAST:event_jTextFieldCaracteristicasKeyReleased
 
    
