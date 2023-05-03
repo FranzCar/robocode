@@ -5,7 +5,7 @@
 package Main;
 
 
-import Vista.InterfazPantallaInicio;
+import Vista.InterLogin;
 
 
 /**
@@ -14,7 +14,7 @@ import Vista.InterfazPantallaInicio;
  */
 public class main {
     public static void main (String[] args){
-        InterfazPantallaInicio ventana=new InterfazPantallaInicio();
+        InterLogin ventana=new InterLogin();
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);
 }
