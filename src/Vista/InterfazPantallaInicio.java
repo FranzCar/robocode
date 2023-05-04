@@ -72,6 +72,7 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
 
         jButtonkProducto.setBackground(new java.awt.Color(95, 143, 169));
         jButtonkProducto.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonkProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/AdministrarDispositivos.png"))); // NOI18N
         jButtonkProducto.setText("Administrar Productos");
         jButtonkProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
