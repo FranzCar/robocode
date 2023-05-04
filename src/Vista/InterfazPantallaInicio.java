@@ -82,6 +82,7 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
 
         jButtonVenta.setBackground(new java.awt.Color(95, 143, 169));
         jButtonVenta.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/RegistroDeVentas.png"))); // NOI18N
         jButtonVenta.setText("Registro de Ventas");
 
         jButtonProveedores.setBackground(new java.awt.Color(95, 143, 169));
