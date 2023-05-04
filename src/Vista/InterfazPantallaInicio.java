@@ -78,6 +78,8 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
         jButtonkProducto.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonkProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/AdministrarDispositivos.png"))); // NOI18N
         jButtonkProducto.setText("Administrar Productos");
+        jButtonkProducto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonkProducto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButtonkProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonkProductoActionPerformed(evt);
