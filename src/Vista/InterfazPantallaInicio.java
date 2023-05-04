@@ -15,6 +15,8 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
      */
     public InterfazPantallaInicio() {
         initComponents();
+        this.setDefaultCloseOperation(1);
+        this.setLocationRelativeTo(null);
     }
 
     /**
