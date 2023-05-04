@@ -15,6 +15,8 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
      */
     public InterfazPantallaInicio() {
         initComponents();
+        this.setDefaultCloseOperation(1);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -60,7 +62,12 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
 
         jButtonUsuario.setBackground(new java.awt.Color(95, 143, 169));
         jButtonUsuario.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/AdministrarUsuarios.png"))); // NOI18N
         jButtonUsuario.setText("Administrar Usuarios");
+        jButtonUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonUsuario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/AdministrarUsuarios.png"))); // NOI18N
+        jButtonUsuario.setVerifyInputWhenFocusTarget(false);
+        jButtonUsuario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButtonUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUsuarioActionPerformed(evt);
@@ -69,7 +76,10 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
 
         jButtonkProducto.setBackground(new java.awt.Color(95, 143, 169));
         jButtonkProducto.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonkProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/AdministrarDispositivos.png"))); // NOI18N
         jButtonkProducto.setText("Administrar Productos");
+        jButtonkProducto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonkProducto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButtonkProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonkProductoActionPerformed(evt);
@@ -78,11 +88,18 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
 
         jButtonVenta.setBackground(new java.awt.Color(95, 143, 169));
         jButtonVenta.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/RegistroDeVentas.png"))); // NOI18N
         jButtonVenta.setText("Registro de Ventas");
+        jButtonVenta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonVenta.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         jButtonProveedores.setBackground(new java.awt.Color(95, 143, 169));
         jButtonProveedores.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonProveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/AdministrarProveedores.png"))); // NOI18N
         jButtonProveedores.setText("Administrar Proveedores");
+        jButtonProveedores.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonProveedores.setName(""); // NOI18N
+        jButtonProveedores.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         jButton5.setBackground(new java.awt.Color(60, 171, 204));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -126,7 +143,7 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
                     .addComponent(jButtonVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(56, 56, 56)
                 .addComponent(jButton5)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -137,7 +154,7 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE)
         );
 
         pack();
