@@ -184,6 +184,8 @@
               <Image iconType="3" name="/iconos/RegistroDeVentas.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Registro de Ventas"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonProveedores">
