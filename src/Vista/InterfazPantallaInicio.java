@@ -64,8 +64,10 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
         jButtonUsuario.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/AdministrarUsuarios.png"))); // NOI18N
         jButtonUsuario.setText("Administrar Usuarios");
+        jButtonUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonUsuario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/AdministrarUsuarios.png"))); // NOI18N
         jButtonUsuario.setVerifyInputWhenFocusTarget(false);
+        jButtonUsuario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButtonUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUsuarioActionPerformed(evt);
