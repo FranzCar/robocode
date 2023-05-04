@@ -62,6 +62,7 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
 
         jButtonUsuario.setBackground(new java.awt.Color(95, 143, 169));
         jButtonUsuario.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/AdministrarUsuarios.png"))); // NOI18N
         jButtonUsuario.setText("Administrar Usuarios");
         jButtonUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,7 +85,6 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
 
         jButtonProveedores.setBackground(new java.awt.Color(95, 143, 169));
         jButtonProveedores.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButtonProveedores.setText("Administrar Proveedores");
 
         jButton5.setBackground(new java.awt.Color(60, 171, 204));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
