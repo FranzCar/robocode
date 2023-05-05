@@ -349,8 +349,8 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
                 BufferedImage icono = ImageIO.read(se.getSelectedFile());//.getScaledInstance(jLabelFoto.getWidth(), jLabelFoto.getHeight(), Image.SCALE_DEFAULT);
                 int width = icono.getWidth();
                 int height = icono.getHeight();
-                if(width > 720 || height > 720){
-                    JOptionPane.showMessageDialog(null, "La imagen debe ser de 720x720 píxeles o menos", "Error de tamaño de imagen", JOptionPane.ERROR_MESSAGE);
+                if(width != 720 || height != 720){
+                    JOptionPane.showMessageDialog(null, "Solo se permiten imágenes de 720px", "Error de tamaño de imagen", JOptionPane.ERROR_MESSAGE);
                         return;
                 }
                 jLabelFoto.setIcon(new ImageIcon(icono));
