@@ -32,6 +32,7 @@ import static Vista.InterfazAdministrarProducto.jPanelAdministrarProducto;
 import java.awt.Shape;
 import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
+import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 
 /**
@@ -338,7 +339,13 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
 
                 file = new FileInputStream(se.getSelectedFile());
                 objProducto.foto = (int) se.getSelectedFile().length();
-                Image icono = ImageIO.read(se.getSelectedFile()).getScaledInstance(jLabelFoto.getWidth(), jLabelFoto.getHeight(), Image.SCALE_DEFAULT);
+                BufferedImage icono = ImageIO.read(se.getSelectedFile());//.getScaledInstance(jLabelFoto.getWidth(), jLabelFoto.getHeight(), Image.SCALE_DEFAULT);
+                int width = icono.getWidth();
+                int height = icono.getHeight();
+                if(width > 720 || height > 720){
+                    JOptionPane.showMessageDialog(null, "La imagen debe ser de 720x720 píxeles o menos", "Error de tamaño de imagen", JOptionPane.ERROR_MESSAGE);
+                        return;
+                }
                 jLabelFoto.setIcon(new ImageIcon(icono));
                 jLabelFoto.updateUI();            
             } catch (IOException e) {                
