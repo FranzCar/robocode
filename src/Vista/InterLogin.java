@@ -17,7 +17,6 @@ import java.sql.Statement;
 public class InterLogin extends javax.swing.JFrame {
     static Connection conexion = null;
     static Statement sentencia = null;
-    public String username;
     ConectarBD con = new ConectarBD();
     /**
      * Creates new form InterLogin
@@ -219,7 +218,6 @@ public class InterLogin extends javax.swing.JFrame {
             }
            
         }
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
