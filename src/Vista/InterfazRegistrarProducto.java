@@ -29,11 +29,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import static Vista.InterfazAdministrarProducto.jPanelAdministrarProducto;
+import static Vista.InterfazRegistrarUsuario.objUsuario;
+import static Vista.InterfazRegistrarUsuario.sentencia;
 import java.awt.Shape;
 import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.sql.ResultSet;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.KeyStroke;
@@ -205,7 +208,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
 
         jLabelFoto.setBackground(new java.awt.Color(255, 255, 255));
         jLabelFoto.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelFoto.setText("             fotografia");
+        jLabelFoto.setText("                       fotografia");
         jLabelFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabelFoto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -325,12 +328,22 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
               }
         
         try{
-            
             objProducto.marca=jTextFieldMarca.getText();
             objProducto.modelo=jTextFieldModelo.getText();
             objProducto.precio=jTextFieldPrecio.getText();
             objProducto.stock=Integer.parseInt(jTextFieldStock.getText());
             objProducto.caracteristicas=jTextFieldCaracteristicas.getText();
+            
+            //Para validar que la Marca del Producto no sea duplicado
+           /* String sentenciaMarca = "SELECT COUNT(*) FROM producto WHERE marcaProducto = '" + objProducto.marca + "'";
+            ResultSet resultadoM = sentencia.executeQuery(sentenciaMarca);
+            resultadoM.next();
+            int count2 = resultadoM.getInt(1);
+            if (count2 > 0) {
+                JOptionPane.showMessageDialog(this, "La marca ya existe.");
+                return;
+            }
+            */
             PreparedStatement pst = conexion.prepareStatement("INSERT INTO producto(marcaProducto,modeloProducto,precioProducto,stockProducto,caracteristicasProducto,fotoProducto) VALUES (?,?,?,?,?,?)");
             pst.setString(1, objProducto.marca);
             pst.setString(2, objProducto.modelo);
@@ -373,7 +386,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
                 file = new FileInputStream(se.getSelectedFile());
                 objProducto.foto = (int) se.getSelectedFile().length();
                 BufferedImage icono = ImageIO.read(se.getSelectedFile());//.getScaledInstance(jLabelFoto.getWidth(), jLabelFoto.getHeight(), Image.SCALE_DEFAULT);
-              /*  int width = icono.getWidth();
+               /* int width = icono.getWidth();
                 int height = icono.getHeight();
                 if(width != 720 || height != 720){
                     JOptionPane.showMessageDialog(null, "Solo se permiten imágenes de 720px", "Error de tamaño de imagen", JOptionPane.ERROR_MESSAGE);
@@ -502,17 +515,12 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         disableCopyPaste(jTextFieldCaracteristicas);
     }//GEN-LAST:event_jTextFieldCaracteristicasKeyPressed
 
-   
-
-    
     public void habilitarBotonP(){
     if(jTextFieldMarca.getText().isEmpty()
             || jTextFieldModelo.getText().isEmpty()
             || jTextFieldPrecio.getText().isEmpty()
             || jTextFieldStock.getText().isEmpty()
             || jTextFieldCaracteristicas.getText().isEmpty()
-            //|| jTextFieldDireccion.getText().isEmpty()
-            //| isEmptyFecha(jDateChooserFechaInicio.getDate())
             || jTextFieldMarca.getText().length()<3
             || jTextFieldModelo.getText().length()<3
             || jTextFieldPrecio.getText().length()<1
@@ -520,11 +528,9 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
             || jTextFieldCaracteristicas.getText().length()<10){
         
         jButtonGuardar.setEnabled(false);
-       
-        }else{
-        
+    }else{
         jButtonGuardar.setEnabled(true);
- }
+    }
     }
     
        
