@@ -129,6 +129,9 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
         jTextFieldMarca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldMarcaKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldMarcaKeyReleased(evt);
             }
@@ -144,6 +147,9 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
             }
         });
         jTextFieldModelo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldModeloKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldModeloKeyReleased(evt);
             }
@@ -154,6 +160,9 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jPanel1.add(jTextFieldModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 288, -1));
 
         jTextFieldPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldPrecioKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldPrecioKeyReleased(evt);
             }
@@ -164,6 +173,9 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jPanel1.add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 288, -1));
 
         jTextFieldStock.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldStockKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldStockKeyReleased(evt);
             }
@@ -179,6 +191,9 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
             }
         });
         jTextFieldCaracteristicas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldCaracteristicasKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldCaracteristicasKeyReleased(evt);
             }
@@ -378,7 +393,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
     private void jTextFieldMarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMarcaKeyTyped
          validacionEspacio(evt);
         validacionCaracteres(evt);
-        disableCopyPaste(jTextFieldMarca);
+
         if(jTextFieldMarca.getText().length()>=10){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
@@ -395,7 +410,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
        validacionEspacio(evt);
         validacionCaracteres(evt);
        // validacionCaracteresES(evt);
-        disableCopyPaste(jTextFieldModelo);
+
         jTextFieldModelo.setText(jTextFieldModelo.getText());
         if(jTextFieldModelo.getText().length()>=20){
             evt.consume();
@@ -407,7 +422,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
 
     private void jTextFieldPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPrecioKeyTyped
        validacionNumeros(evt);
-       disableCopyPaste(jTextFieldPrecio);
+ 
         jTextFieldPrecio.setText(jTextFieldPrecio.getText().trim());
         if(jTextFieldPrecio.getText().length()>=6){
             evt.consume();
@@ -419,7 +434,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
 
     private void jTextFieldStockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldStockKeyTyped
     validacionNumeros(evt);
-    disableCopyPaste(jTextFieldStock);
+    
         jTextFieldStock.setText(jTextFieldStock.getText().trim());
         if(jTextFieldStock.getText().length()>=4){
             evt.consume();
@@ -433,7 +448,6 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
 
         validacionEspacio(evt); 
         validacionCaracteresDireccion(evt);
-        disableCopyPaste(jTextFieldCaracteristicas);
         
         if(jTextFieldCaracteristicas.getText().length()>=100){
             evt.consume();
@@ -467,6 +481,26 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         validarCamposVacios();
         habilitarBotonP();
     }//GEN-LAST:event_jTextFieldCaracteristicasKeyReleased
+
+    private void jTextFieldMarcaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMarcaKeyPressed
+        disableCopyPaste(jTextFieldMarca);
+    }//GEN-LAST:event_jTextFieldMarcaKeyPressed
+
+    private void jTextFieldModeloKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldModeloKeyPressed
+        disableCopyPaste(jTextFieldModelo);
+    }//GEN-LAST:event_jTextFieldModeloKeyPressed
+
+    private void jTextFieldPrecioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPrecioKeyPressed
+        disableCopyPaste(jTextFieldPrecio);
+    }//GEN-LAST:event_jTextFieldPrecioKeyPressed
+
+    private void jTextFieldStockKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldStockKeyPressed
+        disableCopyPaste(jTextFieldStock);
+    }//GEN-LAST:event_jTextFieldStockKeyPressed
+
+    private void jTextFieldCaracteristicasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCaracteristicasKeyPressed
+        disableCopyPaste(jTextFieldCaracteristicas);
+    }//GEN-LAST:event_jTextFieldCaracteristicasKeyPressed
 
    
 
