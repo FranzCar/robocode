@@ -29,6 +29,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import static Vista.InterfazAdministrarProducto.jPanelAdministrarProducto;
+import static Vista.InterfazRegistrarUsuario.conexion;
 import static Vista.InterfazRegistrarUsuario.objUsuario;
 import static Vista.InterfazRegistrarUsuario.sentencia;
 import java.awt.Shape;
@@ -328,6 +329,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
               }
         
         try{
+            sentencia=conexion.createStatement();
             objProducto.marca=jTextFieldMarca.getText();
             objProducto.modelo=jTextFieldModelo.getText();
             objProducto.precio=jTextFieldPrecio.getText();
@@ -335,15 +337,17 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
             objProducto.caracteristicas=jTextFieldCaracteristicas.getText();
             
             //Para validar que la Marca del Producto no sea duplicado
-           /* String sentenciaMarca = "SELECT COUNT(*) FROM producto WHERE marcaProducto = '" + objProducto.marca + "'";
-            ResultSet resultadoM = sentencia.executeQuery(sentenciaMarca);
+           String sentenciaModelo = "SELECT COUNT(*) FROM producto WHERE modeloProducto = '" +  objProducto.modelo + "'";
+            ResultSet resultadoM = sentencia.executeQuery(sentenciaModelo);
             resultadoM.next();
             int count2 = resultadoM.getInt(1);
             if (count2 > 0) {
-                JOptionPane.showMessageDialog(this, "La marca ya existe.");
+                JOptionPane.showMessageDialog(this, "El Modelo ya existe.");
                 return;
             }
-            */
+            
+           
+           
             PreparedStatement pst = conexion.prepareStatement("INSERT INTO producto(marcaProducto,modeloProducto,precioProducto,stockProducto,caracteristicasProducto,fotoProducto) VALUES (?,?,?,?,?,?)");
             pst.setString(1, objProducto.marca);
             pst.setString(2, objProducto.modelo);
