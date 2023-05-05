@@ -421,8 +421,9 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
 
     private void jTextFieldModeloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldModeloKeyTyped
        validacionEspacio(evt);
-        validacionCaracteres(evt);
-       // validacionCaracteresES(evt);
+       //validacionCaracteres(evt);
+       //validacionNumeros(evt);
+        validacionCaracteresNumLetras(evt);
 
         jTextFieldModelo.setText(jTextFieldModelo.getText());
         if(jTextFieldModelo.getText().length()>=20){
@@ -460,7 +461,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
     private void jTextFieldCaracteristicasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCaracteristicasKeyTyped
 
         validacionEspacio(evt); 
-        validacionCaracteresDireccion(evt);
+        validacionCaracteresNumLetras(evt);
         
         if(jTextFieldCaracteristicas.getText().length()>=100){
             evt.consume();
@@ -621,7 +622,7 @@ public static boolean validar(String datos){
                 }
 }
 
-public void validacionCaracteresDireccion(java.awt.event.KeyEvent evento){
+public void validacionCaracteresNumLetras(java.awt.event.KeyEvent evento){
     if((evento.getKeyChar()<97 || evento.getKeyChar()>122)&& //a-z
         (evento.getKeyChar()<65 || evento.getKeyChar()>90)&& //A-Z
         (evento.getKeyChar()<48 || evento.getKeyChar()>57)&& //0-9
