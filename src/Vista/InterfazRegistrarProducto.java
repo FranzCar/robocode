@@ -273,30 +273,37 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         String marca=jTextFieldMarca.getText().trim();
         String modelo=jTextFieldModelo.getText().trim();
         String precio=jTextFieldPrecio.getText().trim();
+        int precio2=Integer.parseInt(precio);
         String stock=jTextFieldStock.getText().trim();
         String caract=jTextFieldCaracteristicas.getText().trim();
       
         
         if(marca.isEmpty()|| marca.startsWith(" ")|| marca.startsWith("-")){
-            JOptionPane.showMessageDialog(null, "Asegurese que el campo nombre este correcto");
+            JOptionPane.showMessageDialog(null, "Asegurese que el Marca nombre este correcto");
             return;
         }
          if(modelo.isEmpty()|| modelo.startsWith(" ")|| modelo.startsWith("-")){
-            JOptionPane.showMessageDialog(null, "Asegurese que el campo carnet de identidad este correcto");
+            JOptionPane.showMessageDialog(null, "Asegurese que el Modelo este correcto");
             return;
         }
           if(precio.isEmpty()|| precio.startsWith(" ")|| precio.startsWith("-")){
-            JOptionPane.showMessageDialog(null, "Asegurese que el campo tel este correcto");
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo Precio este correcto");
             return;
         }
            if(stock.isEmpty()|| stock.startsWith(" ")|| stock.startsWith("-")){
-            JOptionPane.showMessageDialog(null, "Asegurese que el campo direccion este correcto");
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo Stock este correcto");
             return;
         }
              if(caract.isEmpty()|| caract.startsWith(" ")|| caract.startsWith("-")){
-            JOptionPane.showMessageDialog(null, "Asegurese que el campo idusuario este correcto");
+            JOptionPane.showMessageDialog(null, "Asegurese que el campo Caracteristicas este correcto");
             return;
         }
+             if (precio2 == 0) {
+            // Muestra un mensaje de advertencia
+            JOptionPane.showMessageDialog(this, "No puedes guardar un precio igual a 0",
+                    "Error al guardar", JOptionPane.WARNING_MESSAGE);
+            return;
+              }
         
         try{
             
