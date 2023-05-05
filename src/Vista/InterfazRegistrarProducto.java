@@ -34,7 +34,9 @@ import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.KeyStroke;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -53,6 +55,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
     public InterfazRegistrarProducto() {
         
         initComponents();
+        habilitarBotonP();
         this.setDefaultCloseOperation(1);
         this.setLocationRelativeTo(null);
         
@@ -276,7 +279,8 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         int precio2=Integer.parseInt(precio);
         String stock=jTextFieldStock.getText().trim();
         String caract=jTextFieldCaracteristicas.getText().trim();
-      
+        
+        //disableCopyPaste(jTextFieldMarca);
         
         if(marca.isEmpty()|| marca.startsWith(" ")|| marca.startsWith("-")){
             JOptionPane.showMessageDialog(null, "Asegurese que el Marca nombre este correcto");
@@ -354,12 +358,12 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
                 file = new FileInputStream(se.getSelectedFile());
                 objProducto.foto = (int) se.getSelectedFile().length();
                 BufferedImage icono = ImageIO.read(se.getSelectedFile());//.getScaledInstance(jLabelFoto.getWidth(), jLabelFoto.getHeight(), Image.SCALE_DEFAULT);
-                int width = icono.getWidth();
+              /*  int width = icono.getWidth();
                 int height = icono.getHeight();
                 if(width != 720 || height != 720){
                     JOptionPane.showMessageDialog(null, "Solo se permiten imágenes de 720px", "Error de tamaño de imagen", JOptionPane.ERROR_MESSAGE);
                         return;
-                }
+                }*/
                 jLabelFoto.setIcon(new ImageIcon(icono));
                 jLabelFoto.updateUI();
             } else{
@@ -374,7 +378,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
     private void jTextFieldMarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMarcaKeyTyped
          validacionEspacio(evt);
         validacionCaracteres(evt);
-        
+        disableCopyPaste(jTextFieldMarca);
         if(jTextFieldMarca.getText().length()>=10){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
@@ -388,8 +392,10 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonGuardarKeyPressed
 
     private void jTextFieldModeloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldModeloKeyTyped
-      validacionCaracteresES(evt);
-        
+       validacionEspacio(evt);
+        validacionCaracteres(evt);
+       // validacionCaracteresES(evt);
+        disableCopyPaste(jTextFieldModelo);
         jTextFieldModelo.setText(jTextFieldModelo.getText());
         if(jTextFieldModelo.getText().length()>=20){
             evt.consume();
@@ -401,6 +407,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
 
     private void jTextFieldPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPrecioKeyTyped
        validacionNumeros(evt);
+       disableCopyPaste(jTextFieldPrecio);
         jTextFieldPrecio.setText(jTextFieldPrecio.getText().trim());
         if(jTextFieldPrecio.getText().length()>=6){
             evt.consume();
@@ -412,6 +419,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
 
     private void jTextFieldStockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldStockKeyTyped
     validacionNumeros(evt);
+    disableCopyPaste(jTextFieldStock);
         jTextFieldStock.setText(jTextFieldStock.getText().trim());
         if(jTextFieldStock.getText().length()>=4){
             evt.consume();
@@ -425,6 +433,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
 
         validacionEspacio(evt); 
         validacionCaracteresDireccion(evt);
+        disableCopyPaste(jTextFieldCaracteristicas);
         
         if(jTextFieldCaracteristicas.getText().length()>=100){
             evt.consume();
@@ -605,6 +614,19 @@ public void validacionCaracteresES(java.awt.event.KeyEvent evento){
     JOptionPane.showMessageDialog(null, "No se permite Caracteres Especiales");
     }
 }
+//Desahabilitar Ctrl C y Ctrl V
+private void disableCopy(JComponent component){
+        component.getInputMap().put(KeyStroke.getKeyStroke("control C"),"none"); 
+}
+    private void disablePaste(JComponent component){
+        component.getInputMap().put(KeyStroke.getKeyStroke("control V"),"none");
+    }
+    private void disableCopyPaste(JComponent component){
+        disableCopy(component);
+        disablePaste(component);
+        
+    }
+    //disableCopyPaste(jTextFieldMarca);
 
     /**
      * @param args the command line arguments
