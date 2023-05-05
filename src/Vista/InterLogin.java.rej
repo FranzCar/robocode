@@ -1,0 +1,9 @@
+diff a/src/Vista/InterLogin.java b/src/Vista/InterLogin.java	(rejected hunks)
+@@ -219,6 +219,7 @@
+             }
+            
+         }
++        
+     }
+ 
+     // Variables declaration - do not modify//GEN-BEGIN:variables
