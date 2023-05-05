@@ -384,7 +384,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
       validacionCaracteresES(evt);
         
         jTextFieldModelo.setText(jTextFieldModelo.getText());
-        if(jTextFieldModelo.getText().length()>=50){
+        if(jTextFieldModelo.getText().length()>=20){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
             getToolkit().beep();
@@ -395,7 +395,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
     private void jTextFieldPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPrecioKeyTyped
        validacionNumeros(evt);
         jTextFieldPrecio.setText(jTextFieldPrecio.getText().trim());
-        if(jTextFieldPrecio.getText().length()>=5){
+        if(jTextFieldPrecio.getText().length()>=6){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
             getToolkit().beep();
@@ -419,7 +419,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         validacionEspacio(evt); 
         validacionCaracteresDireccion(evt);
         
-        if(jTextFieldCaracteristicas.getText().length()>=200){
+        if(jTextFieldCaracteristicas.getText().length()>=100){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
             getToolkit().beep();
@@ -463,11 +463,11 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
             || jTextFieldCaracteristicas.getText().isEmpty()
             //|| jTextFieldDireccion.getText().isEmpty()
             //| isEmptyFecha(jDateChooserFechaInicio.getDate())
-            || jTextFieldMarca.getText().length()<=3
-            || jTextFieldModelo.getText().length()<=3
-            || jTextFieldPrecio.getText().length()<=2
-            || jTextFieldStock.getText().length()<=1
-            || jTextFieldCaracteristicas.getText().length()<=10){
+            || jTextFieldMarca.getText().length()<3
+            || jTextFieldModelo.getText().length()<3
+            || jTextFieldPrecio.getText().length()<1
+            || jTextFieldStock.getText().length()<1
+            || jTextFieldCaracteristicas.getText().length()<10){
         
         jButtonGuardar.setEnabled(false);
        
@@ -514,8 +514,8 @@ public void validarCamposVacios(){
     if(jTextFieldPrecio.getText().isEmpty()){
      avisoPrecio.setText("Campo Obligatorio");
     }else{
-        if(jTextFieldPrecio.getText().length()<2){
-             avisoPrecio.setText("Se requiere 3 digitos");
+        if(jTextFieldPrecio.getText().length()<1){
+             avisoPrecio.setText("Se requiere 1 digitos");
         }else{
             avisoPrecio.setText("");}        
     }
