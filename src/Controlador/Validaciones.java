@@ -38,6 +38,16 @@ public class Validaciones {
         evento.consume();
         JOptionPane.showMessageDialog(null, "Solo se permiten números, letras y espacio");
     }
+    
+}
+   public static void validacionNumerica(KeyEvent evento) {
+    if (evento.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+        return;
+    }
+    if (evento.getKeyChar() < 48 || evento.getKeyChar() > 57) { // Solo permite números del 0 al 9
+        evento.consume();
+        JOptionPane.showMessageDialog(null, "Solo se permiten números");
+    }
 }
 
 }

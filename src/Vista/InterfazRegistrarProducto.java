@@ -32,7 +32,10 @@ import static Vista.InterfazAdministrarProducto.jPanelAdministrarProducto;
 import java.awt.Shape;
 import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import javax.swing.JFrame;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -332,15 +335,29 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
     private void jLabelFotoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFotoMouseClicked
         JFileChooser se = new JFileChooser();
         se.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos JPG", "jpg");
+        se.setFileFilter(filter);
         int estado = se.showOpenDialog(null);
         if (estado == JFileChooser.APPROVE_OPTION) {
             try {
-
+                File selectedFile = se.getSelectedFile();
+                String fileName = selectedFile.getName();
+                String extension = fileName.substring(fileName.lastIndexOf(".") + 1);
+                 if(extension.equals("jpg")){
                 file = new FileInputStream(se.getSelectedFile());
                 objProducto.foto = (int) se.getSelectedFile().length();
-                Image icono = ImageIO.read(se.getSelectedFile()).getScaledInstance(jLabelFoto.getWidth(), jLabelFoto.getHeight(), Image.SCALE_DEFAULT);
+                BufferedImage icono = ImageIO.read(se.getSelectedFile());//.getScaledInstance(jLabelFoto.getWidth(), jLabelFoto.getHeight(), Image.SCALE_DEFAULT);
+                int width = icono.getWidth();
+                int height = icono.getHeight();
+                if(width != 720 || height != 720){
+                    JOptionPane.showMessageDialog(null, "Solo se permiten imágenes de 720px", "Error de tamaño de imagen", JOptionPane.ERROR_MESSAGE);
+                        return;
+                }
                 jLabelFoto.setIcon(new ImageIcon(icono));
-                jLabelFoto.updateUI();            
+                jLabelFoto.updateUI();
+            } else{
+                 JOptionPane.showMessageDialog(null, "Solo se permite cargar archivos de tipo JPG");
+                 }
             } catch (IOException e) {                
                 System.out.println("Error");
             }
