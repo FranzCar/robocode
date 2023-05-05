@@ -140,13 +140,13 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         jTextFieldCaracteristicas = new javax.swing.JTextField();
         jLabelFoto = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jButtonCancelar = new javax.swing.JButton();
+        jButtonGuardar = new javax.swing.JButton();
         lbAvisoMarca = new javax.swing.JLabel();
         lbAvisoPrecio = new javax.swing.JLabel();
         lbAvisoModelo = new javax.swing.JLabel();
         lbAvisoStock = new javax.swing.JLabel();
         lbAvisoCaracteristicas = new javax.swing.JLabel();
-        jButtonGuardar = new javax.swing.JButton();
+        jButtonCancelar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(37, 77, 116));
@@ -255,16 +255,16 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         jLabel9.setText("EDITAR PRODUCTO");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, -1, -1));
 
-        jButtonCancelar.setBackground(new java.awt.Color(95, 143, 169));
-        jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButtonCancelar.setForeground(new java.awt.Color(245, 245, 245));
-        jButtonCancelar.setText("CANCELAR");
-        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonGuardar.setBackground(new java.awt.Color(95, 143, 169));
+        jButtonGuardar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonGuardar.setForeground(new java.awt.Color(245, 245, 245));
+        jButtonGuardar.setText("GUARDAR");
+        jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCancelarActionPerformed(evt);
+                jButtonGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 510, 180, 30));
+        jPanel1.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 510, 180, 30));
 
         lbAvisoMarca.setBackground(new java.awt.Color(204, 204, 255));
         lbAvisoMarca.setForeground(new java.awt.Color(204, 204, 255));
@@ -286,16 +286,16 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         lbAvisoCaracteristicas.setForeground(new java.awt.Color(204, 204, 255));
         jPanel1.add(lbAvisoCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, 190, 32));
 
-        jButtonGuardar.setBackground(new java.awt.Color(95, 143, 169));
-        jButtonGuardar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButtonGuardar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonGuardar.setText("GUARDAR");
-        jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCancelar1.setBackground(new java.awt.Color(95, 143, 169));
+        jButtonCancelar1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonCancelar1.setForeground(new java.awt.Color(245, 245, 245));
+        jButtonCancelar1.setText("CANCELAR");
+        jButtonCancelar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonGuardarActionPerformed(evt);
+                jButtonCancelar1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 510, 180, 30));
+        jPanel1.add(jButtonCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 510, 180, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -323,48 +323,55 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
 if(jTextFieldMarca.getText().isEmpty()){
      lbAvisoMarca.setText("Campo Obligatorio");
     }else{
-        if(jTextFieldMarca.getText().length()<=1){
-             lbAvisoMarca.setText("Minimo 1 Caracteres");  
+        if(jTextFieldMarca.getText().length()<=3){
+             lbAvisoMarca.setText("Minimo 3 Caracteres");  
         }   
          else{lbAvisoMarca.setText(""); }  
     }
 if(jTextFieldModelo.getText().isEmpty()){
      lbAvisoModelo.setText("Campo Obligatorio");
     }else{
-        if(jTextFieldMarca.getText().length()<=2){
-             lbAvisoMarca.setText("Minimo 2 Caracteres");  
+        if(jTextFieldMarca.getText().length()<=3){
+             lbAvisoMarca.setText("Minimo 3 Caracteres");  
         }  
          else
          {lbAvisoModelo.setText(""); }  
     }
    if(jTextFieldPrecio.getText().isEmpty()){
      lbAvisoPrecio.setText("Campo Obligatorio");
-    }else{
-        /*if(jTextFieldMarca.getText().length()<=2){
-             lbAvisoMarca.setText("Minimo 3 Caracteres");  
-        } */  
-         //else
-         {lbAvisoPrecio.setText(""); }  
+     }else{
+        if(jTextFieldPrecio.getText().length()<=1){
+             lbAvisoPrecio.setText("Minimo 1 Caracteres");  
+        }   
+         else{lbAvisoPrecio.setText(""); }  
     }
    if(jTextFieldStock.getText().isEmpty()){
      lbAvisoStock.setText("Campo Obligatorio");
-    }else{
-       
-         {lbAvisoStock.setText(""); }  
+     }else{
+        if(jTextFieldStock.getText().length()<=1){
+             lbAvisoStock.setText("Minimo 1 Caracteres");  
+        }   
+         else{lbAvisoStock.setText(""); }  
     }
    if(jTextFieldCaracteristicas.getText().isEmpty()){
      lbAvisoCaracteristicas.setText("Campo Obligatorio");
-    }else{
-        
-         {lbAvisoCaracteristicas.setText(""); }  
+     }else{
+        if(jTextFieldCaracteristicas.getText().length()<=10){
+             lbAvisoCaracteristicas.setText("Minimo 10 Caracteres");  
+             
+        }   
+         else{lbAvisoCaracteristicas.setText(""); }  
     }
  
 }
 
 public void habilitarBoton(){
     if(jTextFieldMarca.getText().isEmpty()
-           || jTextFieldMarca.getText().length()<=2
-            || jTextFieldModelo.getText().length()<=2
+           || jTextFieldMarca.getText().length()<=3
+            || jTextFieldModelo.getText().length()<=3
+            || jTextFieldPrecio.getText().length()<=1
+            || jTextFieldStock.getText().length()<=1
+            || jTextFieldCaracteristicas.getText().length()<=10
            ||jTextFieldModelo.getText().isEmpty()
            ||jTextFieldPrecio.getText().isEmpty()
            ||jTextFieldStock.getText().isEmpty()
@@ -379,113 +386,8 @@ public void habilitarBoton(){
 
 
 
-    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
-        dispose();
-    }//GEN-LAST:event_jButtonCancelarActionPerformed
-
-    private void jLabelFotoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFotoMouseClicked
-                                             
-    JFileChooser se = new JFileChooser();
-se.setFileSelectionMode(JFileChooser.FILES_ONLY);
-FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos JPG", "jpg");
-se.setFileFilter(filter);
-int estado = se.showOpenDialog(null);
-if (estado == JFileChooser.APPROVE_OPTION) {
-    try {
-        File selectedFile = se.getSelectedFile();
-        String fileName = selectedFile.getName();
-        String extension = fileName.substring(fileName.lastIndexOf(".") + 1);
-        if (extension.equals("jpg")) {
-            BufferedImage icono = ImageIO.read(selectedFile);
-            int width = icono.getWidth();
-            int height = icono.getHeight();
-            if(width > 720 || height > 720){
-                JOptionPane.showMessageDialog(null, "La imagen debe ser de 720x720 píxeles o menos", "Error de tamaño de imagen", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            file = new FileInputStream(selectedFile);
-            objProducto.foto = (int) selectedFile.length();
-            Image iconoEscalado = ImageIO.read(selectedFile).getScaledInstance(jLabelFoto.getWidth(), jLabelFoto.getHeight(), Image.SCALE_DEFAULT);
-            jLabelFoto.setIcon(new ImageIcon(iconoEscalado));
-            jLabelFoto.updateUI();
-        } else {
-            JOptionPane.showMessageDialog(null, "Solo se permite cargar archivos de tipo JPG");
-        }
-    } catch (IOException e) {                
-        System.out.println("Error");
-    }
-}
-
-
-    }//GEN-LAST:event_jLabelFotoMouseClicked
-
-    private void jTextFieldMarcaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMarcaKeyReleased
-        // TODO add your handling code here:
-        validarCamposVacios();
-        habilitarBoton();
-    }//GEN-LAST:event_jTextFieldMarcaKeyReleased
-
-    private void jTextFieldModeloKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldModeloKeyReleased
-        // TODO add your handling code here:
-        validarCamposVacios();
-        habilitarBoton();
-    }//GEN-LAST:event_jTextFieldModeloKeyReleased
-
-    private void jTextFieldPrecioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPrecioKeyReleased
-        // TODO add your handling code here:
-        validarCamposVacios();
-        habilitarBoton();
-    }//GEN-LAST:event_jTextFieldPrecioKeyReleased
-
-    private void jTextFieldStockKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldStockKeyReleased
-        // TODO add your handling code here:
-        validarCamposVacios();
-        habilitarBoton();
-    }//GEN-LAST:event_jTextFieldStockKeyReleased
-
-    private void jTextFieldCaracteristicasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCaracteristicasKeyReleased
-        // TODO add your handling code here:
-        validarCamposVacios();
-        habilitarBoton();
-    }//GEN-LAST:event_jTextFieldCaracteristicasKeyReleased
-
-    private void jTextFieldMarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMarcaKeyTyped
-        // TODO add your handling code here:
-         
-        Validaciones.validacionCaracteres(evt);
-       
-           if(jTextFieldMarca.getText().length()>=16){
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-            getToolkit().beep();
-            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
-        }
-    }//GEN-LAST:event_jTextFieldMarcaKeyTyped
-
-    private void jTextFieldModeloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldModeloKeyTyped
-        // TODO add your handling code here:
-   Validaciones.validacionalfanumerico(evt);
-     if(jTextFieldModelo.getText().length()>=20){
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-            getToolkit().beep();
-            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
-        }
-    }//GEN-LAST:event_jTextFieldModeloKeyTyped
-
-    private void jTextFieldPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPrecioKeyTyped
-     Validaciones.validacionNumerica(evt);
-    }//GEN-LAST:event_jTextFieldPrecioKeyTyped
-
-    private void jTextFieldStockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldStockKeyTyped
-        Validaciones.validacionNumerica(evt);
-    }//GEN-LAST:event_jTextFieldStockKeyTyped
-
-    private void jTextFieldCaracteristicasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCaracteristicasKeyTyped
-       
-    }//GEN-LAST:event_jTextFieldCaracteristicasKeyTyped
-
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+                                                     
                                              
      String marca=jTextFieldMarca.getText().trim();
         String modelo=jTextFieldModelo.getText().trim();
@@ -579,7 +481,136 @@ offset=0;
 
                                   
     
+    
     }//GEN-LAST:event_jButtonGuardarActionPerformed
+
+    private void jLabelFotoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFotoMouseClicked
+   
+    // TODO add your handling code here:
+    JFileChooser se = new JFileChooser();
+    se.setFileSelectionMode(JFileChooser.FILES_ONLY);
+    FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos JPG", "jpg");
+    se.setFileFilter(filter);
+    int estado = se.showOpenDialog(null);
+    if (estado == JFileChooser.APPROVE_OPTION) {
+        try {
+            File selectedFile = se.getSelectedFile();
+            String fileName = selectedFile.getName();
+            String extension = fileName.substring(fileName.lastIndexOf(".") + 1);
+            if (extension.equals("jpg")) {
+                // Obtiene las dimensiones de la imagen
+                int width = ImageIO.read(selectedFile).getWidth();
+                int height = ImageIO.read(selectedFile).getHeight();
+                
+                // Verifica si las dimensiones están dentro del rango permitido
+                if (width >= 300 && width <= 700 && height >= 300 && height <= 700) {
+                    file = new FileInputStream(selectedFile);
+                    objProducto.foto = (int) selectedFile.length();
+                    Image icono = ImageIO.read(selectedFile).getScaledInstance(jLabelFoto.getWidth(), jLabelFoto.getHeight(), Image.SCALE_DEFAULT);
+                    jLabelFoto.setIcon(new ImageIcon(icono));
+                    jLabelFoto.updateUI();
+                } else {
+                    JOptionPane.showMessageDialog(null, "El tamaño de la imagen debe estar entre 300 y 700 píxeles.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Solo se permite cargar archivos de tipo JPG");
+            }
+        } catch (IOException e) {                
+            System.out.println("Error");
+        }
+    
+}
+
+
+
+    }//GEN-LAST:event_jLabelFotoMouseClicked
+
+    private void jTextFieldMarcaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMarcaKeyReleased
+        // TODO add your handling code here:
+        validarCamposVacios();
+        habilitarBoton();
+    }//GEN-LAST:event_jTextFieldMarcaKeyReleased
+
+    private void jTextFieldModeloKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldModeloKeyReleased
+        // TODO add your handling code here:
+        validarCamposVacios();
+        habilitarBoton();
+    }//GEN-LAST:event_jTextFieldModeloKeyReleased
+
+    private void jTextFieldPrecioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPrecioKeyReleased
+        // TODO add your handling code here:
+        validarCamposVacios();
+        habilitarBoton();
+    }//GEN-LAST:event_jTextFieldPrecioKeyReleased
+
+    private void jTextFieldStockKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldStockKeyReleased
+        // TODO add your handling code here:
+        validarCamposVacios();
+        habilitarBoton();
+    }//GEN-LAST:event_jTextFieldStockKeyReleased
+
+    private void jTextFieldCaracteristicasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCaracteristicasKeyReleased
+        // TODO add your handling code here:
+        validarCamposVacios();
+        habilitarBoton();
+    }//GEN-LAST:event_jTextFieldCaracteristicasKeyReleased
+
+    private void jTextFieldMarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMarcaKeyTyped
+        // TODO add your handling code here:
+         
+        Validaciones.validacionCaracteres(evt);
+       
+           if(jTextFieldMarca.getText().length()>=10){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
+    }//GEN-LAST:event_jTextFieldMarcaKeyTyped
+
+    private void jTextFieldModeloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldModeloKeyTyped
+        // TODO add your handling code here:
+   Validaciones.validacionalfanumerico(evt);
+     if(jTextFieldModelo.getText().length()>=20){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
+    }//GEN-LAST:event_jTextFieldModeloKeyTyped
+
+    private void jTextFieldPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPrecioKeyTyped
+     Validaciones.validacionNumerica(evt);
+     if(jTextFieldPrecio.getText().length()>=6){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
+    }//GEN-LAST:event_jTextFieldPrecioKeyTyped
+
+    private void jTextFieldStockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldStockKeyTyped
+        Validaciones.validacionNumerica(evt);
+        if(jTextFieldStock.getText().length()>=4){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
+    }//GEN-LAST:event_jTextFieldStockKeyTyped
+
+    private void jTextFieldCaracteristicasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCaracteristicasKeyTyped
+       if(jTextFieldCaracteristicas.getText().length()>=100){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
+    }//GEN-LAST:event_jTextFieldCaracteristicasKeyTyped
+
+    private void jButtonCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCancelar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -618,7 +649,7 @@ offset=0;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonCancelar1;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
