@@ -390,12 +390,12 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
                 file = new FileInputStream(se.getSelectedFile());
                 objProducto.foto = (int) se.getSelectedFile().length();
                 BufferedImage icono = ImageIO.read(se.getSelectedFile());//.getScaledInstance(jLabelFoto.getWidth(), jLabelFoto.getHeight(), Image.SCALE_DEFAULT);
-               /* int width = icono.getWidth();
+                int width = icono.getWidth();
                 int height = icono.getHeight();
                 if(width < 300 || width > 720 || height < 300 || height > 720){
                     JOptionPane.showMessageDialog(null, "Solo se permiten imágenes entre 300-720px", "Error de tamaño de imagen", JOptionPane.ERROR_MESSAGE);
                         return;
-                }*/
+                }
                 jLabelFoto.setIcon(new ImageIcon(icono));
                 jLabelFoto.updateUI();
             } else{
@@ -405,6 +405,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
                 System.out.println("Error");
             }
         }
+        habilitarBotonP();
     }//GEN-LAST:event_jLabelFotoMouseClicked
 
     private void jTextFieldMarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMarcaKeyTyped
@@ -530,7 +531,8 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
             || jTextFieldModelo.getText().length()<3
             || jTextFieldPrecio.getText().length()<1
             || jTextFieldStock.getText().length()<1
-            || jTextFieldCaracteristicas.getText().length()<10){
+            || jTextFieldCaracteristicas.getText().length()<10
+            || jLabelFoto.getIcon()==null){
         
         jButtonGuardar.setEnabled(false);
     }else{
