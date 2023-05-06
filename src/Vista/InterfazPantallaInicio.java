@@ -57,7 +57,7 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Bienvenido _______________");
+        jLabel1.setText("Bienvenido admin");
         jLabel1.setMaximumSize(new java.awt.Dimension(431, 48));
         jLabel1.setMinimumSize(new java.awt.Dimension(431, 48));
         jLabel1.setPreferredSize(new java.awt.Dimension(431, 48));
@@ -106,6 +106,11 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(60, 171, 204));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jButton5.setText("Cerrar Sesión");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -113,9 +118,6 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(295, 295, 295)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(72, 72, 72)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -130,7 +132,7 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
                                     .addComponent(jButtonProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(249, 249, 249)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
