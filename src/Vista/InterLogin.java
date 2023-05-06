@@ -18,6 +18,7 @@ public class InterLogin extends javax.swing.JFrame {
     static Connection conexion = null;
     static Statement sentencia = null;
     ConectarBD con = new ConectarBD();
+    static String nombreUsuario;
     /**
      * Creates new form InterLogin
      */
@@ -57,10 +58,12 @@ public class InterLogin extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 190, 80));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Id Usuario :");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 120, 50));
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Contraseña :");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 140, 40));
 
@@ -82,7 +85,7 @@ public class InterLogin extends javax.swing.JFrame {
         });
         jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 100, -1));
 
-        txtPassword.setBackground(new java.awt.Color(255, 255, 255));
+        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtPasswordKeyPressed(evt);
@@ -90,7 +93,7 @@ public class InterLogin extends javax.swing.JFrame {
         });
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 330, -1));
 
-        txtUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        txtUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
@@ -193,6 +196,7 @@ public class InterLogin extends javax.swing.JFrame {
         } else {
             if (user.equals ("admin")&& pass.equals("admin") ) {
             JOptionPane.showMessageDialog(this, "Ingresando como Administrador");
+            nombreUsuario="Juan Carlos";
             this.dispose();
             new InterfazPantallaInicio().setVisible(true);
             } 

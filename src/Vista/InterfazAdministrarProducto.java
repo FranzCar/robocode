@@ -180,7 +180,9 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
 
         jButtonEditar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonEditar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButtonEditar.setText("Editar");
+        jButtonEditar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEditar.setText("EDITAR");
+        jButtonEditar.setBorderPainted(false);
         jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEditarActionPerformed(evt);
@@ -190,7 +192,9 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
 
         jButtonEliminar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonEliminar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButtonEliminar.setText("Eliminar");
+        jButtonEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEliminar.setText("ELIMINAR");
+        jButtonEliminar.setBorderPainted(false);
         jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEliminarActionPerformed(evt);
@@ -200,21 +204,26 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
 
         jButtonRegistrar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButtonRegistrar.setText("Registrar");
+        jButtonRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRegistrar.setText("REGISTRAR");
+        jButtonRegistrar.setBorderPainted(false);
         jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRegistrarActionPerformed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 640, -1, 30));
+        jPanelAdministrarProducto.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 640, -1, 30));
 
-        jButtonHome.setText("home");
+        jButtonHome.setBackground(new java.awt.Color(95, 143, 169));
+        jButtonHome.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonHome.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonHome.setText("HOME");
         jButtonHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonHomeActionPerformed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
+        jPanelAdministrarProducto.add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
 
         jLabelHover1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {

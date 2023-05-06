@@ -344,8 +344,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
             if (count2 > 0) {
                 JOptionPane.showMessageDialog(this, "El Modelo ya existe.");
                 return;
-            }
-            
+            }         
            
            
             PreparedStatement pst = conexion.prepareStatement("INSERT INTO producto(marcaProducto,modeloProducto,precioProducto,stockProducto,caracteristicasProducto,fotoProducto) VALUES (?,?,?,?,?,?)");
@@ -368,6 +367,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         }
         offset=0;
         listaImagenes.mostrarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista);
+        jButtonGuardar.setEnabled(false);
         
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
@@ -396,7 +396,8 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Solo se permiten imágenes entre 300-720px", "Error de tamaño de imagen", JOptionPane.ERROR_MESSAGE);
                         return;
                 }
-                jLabelFoto.setIcon(new ImageIcon(icono));
+                Image icono2 = ImageIO.read(se.getSelectedFile()).getScaledInstance(jLabelFoto.getWidth(), jLabelFoto.getHeight(), Image.SCALE_DEFAULT);
+                jLabelFoto.setIcon(new ImageIcon(icono2));
                 jLabelFoto.updateUI();
             } else{
                  JOptionPane.showMessageDialog(null, "Solo se permite cargar archivos de tipo JPG");

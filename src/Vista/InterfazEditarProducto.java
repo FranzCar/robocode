@@ -150,6 +150,7 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(37, 77, 116));
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(37, 77, 116));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -259,6 +260,7 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         jButtonGuardar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonGuardar.setForeground(new java.awt.Color(245, 245, 245));
         jButtonGuardar.setText("GUARDAR");
+        jButtonGuardar.setBorderPainted(false);
         jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGuardarActionPerformed(evt);
@@ -290,6 +292,7 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         jButtonCancelar1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonCancelar1.setForeground(new java.awt.Color(245, 245, 245));
         jButtonCancelar1.setText("CANCELAR");
+        jButtonCancelar1.setBorderPainted(false);
         jButtonCancelar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelar1ActionPerformed(evt);
