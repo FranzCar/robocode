@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
+import javax.swing.border.EmptyBorder;
 /**
  *
  * @author PC
@@ -37,10 +38,21 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
     Border border2= BorderFactory.createLineBorder(newColor,4);
     //Border border= BorderFactory.createLineBorder(Color.red,1);
     //Border border=BorderFactory.createLoweredBevelBorder();
+     /*Border lineBorder = BorderFactory.createLineBorder(Color.GRAY);
+        Border emptyBorder = new EmptyBorder(0, 10, 0, 10); // add some padding
+        Border roundedBorder = BorderFactory.createEmptyBorder(0, 5, 0, 5);*/
+        
+        
+        
     int cantidadElementos;
     private javax.swing.JLabel ultimoMarcado;
     public InterfazAdministrarProducto() {
+       
         initComponents();
+         /*roundedBorder = BorderFactory.createCompoundBorder(roundedBorder,
+            BorderFactory.createLineBorder(Color.GRAY));
+        jTextFieldBuscarCoincidencia.setBorder(BorderFactory.createCompoundBorder(lineBorder,BorderFactory.createCompoundBorder(emptyBorder, roundedBorder)));*/
+        
         bProdEditar=jButtonEditar;
         bProdEliminar=jButtonEliminar;
         bProdRegistrar=jButtonRegistrar;
@@ -131,7 +143,7 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         jPanelAdministrarProducto.setBackground(new java.awt.Color(37, 77, 116));
         jPanelAdministrarProducto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("ADMINISTRAR PRODUCTO");
         jPanelAdministrarProducto.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, -1, -1));
@@ -152,13 +164,21 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         });
         jPanelAdministrarProducto.add(jTextFieldBuscarCoincidencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 260, 30));
 
-        jButtonBuscar.setBackground(new java.awt.Color(0, 102, 153));
+        jButtonBuscar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonBuscar.setFont(new java.awt.Font("Segoe UI", 3, 20)); // NOI18N
         jButtonBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/searchSmall.png"))); // NOI18N
         jButtonBuscar.setText("Buscar");
+        jButtonBuscar.setBorderPainted(false);
         jButtonBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonBuscarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonBuscarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonBuscarMouseExited(evt);
             }
         });
         jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -176,11 +196,12 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre de Producto");
-        jPanelAdministrarProducto.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 210, -1));
+        jPanelAdministrarProducto.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 210, -1));
 
         jButtonEditar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonEditar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonEditar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/editSmall.png"))); // NOI18N
         jButtonEditar.setText("EDITAR");
         jButtonEditar.setBorderPainted(false);
         jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -188,11 +209,12 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jButtonEditarActionPerformed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 640, -1, 30));
+        jPanelAdministrarProducto.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 640, -1, 30));
 
         jButtonEliminar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonEliminar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/trashSmall.png"))); // NOI18N
         jButtonEliminar.setText("ELIMINAR");
         jButtonEliminar.setBorderPainted(false);
         jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -200,24 +222,43 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
                 jButtonEliminarActionPerformed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 640, -1, 30));
+        jPanelAdministrarProducto.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 640, 170, 30));
 
         jButtonRegistrar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/addSmall.png"))); // NOI18N
         jButtonRegistrar.setText("REGISTRAR");
         jButtonRegistrar.setBorderPainted(false);
+        jButtonRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonRegistrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonRegistrarMouseExited(evt);
+            }
+        });
         jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRegistrarActionPerformed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 640, -1, 30));
+        jPanelAdministrarProducto.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 640, -1, 30));
 
         jButtonHome.setBackground(new java.awt.Color(95, 143, 169));
-        jButtonHome.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonHome.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
         jButtonHome.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/homeSmall.png"))); // NOI18N
         jButtonHome.setText("HOME");
+        jButtonHome.setBorderPainted(false);
+        jButtonHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonHomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonHomeMouseExited(evt);
+            }
+        });
         jButtonHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonHomeActionPerformed(evt);
@@ -965,6 +1006,31 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
     private void jLabelMark1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMark1MouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabelMark1MouseExited
+
+    private void jButtonRegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistrarMouseEntered
+        jButtonRegistrar.setBackground(new Color (195,224,229));
+    }//GEN-LAST:event_jButtonRegistrarMouseEntered
+
+    private void jButtonRegistrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistrarMouseExited
+        
+        jButtonRegistrar.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButtonRegistrarMouseExited
+
+    private void jButtonBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBuscarMouseEntered
+        jButtonBuscar.setBackground(new Color (195,224,229));
+    }//GEN-LAST:event_jButtonBuscarMouseEntered
+
+    private void jButtonBuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBuscarMouseExited
+        jButtonBuscar.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButtonBuscarMouseExited
+
+    private void jButtonHomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeMouseEntered
+        jButtonHome.setBackground(new Color (195,224,229));
+    }//GEN-LAST:event_jButtonHomeMouseEntered
+
+    private void jButtonHomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeMouseExited
+        jButtonHome.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButtonHomeMouseExited
 
     /**
      * @param args the command line arguments
