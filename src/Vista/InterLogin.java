@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import Conexion.ConectarBD;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -31,9 +32,7 @@ public class InterLogin extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        this.setTitle("Login - Sistema de Ventas Go ");
-        this.setSize(new Dimension(700, 500));
-        
+        this.setTitle("Login - Sistema de Ventas Go ");     
     }
 
     @SuppressWarnings("unchecked")
@@ -78,11 +77,22 @@ public class InterLogin extends javax.swing.JFrame {
         jLabel3.setText("Contraseña :");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 140, 40));
 
-        btnAcceder.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        btnAcceder.setBackground(new java.awt.Color(95, 143, 169));
+        btnAcceder.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        btnAcceder.setForeground(new java.awt.Color(255, 255, 255));
         btnAcceder.setText("Acceder");
+        btnAcceder.setBorderPainted(false);
         btnAcceder.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 btnAccederFocusGained(evt);
+            }
+        });
+        btnAcceder.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAccederMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAccederMouseExited(evt);
             }
         });
         btnAcceder.addActionListener(new java.awt.event.ActionListener() {
@@ -90,13 +100,24 @@ public class InterLogin extends javax.swing.JFrame {
                 btnAccederActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAcceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, -1, -1));
+        jPanel1.add(btnAcceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, -1, -1));
 
-        btnSalir.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        btnSalir.setBackground(new java.awt.Color(95, 143, 169));
+        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Salir");
+        btnSalir.setBorderPainted(false);
         btnSalir.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 btnSalirFocusGained(evt);
+            }
+        });
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
             }
         });
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +125,7 @@ public class InterLogin extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 100, -1));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 100, -1));
 
         txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -148,20 +169,20 @@ public class InterLogin extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/VentasI.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 140, 130));
 
+        jLabelMayuscula.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabelMayuscula.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMayuscula.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jLabelMayusculaKeyPressed(evt);
             }
         });
-        jPanel1.add(jLabelMayuscula, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, -1, -1));
+        jPanel1.add(jLabelMayuscula, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,6 +252,22 @@ public class InterLogin extends javax.swing.JFrame {
     private void btnSalirFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btnSalirFocusGained
         jLabelMayuscula.setText("");
     }//GEN-LAST:event_btnSalirFocusGained
+
+    private void btnAccederMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAccederMouseEntered
+        btnAcceder.setBackground(new Color (113,163,188));
+    }//GEN-LAST:event_btnAccederMouseEntered
+
+    private void btnAccederMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAccederMouseExited
+        btnAcceder.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_btnAccederMouseExited
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        btnSalir.setBackground(new Color (113,163,188));
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        btnSalir.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_btnSalirMouseExited
 
     /**
      * @param args the command line arguments

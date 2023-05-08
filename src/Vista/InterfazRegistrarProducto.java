@@ -32,6 +32,7 @@ import static Vista.InterfazAdministrarProducto.jPanelAdministrarProducto;
 import static Vista.InterfazRegistrarUsuario.conexion;
 import static Vista.InterfazRegistrarUsuario.objUsuario;
 import static Vista.InterfazRegistrarUsuario.sentencia;
+import java.awt.Color;
 import java.awt.Shape;
 import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
@@ -229,6 +230,14 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jButtonGuardar.setText("GUARDAR");
         jButtonGuardar.setBorderPainted(false);
         jButtonGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonGuardarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonGuardarMouseExited(evt);
+            }
+        });
         jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGuardarActionPerformed(evt);
@@ -246,6 +255,14 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jButtonCancelar.setForeground(new java.awt.Color(245, 245, 245));
         jButtonCancelar.setText("CANCELAR");
         jButtonCancelar.setBorderPainted(false);
+        jButtonCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonCancelarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonCancelarMouseExited(evt);
+            }
+        });
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
@@ -521,6 +538,25 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
     private void jTextFieldCaracteristicasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCaracteristicasKeyPressed
         disableCopyPaste(jTextFieldCaracteristicas);
     }//GEN-LAST:event_jTextFieldCaracteristicasKeyPressed
+
+    private void jButtonGuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGuardarMouseEntered
+        if (jButtonGuardar.isEnabled()){
+            jButtonGuardar.setBackground(new Color (113,163,188));
+        }
+        
+    }//GEN-LAST:event_jButtonGuardarMouseEntered
+
+    private void jButtonGuardarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGuardarMouseExited
+        jButtonGuardar.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButtonGuardarMouseExited
+
+    private void jButtonCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelarMouseEntered
+        jButtonCancelar.setBackground(new Color (113,163,188));
+    }//GEN-LAST:event_jButtonCancelarMouseEntered
+
+    private void jButtonCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelarMouseExited
+        jButtonCancelar.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButtonCancelarMouseExited
 
     public void habilitarBotonP(){
     if(jTextFieldMarca.getText().isEmpty()

@@ -19,6 +19,7 @@ import static Vista.InterfazEditarUsuario.objUsuario;
 import static Vista.InterfazEditarUsuario.sentencia;
 import static Vista.InterfazRegistrarProducto.conexion;
 import static Vista.InterfazRegistrarProducto.objProducto;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -261,12 +262,20 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         jButtonGuardar.setForeground(new java.awt.Color(245, 245, 245));
         jButtonGuardar.setText("GUARDAR");
         jButtonGuardar.setBorderPainted(false);
+        jButtonGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonGuardarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonGuardarMouseExited(evt);
+            }
+        });
         jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 510, 180, 30));
+        jPanel1.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 180, 30));
 
         lbAvisoMarca.setBackground(new java.awt.Color(204, 204, 255));
         lbAvisoMarca.setForeground(new java.awt.Color(204, 204, 255));
@@ -293,12 +302,20 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         jButtonCancelar1.setForeground(new java.awt.Color(245, 245, 245));
         jButtonCancelar1.setText("CANCELAR");
         jButtonCancelar1.setBorderPainted(false);
+        jButtonCancelar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonCancelar1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonCancelar1MouseExited(evt);
+            }
+        });
         jButtonCancelar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelar1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 510, 180, 30));
+        jPanel1.add(jButtonCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 510, 180, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -612,8 +629,26 @@ offset=0;
     }//GEN-LAST:event_jTextFieldCaracteristicasKeyTyped
 
     private void jButtonCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelar1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButtonCancelar1ActionPerformed
+
+    private void jButtonGuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGuardarMouseEntered
+        if (jButtonGuardar.isEnabled()){
+            jButtonGuardar.setBackground(new Color (113,163,188));
+        }
+    }//GEN-LAST:event_jButtonGuardarMouseEntered
+
+    private void jButtonGuardarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGuardarMouseExited
+        jButtonGuardar.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButtonGuardarMouseExited
+
+    private void jButtonCancelar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelar1MouseEntered
+        jButtonCancelar1.setBackground(new Color (113,163,188));
+    }//GEN-LAST:event_jButtonCancelar1MouseEntered
+
+    private void jButtonCancelar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelar1MouseExited
+        jButtonCancelar1.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButtonCancelar1MouseExited
 
     /**
      * @param args the command line arguments

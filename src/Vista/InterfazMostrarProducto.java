@@ -9,6 +9,7 @@ import static Vista.InterfazAdministrarProducto.bProdEditar;
 import static Vista.InterfazAdministrarProducto.bProdEliminar;
 import static Vista.InterfazAdministrarProducto.bProdRegistrar;
 import static Vista.InterfazAdministrarProducto.codigoNumero;
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.sql.Statement;
@@ -163,6 +164,15 @@ public class InterfazMostrarProducto extends javax.swing.JFrame {
         jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCancelar.setText("CANCELAR");
+        jButtonCancelar.setBorderPainted(false);
+        jButtonCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonCancelarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonCancelarMouseExited(evt);
+            }
+        });
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
@@ -209,6 +219,14 @@ public class InterfazMostrarProducto extends javax.swing.JFrame {
         bProdRegistrar.setEnabled(true);
         dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButtonCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelarMouseEntered
+        jButtonCancelar.setBackground(new Color (113,163,188));
+    }//GEN-LAST:event_jButtonCancelarMouseEntered
+
+    private void jButtonCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelarMouseExited
+        jButtonCancelar.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButtonCancelarMouseExited
 
     /**
      * @param args the command line arguments

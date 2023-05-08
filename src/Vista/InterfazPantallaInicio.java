@@ -5,6 +5,7 @@
 package Vista;
 
 import static Vista.InterLogin.nombreUsuario;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -70,10 +71,19 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
         jButtonUsuario.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/AdministrarUsuarios.png"))); // NOI18N
         jButtonUsuario.setText("Administrar Usuarios");
+        jButtonUsuario.setBorderPainted(false);
         jButtonUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonUsuario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/AdministrarUsuarios.png"))); // NOI18N
         jButtonUsuario.setVerifyInputWhenFocusTarget(false);
         jButtonUsuario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonUsuarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonUsuarioMouseExited(evt);
+            }
+        });
         jButtonUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUsuarioActionPerformed(evt);
@@ -84,8 +94,17 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
         jButtonkProducto.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonkProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/AdministrarDispositivos.png"))); // NOI18N
         jButtonkProducto.setText("Administrar Productos");
+        jButtonkProducto.setBorderPainted(false);
         jButtonkProducto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonkProducto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonkProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonkProductoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonkProductoMouseExited(evt);
+            }
+        });
         jButtonkProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonkProductoActionPerformed(evt);
@@ -96,20 +115,48 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
         jButtonVenta.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/RegistroDeVentas.png"))); // NOI18N
         jButtonVenta.setText("Registro de Ventas");
+        jButtonVenta.setBorderPainted(false);
         jButtonVenta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonVenta.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonVentaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonVentaMouseExited(evt);
+            }
+        });
 
         jButtonProveedores.setBackground(new java.awt.Color(95, 143, 169));
         jButtonProveedores.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonProveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/AdministrarProveedores.png"))); // NOI18N
         jButtonProveedores.setText("Administrar Proveedores");
+        jButtonProveedores.setBorderPainted(false);
         jButtonProveedores.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonProveedores.setName(""); // NOI18N
         jButtonProveedores.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonProveedores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonProveedoresMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonProveedoresMouseExited(evt);
+            }
+        });
 
-        jButton5.setBackground(new java.awt.Color(60, 171, 204));
+        jButton5.setBackground(new java.awt.Color(95, 143, 169));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Cerrar Sesión");
+        jButton5.setBorderPainted(false);
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton5MouseExited(evt);
+            }
+        });
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -206,6 +253,46 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
         login.setLocationRelativeTo(null);
         
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButtonUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonUsuarioMouseEntered
+        jButtonUsuario.setBackground(new Color (113,163,188));
+    }//GEN-LAST:event_jButtonUsuarioMouseEntered
+
+    private void jButtonUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonUsuarioMouseExited
+        jButtonUsuario.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButtonUsuarioMouseExited
+
+    private void jButtonkProductoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonkProductoMouseEntered
+        jButtonkProducto.setBackground(new Color (113,163,188));
+    }//GEN-LAST:event_jButtonkProductoMouseEntered
+
+    private void jButtonkProductoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonkProductoMouseExited
+        jButtonkProducto.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButtonkProductoMouseExited
+
+    private void jButtonVentaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonVentaMouseEntered
+        jButtonVenta.setBackground(new Color (113,163,188));
+    }//GEN-LAST:event_jButtonVentaMouseEntered
+
+    private void jButtonVentaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonVentaMouseExited
+        jButtonVenta.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButtonVentaMouseExited
+
+    private void jButtonProveedoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonProveedoresMouseEntered
+        jButtonProveedores.setBackground(new Color (113,163,188));
+    }//GEN-LAST:event_jButtonProveedoresMouseEntered
+
+    private void jButtonProveedoresMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonProveedoresMouseExited
+        jButtonProveedores.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButtonProveedoresMouseExited
+
+    private void jButton5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseEntered
+        jButton5.setBackground(new Color (113,163,188));
+    }//GEN-LAST:event_jButton5MouseEntered
+
+    private void jButton5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseExited
+        jButton5.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButton5MouseExited
 
     /**
      * @param args the command line arguments

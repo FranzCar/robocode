@@ -15,6 +15,7 @@ import static Vista.InterfazAdministrarProducto.jLabelMarca;
 import static Vista.InterfazAdministrarProducto.jLabelModelo;
 import static Vista.InterfazAdministrarProducto.jPanelAdministrarProducto;
 import static Vista.InterfazAdministrarProducto.offset;
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.sql.Statement;
@@ -172,6 +173,14 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
         jButtonEliminar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEliminar.setText("ELIMINAR");
         jButtonEliminar.setBorderPainted(false);
+        jButtonEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonEliminarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonEliminarMouseExited(evt);
+            }
+        });
         jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEliminarActionPerformed(evt);
@@ -184,6 +193,14 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
         jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCancelar.setText("CANCELAR");
         jButtonCancelar.setBorderPainted(false);
+        jButtonCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonCancelarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonCancelarMouseExited(evt);
+            }
+        });
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
@@ -253,6 +270,25 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
             listaImagenes.mostrarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista);
         }
     }//GEN-LAST:event_jButtonEliminarActionPerformed
+
+    private void jButtonEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarMouseEntered
+        if (jButtonEliminar.isEnabled()){
+            jButtonEliminar.setBackground(new Color (113,163,188));
+        }
+        
+    }//GEN-LAST:event_jButtonEliminarMouseEntered
+
+    private void jButtonEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarMouseExited
+        jButtonEliminar.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButtonEliminarMouseExited
+
+    private void jButtonCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelarMouseEntered
+        jButtonCancelar.setBackground(new Color (113,163,188));
+    }//GEN-LAST:event_jButtonCancelarMouseEntered
+
+    private void jButtonCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelarMouseExited
+        jButtonCancelar.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButtonCancelarMouseExited
 public void habilitarBoton(){
     if(jTextFieldMarca.getText().isEmpty()
             || jTextFieldModelo.getText().isEmpty()
