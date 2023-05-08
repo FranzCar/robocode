@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import Conexion.ConectarBD;
 import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.sql.Statement;
 
 
@@ -19,6 +21,9 @@ public class InterLogin extends javax.swing.JFrame {
     static Statement sentencia = null;
     ConectarBD con = new ConectarBD();
     static String nombreUsuario;
+    Toolkit toolkit = Toolkit.getDefaultToolkit();
+    boolean isCapsLockOn;
+    
     /**
      * Creates new form InterLogin
      */
@@ -44,10 +49,16 @@ public class InterLogin extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         txtUsuario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jLabelMayuscula = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(37, 77, 116));
+        jPanel1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPanel1KeyPressed(evt);
+            }
+        });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -69,6 +80,11 @@ public class InterLogin extends javax.swing.JFrame {
 
         btnAcceder.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         btnAcceder.setText("Acceder");
+        btnAcceder.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                btnAccederFocusGained(evt);
+            }
+        });
         btnAcceder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAccederActionPerformed(evt);
@@ -78,6 +94,11 @@ public class InterLogin extends javax.swing.JFrame {
 
         btnSalir.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         btnSalir.setText("Salir");
+        btnSalir.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                btnSalirFocusGained(evt);
+            }
+        });
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
@@ -86,6 +107,19 @@ public class InterLogin extends javax.swing.JFrame {
         jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 100, -1));
 
         txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPasswordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPasswordFocusLost(evt);
+            }
+        });
+        txtPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtPasswordMouseClicked(evt);
+            }
+        });
         txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtPasswordKeyPressed(evt);
@@ -94,6 +128,11 @@ public class InterLogin extends javax.swing.JFrame {
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 330, -1));
 
         txtUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUsuarioFocusGained(evt);
+            }
+        });
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
@@ -108,6 +147,13 @@ public class InterLogin extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/VentasI.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 140, 130));
+
+        jLabelMayuscula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jLabelMayusculaKeyPressed(evt);
+            }
+        });
+        jPanel1.add(jLabelMayuscula, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,10 +194,43 @@ public class InterLogin extends javax.swing.JFrame {
 
     private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed
         // TODO add your handling code here:
+        isOnCaps();
         if(evt.getKeyCode()==evt.VK_ENTER){
             this.ingresar();
         }
+        
     }//GEN-LAST:event_txtPasswordKeyPressed
+
+    private void jLabelMayusculaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabelMayusculaKeyPressed
+
+    }//GEN-LAST:event_jLabelMayusculaKeyPressed
+
+    private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
+    }//GEN-LAST:event_jPanel1KeyPressed
+
+    private void txtPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPasswordMouseClicked
+       
+    }//GEN-LAST:event_txtPasswordMouseClicked
+
+    private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusGained
+        isOnCaps();
+    }//GEN-LAST:event_txtPasswordFocusGained
+
+    private void txtPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusLost
+        
+    }//GEN-LAST:event_txtPasswordFocusLost
+
+    private void txtUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuarioFocusGained
+        jLabelMayuscula.setText("");
+    }//GEN-LAST:event_txtUsuarioFocusGained
+
+    private void btnAccederFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btnAccederFocusGained
+        jLabelMayuscula.setText("");
+    }//GEN-LAST:event_btnAccederFocusGained
+
+    private void btnSalirFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btnSalirFocusGained
+        jLabelMayuscula.setText("");
+    }//GEN-LAST:event_btnSalirFocusGained
 
     /**
      * @param args the command line arguments
@@ -186,6 +265,14 @@ public class InterLogin extends javax.swing.JFrame {
                 new InterLogin().setVisible(true);
             }
         });
+    }
+    public void isOnCaps(){
+        isCapsLockOn = toolkit.getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
+        if (isCapsLockOn) {
+            jLabelMayuscula.setText("Bloqueo de Mayusculas esta activado");
+        } else {
+            jLabelMayuscula.setText("");
+        }
     }
 
     public void ingresar() {
@@ -231,6 +318,7 @@ public class InterLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelMayuscula;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsuario;

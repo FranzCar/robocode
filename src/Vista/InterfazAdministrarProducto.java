@@ -143,10 +143,10 @@ public class InterfazAdministrarProducto extends javax.swing.JFrame {
         jPanelAdministrarProducto.setBackground(new java.awt.Color(37, 77, 116));
         jPanelAdministrarProducto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("ADMINISTRAR PRODUCTO");
-        jPanelAdministrarProducto.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, -1, -1));
+        jPanelAdministrarProducto.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
 
         jTextFieldBuscarCoincidencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldBuscarCoincidencia.addActionListener(new java.awt.event.ActionListener() {
