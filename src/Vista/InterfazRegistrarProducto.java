@@ -134,6 +134,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jLabel6.setText("Caracteristicas:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
+        jTextFieldMarca.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextFieldMarca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldMarcaKeyPressed(evt);
@@ -147,6 +148,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 288, -1));
 
+        jTextFieldModelo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextFieldModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldModeloActionPerformed(evt);
@@ -165,6 +167,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 288, -1));
 
+        jTextFieldPrecio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextFieldPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldPrecioKeyPressed(evt);
@@ -178,6 +181,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 288, -1));
 
+        jTextFieldStock.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextFieldStock.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldStockKeyPressed(evt);
@@ -270,6 +274,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jPanel1.add(avisoCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 290, 20));
 
         jTextAreaCaracteristicas.setColumns(20);
+        jTextAreaCaracteristicas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextAreaCaracteristicas.setRows(5);
         jTextAreaCaracteristicas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -284,7 +289,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTextAreaCaracteristicas);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 290, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 290, 90));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -543,7 +548,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
 
     private void jTextAreaCaracteristicasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextAreaCaracteristicasKeyTyped
         validacionEspacio(evt); 
-        validacionCaracteresNumLetras(evt);
+        validacionCaracteresNumLetras2(evt);
         
         if(jTextAreaCaracteristicas.getText().length()>=100){
             evt.consume();
@@ -677,6 +682,26 @@ public void validacionCaracteresNumLetras(java.awt.event.KeyEvent evento){
         }
     
 }
+
+public void validacionCaracteresNumLetras2(java.awt.event.KeyEvent evento){
+    if((evento.getKeyChar()<97 || evento.getKeyChar()>122)&& //a-z
+        (evento.getKeyChar()<65 || evento.getKeyChar()>90)&& //A-Z
+        (evento.getKeyChar()<48 || evento.getKeyChar()>57)&& //0-9
+        evento.getKeyChar()!=209&&evento.getKeyChar()!=241&&
+        evento.getKeyChar()!=8&&evento.getKeyChar()!=32&&
+        evento.getKeyChar()!=225&&evento.getKeyChar()!=233&&
+        evento.getKeyChar()!=237&&evento.getKeyChar()!=243&&
+        evento.getKeyChar()!=250&&evento.getKeyChar()!=193&&
+        evento.getKeyChar()!=201&&evento.getKeyChar()!=205&&
+        evento.getKeyChar()!=211&&evento.getKeyChar()!=218&&
+        evento.getKeyChar()!=10){
+        evento.consume();
+  
+           JOptionPane.showMessageDialog(null, "No se permite Caracteres Especiales");
+        }
+    
+}
+
 public void validacionNumeros(java.awt.event.KeyEvent evento){
     if((evento.getKeyChar()<48 || evento.getKeyChar()>57)&&evento.getKeyChar()!=8){
         evento.consume();

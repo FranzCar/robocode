@@ -99,7 +99,7 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
                     jTextFieldModelo.setText(rs.getString("modeloProducto"));
                     jTextFieldPrecio.setText(rs.getString("precioProducto"));
                     jTextFieldStock.setText(rs.getString("stockProducto"));
-                    jTextFieldCaracteristicas.setText(rs.getString("caracteristicasProducto"));
+                    jTextAreaCaracteristicas.setText(rs.getString("caracteristicasProducto"));
                     
                     //leer Binario
                     Blob blob = rs.getBlob("fotoProducto");
@@ -138,7 +138,6 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         jTextFieldModelo = new javax.swing.JTextField();
         jTextFieldPrecio = new javax.swing.JTextField();
         jTextFieldStock = new javax.swing.JTextField();
-        jTextFieldCaracteristicas = new javax.swing.JTextField();
         jLabelFoto = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButtonGuardar = new javax.swing.JButton();
@@ -148,6 +147,8 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         lbAvisoStock = new javax.swing.JLabel();
         lbAvisoCaracteristicas = new javax.swing.JLabel();
         jButtonCancelar1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaCaracteristicas = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(37, 77, 116));
@@ -181,6 +182,7 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         jLabel6.setText("Caracteristicas:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
 
+        jTextFieldMarca.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextFieldMarca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldMarcaKeyReleased(evt);
@@ -191,6 +193,7 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 288, -1));
 
+        jTextFieldModelo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextFieldModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldModeloActionPerformed(evt);
@@ -206,6 +209,7 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 288, -1));
 
+        jTextFieldPrecio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextFieldPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldPrecioKeyReleased(evt);
@@ -216,6 +220,7 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 288, -1));
 
+        jTextFieldStock.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextFieldStock.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldStockKeyReleased(evt);
@@ -226,25 +231,10 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 288, -1));
 
-        jTextFieldCaracteristicas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCaracteristicasActionPerformed(evt);
-            }
-        });
-        jTextFieldCaracteristicas.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldCaracteristicasKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldCaracteristicasKeyTyped(evt);
-            }
-        });
-        jPanel1.add(jTextFieldCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 288, 110));
-
         jLabelFoto.setBackground(new java.awt.Color(255, 255, 255));
         jLabelFoto.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFoto.setText("             fotografia");
-        jLabelFoto.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jLabelFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabelFoto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelFotoMouseClicked(evt);
@@ -295,7 +285,7 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
 
         lbAvisoCaracteristicas.setBackground(new java.awt.Color(204, 204, 255));
         lbAvisoCaracteristicas.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel1.add(lbAvisoCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, 190, 32));
+        jPanel1.add(lbAvisoCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, 290, 30));
 
         jButtonCancelar1.setBackground(new java.awt.Color(95, 143, 169));
         jButtonCancelar1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -317,11 +307,26 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 510, 180, 30));
 
+        jTextAreaCaracteristicas.setColumns(20);
+        jTextAreaCaracteristicas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jTextAreaCaracteristicas.setRows(5);
+        jTextAreaCaracteristicas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextAreaCaracteristicasKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextAreaCaracteristicasKeyTyped(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTextAreaCaracteristicas);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 290, 100));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,16 +339,12 @@ public class InterfazEditarProducto extends javax.swing.JFrame {
     private void jTextFieldModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldModeloActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldModeloActionPerformed
-
-    private void jTextFieldCaracteristicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCaracteristicasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCaracteristicasActionPerformed
     public void validarCamposVacios(){
      
 if(jTextFieldMarca.getText().isEmpty()){
      lbAvisoMarca.setText("Campo Obligatorio");
     }else{
-        if(jTextFieldMarca.getText().length()<=3){
+        if(jTextFieldMarca.getText().length()<3){
              lbAvisoMarca.setText("Minimo 3 Caracteres");  
         }   
          else{lbAvisoMarca.setText(""); }  
@@ -351,7 +352,7 @@ if(jTextFieldMarca.getText().isEmpty()){
 if(jTextFieldModelo.getText().isEmpty()){
      lbAvisoModelo.setText("Campo Obligatorio");
     }else{
-        if(jTextFieldMarca.getText().length()<=3){
+        if(jTextFieldMarca.getText().length()<3){
              lbAvisoMarca.setText("Minimo 3 Caracteres");  
         }  
          else
@@ -360,7 +361,7 @@ if(jTextFieldModelo.getText().isEmpty()){
    if(jTextFieldPrecio.getText().isEmpty()){
      lbAvisoPrecio.setText("Campo Obligatorio");
      }else{
-        if(jTextFieldPrecio.getText().length()<=1){
+        if(jTextFieldPrecio.getText().length()<1){
              lbAvisoPrecio.setText("Minimo 1 Caracteres");  
         }   
          else{lbAvisoPrecio.setText(""); }  
@@ -368,15 +369,15 @@ if(jTextFieldModelo.getText().isEmpty()){
    if(jTextFieldStock.getText().isEmpty()){
      lbAvisoStock.setText("Campo Obligatorio");
      }else{
-        if(jTextFieldStock.getText().length()<=1){
+        if(jTextFieldStock.getText().length()<1){
              lbAvisoStock.setText("Minimo 1 Caracteres");  
         }   
          else{lbAvisoStock.setText(""); }  
     }
-   if(jTextFieldCaracteristicas.getText().isEmpty()){
+   if(jTextAreaCaracteristicas.getText().isEmpty()){
      lbAvisoCaracteristicas.setText("Campo Obligatorio");
      }else{
-        if(jTextFieldCaracteristicas.getText().length()<=10){
+        if(jTextAreaCaracteristicas.getText().length()<10){
              lbAvisoCaracteristicas.setText("Minimo 10 Caracteres");  
              
         }   
@@ -387,21 +388,40 @@ if(jTextFieldModelo.getText().isEmpty()){
 
 public void habilitarBoton(){
     if(jTextFieldMarca.getText().isEmpty()
-           || jTextFieldMarca.getText().length()<=3
-            || jTextFieldModelo.getText().length()<=3
-            || jTextFieldPrecio.getText().length()<=1
-            || jTextFieldStock.getText().length()<=1
-            || jTextFieldCaracteristicas.getText().length()<=10
+           || jTextFieldMarca.getText().length()<3
+            || jTextFieldModelo.getText().length()<3
+            || jTextFieldPrecio.getText().length()<1
+            || jTextFieldStock.getText().length()<1
+            || jTextAreaCaracteristicas.getText().length()<10
            ||jTextFieldModelo.getText().isEmpty()
            ||jTextFieldPrecio.getText().isEmpty()
            ||jTextFieldStock.getText().isEmpty()
-           ||jTextFieldCaracteristicas.getText().isEmpty()
+           ||jTextAreaCaracteristicas.getText().isEmpty()
            ){
         
         jButtonGuardar.setEnabled(false);
     }else{
     jButtonGuardar.setEnabled(true);
     }
+}
+
+
+public void validacionCaracteresNumLetras2(java.awt.event.KeyEvent evento){
+    if((evento.getKeyChar()<97 || evento.getKeyChar()>122)&& //a-z
+        (evento.getKeyChar()<65 || evento.getKeyChar()>90)&& //A-Z
+        (evento.getKeyChar()<48 || evento.getKeyChar()>57)&& //0-9
+        evento.getKeyChar()!=209&&evento.getKeyChar()!=241&&
+        evento.getKeyChar()!=8&&evento.getKeyChar()!=32&&
+        evento.getKeyChar()!=225&&evento.getKeyChar()!=233&&
+        evento.getKeyChar()!=237&&evento.getKeyChar()!=243&&
+        evento.getKeyChar()!=250&&evento.getKeyChar()!=193&&
+        evento.getKeyChar()!=201&&evento.getKeyChar()!=205&&
+        evento.getKeyChar()!=211&&evento.getKeyChar()!=218&&
+        evento.getKeyChar()!=10  ) {
+        evento.consume();
+           JOptionPane.showMessageDialog(null, "No se permite Caracteres Especiales");
+        }
+    
 }
 
 
@@ -414,7 +434,7 @@ public void habilitarBoton(){
         String precioStr=jTextFieldPrecio.getText().trim();
         double precio = Double.parseDouble(precioStr);
         String stock=jTextFieldStock.getText().trim();
-        String caract=jTextFieldCaracteristicas.getText().trim();
+        String caract=jTextAreaCaracteristicas.getText().trim();
       
         
         if(marca.isEmpty()|| marca.startsWith(" ")|| marca.startsWith("-")){
@@ -451,7 +471,7 @@ public void habilitarBoton(){
         objProducto.modelo = jTextFieldModelo.getText();
         objProducto.precio = jTextFieldPrecio.getText();
         objProducto.stock = Integer.parseInt(jTextFieldStock.getText());
-        objProducto.caracteristicas = jTextFieldCaracteristicas.getText();
+        objProducto.caracteristicas = jTextAreaCaracteristicas.getText();
 
         // Obtener el codProducto anterior
         String codProductoAnterior = null;
@@ -569,12 +589,6 @@ offset=0;
         habilitarBoton();
     }//GEN-LAST:event_jTextFieldStockKeyReleased
 
-    private void jTextFieldCaracteristicasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCaracteristicasKeyReleased
-        // TODO add your handling code here:
-        validarCamposVacios();
-        habilitarBoton();
-    }//GEN-LAST:event_jTextFieldCaracteristicasKeyReleased
-
     private void jTextFieldMarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMarcaKeyTyped
         // TODO add your handling code here:
          
@@ -619,17 +633,8 @@ offset=0;
         }
     }//GEN-LAST:event_jTextFieldStockKeyTyped
 
-    private void jTextFieldCaracteristicasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCaracteristicasKeyTyped
-       if(jTextFieldCaracteristicas.getText().length()>=100){
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-            getToolkit().beep();
-            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
-        }
-    }//GEN-LAST:event_jTextFieldCaracteristicasKeyTyped
-
     private void jButtonCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelar1ActionPerformed
-        
+        dispose();
     }//GEN-LAST:event_jButtonCancelar1ActionPerformed
 
     private void jButtonGuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGuardarMouseEntered
@@ -649,6 +654,22 @@ offset=0;
     private void jButtonCancelar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelar1MouseExited
         jButtonCancelar1.setBackground(new Color (95,143,169));
     }//GEN-LAST:event_jButtonCancelar1MouseExited
+
+    private void jTextAreaCaracteristicasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextAreaCaracteristicasKeyReleased
+        validarCamposVacios();
+        habilitarBoton();
+    }//GEN-LAST:event_jTextAreaCaracteristicasKeyReleased
+
+    private void jTextAreaCaracteristicasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextAreaCaracteristicasKeyTyped
+   
+        validacionCaracteresNumLetras2(evt);
+        if(jTextAreaCaracteristicas.getText().length()>=100){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
+    }//GEN-LAST:event_jTextAreaCaracteristicasKeyTyped
 
     /**
      * @param args the command line arguments
@@ -697,7 +718,8 @@ offset=0;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelFoto;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextFieldCaracteristicas;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextAreaCaracteristicas;
     private javax.swing.JTextField jTextFieldMarca;
     private javax.swing.JTextField jTextFieldModelo;
     private javax.swing.JTextField jTextFieldPrecio;
