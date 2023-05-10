@@ -90,7 +90,6 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jTextFieldModelo = new javax.swing.JTextField();
         jTextFieldPrecio = new javax.swing.JTextField();
         jTextFieldStock = new javax.swing.JTextField();
-        jTextFieldCaracteristicas = new javax.swing.JTextField();
         jLabelFoto = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButtonGuardar = new javax.swing.JButton();
@@ -100,6 +99,8 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         avisoPrecio = new javax.swing.JLabel();
         avisoStock = new javax.swing.JLabel();
         avisoCaracteristicas = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaCaracteristicas = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(37, 77, 116));
@@ -190,24 +191,6 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 288, -1));
 
-        jTextFieldCaracteristicas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCaracteristicasActionPerformed(evt);
-            }
-        });
-        jTextFieldCaracteristicas.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextFieldCaracteristicasKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldCaracteristicasKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldCaracteristicasKeyTyped(evt);
-            }
-        });
-        jPanel1.add(jTextFieldCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 288, 100));
-
         jLabelFoto.setBackground(new java.awt.Color(255, 255, 255));
         jLabelFoto.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFoto.setText("                       fotografia");
@@ -284,7 +267,24 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jPanel1.add(avisoStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 290, 20));
 
         avisoCaracteristicas.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel1.add(avisoCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 290, 20));
+        jPanel1.add(avisoCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 290, 20));
+
+        jTextAreaCaracteristicas.setColumns(20);
+        jTextAreaCaracteristicas.setRows(5);
+        jTextAreaCaracteristicas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextAreaCaracteristicasKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextAreaCaracteristicasKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextAreaCaracteristicasKeyTyped(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTextAreaCaracteristicas);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 290, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -304,17 +304,13 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldModeloActionPerformed
 
-    private void jTextFieldCaracteristicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCaracteristicasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCaracteristicasActionPerformed
-
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
         String marca=jTextFieldMarca.getText().trim();
         String modelo=jTextFieldModelo.getText().trim();
         String precio=jTextFieldPrecio.getText().trim();
         int precio2=Integer.parseInt(precio);
         String stock=jTextFieldStock.getText().trim();
-        String caract=jTextFieldCaracteristicas.getText().trim();
+        String caract=jTextAreaCaracteristicas.getText().trim();
         
         //disableCopyPaste(jTextFieldMarca);
         
@@ -351,7 +347,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
             objProducto.modelo=jTextFieldModelo.getText();
             objProducto.precio=jTextFieldPrecio.getText();
             objProducto.stock=Integer.parseInt(jTextFieldStock.getText());
-            objProducto.caracteristicas=jTextFieldCaracteristicas.getText();
+            objProducto.caracteristicas=jTextAreaCaracteristicas.getText();
             
             //Para validar que la Marca del Producto no sea duplicado
            String sentenciaModelo = "SELECT COUNT(*) FROM producto WHERE modeloProducto = '" +  objProducto.modelo + "'";
@@ -376,7 +372,7 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
             jTextFieldModelo.setText("");
             jTextFieldPrecio.setText("");
             jTextFieldStock.setText("");
-            jTextFieldCaracteristicas.setText("");        
+            jTextAreaCaracteristicas.setText("");        
             jLabelFoto.setIcon(null);
             JOptionPane.showMessageDialog(null, "Registro Exitoso");
         }catch(SQLException e){
@@ -481,19 +477,6 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextFieldStockKeyTyped
 
-    private void jTextFieldCaracteristicasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCaracteristicasKeyTyped
-
-        validacionEspacio(evt); 
-        validacionCaracteresNumLetras(evt);
-        
-        if(jTextFieldCaracteristicas.getText().length()>=100){
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-            getToolkit().beep();
-            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
-        }
-    }//GEN-LAST:event_jTextFieldCaracteristicasKeyTyped
-
     private void jTextFieldMarcaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMarcaKeyReleased
         validarCamposVacios();
         habilitarBotonP();
@@ -514,11 +497,6 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         habilitarBotonP();
     }//GEN-LAST:event_jTextFieldStockKeyReleased
 
-    private void jTextFieldCaracteristicasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCaracteristicasKeyReleased
-        validarCamposVacios();
-        habilitarBotonP();
-    }//GEN-LAST:event_jTextFieldCaracteristicasKeyReleased
-
     private void jTextFieldMarcaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMarcaKeyPressed
         disableCopyPaste(jTextFieldMarca);
     }//GEN-LAST:event_jTextFieldMarcaKeyPressed
@@ -534,10 +512,6 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
     private void jTextFieldStockKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldStockKeyPressed
         disableCopyPaste(jTextFieldStock);
     }//GEN-LAST:event_jTextFieldStockKeyPressed
-
-    private void jTextFieldCaracteristicasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCaracteristicasKeyPressed
-        disableCopyPaste(jTextFieldCaracteristicas);
-    }//GEN-LAST:event_jTextFieldCaracteristicasKeyPressed
 
     private void jButtonGuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGuardarMouseEntered
         if (jButtonGuardar.isEnabled()){
@@ -558,17 +532,38 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jButtonCancelar.setBackground(new Color (95,143,169));
     }//GEN-LAST:event_jButtonCancelarMouseExited
 
+    private void jTextAreaCaracteristicasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextAreaCaracteristicasKeyPressed
+        disableCopyPaste(jTextAreaCaracteristicas);
+    }//GEN-LAST:event_jTextAreaCaracteristicasKeyPressed
+
+    private void jTextAreaCaracteristicasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextAreaCaracteristicasKeyReleased
+        validarCamposVacios();
+        habilitarBotonP();
+    }//GEN-LAST:event_jTextAreaCaracteristicasKeyReleased
+
+    private void jTextAreaCaracteristicasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextAreaCaracteristicasKeyTyped
+        validacionEspacio(evt); 
+        validacionCaracteresNumLetras(evt);
+        
+        if(jTextAreaCaracteristicas.getText().length()>=100){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
+    }//GEN-LAST:event_jTextAreaCaracteristicasKeyTyped
+
     public void habilitarBotonP(){
     if(jTextFieldMarca.getText().isEmpty()
             || jTextFieldModelo.getText().isEmpty()
             || jTextFieldPrecio.getText().isEmpty()
             || jTextFieldStock.getText().isEmpty()
-            || jTextFieldCaracteristicas.getText().isEmpty()
+            || jTextAreaCaracteristicas.getText().isEmpty()
             || jTextFieldMarca.getText().length()<3
             || jTextFieldModelo.getText().length()<3
             || jTextFieldPrecio.getText().length()<1
             || jTextFieldStock.getText().length()<1
-            || jTextFieldCaracteristicas.getText().length()<10
+            || jTextAreaCaracteristicas.getText().length()<10
             || jLabelFoto.getIcon()==null){
         
         jButtonGuardar.setEnabled(false);
@@ -583,7 +578,7 @@ public void validacionEspacio(java.awt.event.KeyEvent evento){
          ||jTextFieldModelo.getText().startsWith(" ")
          ||jTextFieldPrecio.getText().startsWith(" ")
          ||jTextFieldStock.getText().startsWith(" ")
-         ||jTextFieldCaracteristicas.getText().startsWith(" ")){
+         ||jTextAreaCaracteristicas.getText().startsWith(" ")){
     evento.consume();
             JOptionPane.showMessageDialog(this, "No puedes ingresar Espacio como primer caracter");
 }
@@ -631,10 +626,10 @@ public void validarCamposVacios(){
     }
     
     //Caracteristicas
-    if(jTextFieldCaracteristicas.getText().isEmpty()){
+    if(jTextAreaCaracteristicas.getText().isEmpty()){
     avisoCaracteristicas.setText("Campo Obligatorio");
     }else{
-        if(jTextFieldCaracteristicas.getText().length()<10){
+        if(jTextAreaCaracteristicas.getText().length()<10){
             avisoCaracteristicas.setText("Se requiere 10 caracteres");
         }
         else{
@@ -763,7 +758,8 @@ private void disableCopy(JComponent component){
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelFoto;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextFieldCaracteristicas;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextAreaCaracteristicas;
     private javax.swing.JTextField jTextFieldMarca;
     private javax.swing.JTextField jTextFieldModelo;
     private javax.swing.JTextField jTextFieldPrecio;
