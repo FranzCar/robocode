@@ -65,7 +65,7 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
                     jTextFieldModelo.setText(rs.getString("modeloProducto"));
                     jTextFieldPrecio.setText(rs.getString("precioProducto"));
                     jTextFieldStock.setText(rs.getString("stockProducto"));
-                    jTextFieldCaracteristicas.setText(rs.getString("caracteristicasProducto"));
+                    jTextAreaCaracteristicas.setText(rs.getString("caracteristicasProducto"));
                     
                     //leer Binario
                     Blob blob = rs.getBlob("fotoProducto");
@@ -91,7 +91,7 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
             jTextFieldModelo.setEditable(false);
             jTextFieldPrecio.setEditable(false);
             jTextFieldStock.setEditable(false);
-            jTextFieldCaracteristicas.setEditable(false);
+            jTextAreaCaracteristicas.setEditable(false);
         
     }
 
@@ -114,11 +114,12 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
         jTextFieldModelo = new javax.swing.JTextField();
         jTextFieldPrecio = new javax.swing.JTextField();
         jTextFieldStock = new javax.swing.JTextField();
-        jTextFieldCaracteristicas = new javax.swing.JTextField();
         jButtonEliminar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jLabelFoto = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaCaracteristicas = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -160,13 +161,6 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
         jPanel1.add(jTextFieldModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 288, -1));
         jPanel1.add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 288, -1));
         jPanel1.add(jTextFieldStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 288, -1));
-
-        jTextFieldCaracteristicas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCaracteristicasActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextFieldCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 288, 100));
 
         jButtonEliminar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonEliminar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -219,6 +213,21 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
         jLabel9.setText("ELIMINAR PRODUCTO");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
 
+        jTextAreaCaracteristicas.setColumns(20);
+        jTextAreaCaracteristicas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jTextAreaCaracteristicas.setRows(5);
+        jTextAreaCaracteristicas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextAreaCaracteristicasKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextAreaCaracteristicasKeyTyped(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTextAreaCaracteristicas);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 290, 100));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -238,10 +247,6 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
     private void jTextFieldModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldModeloActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldModeloActionPerformed
-
-    private void jTextFieldCaracteristicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCaracteristicasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCaracteristicasActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         bProdEliminar.setEnabled(true);
@@ -289,12 +294,21 @@ public class InterfazEliminarProducto extends javax.swing.JFrame {
     private void jButtonCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelarMouseExited
         jButtonCancelar.setBackground(new Color (95,143,169));
     }//GEN-LAST:event_jButtonCancelarMouseExited
+
+    private void jTextAreaCaracteristicasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextAreaCaracteristicasKeyReleased
+
+        habilitarBoton();
+    }//GEN-LAST:event_jTextAreaCaracteristicasKeyReleased
+
+    private void jTextAreaCaracteristicasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextAreaCaracteristicasKeyTyped
+
+    }//GEN-LAST:event_jTextAreaCaracteristicasKeyTyped
 public void habilitarBoton(){
     if(jTextFieldMarca.getText().isEmpty()
             || jTextFieldModelo.getText().isEmpty()
             || jTextFieldPrecio.getText().isEmpty()
             || jTextFieldStock.getText().isEmpty()
-            || jTextFieldCaracteristicas.getText().isEmpty()){
+            || jTextAreaCaracteristicas.getText().isEmpty()){
         jButtonEliminar.setEnabled(false);
     }else{
     jButtonEliminar.setEnabled(true);
@@ -346,7 +360,8 @@ public void habilitarBoton(){
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelFoto;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextFieldCaracteristicas;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextAreaCaracteristicas;
     private javax.swing.JTextField jTextFieldMarca;
     private javax.swing.JTextField jTextFieldModelo;
     private javax.swing.JTextField jTextFieldPrecio;
