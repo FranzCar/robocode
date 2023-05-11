@@ -27,28 +27,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextFieldNombreProv = new javax.swing.JTextField();
-        jTextFieldCiProv = new javax.swing.JTextField();
-        jTextFieldTelefonoProv = new javax.swing.JTextField();
-        jTextFieldIdemail = new javax.swing.JTextField();
-        jTextFieldDescripcion = new javax.swing.JTextField();
-        avisoDireccion = new javax.swing.JLabel();
-        avisoContrasenia = new javax.swing.JLabel();
-        avisoIDusuario = new javax.swing.JLabel();
-        avisoFecha = new javax.swing.JLabel();
-        avisoTelefono = new javax.swing.JLabel();
-        avisoCI = new javax.swing.JLabel();
-        avisoNombre = new javax.swing.JLabel();
-        jButtonCancelar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jTextFieldDireccionProv = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,184 +35,10 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel1.setText("Nombre de Proveedor:");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 108, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel2.setText("CI/NIT:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 162, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel3.setText("Teléfono:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 216, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel4.setText("e-mail:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 269, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel7.setText("Direccion:");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 327, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel5.setText("Descripcion producto:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 389, -1, -1));
-
-        jTextFieldNombreProv.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jTextFieldNombreProv.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNombreProvActionPerformed(evt);
-            }
-        });
-        jTextFieldNombreProv.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldNombreProvKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldNombreProvKeyTyped(evt);
-            }
-        });
-        jPanel2.add(jTextFieldNombreProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(277, 106, 300, 30));
-
-        jTextFieldCiProv.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jTextFieldCiProv.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCiProvActionPerformed(evt);
-            }
-        });
-        jTextFieldCiProv.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldCiProvKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldCiProvKeyTyped(evt);
-            }
-        });
-        jPanel2.add(jTextFieldCiProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(277, 160, 300, 30));
-
-        jTextFieldTelefonoProv.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jTextFieldTelefonoProv.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldTelefonoProvActionPerformed(evt);
-            }
-        });
-        jTextFieldTelefonoProv.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldTelefonoProvKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldTelefonoProvKeyTyped(evt);
-            }
-        });
-        jPanel2.add(jTextFieldTelefonoProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(277, 214, 300, 30));
-
-        jTextFieldIdemail.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jTextFieldIdemail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldIdemailActionPerformed(evt);
-            }
-        });
-        jTextFieldIdemail.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldIdemailKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldIdemailKeyTyped(evt);
-            }
-        });
-        jPanel2.add(jTextFieldIdemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 300, 30));
-
-        jTextFieldDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jTextFieldDescripcion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDescripcionActionPerformed(evt);
-            }
-        });
-        jTextFieldDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldDescripcionKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldDescripcionKeyTyped(evt);
-            }
-        });
-        jPanel2.add(jTextFieldDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, 300, 70));
-
-        avisoDireccion.setBackground(new java.awt.Color(204, 204, 255));
-        avisoDireccion.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel2.add(avisoDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 444, 181, 30));
-
-        avisoContrasenia.setBackground(new java.awt.Color(204, 204, 255));
-        avisoContrasenia.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel2.add(avisoContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 386, 181, 30));
-
-        avisoIDusuario.setBackground(new java.awt.Color(204, 204, 255));
-        avisoIDusuario.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel2.add(avisoIDusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 327, 181, 30));
-
-        avisoFecha.setBackground(new java.awt.Color(204, 204, 255));
-        avisoFecha.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel2.add(avisoFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 269, 181, 30));
-
-        avisoTelefono.setBackground(new java.awt.Color(204, 204, 255));
-        avisoTelefono.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel2.add(avisoTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 214, 181, 30));
-
-        avisoCI.setBackground(new java.awt.Color(204, 204, 255));
-        avisoCI.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel2.add(avisoCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 160, 181, 30));
-
-        avisoNombre.setBackground(new java.awt.Color(204, 204, 255));
-        avisoNombre.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel2.add(avisoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 106, 181, 30));
-
-        jButtonCancelar.setBackground(new java.awt.Color(95, 143, 169));
-        jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButtonCancelar.setForeground(new java.awt.Color(245, 245, 245));
-        jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar.png"))); // NOI18N
-        jButtonCancelar.setText("CANCELAR");
-        jButtonCancelar.setBorderPainted(false);
-        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCancelarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 530, 190, -1));
-
         jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel8.setText("REGISTRAR PROVEEDOR");
+        jLabel8.setText("ELIMINAR PROVEEDOR");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 14, -1, -1));
-
-        jTextFieldDireccionProv.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jTextFieldDireccionProv.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDireccionProvActionPerformed(evt);
-            }
-        });
-        jTextFieldDireccionProv.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldDireccionProvKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldDireccionProvKeyTyped(evt);
-            }
-        });
-        jPanel2.add(jTextFieldDireccionProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 300, 30));
-
-        jButton1.setBackground(new java.awt.Color(95, 143, 169));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(245, 245, 245));
-        jButton1.setText("REGISTRAR");
-        jButton1.setBorderPainted(false);
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 530, 160, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -258,84 +63,6 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextFieldNombreProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreProvActionPerformed
-
-    }//GEN-LAST:event_jTextFieldNombreProvActionPerformed
-
-    private void jTextFieldNombreProvKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreProvKeyReleased
-      
-    }//GEN-LAST:event_jTextFieldNombreProvKeyReleased
-
-    private void jTextFieldNombreProvKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreProvKeyTyped
-
-       
-    }//GEN-LAST:event_jTextFieldNombreProvKeyTyped
-
-    private void jTextFieldCiProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCiProvActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCiProvActionPerformed
-
-    private void jTextFieldCiProvKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiProvKeyReleased
-       
-    }//GEN-LAST:event_jTextFieldCiProvKeyReleased
-
-    private void jTextFieldCiProvKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiProvKeyTyped
-        
-    }//GEN-LAST:event_jTextFieldCiProvKeyTyped
-
-    private void jTextFieldTelefonoProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoProvActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldTelefonoProvActionPerformed
-
-    private void jTextFieldTelefonoProvKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoProvKeyReleased
-      
-    }//GEN-LAST:event_jTextFieldTelefonoProvKeyReleased
-
-    private void jTextFieldTelefonoProvKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoProvKeyTyped
-
-      
-    }//GEN-LAST:event_jTextFieldTelefonoProvKeyTyped
-
-    private void jTextFieldIdemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdemailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldIdemailActionPerformed
-
-    private void jTextFieldIdemailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdemailKeyReleased
-      
-    }//GEN-LAST:event_jTextFieldIdemailKeyReleased
-
-    private void jTextFieldIdemailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdemailKeyTyped
-   
-    }//GEN-LAST:event_jTextFieldIdemailKeyTyped
-
-    private void jTextFieldDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDescripcionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldDescripcionActionPerformed
-
-    private void jTextFieldDescripcionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescripcionKeyReleased
-        
-    }//GEN-LAST:event_jTextFieldDescripcionKeyReleased
-
-    private void jTextFieldDescripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescripcionKeyTyped
-        
-    }//GEN-LAST:event_jTextFieldDescripcionKeyTyped
-
-    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
-        
-    }//GEN-LAST:event_jButtonCancelarActionPerformed
-
-    private void jTextFieldDireccionProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDireccionProvActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldDireccionProvActionPerformed
-
-    private void jTextFieldDireccionProvKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDireccionProvKeyReleased
-    
-    }//GEN-LAST:event_jTextFieldDireccionProvKeyReleased
-
-    private void jTextFieldDireccionProvKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDireccionProvKeyTyped
-
-    }//GEN-LAST:event_jTextFieldDireccionProvKeyTyped
 
     /**
      * @param args the command line arguments
@@ -373,28 +100,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel avisoCI;
-    private javax.swing.JLabel avisoContrasenia;
-    private javax.swing.JLabel avisoDireccion;
-    private javax.swing.JLabel avisoFecha;
-    private javax.swing.JLabel avisoIDusuario;
-    private javax.swing.JLabel avisoNombre;
-    private javax.swing.JLabel avisoTelefono;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButtonCancelar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextFieldCiProv;
-    private javax.swing.JTextField jTextFieldDescripcion;
-    private javax.swing.JPasswordField jTextFieldDireccionProv;
-    private javax.swing.JTextField jTextFieldIdemail;
-    private javax.swing.JTextField jTextFieldNombreProv;
-    private javax.swing.JTextField jTextFieldTelefonoProv;
     // End of variables declaration//GEN-END:variables
 }
