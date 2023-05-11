@@ -40,6 +40,8 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
         jButtonCancelar = new javax.swing.JButton();
         jButtonEliminar = new javax.swing.JButton();
         jTextFieldContrasenia = new javax.swing.JPasswordField();
+        jLabel6 = new javax.swing.JLabel();
+        jTextFieldContrasenia1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,27 +53,27 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(245, 245, 245));
         jLabel1.setText("Nombre de Proveedor:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(245, 245, 245));
         jLabel2.setText("CI / NIT:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(245, 245, 245));
         jLabel3.setText("Teléfono");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(245, 245, 245));
         jLabel7.setText("e-mail:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel5.setText("Dirección:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, -1, -1));
+        jLabel5.setText("Descripción producto:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, -1, -1));
 
         jTextFieldIdUsuario.setBackground(new java.awt.Color(165, 221, 251));
         jTextFieldIdUsuario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -85,7 +87,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
                 jTextFieldIdUsuarioKeyReleased(evt);
             }
         });
-        jPanel1.add(jTextFieldIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 300, 27));
+        jPanel1.add(jTextFieldIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 300, 27));
 
         jTextFieldTelefono.setBackground(new java.awt.Color(165, 221, 251));
         jTextFieldTelefono.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -102,7 +104,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
                 jTextFieldTelefonoKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, 300, -1));
+        jPanel1.add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 300, -1));
 
         jTextFieldCi.setBackground(new java.awt.Color(165, 221, 251));
         jTextFieldCi.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -119,7 +121,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
                 jTextFieldCiKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextFieldCi, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 300, 27));
+        jPanel1.add(jTextFieldCi, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 300, 27));
 
         jTextFieldNombre.setBackground(new java.awt.Color(165, 221, 251));
         jTextFieldNombre.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -136,7 +138,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
                 jTextFieldNombreKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 300, 27));
+        jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 300, 27));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -153,7 +155,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 510, -1, -1));
+        jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 520, -1, -1));
 
         jButtonEliminar.setBackground(new java.awt.Color(97, 150, 180));
         jButtonEliminar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -165,7 +167,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
                 jButtonEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, -1, -1));
+        jPanel1.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 520, -1, -1));
 
         jTextFieldContrasenia.setBackground(new java.awt.Color(165, 221, 251));
         jTextFieldContrasenia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -174,7 +176,21 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
                 jTextFieldContraseniaActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 300, 32));
+        jPanel1.add(jTextFieldContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, 300, 70));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(245, 245, 245));
+        jLabel6.setText("Dirección:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, -1));
+
+        jTextFieldContrasenia1.setBackground(new java.awt.Color(165, 221, 251));
+        jTextFieldContrasenia1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jTextFieldContrasenia1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldContrasenia1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldContrasenia1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 300, 32));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -258,6 +274,10 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
+    private void jTextFieldContrasenia1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContrasenia1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldContrasenia1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -300,11 +320,13 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextFieldCi;
     private javax.swing.JPasswordField jTextFieldContrasenia;
+    private javax.swing.JPasswordField jTextFieldContrasenia1;
     private javax.swing.JTextField jTextFieldIdUsuario;
     private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldTelefono;
