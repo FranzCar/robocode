@@ -48,6 +48,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         jButtonCancelar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jTextFieldDireccionProv = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -198,12 +199,13 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         jButtonCancelar.setForeground(new java.awt.Color(245, 245, 245));
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar.png"))); // NOI18N
         jButtonCancelar.setText("CANCELAR");
+        jButtonCancelar.setBorderPainted(false);
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(449, 525, 190, -1));
+        jPanel2.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 530, 190, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(245, 245, 245));
@@ -225,6 +227,13 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldDireccionProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 300, 30));
+
+        jButton1.setBackground(new java.awt.Color(95, 143, 169));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(245, 245, 245));
+        jButton1.setText("REGISTRAR");
+        jButton1.setBorderPainted(false);
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 530, 160, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -371,6 +380,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
     private javax.swing.JLabel avisoIDusuario;
     private javax.swing.JLabel avisoNombre;
     private javax.swing.JLabel avisoTelefono;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
