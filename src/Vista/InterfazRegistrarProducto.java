@@ -259,16 +259,16 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
 
         avisoMarca.setBackground(new java.awt.Color(255, 255, 255));
         avisoMarca.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel1.add(avisoMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 290, 20));
+        jPanel1.add(avisoMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 290, 20));
 
         avisoModelo.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel1.add(avisoModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 290, 20));
+        jPanel1.add(avisoModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 290, 20));
 
         avisoPrecio.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel1.add(avisoPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 290, 20));
+        jPanel1.add(avisoPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 290, 20));
 
         avisoStock.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel1.add(avisoStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 290, 20));
+        jPanel1.add(avisoStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 290, 20));
 
         avisoCaracteristicas.setForeground(new java.awt.Color(204, 204, 255));
         jPanel1.add(avisoCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 290, 20));

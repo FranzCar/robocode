@@ -332,10 +332,10 @@ public class InterLogin extends javax.swing.JFrame {
                 pst.setString(1, user);
                 pst.setString(2, pass);
                 ResultSet rs = pst.executeQuery();
-                if (rs.next()) {
-                    this.dispose();
+                if (rs.next()) {                    
                      JOptionPane.showMessageDialog(this, "Ingresando como Vendedor.!!!");
-                    //new InterfazPantallaInicio().setVisible(true);
+                     new InterfazRegistrarVenta().setVisible(true);
+                     this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Credenciales incorrectas. Vuelve a intentar de nuevo.");
                 }
