@@ -6,7 +6,7 @@ package Vista;
 
 import Conexion.ConectarBD;
 import Modelo.Usuario;
-import Controlador.ListarUsuarios;
+import Controlador.ListarProveedores;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -32,7 +32,7 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
     public InterfazAdministrarProveedor() {
         initComponents();
         this.setLocationRelativeTo(null);
-        ListarUsuarios Administrar=new ListarUsuarios();
+        ListarProveedores Administrar=new ListarProveedores();
         jButtonEditar.setEnabled(false);
         jButtonEliminar.setEnabled(false);
         Administrar.MostrarTabla(jTableUsuario);
@@ -97,7 +97,7 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID proveedor", "Nombre", "CI", "Telefono", "email", "Dirección", "Descripción"
+                "ID proveedor", "Nombre", "NIT", "Telefono", "email", "Dirección", "Descripción"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -118,7 +118,6 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
         jButtonEditar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonEditar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonEditar.setForeground(new java.awt.Color(245, 245, 245));
-        jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/editarUser.png"))); // NOI18N
         jButtonEditar.setText("EDITAR");
         jButtonEditar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -134,7 +133,6 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
         jButtonEliminar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonEliminar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonEliminar.setForeground(new java.awt.Color(245, 245, 245));
-        jButtonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
         jButtonEliminar.setText("ELIMINAR");
         jButtonEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -150,7 +148,6 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
         jButtonRegistrar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonRegistrar.setForeground(new java.awt.Color(245, 245, 245));
-        jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/registrar.png"))); // NOI18N
         jButtonRegistrar.setText("REGISTRAR");
         jButtonRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -255,7 +252,7 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldBuscarCoincidencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonBuscar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -275,31 +272,31 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldBuscarCoincidenciaActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        ListarUsuarios Administrar=new ListarUsuarios();
+        ListarProveedores Administrar=new ListarProveedores();
         Administrar.MostrarTablaBuscar(jTableUsuario,jTextFieldBuscarCoincidencia.getText());    
         
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
         deshabilitar();
-        InterfazEliminarUsuario ventanaEliminar=new InterfazEliminarUsuario();
-        ventanaEliminar.setVisible(true);
-        ventanaEliminar.setLocationRelativeTo(null);
+        //InterfazEliminarUsuario ventanaEliminar=new InterfazEliminarUsuario();
+        //ventanaEliminar.setVisible(true);
+        //ventanaEliminar.setLocationRelativeTo(null);
         
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
         deshabilitar();
-        InterfazEditarUsuario ventadaEditar=new InterfazEditarUsuario();
-        ventadaEditar.setVisible(true);
-        ventadaEditar.setLocationRelativeTo(null);
+        //InterfazEditarUsuario ventadaEditar=new InterfazEditarUsuario();
+        //ventadaEditar.setVisible(true);
+        //ventadaEditar.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         deshabilitar();
-        InterfazRegistrarUsuario ventana=new InterfazRegistrarUsuario();
-        ventana.setVisible(true);
-        ventana.setLocationRelativeTo(null);
+        //InterfazRegistrarUsuario ventana=new InterfazRegistrarUsuario();
+        //ventana.setVisible(true);
+        //ventana.setLocationRelativeTo(null);
 
         
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
