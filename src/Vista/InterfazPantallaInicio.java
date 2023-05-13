@@ -143,6 +143,11 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
                 jButtonProveedoresMouseExited(evt);
             }
         });
+        jButtonProveedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProveedoresActionPerformed(evt);
+            }
+        });
 
         jButton5.setBackground(new java.awt.Color(95, 143, 169));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -293,6 +298,12 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
     private void jButton5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseExited
         jButton5.setBackground(new Color (95,143,169));
     }//GEN-LAST:event_jButton5MouseExited
+
+    private void jButtonProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProveedoresActionPerformed
+        InterfazAdministrarProveedor administrarProveedor=new InterfazAdministrarProveedor();
+        administrarProveedor.setVisible(true);
+        administrarProveedor.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButtonProveedoresActionPerformed
 
     /**
      * @param args the command line arguments
