@@ -3,20 +3,78 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
-
+import Conexion.ConectarBD;
+import Controlador.ListarProducto;
+import static Vista.InterfazAdministrarProducto.codProdutoLista;
+import static Vista.InterfazAdministrarProducto.conexion;
+import static Vista.InterfazAdministrarProducto.jLabelFoto;
+import static Vista.InterfazAdministrarProducto.jLabelMarca;
+import static Vista.InterfazAdministrarProducto.jLabelModelo;
+import static Vista.InterfazAdministrarProducto.jPanelAdministrarProducto;
+import static Vista.InterfazAdministrarProducto.offset;
+import java.awt.Color;
+import java.sql.Connection;
+import javax.swing.BorderFactory;
+import javax.swing.border.Border;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import java.sql.SQLException;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.TableRowSorter;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
 public class InterfazBuscarProductoo extends javax.swing.JFrame {
-
+    DefaultTableModel dtm=new DefaultTableModel ();
+    
+     static Connection conexion=null;
+    ConectarBD con = new ConectarBD();
+    Color twhite=new Color(255,255,255,128);
+    Color newColor=new Color(195,224,229,240);
+    public static javax.swing.JLabel jLabelFoto;
+    public static javax.swing.JLabel jLabelMarca;
+    public static javax.swing.JLabel jLabelModelo;
+    public static int [] codProdutoLista=new int [10];
+    public static javax.swing.JButton bProdEditar;
+    public static javax.swing.JButton bProdEliminar;
+    public static javax.swing.JButton bProdRegistrar;
+    public static int codigoNumero;
+    ListarProducto listaproducto=new ListarProducto();
+    public static int offset=0;
+    Border border= BorderFactory.createLineBorder(twhite,4);
+    Border border2= BorderFactory.createLineBorder(newColor,4);
+    //Border border= BorderFactory.createLineBorder(Color.red,1);
+    //Border border=BorderFactory.createLoweredBevelBorder();
+     /*Border lineBorder = BorderFactory.createLineBorder(Color.GRAY);
+        Border emptyBorder = new EmptyBorder(0, 10, 0, 10); // add some padding
+        Border roundedBorder = BorderFactory.createEmptyBorder(0, 5, 0, 5);*/
+        
+        
+        
+    int cantidadElementos;
+    private javax.swing.JLabel ultimoMarcado;
+   
     /**
      * Creates new form InterfazBuscarProductoo
      */
     public InterfazBuscarProductoo() {
         initComponents();
+        String[] Titulo= new String [] {"ID", "Marca", "Modelo", "Precio", "Descripcion", "fotografia"};
+  dtm.setColumnIdentifiers(Titulo);
+  tabla.setModel(dtm);
+  
     }
-
+void agregar(){
+    dtm.addRow(new Object[]{
+        textoID.getText(), textomarca.getText(), textomodelo.getText(), textoprecio.getText(), textocaracteristicas.getText(), textofotografia.getText()
+    });
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,22 +86,28 @@ public class InterfazBuscarProductoo extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        tabla = new javax.swing.JTable();
+        textbuscar = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        botonbuscar = new javax.swing.JButton();
+        botonanadir = new javax.swing.JButton();
+        botonIzquierda = new javax.swing.JButton();
+        botonderecha = new javax.swing.JButton();
+        home = new javax.swing.JButton();
+        textofotografia = new javax.swing.JTextField();
+        textoID = new javax.swing.JTextField();
+        textomarca = new javax.swing.JTextField();
+        textomodelo = new javax.swing.JTextField();
+        textoprecio = new javax.swing.JTextField();
+        textocaracteristicas = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(37, 77, 116));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -62,16 +126,21 @@ public class InterfazBuscarProductoo extends javax.swing.JFrame {
                 "ID", "Marca", "Modelo", "Precio", "Caracteristicas", "Fotografia"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabla);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 850, 230));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 850, 230));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        textbuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                textbuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 102, 250, 30));
+        textbuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textbuscarKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 102, 250, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -83,36 +152,98 @@ public class InterfazBuscarProductoo extends javax.swing.JFrame {
         jLabel2.setText("BUSCAR PRODUCTO");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 153));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/searchSmall.png"))); // NOI18N
-        jButton1.setText("BUSCAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonbuscar.setBackground(new java.awt.Color(0, 102, 153));
+        botonbuscar.setForeground(new java.awt.Color(255, 255, 255));
+        botonbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/searchSmall.png"))); // NOI18N
+        botonbuscar.setText("BUSCAR");
+        botonbuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonbuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 130, 30));
+        jPanel1.add(botonbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 130, 30));
 
-        jButton2.setBackground(new java.awt.Color(0, 102, 153));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/addSmall.png"))); // NOI18N
-        jButton2.setText("AÑADIR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botonanadir.setBackground(new java.awt.Color(0, 102, 153));
+        botonanadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/addSmall.png"))); // NOI18N
+        botonanadir.setText("AÑADIR");
+        botonanadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botonanadirActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 520, 130, 30));
+        jPanel1.add(botonanadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 520, 130, 30));
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/izquierda.png"))); // NOI18N
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, -1, -1));
+        botonIzquierda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/izquierda.png"))); // NOI18N
+        botonIzquierda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonIzquierdaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botonIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, -1, -1));
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/derecha.png"))); // NOI18N
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 460, -1, -1));
+        botonderecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/derecha.png"))); // NOI18N
+        jPanel1.add(botonderecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 460, -1, -1));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/INICIO (2).png"))); // NOI18N
-        jButton3.setText("HOME");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 40));
+        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/INICIO (2).png"))); // NOI18N
+        home.setText("HOME");
+        jPanel1.add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 40));
+
+        textofotografia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textofotografiaKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textofotografia, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 160, 130, -1));
+
+        textoID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoIDActionPerformed(evt);
+            }
+        });
+        textoID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textoIDKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textoID, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 140, -1));
+
+        textomarca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textomarcaKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textomarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 130, -1));
+
+        textomodelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textomodeloActionPerformed(evt);
+            }
+        });
+        textomodelo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textomodeloKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textomodelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 130, -1));
+
+        textoprecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoprecioActionPerformed(evt);
+            }
+        });
+        textoprecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textoprecioKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textoprecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 130, -1));
+
+        textocaracteristicas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textocaracteristicasKeyTyped(evt);
+            }
+        });
+        jPanel1.add(textocaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, 130, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,17 +259,79 @@ public class InterfazBuscarProductoo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void textbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textbuscarActionPerformed
+            
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_textbuscarActionPerformed
+    
+    private void botonbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonbuscarActionPerformed
+            if(textbuscar.getText().equals("")){            
+            offset=0;         
+        }
+           
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_botonbuscarActionPerformed
+
+    private void botonanadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonanadirActionPerformed
+       agregar ();
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_botonanadirActionPerformed
+
+    private void textbuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textbuscarKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textbuscarKeyTyped
+
+    private void botonIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIzquierdaActionPerformed
+        offset=offset-10;
+        if(offset==0){
+            botonIzquierda.setEnabled(false);
+        }
+        botonderecha.setEnabled(true);
+        listaproducto.paginarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista,offset);
+        botonanadir.setEnabled(false);
+        
+        ultimoMarcado.setBorder(null);   
+    }//GEN-LAST:event_botonIzquierdaActionPerformed
+
+    private void textofotografiaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textofotografiaKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textofotografiaKeyTyped
+
+    private void textocaracteristicasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textocaracteristicasKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textocaracteristicasKeyTyped
+
+    private void textoprecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoprecioKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoprecioKeyTyped
+
+    private void textoprecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoprecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoprecioActionPerformed
+
+    private void textomodeloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textomodeloKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textomodeloKeyTyped
+
+    private void textomodeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textomodeloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textomodeloActionPerformed
+
+    private void textomarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textomarcaKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textomarcaKeyTyped
+
+    private void textoIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoIDKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoIDKeyTyped
+
+    private void textoIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoIDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,16 +369,22 @@ public class InterfazBuscarProductoo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton botonIzquierda;
+    private javax.swing.JButton botonanadir;
+    private javax.swing.JButton botonbuscar;
+    private javax.swing.JButton botonderecha;
+    private javax.swing.JButton home;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tabla;
+    private javax.swing.JTextField textbuscar;
+    private javax.swing.JTextField textoID;
+    private javax.swing.JTextField textocaracteristicas;
+    private javax.swing.JTextField textofotografia;
+    private javax.swing.JTextField textomarca;
+    private javax.swing.JTextField textomodelo;
+    private javax.swing.JTextField textoprecio;
     // End of variables declaration//GEN-END:variables
 }
