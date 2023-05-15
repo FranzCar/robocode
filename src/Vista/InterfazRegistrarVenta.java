@@ -10,9 +10,11 @@ import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author PC
@@ -22,6 +24,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
     static Connection conexion=null;
     static Statement sentencia=null;
     ConectarBD con = new ConectarBD();
+    ArrayList<Object []> elementosTabla = new ArrayList<>();
     public InterfazRegistrarVenta() {
         initComponents();        
         this.setDefaultCloseOperation(1);
@@ -55,7 +58,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         jButtonbuscarProducto = new javax.swing.JButton();
         jButtonImprimirProducto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableDetalleVenta = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -100,18 +103,15 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
 
         jButtonImprimirProducto.setText("Imprimir");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableDetalleVenta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID producto", "Marca", "Modelo", "Cantidad", "ESN/IMEI", "Importe"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableDetalleVenta);
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Fecha");
@@ -143,6 +143,11 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         jButtonEliminarProducto.setText("Eliminar");
 
         jButtonAgregarProducto.setText("agregar");
+        jButtonAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAgregarProductoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -321,6 +326,30 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextFieldIdProductoKeyPressed
 
+    private void jButtonAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarProductoActionPerformed
+            DefaultTableModel modelo = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int x, int y){
+                return false;
+            }
+        };
+                
+        modelo.addColumn("ID Producto");
+        modelo.addColumn("Marca");
+        modelo.addColumn("Modelo");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("ESN/IMEI");
+        modelo.addColumn("Importe");
+        
+        Object [] lista = {jTextFieldIdProducto.getText(), jTextFieldModelo.getText(), jTextFieldModelo.getText(),1,jTextFieldEsnImei.getText(),jTextFieldPrecio.getText()};
+        elementosTabla.add(lista);
+        for(int i=0; i<elementosTabla.size();i++){
+            Object [] a =elementosTabla.get(i);
+            modelo.addRow(a);
+        }        
+        jTableDetalleVenta.setModel(modelo);
+    }//GEN-LAST:event_jButtonAgregarProductoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -376,7 +405,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableDetalleVenta;
     private javax.swing.JTextField jTextFieldCiNit;
     private javax.swing.JTextField jTextFieldEsnImei;
     private javax.swing.JTextField jTextFieldFecha;
