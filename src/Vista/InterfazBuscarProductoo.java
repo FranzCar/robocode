@@ -67,14 +67,10 @@ public class InterfazBuscarProductoo extends javax.swing.JFrame {
         initComponents();
         String[] Titulo= new String [] {"ID", "Marca", "Modelo", "Precio", "Descripcion", "fotografia"};
   dtm.setColumnIdentifiers(Titulo);
-  tabla.setModel(dtm);
+  
   
     }
-void agregar(){
-    dtm.addRow(new Object[]{
-        textoID.getText(), textomarca.getText(), textomodelo.getText(), textoprecio.getText(), textocaracteristicas.getText(), textofotografia.getText()
-    });
-}
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,8 +81,6 @@ void agregar(){
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabla = new javax.swing.JTable();
         textbuscar = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -95,40 +89,31 @@ void agregar(){
         botonIzquierda = new javax.swing.JButton();
         botonderecha = new javax.swing.JButton();
         home = new javax.swing.JButton();
-        textofotografia = new javax.swing.JTextField();
-        textoID = new javax.swing.JTextField();
-        textomarca = new javax.swing.JTextField();
-        textomodelo = new javax.swing.JTextField();
-        textoprecio = new javax.swing.JTextField();
-        textocaracteristicas = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(37, 77, 116));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        tabla.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Marca", "Modelo", "Precio", "Caracteristicas", "Fotografia"
-            }
-        ));
-        jScrollPane1.setViewportView(tabla);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 850, 230));
 
         textbuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,62 +173,65 @@ void agregar(){
         home.setText("HOME");
         jPanel1.add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 40));
 
-        textofotografia.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                textofotografiaKeyTyped(evt);
-            }
-        });
-        jPanel1.add(textofotografia, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 160, 130, -1));
+        jLabel3.setText("jLabel3");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 160, 70, 100));
 
-        textoID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textoIDActionPerformed(evt);
-            }
-        });
-        textoID.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                textoIDKeyTyped(evt);
-            }
-        });
-        jPanel1.add(textoID, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 140, -1));
+        jLabel4.setText("jLabel3");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 70, 100));
 
-        textomarca.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                textomarcaKeyTyped(evt);
-            }
-        });
-        jPanel1.add(textomarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 130, -1));
+        jLabel5.setText("jLabel3");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 70, 100));
 
-        textomodelo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textomodeloActionPerformed(evt);
-            }
-        });
-        textomodelo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                textomodeloKeyTyped(evt);
-            }
-        });
-        jPanel1.add(textomodelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 130, -1));
+        jLabel6.setText("jLabel3");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 70, 100));
 
-        textoprecio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textoprecioActionPerformed(evt);
-            }
-        });
-        textoprecio.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                textoprecioKeyTyped(evt);
-            }
-        });
-        jPanel1.add(textoprecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 130, -1));
+        jLabel7.setText("jLabel3");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 70, 100));
 
-        textocaracteristicas.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                textocaracteristicasKeyTyped(evt);
-            }
-        });
-        jPanel1.add(textocaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, 130, -1));
+        jLabel8.setText("jLabel3");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 70, 100));
+
+        jLabel9.setText("jLabel3");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 70, 100));
+
+        jLabel10.setText("jLabel3");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 160, 70, 100));
+
+        jLabel11.setText("jLabel3");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, 70, 100));
+
+        jLabel12.setText("jLabel3");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 160, 70, 100));
+
+        jLabel13.setText("jLabel3");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 70, 100));
+
+        jLabel14.setText("jLabel3");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 70, 100));
+
+        jLabel15.setText("jLabel3");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 70, 100));
+
+        jLabel16.setText("jLabel3");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 70, 100));
+
+        jLabel17.setText("jLabel3");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 70, 100));
+
+        jLabel18.setText("jLabel3");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 70, 100));
+
+        jLabel19.setText("jLabel3");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, 70, 100));
+
+        jLabel20.setText("jLabel3");
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 70, 100));
+
+        jLabel21.setText("jLabel3");
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 300, 70, 100));
+
+        jLabel22.setText("jLabel3");
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 300, 70, 100));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -276,7 +264,7 @@ void agregar(){
     }//GEN-LAST:event_botonbuscarActionPerformed
 
     private void botonanadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonanadirActionPerformed
-       agregar ();
+    
         
 // TODO add your handling code here:
     }//GEN-LAST:event_botonanadirActionPerformed
@@ -296,42 +284,6 @@ void agregar(){
         
         ultimoMarcado.setBorder(null);   
     }//GEN-LAST:event_botonIzquierdaActionPerformed
-
-    private void textofotografiaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textofotografiaKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textofotografiaKeyTyped
-
-    private void textocaracteristicasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textocaracteristicasKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textocaracteristicasKeyTyped
-
-    private void textoprecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoprecioKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textoprecioKeyTyped
-
-    private void textoprecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoprecioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textoprecioActionPerformed
-
-    private void textomodeloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textomodeloKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textomodeloKeyTyped
-
-    private void textomodeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textomodeloActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textomodeloActionPerformed
-
-    private void textomarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textomarcaKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textomarcaKeyTyped
-
-    private void textoIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoIDKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textoIDKeyTyped
-
-    private void textoIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textoIDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -375,16 +327,28 @@ void agregar(){
     private javax.swing.JButton botonderecha;
     private javax.swing.JButton home;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabla;
     private javax.swing.JTextField textbuscar;
-    private javax.swing.JTextField textoID;
-    private javax.swing.JTextField textocaracteristicas;
-    private javax.swing.JTextField textofotografia;
-    private javax.swing.JTextField textomarca;
-    private javax.swing.JTextField textomodelo;
-    private javax.swing.JTextField textoprecio;
     // End of variables declaration//GEN-END:variables
 }
