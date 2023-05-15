@@ -146,7 +146,7 @@ public class InterfazBuscarProductoo extends javax.swing.JFrame {
                 botonbuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(botonbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 130, 30));
+        jPanel1.add(botonbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 130, 30));
 
         botonanadir.setBackground(new java.awt.Color(0, 102, 153));
         botonanadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/addSmall.png"))); // NOI18N
@@ -156,7 +156,7 @@ public class InterfazBuscarProductoo extends javax.swing.JFrame {
                 botonanadirActionPerformed(evt);
             }
         });
-        jPanel1.add(botonanadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 520, 130, 30));
+        jPanel1.add(botonanadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 520, 130, 30));
 
         botonIzquierda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/izquierda.png"))); // NOI18N
         botonIzquierda.addActionListener(new java.awt.event.ActionListener() {
