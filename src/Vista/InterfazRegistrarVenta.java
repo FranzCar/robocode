@@ -4,17 +4,26 @@
  */
 package Vista;
 
+import Conexion.ConectarBD;
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author PC
  */
 public class InterfazRegistrarVenta extends javax.swing.JFrame {
 
-    /**
-     * Creates new form InterfazRegistrarVenta
-     */
+    static Connection conexion=null;
+    static Statement sentencia=null;
+    ConectarBD con = new ConectarBD();
     public InterfazRegistrarVenta() {
-        initComponents();
+        initComponents();        
         this.setDefaultCloseOperation(1);
         this.setLocationRelativeTo(null);
     }
@@ -80,6 +89,12 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre/Razon Social");
+
+        jTextFieldIdProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldIdProductoKeyPressed(evt);
+            }
+        });
 
         jButtonbuscarProducto.setText("Buscar");
 
@@ -199,17 +214,20 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addComponent(jButton1)
-                        .addGap(236, 236, 236)
+                        .addGap(261, 261, 261)
                         .addComponent(jLabel1)))
                 .addGap(0, 129, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel1))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jButton1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,7 +270,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldTotalPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonbuscarProducto)
                     .addComponent(jButtonImprimirProducto))
@@ -281,6 +299,27 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         login.setVisible(true);
         login.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextFieldIdProductoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdProductoKeyPressed
+        if(evt.getKeyCode()==evt.VK_ENTER){
+            try {                
+                conexion=con.establecerConexion();
+                PreparedStatement pst = conexion.prepareStatement("SELECT * FROM PRODUCTO WHERE codProducto ='"+jTextFieldIdProducto.getText()+"'");
+                ResultSet rs = pst.executeQuery();
+                
+                if(rs.next()){
+                    //Datos consultados
+                    jTextFieldMarca.setText(rs.getString("marcaProducto"));
+                    jTextFieldModelo.setText(rs.getString("modeloProducto"));
+                    jTextFieldPrecio.setText(rs.getString("precioProducto"));
+                    jTextFieldStock.setText(rs.getString("stockProducto"));
+                }                
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "¡Error al cargar!");
+                System.out.println("Error al cargar foto: " + e);
+            }
+        }
+    }//GEN-LAST:event_jTextFieldIdProductoKeyPressed
 
     /**
      * @param args the command line arguments
