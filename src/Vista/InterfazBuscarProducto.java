@@ -15,6 +15,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
+import javax.swing.JComponent;
+import javax.swing.KeyStroke;
 import javax.swing.border.EmptyBorder;
 /**
  *
@@ -163,6 +165,9 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         jTextFieldBuscarCoincidencia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldBuscarCoincidenciaKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldBuscarCoincidenciaKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldBuscarCoincidenciaKeyTyped(evt);
@@ -586,7 +591,6 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         jPanelAdministrarProducto.add(errocar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
 
         errorcar.setForeground(new java.awt.Color(204, 0, 0));
-        errorcar.setText("jLabel15");
         jPanelAdministrarProducto.add(errorcar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -612,7 +616,9 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldBuscarCoincidenciaKeyPressed
 
     private void jTextFieldBuscarCoincidenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarCoincidenciaKeyTyped
-
+       //validacionCaracteres(evt);
+       validacionCaracteresNumLetras2(evt);
+       //validacionCaracteresNumLetras(evt);
         
         if(jTextFieldBuscarCoincidencia.getText().length()>=20){
             evt.consume();
@@ -1102,6 +1108,14 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         jButtonEliminar.setBackground(new Color (95,143,169));
     }//GEN-LAST:event_jButtonEliminarMouseExited
 
+    
+    
+    private void jTextFieldBuscarCoincidenciaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarCoincidenciaKeyReleased
+        // TODO add your handling code here:
+               
+    
+    }//GEN-LAST:event_jTextFieldBuscarCoincidenciaKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -1136,6 +1150,77 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
                 new InterfazBuscarProducto().setVisible(true);
             }
         });
+    }
+    
+    public static boolean validar(String datos){
+        return datos.matches("[0-9][1,8]");
+    }
+    
+    public void validacionCaracteres(java.awt.event.KeyEvent evento){
+        if((evento.getKeyChar()<97 || evento.getKeyChar()>122)&&
+           (evento.getKeyChar()<65 || evento.getKeyChar()>90)&&
+            evento.getKeyChar()!=209&&evento.getKeyChar()!=241&&
+            evento.getKeyChar()!=8&&evento.getKeyChar()!=32&&
+            evento.getKeyChar()!=225&&evento.getKeyChar()!=233&&
+            evento.getKeyChar()!=237&&evento.getKeyChar()!=243&&
+            evento.getKeyChar()!=250&&evento.getKeyChar()!=193&&
+            evento.getKeyChar()!=201&&evento.getKeyChar()!=205&&
+            evento.getKeyChar()!=211&&evento.getKeyChar()!=218){
+            evento.consume();
+  
+                JOptionPane.showMessageDialog(null, "No se permite Caracteres Especiales");
+                }
+}
+
+public void validacionCaracteresNumLetras(java.awt.event.KeyEvent evento){
+    if((evento.getKeyChar()<97 || evento.getKeyChar()>122)&& //a-z
+        (evento.getKeyChar()<65 || evento.getKeyChar()>90)&& //A-Z
+        (evento.getKeyChar()<48 || evento.getKeyChar()>57)&& //0-9
+        evento.getKeyChar()!=209&&evento.getKeyChar()!=241&&
+        evento.getKeyChar()!=8&&evento.getKeyChar()!=32&&
+        evento.getKeyChar()!=225&&evento.getKeyChar()!=233&&
+        evento.getKeyChar()!=237&&evento.getKeyChar()!=243&&
+        evento.getKeyChar()!=250&&evento.getKeyChar()!=193&&
+        evento.getKeyChar()!=201&&evento.getKeyChar()!=205&&
+        evento.getKeyChar()!=211&&evento.getKeyChar()!=218){
+        evento.consume();
+  
+           JOptionPane.showMessageDialog(null, "No se permite Caracteres Especiales");
+        }
+    
+}
+
+public void validacionCaracteresNumLetras2(java.awt.event.KeyEvent evento){
+    if((evento.getKeyChar()<97 || evento.getKeyChar()>122)&& //a-z
+        (evento.getKeyChar()<65 || evento.getKeyChar()>90)&& //A-Z
+        (evento.getKeyChar()<48 || evento.getKeyChar()>57)&& //0-9
+        evento.getKeyChar()!=209&&evento.getKeyChar()!=241&&
+        evento.getKeyChar()!=8&&evento.getKeyChar()!=32&&
+        evento.getKeyChar()!=225&&evento.getKeyChar()!=233&&
+        evento.getKeyChar()!=237&&evento.getKeyChar()!=243&&
+        evento.getKeyChar()!=250&&evento.getKeyChar()!=193&&
+        evento.getKeyChar()!=201&&evento.getKeyChar()!=205&&
+        evento.getKeyChar()!=211&&evento.getKeyChar()!=218&&
+        evento.getKeyChar()!=10){
+        evento.consume();
+  
+           JOptionPane.showMessageDialog(null, "No se permite Caracteres Especiales");
+        }
+    
+}
+
+
+//Desahabilitar Ctrl C y Ctrl V
+private void disableCopy(JComponent component){
+        component.getInputMap().put(KeyStroke.getKeyStroke("control C"),"none"); 
+}
+    private void disablePaste(JComponent component){
+        component.getInputMap().put(KeyStroke.getKeyStroke("control V"),"none");
+    }
+    private void disableCopyPaste(JComponent component){
+        disableCopy(component);
+        disablePaste(component);
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

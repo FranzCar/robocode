@@ -135,6 +135,11 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
         jTextFieldMarca.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jTextFieldMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldMarcaActionPerformed(evt);
+            }
+        });
         jTextFieldMarca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldMarcaKeyPressed(evt);
@@ -557,6 +562,10 @@ public class InterfazRegistrarProducto extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
         }
     }//GEN-LAST:event_jTextAreaCaracteristicasKeyTyped
+
+    private void jTextFieldMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMarcaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldMarcaActionPerformed
 
     public void habilitarBotonP(){
     if(jTextFieldMarca.getText().isEmpty()
