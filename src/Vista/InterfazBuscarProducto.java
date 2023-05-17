@@ -7,6 +7,7 @@ package Vista;
 import Conexion.ConectarBD;
 import Controlador.ListarProducto;
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
@@ -612,8 +613,14 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
 
     private void jTextFieldBuscarCoincidenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarCoincidenciaKeyTyped
 
+        
+        if(jTextFieldBuscarCoincidencia.getText().length()>=20){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
     }//GEN-LAST:event_jTextFieldBuscarCoincidenciaKeyTyped
-
+    }
     private void jButtonBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBuscarMouseClicked
          String buscar = jTextFieldBuscarCoincidencia.getText();
       System.out.print(buscar);
@@ -625,11 +632,12 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
           }
           
       }
-      if(buscar.length() >= 20){
+      /*if(buscar.length() >= 20){
           alerta=true;
-              errorcar.setText("No debe tener mas de 20 caracteres");
+              //errorcar.setText("No debe tener mas de 20 caracteres");
+              JOptionPane.showMessageDialog(null, "No debe tener mas de 20 caracteres");
       }
-      errorcar.setVisible(alerta);
+      errorcar.setVisible(alerta);*/
     }//GEN-LAST:event_jButtonBuscarMouseClicked
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
