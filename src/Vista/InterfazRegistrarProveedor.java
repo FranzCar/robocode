@@ -4,18 +4,25 @@
  */
 package Vista;
 
-/**
- *
- * @author andy
- */
-public class InterfazRegistrarProveedor extends javax.swing.JFrame {
+import Conexion.ConectarBD;
+import java.sql.Connection;
 
-    /**
-     * Creates new form InterfazRegistrarProveedor
-     */
+public class InterfazRegistrarProveedor extends javax.swing.JFrame {
+    static Connection conexion=null;
+    
+    int id;
+    ConectarBD con = new ConectarBD(); 
+    
+    
     public InterfazRegistrarProveedor() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        //objProveedor=new Proveedor(); 
+        try {
+            conexion=con.establecerConexion();
+        } catch (Exception e) {   
+        }
     }
 
     /**
