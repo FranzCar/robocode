@@ -7,6 +7,7 @@ package Vista;
 import Conexion.ConectarBD;
 import Controlador.ListarProducto;
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
@@ -14,11 +15,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
+import javax.swing.JComponent;
+import javax.swing.KeyStroke;
 import javax.swing.border.EmptyBorder;
 /**
  *
  * @author PC
  */
+
 public class InterfazBuscarProducto extends javax.swing.JFrame {
     static Connection conexion=null;
     ConectarBD con = new ConectarBD();
@@ -36,6 +40,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     public static int offset=0;
     Border border= BorderFactory.createLineBorder(twhite,4);
     Border border2= BorderFactory.createLineBorder(newColor,4);
+    
     //Border border= BorderFactory.createLineBorder(Color.red,1);
     //Border border=BorderFactory.createLoweredBevelBorder();
      /*Border lineBorder = BorderFactory.createLineBorder(Color.GRAY);
@@ -47,11 +52,12 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     int cantidadElementos;
     private javax.swing.JLabel ultimoMarcado;
     public InterfazBuscarProducto() {
-       
+        
         initComponents();
         jButtonEditar.setVisible(false);
         jButtonEliminar.setVisible(false);
         errorcar.setVisible(false);
+        
          /*roundedBorder = BorderFactory.createCompoundBorder(roundedBorder,
             BorderFactory.createLineBorder(Color.GRAY));
         jTextFieldBuscarCoincidencia.setBorder(BorderFactory.createCompoundBorder(lineBorder,BorderFactory.createCompoundBorder(emptyBorder, roundedBorder)));*/
@@ -65,7 +71,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         ultimoMarcado=jLabelMark1;
         //jButtonDerecha.setEnabled(false);
         listaImagenes.mostrarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista);
-        
+        setLocationRelativeTo(null); 
 
     }
 
@@ -162,6 +168,9 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         jTextFieldBuscarCoincidencia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldBuscarCoincidenciaKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldBuscarCoincidenciaKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldBuscarCoincidenciaKeyTyped(evt);
@@ -585,7 +594,6 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         jPanelAdministrarProducto.add(errocar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
 
         errorcar.setForeground(new java.awt.Color(204, 0, 0));
-        errorcar.setText("jLabel15");
         jPanelAdministrarProducto.add(errorcar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -611,30 +619,45 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldBuscarCoincidenciaKeyPressed
 
     private void jTextFieldBuscarCoincidenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarCoincidenciaKeyTyped
-
+       //validacionCaracteres(evt);
+       validacionCaracteresNumLetras2(evt);
+       //validacionCaracteresNumLetras(evt);
+        
+        if(jTextFieldBuscarCoincidencia.getText().length()>=20){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
     }//GEN-LAST:event_jTextFieldBuscarCoincidenciaKeyTyped
-
+    }
     private void jButtonBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBuscarMouseClicked
-         String buscar = jTextFieldBuscarCoincidencia.getText();
+        /* String buscar = jTextFieldBuscarCoincidencia.getText();
       System.out.print(buscar);
       boolean alerta=false;
       for(int i=0; i<buscar.length(); i++){
           if(buscar.charAt(i)=='!' || buscar.charAt(i)=='@'|| buscar.charAt(i)=='#' || buscar.charAt(i)=='$'|| buscar.charAt(i)== '%'|| buscar.charAt(i)=='^' || buscar.charAt(i)=='&' || buscar.charAt(i)=='*'||buscar.charAt(i)=='(' || buscar.charAt(i)==')' || buscar.charAt(i)=='{'|| buscar.charAt(i)=='}' || buscar.charAt(i)=='_' || buscar.charAt(i)=='+' ||buscar.charAt(i)=='-'|| buscar.charAt(i)=='[' || buscar.charAt(i)==']' || buscar.charAt(i)=='|' || buscar.charAt(i)==';' || buscar.charAt(i)==','|| buscar.charAt(i)=='<' || buscar.charAt(i)=='>' || buscar.charAt(i)=='/' || buscar.charAt(i)=='.' || buscar.charAt(i)=='?' ){
               alerta=true;
               errorcar.setText("No se permiten caracteres especiales");
-          }
+          }*/
+        int contador = listaImagenes.aux;
+        System.out.println(contador);
+       if (  contador==0){
+        JOptionPane.showMessageDialog(null,"Producto no encontrado");
+        }
           
-      }
-      if(buscar.length() >= 20){
+      
+      /*if(buscar.length() >= 20){
           alerta=true;
-              errorcar.setText("No debe tener mas de 20 caracteres");
+              //errorcar.setText("No debe tener mas de 20 caracteres");
+              JOptionPane.showMessageDialog(null, "No debe tener mas de 20 caracteres");
       }
-      errorcar.setVisible(alerta);
+      errorcar.setVisible(alerta);*/
     }//GEN-LAST:event_jButtonBuscarMouseClicked
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         if(jTextFieldBuscarCoincidencia.getText().equals("")){            
-            offset=0;         
+            offset=0;    
+            
         }
         listaImagenes.buscarImagenInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista, jTextFieldBuscarCoincidencia.getText());
         jButtonEditar.setEnabled(false);
@@ -1094,6 +1117,14 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         jButtonEliminar.setBackground(new Color (95,143,169));
     }//GEN-LAST:event_jButtonEliminarMouseExited
 
+    
+    
+    private void jTextFieldBuscarCoincidenciaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarCoincidenciaKeyReleased
+        // TODO add your handling code here:
+               
+    
+    }//GEN-LAST:event_jTextFieldBuscarCoincidenciaKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -1128,6 +1159,77 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
                 new InterfazBuscarProducto().setVisible(true);
             }
         });
+    }
+    
+    public static boolean validar(String datos){
+        return datos.matches("[0-9][1,8]");
+    }
+    
+    public void validacionCaracteres(java.awt.event.KeyEvent evento){
+        if((evento.getKeyChar()<97 || evento.getKeyChar()>122)&&
+           (evento.getKeyChar()<65 || evento.getKeyChar()>90)&&
+            evento.getKeyChar()!=209&&evento.getKeyChar()!=241&&
+            evento.getKeyChar()!=8&&evento.getKeyChar()!=32&&
+            evento.getKeyChar()!=225&&evento.getKeyChar()!=233&&
+            evento.getKeyChar()!=237&&evento.getKeyChar()!=243&&
+            evento.getKeyChar()!=250&&evento.getKeyChar()!=193&&
+            evento.getKeyChar()!=201&&evento.getKeyChar()!=205&&
+            evento.getKeyChar()!=211&&evento.getKeyChar()!=218){
+            evento.consume();
+  
+                JOptionPane.showMessageDialog(null, "No se permite Caracteres Especiales");
+                }
+}
+
+public void validacionCaracteresNumLetras(java.awt.event.KeyEvent evento){
+    if((evento.getKeyChar()<97 || evento.getKeyChar()>122)&& //a-z
+        (evento.getKeyChar()<65 || evento.getKeyChar()>90)&& //A-Z
+        (evento.getKeyChar()<48 || evento.getKeyChar()>57)&& //0-9
+        evento.getKeyChar()!=209&&evento.getKeyChar()!=241&&
+        evento.getKeyChar()!=8&&evento.getKeyChar()!=32&&
+        evento.getKeyChar()!=225&&evento.getKeyChar()!=233&&
+        evento.getKeyChar()!=237&&evento.getKeyChar()!=243&&
+        evento.getKeyChar()!=250&&evento.getKeyChar()!=193&&
+        evento.getKeyChar()!=201&&evento.getKeyChar()!=205&&
+        evento.getKeyChar()!=211&&evento.getKeyChar()!=218){
+        evento.consume();
+  
+           JOptionPane.showMessageDialog(null, "No se permite Caracteres Especiales");
+        }
+    
+}
+
+public void validacionCaracteresNumLetras2(java.awt.event.KeyEvent evento){
+    if((evento.getKeyChar()<97 || evento.getKeyChar()>122)&& //a-z
+        (evento.getKeyChar()<65 || evento.getKeyChar()>90)&& //A-Z
+        (evento.getKeyChar()<48 || evento.getKeyChar()>57)&& //0-9
+        evento.getKeyChar()!=209&&evento.getKeyChar()!=241&&
+        evento.getKeyChar()!=8&&evento.getKeyChar()!=32&&
+        evento.getKeyChar()!=225&&evento.getKeyChar()!=233&&
+        evento.getKeyChar()!=237&&evento.getKeyChar()!=243&&
+        evento.getKeyChar()!=250&&evento.getKeyChar()!=193&&
+        evento.getKeyChar()!=201&&evento.getKeyChar()!=205&&
+        evento.getKeyChar()!=211&&evento.getKeyChar()!=218&&
+        evento.getKeyChar()!=10){
+        evento.consume();
+  
+           JOptionPane.showMessageDialog(null, "No se permite Caracteres Especiales");
+        }
+    
+}
+
+
+//Desahabilitar Ctrl C y Ctrl V
+private void disableCopy(JComponent component){
+        component.getInputMap().put(KeyStroke.getKeyStroke("control C"),"none"); 
+}
+    private void disablePaste(JComponent component){
+        component.getInputMap().put(KeyStroke.getKeyStroke("control V"),"none");
+    }
+    private void disableCopyPaste(JComponent component){
+        disableCopy(component);
+        disablePaste(component);
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

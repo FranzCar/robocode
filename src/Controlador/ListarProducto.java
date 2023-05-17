@@ -32,11 +32,14 @@ import javax.swing.border.Border;
  */
 public class ListarProducto {
     static Connection conexion=null;
+    public int contador=0;
+    public int aux=0;
     ConectarBD con = new ConectarBD();
     
-    public void mostrarFotoInicio(JLabel a,JLabel b, JLabel c, JPanel d, int [] f){
+    public int mostrarFotoInicio(JLabel a,JLabel b, JLabel c, JPanel d, int [] f){
         int i=0;
         int j=0;
+        //int contador=0;
         try {
             conexion=con.establecerConexion();
             PreparedStatement pst = conexion.prepareStatement("SELECT * FROM PRODUCTO ORDER BY modeloProducto ASC LIMIT 10");
@@ -57,6 +60,7 @@ public class ListarProducto {
                     byte[] data = blob.getBytes(1, (int) blob.length());
                     //lee la imagen
                     BufferedImage img = null;
+                    
                     try {
                         img = ImageIO.read(new ByteArrayInputStream(data));
                     } catch (IOException e) {
@@ -81,6 +85,7 @@ public class ListarProducto {
             JOptionPane.showMessageDialog(null, "¡Error al cargar!");
             System.out.println("Error al cargar foto: " + e);
         }
+        return contador;
     }
     
     public void paginarFotoInicio(JLabel a,JLabel b, JLabel c, JPanel d, int [] f, int offset){
@@ -143,7 +148,7 @@ public class ListarProducto {
             c.setText("");
         }        
     }
-    public void buscarImagenInicio(JLabel a,JLabel b, JLabel c, JPanel d, int [] f, String palabra){
+    public int buscarImagenInicio(JLabel a,JLabel b, JLabel c, JPanel d, int [] f, String palabra){
         int i=0;
         int j=0;
         try {
@@ -158,6 +163,7 @@ public class ListarProducto {
                     i=i+3;
                     f[j]=rs.getInt("codProducto");
                     j++;
+                    contador++;
                     b.setText(rs.getString("marcaProducto"));
                     c.setText(rs.getString("modeloProducto"));
 
@@ -189,6 +195,8 @@ public class ListarProducto {
             JOptionPane.showMessageDialog(null, "¡Error al cargar!");
             System.out.println("Error al cargar foto: " + e);
         }
-        
+        aux=contador;
+        contador=0;
+        return aux;
     }
 }
