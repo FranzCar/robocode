@@ -625,10 +625,10 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
           }
           
       }
-     /* if(buscar.length() >= 20){
+      if(buscar.length() >= 20){
           alerta=true;
               errorcar.setText("No debe tener mas de 20 caracteres");
-      }*/
+      }
       errorcar.setVisible(alerta);
     }//GEN-LAST:event_jButtonBuscarMouseClicked
 
