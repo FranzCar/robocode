@@ -22,6 +22,7 @@ import javax.swing.border.EmptyBorder;
  *
  * @author PC
  */
+
 public class InterfazBuscarProducto extends javax.swing.JFrame {
     static Connection conexion=null;
     ConectarBD con = new ConectarBD();
@@ -39,6 +40,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     public static int offset=0;
     Border border= BorderFactory.createLineBorder(twhite,4);
     Border border2= BorderFactory.createLineBorder(newColor,4);
+    
     //Border border= BorderFactory.createLineBorder(Color.red,1);
     //Border border=BorderFactory.createLoweredBevelBorder();
      /*Border lineBorder = BorderFactory.createLineBorder(Color.GRAY);
@@ -50,7 +52,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     int cantidadElementos;
     private javax.swing.JLabel ultimoMarcado;
     public InterfazBuscarProducto() {
-       
+        
         initComponents();
         jButtonEditar.setVisible(false);
         jButtonEliminar.setVisible(false);
@@ -69,7 +71,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         ultimoMarcado=jLabelMark1;
         //jButtonDerecha.setEnabled(false);
         listaImagenes.mostrarFotoInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista);
-        
+        setLocationRelativeTo(null); 
 
     }
 
