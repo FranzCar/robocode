@@ -209,7 +209,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Nombre de Producto");
+        jLabel1.setText("Modelo de Producto");
         jPanelAdministrarProducto.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 210, -1));
 
         jButtonEditar.setBackground(new java.awt.Color(95, 143, 169));
@@ -258,7 +258,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         jButtonRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/addSmall.png"))); // NOI18N
-        jButtonRegistrar.setText("REGISTRAR");
+        jButtonRegistrar.setText("AÑADIR");
         jButtonRegistrar.setBorderPainted(false);
         jButtonRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -682,9 +682,9 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        InterfazRegistrarProducto registrarPro=new InterfazRegistrarProducto();
+      /* InterfazRegistrarProducto registrarPro=new InterfazRegistrarProducto();
         registrarPro.setVisible(true);
-        registrarPro.setLocationRelativeTo(null);
+        registrarPro.setLocationRelativeTo(null);*/
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
