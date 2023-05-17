@@ -15,6 +15,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
      */
     public InterfazRegistrarProveedor() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -47,6 +48,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         avisoDireccionprov = new javax.swing.JLabel();
         avisoContrasenia = new javax.swing.JLabel();
         jButtonCancelar = new javax.swing.JButton();
+        jButtonGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,6 +138,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         jButtonCancelar.setForeground(new java.awt.Color(245, 245, 245));
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar.png"))); // NOI18N
         jButtonCancelar.setText("CANCELAR");
+        jButtonCancelar.setBorderPainted(false);
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
@@ -143,21 +146,22 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 560, 190, -1));
 
+        jButtonGuardar.setBackground(new java.awt.Color(95, 143, 169));
+        jButtonGuardar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonGuardar.setText("GUARDAR");
+        jButtonGuardar.setBorderPainted(false);
+        jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 560, 170, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 804, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
         );
 
         pack();
@@ -219,6 +223,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
     private javax.swing.JLabel avisoNombreprov;
     private javax.swing.JLabel avisoTelefonoprov;
     private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
