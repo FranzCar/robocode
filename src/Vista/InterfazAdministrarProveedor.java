@@ -294,9 +294,9 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         deshabilitar();
-        //InterfazRegistrarUsuario ventana=new InterfazRegistrarUsuario();
-        //ventana.setVisible(true);
-        //ventana.setLocationRelativeTo(null);
+        InterfazRegistrarProveedor ventanaProv=new InterfazRegistrarProveedor();
+        ventanaProv.setVisible(true);
+        ventanaProv.setLocationRelativeTo(null);
 
         
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
