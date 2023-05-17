@@ -13,6 +13,7 @@ import static Vista.InterfazAdministrarProveedor.idUsuarioTabla;
 import static Vista.InterfazAdministrarProveedor.jTableUsuario;
 
 import Conexion.ConectarBD;
+import Controlador.Validaciones;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -60,8 +61,8 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldNombreprov = new javax.swing.JTextField();
-        jTextFieldCiNIT = new javax.swing.JTextField();
-        jTextFieldTelefonoProv = new javax.swing.JTextField();
+        jTextFieldCiprov = new javax.swing.JTextField();
+        jTextFieldTelefonoprov = new javax.swing.JTextField();
         jTextFieldMail = new javax.swing.JTextField();
         jTextFieldDireccionprov = new javax.swing.JTextField();
         jTextFieldDescripcion = new javax.swing.JTextField();
@@ -70,7 +71,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         avisoTelefonoprov = new javax.swing.JLabel();
         avisoMailprov = new javax.swing.JLabel();
         avisoDireccionprov = new javax.swing.JLabel();
-        avisoContrasenia = new javax.swing.JLabel();
+        avisoDescripcion = new javax.swing.JLabel();
         jButtonCancelar = new javax.swing.JButton();
         jButtonGuardar = new javax.swing.JButton();
 
@@ -120,13 +121,35 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
                 jTextFieldNombreprovActionPerformed(evt);
             }
         });
+        jTextFieldNombreprov.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNombreprovKeyTyped(evt);
+            }
+        });
         jPanel2.add(jTextFieldNombreprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 190, -1));
-        jPanel2.add(jTextFieldCiNIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 190, -1));
-        jPanel2.add(jTextFieldTelefonoProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 190, -1));
+
+        jTextFieldCiprov.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldCiprovKeyTyped(evt);
+            }
+        });
+        jPanel2.add(jTextFieldCiprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 190, -1));
+
+        jTextFieldTelefonoprov.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldTelefonoprovKeyTyped(evt);
+            }
+        });
+        jPanel2.add(jTextFieldTelefonoprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 190, -1));
 
         jTextFieldMail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldMailActionPerformed(evt);
+            }
+        });
+        jTextFieldMail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldMailKeyTyped(evt);
             }
         });
         jPanel2.add(jTextFieldMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 190, -1));
@@ -153,9 +176,9 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         avisoDireccionprov.setForeground(new java.awt.Color(204, 204, 255));
         jPanel2.add(avisoDireccionprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 380, 181, 30));
 
-        avisoContrasenia.setBackground(new java.awt.Color(204, 204, 255));
-        avisoContrasenia.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel2.add(avisoContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 450, 181, 30));
+        avisoDescripcion.setBackground(new java.awt.Color(204, 204, 255));
+        avisoDescripcion.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel2.add(avisoDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 450, 181, 30));
 
         jButtonCancelar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -214,8 +237,8 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         try {
             sentencia=conexion.createStatement();
             objProveedor.nombreProv=jTextFieldNombreprov.getText();
-            objProveedor.ciNIT=jTextFieldCiNIT.getText();
-            objProveedor.telefonoProv=jTextFieldTelefonoProv.getText();
+            objProveedor.ciNIT=jTextFieldCiprov.getText();
+            objProveedor.telefonoProv=jTextFieldTelefonoprov.getText();
             objProveedor.emailProv=jTextFieldMail.getText();
             objProveedor.direccionProv=jTextFieldDireccionprov.getText();
             objProveedor.descripcionProducto=jTextFieldDescripcion.getText();
@@ -240,13 +263,31 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
             Logger.getLogger(InterfazRegistrarProveedor.class.getName()).log(Level.SEVERE,null,e);
         }
          jTextFieldNombreprov.setText("");
-         jTextFieldCiNIT.setText("");
-         jTextFieldTelefonoProv.setText("");
+         jTextFieldCiprov.setText("");
+         jTextFieldTelefonoprov.setText("");
          jTextFieldMail.setText("");
          jTextFieldDireccionprov.setText("");
-         jTextFieldTelefonoProv.setText("");
+         jTextFieldTelefonoprov.setText("");
          jTextFieldDescripcion.setText("");
     }//GEN-LAST:event_jButtonGuardarActionPerformed
+    
+    private void jTextFieldNombreprovKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreprovKeyTyped
+        
+    }//GEN-LAST:event_jTextFieldNombreprovKeyTyped
+
+    private void jTextFieldCiprovKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiprovKeyTyped
+        // TODO add your handling code here:
+        Validaciones.validacionNumerica(evt);
+    }//GEN-LAST:event_jTextFieldCiprovKeyTyped
+
+    private void jTextFieldTelefonoprovKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoprovKeyTyped
+        // TODO add your handling code here:
+        Validaciones.validacionNumerica(evt);
+    }//GEN-LAST:event_jTextFieldTelefonoprovKeyTyped
+
+    private void jTextFieldMailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMailKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldMailKeyTyped
 
     /**
      * @param args the command line arguments
@@ -285,7 +326,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel avisoCIprov;
-    private javax.swing.JLabel avisoContrasenia;
+    private javax.swing.JLabel avisoDescripcion;
     private javax.swing.JLabel avisoDireccionprov;
     private javax.swing.JLabel avisoMailprov;
     private javax.swing.JLabel avisoNombreprov;
@@ -300,11 +341,11 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextFieldCiNIT;
+    private javax.swing.JTextField jTextFieldCiprov;
     private javax.swing.JTextField jTextFieldDescripcion;
     private javax.swing.JTextField jTextFieldDireccionprov;
     private javax.swing.JTextField jTextFieldMail;
     private javax.swing.JTextField jTextFieldNombreprov;
-    private javax.swing.JTextField jTextFieldTelefonoProv;
+    private javax.swing.JTextField jTextFieldTelefonoprov;
     // End of variables declaration//GEN-END:variables
 }
