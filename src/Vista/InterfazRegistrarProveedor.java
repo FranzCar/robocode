@@ -4,17 +4,42 @@
  */
 package Vista;
 
-/**
- *
- * @author andy
- */
-public class InterfazRegistrarProveedor extends javax.swing.JFrame {
+import Controlador.ListarProveedores;
+import Modelo.Proveedor;
+import static Vista.InterfazAdministrarProveedor.bEditar;
+import static Vista.InterfazAdministrarProveedor.bEliminar;
+import static Vista.InterfazAdministrarProveedor.bRegistrar;
+import static Vista.InterfazAdministrarProveedor.idUsuarioTabla;
+import static Vista.InterfazAdministrarProveedor.jTableUsuario;
 
-    /**
-     * Creates new form InterfazRegistrarProveedor
-     */
+import Conexion.ConectarBD;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
+public class InterfazRegistrarProveedor extends javax.swing.JFrame {
+    static Connection conexion=null;
+    static Statement sentencia=null;
+    static ResultSet resultado=null;
+    static Proveedor objProveedor;
+    int id;
+    ConectarBD con = new ConectarBD(); 
+    
+    
     public InterfazRegistrarProveedor() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(1);
+        
+        objProveedor=new Proveedor(); 
+        try {
+            conexion=con.establecerConexion();
+        } catch (Exception e) {   
+        }
     }
 
     /**
@@ -35,8 +60,8 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldNombreprov = new javax.swing.JTextField();
-        jTextFieldCi = new javax.swing.JTextField();
-        jTextFieldTelefono = new javax.swing.JTextField();
+        jTextFieldCiNIT = new javax.swing.JTextField();
+        jTextFieldTelefonoProv = new javax.swing.JTextField();
         jTextFieldMail = new javax.swing.JTextField();
         jTextFieldDireccionprov = new javax.swing.JTextField();
         jTextFieldDescripcion = new javax.swing.JTextField();
@@ -47,6 +72,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         avisoDireccionprov = new javax.swing.JLabel();
         avisoContrasenia = new javax.swing.JLabel();
         jButtonCancelar = new javax.swing.JButton();
+        jButtonGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,8 +121,8 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldNombreprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 190, -1));
-        jPanel2.add(jTextFieldCi, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 190, -1));
-        jPanel2.add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 190, -1));
+        jPanel2.add(jTextFieldCiNIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 190, -1));
+        jPanel2.add(jTextFieldTelefonoProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 190, -1));
 
         jTextFieldMail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +162,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         jButtonCancelar.setForeground(new java.awt.Color(245, 245, 245));
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar.png"))); // NOI18N
         jButtonCancelar.setText("CANCELAR");
+        jButtonCancelar.setBorderPainted(false);
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
@@ -143,21 +170,27 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 560, 190, -1));
 
+        jButtonGuardar.setBackground(new java.awt.Color(95, 143, 169));
+        jButtonGuardar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonGuardar.setText("GUARDAR");
+        jButtonGuardar.setBorderPainted(false);
+        jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGuardarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 560, 170, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 804, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
         );
 
         pack();
@@ -175,6 +208,45 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         
 
     }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+        
+        try {
+            sentencia=conexion.createStatement();
+            objProveedor.nombreProv=jTextFieldNombreprov.getText();
+            objProveedor.ciNIT=jTextFieldCiNIT.getText();
+            objProveedor.telefonoProv=jTextFieldTelefonoProv.getText();
+            objProveedor.emailProv=jTextFieldMail.getText();
+            objProveedor.direccionProv=jTextFieldDireccionprov.getText();
+            objProveedor.descripcionProducto=jTextFieldDescripcion.getText();
+            
+                    
+            // Se realiza el registro
+            
+                String sentenciaSQL1 = new String();
+                sentenciaSQL1="INSERT INTO proveedor(nombreProveedor,nitProveedor,telefonoProveedor,emailProveedor,direccionProveedor,descripcionProveedor)";
+                sentenciaSQL1= sentenciaSQL1+"VALUES('"+objProveedor.nombreProv+"','"+objProveedor.ciNIT+"','"+
+                        objProveedor.telefonoProv+"','"+objProveedor.emailProv+"','"+objProveedor.direccionProv+"','"+objProveedor.descripcionProducto+"')";
+                sentencia.execute(sentenciaSQL1); 
+                
+            // Se muestra mensaje de exito
+            JOptionPane.showMessageDialog(this, "Guardado con exito"); 
+            
+            //Se actualiza la tabla de proveedores
+            ListarProveedores Administrar=new ListarProveedores();
+            Administrar.MostrarTabla(jTableUsuario);
+            
+        } catch (SQLException e) {
+            Logger.getLogger(InterfazRegistrarProveedor.class.getName()).log(Level.SEVERE,null,e);
+        }
+         jTextFieldNombreprov.setText("");
+         jTextFieldCiNIT.setText("");
+         jTextFieldTelefonoProv.setText("");
+         jTextFieldMail.setText("");
+         jTextFieldDireccionprov.setText("");
+         jTextFieldTelefonoProv.setText("");
+         jTextFieldDescripcion.setText("");
+    }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,6 +291,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
     private javax.swing.JLabel avisoNombreprov;
     private javax.swing.JLabel avisoTelefonoprov;
     private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -227,11 +300,11 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextFieldCi;
+    private javax.swing.JTextField jTextFieldCiNIT;
     private javax.swing.JTextField jTextFieldDescripcion;
     private javax.swing.JTextField jTextFieldDireccionprov;
     private javax.swing.JTextField jTextFieldMail;
     private javax.swing.JTextField jTextFieldNombreprov;
-    private javax.swing.JTextField jTextFieldTelefono;
+    private javax.swing.JTextField jTextFieldTelefonoProv;
     // End of variables declaration//GEN-END:variables
 }

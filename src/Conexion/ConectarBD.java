@@ -17,9 +17,11 @@ import javax.swing.JOptionPane;
 public class ConectarBD {
     
     Connection conectar = null;
-    
+    //root1010
     String user = "root";
-    String password = "cantarran";//*********** colocar el password de su base de datos
+
+    String password = "root1010";//*********** colocar el password de su base de datos
+
     String dataBase = "ventasgobd";
     String server = "localhost";
     String puerto = "3306";
