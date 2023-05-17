@@ -55,6 +55,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         jButtonEditar.setVisible(false);
         jButtonEliminar.setVisible(false);
         errorcar.setVisible(false);
+        
          /*roundedBorder = BorderFactory.createCompoundBorder(roundedBorder,
             BorderFactory.createLineBorder(Color.GRAY));
         jTextFieldBuscarCoincidencia.setBorder(BorderFactory.createCompoundBorder(lineBorder,BorderFactory.createCompoundBorder(emptyBorder, roundedBorder)));*/
@@ -628,16 +629,21 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldBuscarCoincidenciaKeyTyped
     }
     private void jButtonBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBuscarMouseClicked
-         String buscar = jTextFieldBuscarCoincidencia.getText();
+        /* String buscar = jTextFieldBuscarCoincidencia.getText();
       System.out.print(buscar);
       boolean alerta=false;
       for(int i=0; i<buscar.length(); i++){
           if(buscar.charAt(i)=='!' || buscar.charAt(i)=='@'|| buscar.charAt(i)=='#' || buscar.charAt(i)=='$'|| buscar.charAt(i)== '%'|| buscar.charAt(i)=='^' || buscar.charAt(i)=='&' || buscar.charAt(i)=='*'||buscar.charAt(i)=='(' || buscar.charAt(i)==')' || buscar.charAt(i)=='{'|| buscar.charAt(i)=='}' || buscar.charAt(i)=='_' || buscar.charAt(i)=='+' ||buscar.charAt(i)=='-'|| buscar.charAt(i)=='[' || buscar.charAt(i)==']' || buscar.charAt(i)=='|' || buscar.charAt(i)==';' || buscar.charAt(i)==','|| buscar.charAt(i)=='<' || buscar.charAt(i)=='>' || buscar.charAt(i)=='/' || buscar.charAt(i)=='.' || buscar.charAt(i)=='?' ){
               alerta=true;
               errorcar.setText("No se permiten caracteres especiales");
-          }
+          }*/
+        int contador = listaImagenes.aux;
+        System.out.println(contador);
+       if (  contador==0){
+        JOptionPane.showMessageDialog(null,"Producto no encontrado");
+        }
           
-      }
+      
       /*if(buscar.length() >= 20){
           alerta=true;
               //errorcar.setText("No debe tener mas de 20 caracteres");
@@ -648,7 +654,8 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         if(jTextFieldBuscarCoincidencia.getText().equals("")){            
-            offset=0;         
+            offset=0;    
+            
         }
         listaImagenes.buscarImagenInicio(jLabelFoto, jLabelMarca, jLabelModelo, jPanelAdministrarProducto, codProdutoLista, jTextFieldBuscarCoincidencia.getText());
         jButtonEditar.setEnabled(false);
