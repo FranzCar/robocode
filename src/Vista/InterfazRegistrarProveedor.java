@@ -13,6 +13,7 @@ import static Vista.InterfazAdministrarProveedor.idUsuarioTabla;
 import static Vista.InterfazAdministrarProveedor.jTableUsuario;
 
 import Conexion.ConectarBD;
+import Controlador.Validaciones;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -121,7 +122,19 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldNombreprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 190, -1));
+
+        jTextFieldCiNIT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldCiNITKeyTyped(evt);
+            }
+        });
         jPanel2.add(jTextFieldCiNIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 190, -1));
+
+        jTextFieldTelefonoProv.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldTelefonoProvKeyTyped(evt);
+            }
+        });
         jPanel2.add(jTextFieldTelefonoProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 190, -1));
 
         jTextFieldMail.addActionListener(new java.awt.event.ActionListener() {
@@ -247,6 +260,16 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
          jTextFieldTelefonoProv.setText("");
          jTextFieldDescripcion.setText("");
     }//GEN-LAST:event_jButtonGuardarActionPerformed
+
+    private void jTextFieldCiNITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiNITKeyTyped
+        // TODO add your handling code here:
+        Validaciones.validacionNumerica(evt);
+    }//GEN-LAST:event_jTextFieldCiNITKeyTyped
+
+    private void jTextFieldTelefonoProvKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoProvKeyTyped
+        // TODO add your handling code here:
+        Validaciones.validacionNumerica(evt);
+    }//GEN-LAST:event_jTextFieldTelefonoProvKeyTyped
 
     /**
      * @param args the command line arguments
