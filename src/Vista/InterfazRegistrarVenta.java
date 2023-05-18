@@ -25,6 +25,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
     static Statement sentencia=null;
     ConectarBD con = new ConectarBD();
     ArrayList<Object []> elementosTabla = new ArrayList<>();
+    private int itemDetalleVenta;
     public InterfazRegistrarVenta() {
         initComponents();        
         this.setDefaultCloseOperation(1);
@@ -111,6 +112,11 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                 "ID producto", "Marca", "Modelo", "Cantidad", "ESN/IMEI", "Importe"
             }
         ));
+        jTableDetalleVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableDetalleVentaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableDetalleVenta);
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -141,6 +147,11 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         jLabel12.setText("total a pagar");
 
         jButtonEliminarProducto.setText("Eliminar");
+        jButtonEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEliminarProductoActionPerformed(evt);
+            }
+        });
 
         jButtonAgregarProducto.setText("agregar");
         jButtonAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -332,8 +343,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
             public boolean isCellEditable(int x, int y){
                 return false;
             }
-        };
-                
+        };                
         modelo.addColumn("ID Producto");
         modelo.addColumn("Marca");
         modelo.addColumn("Modelo");
@@ -349,6 +359,29 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         }        
         jTableDetalleVenta.setModel(modelo);
     }//GEN-LAST:event_jButtonAgregarProductoActionPerformed
+
+    private void jTableDetalleVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableDetalleVentaMouseClicked
+        itemDetalleVenta=jTableDetalleVenta.rowAtPoint(evt.getPoint());
+        
+    }//GEN-LAST:event_jTableDetalleVentaMouseClicked
+
+    private void jButtonEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarProductoActionPerformed
+        DefaultTableModel modelo = new DefaultTableModel(){
+        };                
+        modelo.addColumn("ID Producto");
+        modelo.addColumn("Marca");
+        modelo.addColumn("Modelo");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("ESN/IMEI");
+        modelo.addColumn("Importe");
+        
+        elementosTabla.remove(itemDetalleVenta);
+        for(int i=0; i<elementosTabla.size();i++){
+            Object [] a =elementosTabla.get(i);
+            modelo.addRow(a);
+        }        
+        jTableDetalleVenta.setModel(modelo);
+    }//GEN-LAST:event_jButtonEliminarProductoActionPerformed
 
     /**
      * @param args the command line arguments
