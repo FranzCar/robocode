@@ -279,9 +279,9 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
         deshabilitar();
-        //InterfazEliminarUsuario ventanaEliminar=new InterfazEliminarUsuario();
-        //ventanaEliminar.setVisible(true);
-        //ventanaEliminar.setLocationRelativeTo(null);
+        InterfazEliminarProveedor ventanaEliminar=new InterfazEliminarProveedor();
+        ventanaEliminar.setVisible(true);
+        ventanaEliminar.setLocationRelativeTo(null);
         
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
