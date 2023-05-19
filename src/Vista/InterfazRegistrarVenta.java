@@ -10,7 +10,9 @@ import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -25,11 +27,17 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
     static Statement sentencia=null;
     ConectarBD con = new ConectarBD();
     ArrayList<Object []> elementosTabla = new ArrayList<>();
-    private int itemDetalleVenta;
+    private int itemDetalleVenta;    
+    Date fechaActual = new Date();
+    SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+    String fechaFormateada = formatoFecha.format(fechaActual);
+
     public InterfazRegistrarVenta() {
         initComponents();        
         this.setDefaultCloseOperation(1);
         this.setLocationRelativeTo(null);
+        jTextFieldFecha.setText(fechaFormateada);
+        jTextFieldFecha.setEditable(false);
     }
 
     /**
