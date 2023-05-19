@@ -223,7 +223,14 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-        
+        String NombreProv=jTextFieldNombreprov.getText().trim();
+         String CiNIT=jTextFieldCiNIT.getText().trim();
+         String TelefonoProv=jTextFieldTelefonoProv.getText().trim();
+         String MailProv=jTextFieldMail.getText().trim();
+         String DireccionProv=jTextFieldDireccionprov.getText().trim();
+         String DescripcionProd=jTextFieldDescripcion.getText().trim();
+         
+         
         try {
             sentencia=conexion.createStatement();
             objProveedor.nombreProv=jTextFieldNombreprov.getText();
