@@ -38,6 +38,10 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         jTextFieldFecha.setText(fechaFormateada);
         jTextFieldFecha.setEditable(false);
+        jTextFieldMarca.setEditable(false);
+        jTextFieldModelo.setEditable(false);
+        jTextFieldPrecio.setEditable(false);
+        jTextFieldStock.setEditable(false);
     }
 
     /**
