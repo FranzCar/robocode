@@ -335,24 +335,33 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
             try {                
                 conexion=con.establecerConexion();
                 PreparedStatement pst = conexion.prepareStatement("SELECT * FROM PRODUCTO WHERE codProducto ='"+jTextFieldIdProducto.getText()+"'");
-                ResultSet rs = pst.executeQuery();
-                
+                ResultSet rs = pst.executeQuery();                
                 if(rs.next()){
                     //Datos consultados
                     jTextFieldMarca.setText(rs.getString("marcaProducto"));
                     jTextFieldModelo.setText(rs.getString("modeloProducto"));
                     jTextFieldPrecio.setText(rs.getString("precioProducto"));
-                    jTextFieldStock.setText(rs.getString("stockProducto"));
+                    jTextFieldStock.setText(rs.getString("stockProducto"));                    
+                }else{
+                    jTextFieldMarca.setText("");
+                    jTextFieldModelo.setText("");
+                    jTextFieldPrecio.setText("");
+                    jTextFieldStock.setText("");
+                    JOptionPane.showMessageDialog(null, "Id Producto inexistente");
                 }                
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "¡Error al cargar!");
                 System.out.println("Error al cargar foto: " + e);
             }
-            if (Integer.parseInt(jTextFieldStock.getText())==0){
+            if (jTextFieldStock.getText().equals("")){
                 jButtonAgregarProducto.setEnabled(false);
             }else{
-                jButtonAgregarProducto.setEnabled(true);
-            }
+                if (Integer.parseInt(jTextFieldStock.getText())==0){
+                    jButtonAgregarProducto.setEnabled(false);
+                }else{
+                    jButtonAgregarProducto.setEnabled(true);
+                }
+            }                   
         }
     }//GEN-LAST:event_jTextFieldIdProductoKeyPressed
 
