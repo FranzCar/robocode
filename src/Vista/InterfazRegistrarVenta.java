@@ -366,12 +366,13 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldIdProductoKeyPressed
 
     private void jButtonAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarProductoActionPerformed
-            DefaultTableModel modelo = new DefaultTableModel(){
+        int sumaImporte=0;
+        DefaultTableModel modelo = new DefaultTableModel(){
             @Override
             public boolean isCellEditable(int x, int y){
                 return false;
             }
-        };                
+        };
         modelo.addColumn("ID Producto");
         modelo.addColumn("Marca");
         modelo.addColumn("Modelo");
@@ -386,6 +387,13 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
             modelo.addRow(a);
         }        
         jTableDetalleVenta.setModel(modelo);
+        for(int i=0; i<elementosTabla.size();i++){
+            Object [] fila =elementosTabla.get(i);
+            String elemento = (String)lista[5];
+            sumaImporte=sumaImporte+Integer.parseInt(elemento);            
+        }
+        String text=sumaImporte+"";
+        jTextFieldTotalPagar.setText(text);        
     }//GEN-LAST:event_jButtonAgregarProductoActionPerformed
 
     private void jTableDetalleVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableDetalleVentaMouseClicked
