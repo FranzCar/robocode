@@ -287,9 +287,9 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
         deshabilitar();
-        //InterfazEditarUsuario ventadaEditar=new InterfazEditarUsuario();
-        //ventadaEditar.setVisible(true);
-        //ventadaEditar.setLocationRelativeTo(null);
+        InterfazEditarProveedores ventadaEditar=new InterfazEditarProveedores();
+        ventadaEditar.setVisible(true);
+        ventadaEditar.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed

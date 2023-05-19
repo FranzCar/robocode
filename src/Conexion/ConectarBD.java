@@ -24,7 +24,7 @@ public class ConectarBD {
 
     String dataBase = "ventasgobd";
     String server = "localhost";
-    String puerto = "3308";
+    String puerto = "3306";
     String driver = "com.mysql.cj.jdbc.Driver";
     
     String cadena = "jdbc:mysql://"+server+":"+puerto+"/"+dataBase;
