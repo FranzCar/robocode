@@ -71,7 +71,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         avisoTelefonoprov = new javax.swing.JLabel();
         avisoMailprov = new javax.swing.JLabel();
         avisoDireccionprov = new javax.swing.JLabel();
-        avisoContrasenia = new javax.swing.JLabel();
+        avisoDescripProd = new javax.swing.JLabel();
         jButtonCancelar = new javax.swing.JButton();
         jButtonGuardar = new javax.swing.JButton();
 
@@ -166,9 +166,9 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         avisoDireccionprov.setForeground(new java.awt.Color(204, 204, 255));
         jPanel2.add(avisoDireccionprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 380, 181, 30));
 
-        avisoContrasenia.setBackground(new java.awt.Color(204, 204, 255));
-        avisoContrasenia.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel2.add(avisoContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 450, 181, 30));
+        avisoDescripProd.setBackground(new java.awt.Color(204, 204, 255));
+        avisoDescripProd.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel2.add(avisoDescripProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 450, 181, 30));
 
         jButtonCancelar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -308,7 +308,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel avisoCIprov;
-    private javax.swing.JLabel avisoContrasenia;
+    private javax.swing.JLabel avisoDescripProd;
     private javax.swing.JLabel avisoDireccionprov;
     private javax.swing.JLabel avisoMailprov;
     private javax.swing.JLabel avisoNombreprov;
