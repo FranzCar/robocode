@@ -42,6 +42,8 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         jTextFieldModelo.setEditable(false);
         jTextFieldPrecio.setEditable(false);
         jTextFieldStock.setEditable(false);
+        jButtonAgregarProducto.setEnabled(false);
+        jButtonEliminarProducto.setEnabled(false);
     }
 
     /**
@@ -329,7 +331,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextFieldIdProductoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdProductoKeyPressed
-        if(evt.getKeyCode()==evt.VK_ENTER){
+        if(evt.getKeyCode()==evt.VK_ENTER){            
             try {                
                 conexion=con.establecerConexion();
                 PreparedStatement pst = conexion.prepareStatement("SELECT * FROM PRODUCTO WHERE codProducto ='"+jTextFieldIdProducto.getText()+"'");
@@ -345,6 +347,11 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "¡Error al cargar!");
                 System.out.println("Error al cargar foto: " + e);
+            }
+            if (Integer.parseInt(jTextFieldStock.getText())==0){
+                jButtonAgregarProducto.setEnabled(false);
+            }else{
+                jButtonAgregarProducto.setEnabled(true);
             }
         }
     }//GEN-LAST:event_jTextFieldIdProductoKeyPressed
@@ -378,6 +385,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
     }//GEN-LAST:event_jTableDetalleVentaMouseClicked
 
     private void jButtonEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarProductoActionPerformed
+
         DefaultTableModel modelo = new DefaultTableModel(){
         };                
         modelo.addColumn("ID Producto");
