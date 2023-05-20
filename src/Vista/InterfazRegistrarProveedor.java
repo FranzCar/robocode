@@ -71,7 +71,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         avisoTelefonoprov = new javax.swing.JLabel();
         avisoMailprov = new javax.swing.JLabel();
         avisoDireccionprov = new javax.swing.JLabel();
-        avisoDescripProd = new javax.swing.JLabel();
+        avisoDescripcionProd = new javax.swing.JLabel();
         jButtonCancelar = new javax.swing.JButton();
         jButtonGuardar = new javax.swing.JButton();
 
@@ -166,9 +166,9 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         avisoDireccionprov.setForeground(new java.awt.Color(204, 204, 255));
         jPanel2.add(avisoDireccionprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 380, 181, 30));
 
-        avisoDescripProd.setBackground(new java.awt.Color(204, 204, 255));
-        avisoDescripProd.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel2.add(avisoDescripProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 450, 181, 30));
+        avisoDescripcionProd.setBackground(new java.awt.Color(204, 204, 255));
+        avisoDescripcionProd.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel2.add(avisoDescripcionProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 450, 181, 30));
 
         jButtonCancelar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -299,7 +299,72 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
     }
     }
     
+        //Validar camposVacios
+    public void validarCamposVacios(){
+    //Nombre proveedor
+    if(jTextFieldNombreprov.getText().isEmpty()){
+     avisoNombreprov.setText("Campo Obligatorio");
+     }else {
+            if (jTextFieldNombreprov.getText().length()<3){
+             avisoNombreprov.setText("Se requiere de 3 caracteres");  
+        }else{
+         avisoNombreprov.setText("");}
+            }
     
+    //CI/NIT
+    if(jTextFieldCiNIT.getText().isEmpty()){
+     avisoCIprov.setText("Campo Obligatorio");
+    }else{
+        if(jTextFieldCiNIT.getText().length()<7){
+            avisoCIprov.setText("Se requiere de 7 caracteres");  
+        }else{
+         avisoCIprov.setText("");}
+    }
+    
+    //Telefono
+    if(jTextFieldTelefonoProv.getText().isEmpty()){
+     avisoTelefonoprov.setText("Campo Obligatorio");
+    }else{
+        if(jTextFieldTelefonoProv.getText().length()<8){
+             avisoTelefonoprov.setText("Se requiere 8 digitos");
+        }else{
+            avisoTelefonoprov.setText("");}        
+    }
+    
+    //Email
+    if(jTextFieldMail.getText().isEmpty()){
+     avisoMailprov.setText("Campo Obligatorio");
+    }else{
+        if (jTextFieldMail.getText().length()<20){
+            avisoMailprov.setText("Se requiere 20 digito");
+        }else{
+            avisoMailprov.setText("");}         
+    }
+    
+    //DireccionProveedor
+    if(jTextFieldDireccionprov.getText().isEmpty()){
+    avisoDireccionprov.setText("Campo Obligatorio");
+    }else{
+        if(jTextFieldDireccionprov.getText().length()<10){
+            avisoDireccionprov.setText("Se requiere 10 caracteres");
+        }
+        else{
+           avisoDireccionprov.setText("");}     
+    }
+    
+    //DescripcionProducto Prov
+    if(jTextFieldDescripcion.getText().isEmpty()){
+    avisoDescripcionProd.setText("Campo Obligatorio");
+    }else{
+        if(jTextFieldDescripcion.getText().length()<10){
+            avisoDescripcionProd.setText("Se requiere 10 caracteres");
+        }
+        else{
+           avisoDescripcionProd.setText("");}     
+    }
+}
+
+                  
     /**
      * @param args the command line arguments
      */
@@ -337,7 +402,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel avisoCIprov;
-    private javax.swing.JLabel avisoDescripProd;
+    private javax.swing.JLabel avisoDescripcionProd;
     private javax.swing.JLabel avisoDireccionprov;
     private javax.swing.JLabel avisoMailprov;
     private javax.swing.JLabel avisoNombreprov;
