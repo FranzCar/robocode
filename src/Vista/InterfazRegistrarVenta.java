@@ -356,8 +356,8 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                     if(elementosTabla.isEmpty()!=true){
                         for(int i=0; i<elementosTabla.size();i++){
                             Object [] fila =elementosTabla.get(i);
-                            int id=Integer.parseInt((String)fila[0]);
-                            if(id==Integer.parseInt(jTextFieldIdProducto.getText())){
+                            String id=(String)fila[0];
+                            if(id.contentEquals(jTextFieldIdProducto.getText())){
                                 Stock--;
                             }
                         }                        
@@ -394,6 +394,14 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                 return false;
             }
         };
+        //se reduce la cantidad del stock
+        int reducirCantidad=Integer.parseInt(jTextFieldStock.getText());
+        reducirCantidad--;
+        jTextFieldStock.setText(reducirCantidad+"");
+        if (reducirCantidad==0){
+            jButtonAgregarProducto.setEnabled(false);
+        }
+        
         modelo.addColumn("ID Producto");
         modelo.addColumn("Marca");
         modelo.addColumn("Modelo");
