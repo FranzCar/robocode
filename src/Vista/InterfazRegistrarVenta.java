@@ -26,7 +26,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
     static Connection conexion=null;
     static Statement sentencia=null;
     ConectarBD con = new ConectarBD();
-    ArrayList<Object []> elementosTabla = new ArrayList<>();
+    ArrayList<Object []> elementosTabla = new ArrayList<>();    
     private int itemDetalleVenta;    
     Date fechaActual = new Date();
     SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
@@ -105,9 +105,20 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("REALIZAR VENTA");
 
+        jTextFieldNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldNombreKeyPressed(evt);
+            }
+        });
+
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre/Razon Social");
 
+        jTextFieldIdProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldIdProductoActionPerformed(evt);
+            }
+        });
         jTextFieldIdProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldIdProductoKeyPressed(evt);
@@ -331,7 +342,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextFieldIdProductoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdProductoKeyPressed
-        if(evt.getKeyCode()==evt.VK_ENTER){            
+        if(evt.getKeyCode()==evt.VK_ENTER){           
             try {                
                 conexion=con.establecerConexion();
                 PreparedStatement pst = conexion.prepareStatement("SELECT * FROM PRODUCTO WHERE codProducto ='"+jTextFieldIdProducto.getText()+"'");
@@ -341,7 +352,17 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                     jTextFieldMarca.setText(rs.getString("marcaProducto"));
                     jTextFieldModelo.setText(rs.getString("modeloProducto"));
                     jTextFieldPrecio.setText(rs.getString("precioProducto"));
-                    jTextFieldStock.setText(rs.getString("stockProducto"));                    
+                    int Stock=Integer.parseInt(rs.getString("stockProducto"));
+                    if(elementosTabla.isEmpty()!=true){
+                        for(int i=0; i<elementosTabla.size();i++){
+                            Object [] fila =elementosTabla.get(i);
+                            int id=Integer.parseInt((String)fila[0]);
+                            if(id==Integer.parseInt(jTextFieldIdProducto.getText())){
+                                Stock--;
+                            }
+                        }                        
+                    }
+                    jTextFieldStock.setText(Stock+"");
                 }else{
                     jTextFieldMarca.setText("");
                     jTextFieldModelo.setText("");
@@ -389,7 +410,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         jTableDetalleVenta.setModel(modelo);
         for(int i=0; i<elementosTabla.size();i++){
             Object [] fila =elementosTabla.get(i);
-            String elemento = (String)lista[5];
+            String elemento = (String)fila[5];
             sumaImporte=sumaImporte+Integer.parseInt(elemento);            
         }
         String text=sumaImporte+"";
@@ -419,6 +440,14 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         }        
         jTableDetalleVenta.setModel(modelo);
     }//GEN-LAST:event_jButtonEliminarProductoActionPerformed
+
+    private void jTextFieldIdProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldIdProductoActionPerformed
+
+    private void jTextFieldNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNombreKeyPressed
 
     /**
      * @param args the command line arguments
