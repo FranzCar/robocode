@@ -422,7 +422,17 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
            avisoDescripcionProd.setText("");}     
     }
 }
-
+    public void validacionEspacio(java.awt.event.KeyEvent evento){
+    if (jTextFieldNombreprov.getText().startsWith(" ")
+         ||jTextFieldCiNIT.getText().startsWith(" ")
+         ||jTextFieldTelefonoProv.getText().startsWith(" ")
+         ||jTextFieldMail.getText().startsWith(" ")
+         ||jTextFieldDireccionprov.getText().startsWith(" ")
+         ||jTextFieldDescripcion.getText().startsWith(" ")){
+    evento.consume();
+            JOptionPane.showMessageDialog(this, "No puedes ingresar Espacio como primer caracter");
+    }
+}
                   
     /**
      * @param args the command line arguments
