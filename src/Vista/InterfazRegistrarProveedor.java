@@ -260,8 +260,14 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldMailActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
-        
-
+        if(idUsuarioTabla>0){
+            bRegistrar.setEnabled(true);
+            bEditar.setEnabled(true);
+            bEliminar.setEnabled(true);
+        }else{
+            bRegistrar.setEnabled(true);
+        }
+        dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
