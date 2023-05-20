@@ -33,6 +33,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
     
     public InterfazRegistrarProveedor() {
         initComponents();
+        habilitarBotonProv();
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(1);
         
@@ -121,9 +122,17 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
                 jTextFieldNombreprovActionPerformed(evt);
             }
         });
+        jTextFieldNombreprov.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldNombreprovKeyReleased(evt);
+            }
+        });
         jPanel2.add(jTextFieldNombreprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 190, -1));
 
         jTextFieldCiNIT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldCiNITKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldCiNITKeyTyped(evt);
             }
@@ -131,6 +140,9 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         jPanel2.add(jTextFieldCiNIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 190, -1));
 
         jTextFieldTelefonoProv.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldTelefonoProvKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldTelefonoProvKeyTyped(evt);
             }
@@ -142,8 +154,25 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
                 jTextFieldMailActionPerformed(evt);
             }
         });
+        jTextFieldMail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldMailKeyReleased(evt);
+            }
+        });
         jPanel2.add(jTextFieldMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 190, -1));
+
+        jTextFieldDireccionprov.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldDireccionprovKeyReleased(evt);
+            }
+        });
         jPanel2.add(jTextFieldDireccionprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 380, 190, -1));
+
+        jTextFieldDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldDescripcionKeyReleased(evt);
+            }
+        });
         jPanel2.add(jTextFieldDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, 200, 40));
 
         avisoNombreprov.setBackground(new java.awt.Color(204, 204, 255));
@@ -277,6 +306,36 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         // TODO add your handling code here:
         Validaciones.validacionNumerica(evt);
     }//GEN-LAST:event_jTextFieldTelefonoProvKeyTyped
+
+    private void jTextFieldNombreprovKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreprovKeyReleased
+       validarCamposVacios();
+       habilitarBotonProv();
+    }//GEN-LAST:event_jTextFieldNombreprovKeyReleased
+
+    private void jTextFieldCiNITKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiNITKeyReleased
+        validarCamposVacios();
+        habilitarBotonProv();
+    }//GEN-LAST:event_jTextFieldCiNITKeyReleased
+
+    private void jTextFieldTelefonoProvKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoProvKeyReleased
+        validarCamposVacios();
+        habilitarBotonProv();
+    }//GEN-LAST:event_jTextFieldTelefonoProvKeyReleased
+
+    private void jTextFieldMailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMailKeyReleased
+        validarCamposVacios();
+        habilitarBotonProv();
+    }//GEN-LAST:event_jTextFieldMailKeyReleased
+
+    private void jTextFieldDireccionprovKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDireccionprovKeyReleased
+        validarCamposVacios();
+        habilitarBotonProv();
+    }//GEN-LAST:event_jTextFieldDireccionprovKeyReleased
+
+    private void jTextFieldDescripcionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescripcionKeyReleased
+        validarCamposVacios();
+        habilitarBotonProv();
+    }//GEN-LAST:event_jTextFieldDescripcionKeyReleased
 
     public void habilitarBotonProv(){
     if(jTextFieldNombreprov.getText().isEmpty()
