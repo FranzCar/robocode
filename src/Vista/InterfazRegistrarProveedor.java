@@ -325,9 +325,19 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
          jTextFieldDescripcion.setText("");
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
+    public void validacionCaracteresEspeciales(java.awt.event.KeyEvent evento) {
+    char tecla = evento.getKeyChar();
+    if (tecla != '\b' && (tecla < '0' || tecla > '9')) {
+        evento.consume();
+        JOptionPane.showMessageDialog(null, "Solo se permiten numeros");
+    }
+}
+
+    
     private void jTextFieldCiNITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiNITKeyTyped
-        Validaciones.validacionNumerica(evt);
+        //Validaciones.validacionNumerica(evt);
         validacionEspacio(evt);
+        validacionCaracteresEspeciales(evt);
         //validacionCaracteres(evt);
 
         if(jTextFieldCiNIT.getText().length()>=10){
@@ -339,8 +349,8 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCiNITKeyTyped
 
     private void jTextFieldTelefonoProvKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoProvKeyTyped
-        
-        Validaciones.validacionNumerica(evt);
+        validacionCaracteresEspeciales(evt);
+        //Validaciones.validacionNumerica(evt);
         validacionEspacio(evt);
         //validacionCaracteres(evt);
 
