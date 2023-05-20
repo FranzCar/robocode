@@ -281,7 +281,16 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
             objProveedor.emailProv=jTextFieldMail.getText();
             objProveedor.direccionProv=jTextFieldDireccionprov.getText();
             objProveedor.descripcionProducto=jTextFieldDescripcion.getText();
-            
+
+//Para validar que el correo del Proveedor no sea duplicado            
+            String sentenciaSQLCo = "SELECT COUNT(*) FROM proveedor WHERE emailProveedor = '" + objProveedor.emailProv + "'";
+            ResultSet resultado = sentencia.executeQuery(sentenciaSQLCo);
+            resultado.next();
+            int countCo = resultado.getInt(1);
+            if (countCo > 0) {
+                JOptionPane.showMessageDialog(this, "El email del Proveedor ya existe. Por favor ingrese otro email.");
+                return;
+            }            
                     
             // Se realiza el registro
             
