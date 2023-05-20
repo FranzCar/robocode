@@ -137,6 +137,11 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                 "ID producto", "Marca", "Modelo", "Cantidad", "ESN/IMEI", "Importe"
             }
         ));
+        jTableDetalleVenta.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTableDetalleVentaFocusLost(evt);
+            }
+        });
         jTableDetalleVenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableDetalleVentaMouseClicked(evt);
@@ -334,6 +339,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
         InterLogin login=new InterLogin();
@@ -422,11 +428,15 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
             sumaImporte=sumaImporte+Integer.parseInt(elemento);            
         }
         String text=sumaImporte+"";
-        jTextFieldTotalPagar.setText(text);        
+        jTextFieldTotalPagar.setText(text);
+        jButtonEliminarProducto.setEnabled(false);
     }//GEN-LAST:event_jButtonAgregarProductoActionPerformed
 
     private void jTableDetalleVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableDetalleVentaMouseClicked
         itemDetalleVenta=jTableDetalleVenta.rowAtPoint(evt.getPoint());
+        if (itemDetalleVenta>=0){
+            jButtonEliminarProducto.setEnabled(true);
+        }
         
     }//GEN-LAST:event_jTableDetalleVentaMouseClicked
 
@@ -447,6 +457,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
             modelo.addRow(a);
         }        
         jTableDetalleVenta.setModel(modelo);
+        jButtonEliminarProducto.setEnabled(false);
     }//GEN-LAST:event_jButtonEliminarProductoActionPerformed
 
     private void jTextFieldIdProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdProductoActionPerformed
@@ -456,6 +467,9 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
     private void jTextFieldNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNombreKeyPressed
+
+    private void jTableDetalleVentaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTableDetalleVentaFocusLost
+    }//GEN-LAST:event_jTableDetalleVentaFocusLost
 
     /**
      * @param args the command line arguments
