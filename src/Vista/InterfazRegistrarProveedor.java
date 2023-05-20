@@ -14,6 +14,7 @@ import static Vista.InterfazAdministrarProveedor.jTableUsuario;
 
 import Conexion.ConectarBD;
 import Controlador.Validaciones;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -126,6 +127,9 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldNombreprovKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNombreprovKeyTyped(evt);
+            }
         });
         jPanel2.add(jTextFieldNombreprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 190, -1));
 
@@ -158,6 +162,9 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldMailKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldMailKeyTyped(evt);
+            }
         });
         jPanel2.add(jTextFieldMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 190, -1));
 
@@ -165,12 +172,18 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldDireccionprovKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldDireccionprovKeyTyped(evt);
+            }
         });
         jPanel2.add(jTextFieldDireccionprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 380, 190, -1));
 
         jTextFieldDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldDescripcionKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldDescripcionKeyTyped(evt);
             }
         });
         jPanel2.add(jTextFieldDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, 200, 40));
@@ -298,13 +311,30 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jTextFieldCiNITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiNITKeyTyped
-        // TODO add your handling code here:
         Validaciones.validacionNumerica(evt);
+        validacionEspacio(evt);
+        //validacionCaracteres(evt);
+
+        if(jTextFieldCiNIT.getText().length()>=10){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
     }//GEN-LAST:event_jTextFieldCiNITKeyTyped
 
     private void jTextFieldTelefonoProvKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoProvKeyTyped
-        // TODO add your handling code here:
+        
         Validaciones.validacionNumerica(evt);
+        validacionEspacio(evt);
+        //validacionCaracteres(evt);
+
+        if(jTextFieldTelefonoProv.getText().length()>=8){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
     }//GEN-LAST:event_jTextFieldTelefonoProvKeyTyped
 
     private void jTextFieldNombreprovKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreprovKeyReleased
@@ -336,6 +366,54 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         validarCamposVacios();
         habilitarBotonProv();
     }//GEN-LAST:event_jTextFieldDescripcionKeyReleased
+
+    private void jTextFieldNombreprovKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreprovKeyTyped
+    validacionEspacio(evt);
+    validacionCaracteres(evt);
+
+        if(jTextFieldNombreprov.getText().length()>=30){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
+    }//GEN-LAST:event_jTextFieldNombreprovKeyTyped
+
+    private void jTextFieldMailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMailKeyTyped
+        validacionEspacio(evt);
+        //validacionCaracteres(evt);
+
+        if(jTextFieldMail.getText().length()>=30){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
+    }//GEN-LAST:event_jTextFieldMailKeyTyped
+
+    private void jTextFieldDireccionprovKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDireccionprovKeyTyped
+        validacionEspacio(evt);
+        validacionCaracteres(evt);
+
+        if(jTextFieldDireccionprov.getText().length()>=30){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
+    }//GEN-LAST:event_jTextFieldDireccionprovKeyTyped
+
+    private void jTextFieldDescripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescripcionKeyTyped
+        validacionEspacio(evt);
+        validacionCaracteres(evt);
+
+        if(jTextFieldDescripcion.getText().length()>=50){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
+    }//GEN-LAST:event_jTextFieldDescripcionKeyTyped
 
     public void habilitarBotonProv(){
     if(jTextFieldNombreprov.getText().isEmpty()
