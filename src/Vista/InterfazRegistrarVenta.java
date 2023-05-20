@@ -34,7 +34,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
 
     public InterfazRegistrarVenta() {
         initComponents();        
-        this.setDefaultCloseOperation(1);
+        //this.setDefaultCloseOperation(1);
         this.setLocationRelativeTo(null);
         jTextFieldFecha.setText(fechaFormateada);
         jTextFieldFecha.setEditable(false);
@@ -126,6 +126,11 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         });
 
         jButtonbuscarProducto.setText("Buscar");
+        jButtonbuscarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonbuscarProductoActionPerformed(evt);
+            }
+        });
 
         jButtonImprimirProducto.setText("Imprimir");
 
@@ -471,6 +476,12 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
     private void jTableDetalleVentaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTableDetalleVentaFocusLost
     }//GEN-LAST:event_jTableDetalleVentaFocusLost
 
+    private void jButtonbuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonbuscarProductoActionPerformed
+        InterfazBuscarProducto buscarPro=new InterfazBuscarProducto();
+        buscarPro.setVisible(true);
+        buscarPro.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButtonbuscarProductoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -530,7 +541,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldCiNit;
     private javax.swing.JTextField jTextFieldEsnImei;
     private javax.swing.JTextField jTextFieldFecha;
-    private javax.swing.JTextField jTextFieldIdProducto;
+    public static javax.swing.JTextField jTextFieldIdProducto;
     private javax.swing.JTextField jTextFieldMarca;
     private javax.swing.JTextField jTextFieldModelo;
     private javax.swing.JTextField jTextFieldNombre;

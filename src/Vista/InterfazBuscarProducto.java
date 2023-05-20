@@ -669,18 +669,6 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonBuscarKeyPressed
 
-    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        InterfazEditarProducto editarPro=new InterfazEditarProducto();
-        editarPro.setVisible(true);
-        editarPro.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jButtonEditarActionPerformed
-
-    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
-        InterfazEliminarProducto eliminarPro=new InterfazEliminarProducto();
-        eliminarPro.setVisible(true);
-        eliminarPro.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jButtonEliminarActionPerformed
-
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
       /* InterfazRegistrarProducto registrarPro=new InterfazRegistrarProducto();
         registrarPro.setVisible(true);
@@ -1097,26 +1085,6 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         jButtonHome.setBackground(new Color (95,143,169));
     }//GEN-LAST:event_jButtonHomeMouseExited
 
-    private void jButtonEditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarMouseEntered
-        if (jButtonEditar.isEnabled()){
-            jButtonEditar.setBackground(new Color (113,163,188));
-        }
-    }//GEN-LAST:event_jButtonEditarMouseEntered
-
-    private void jButtonEditarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarMouseExited
-        jButtonEditar.setBackground(new Color (95,143,169));
-    }//GEN-LAST:event_jButtonEditarMouseExited
-
-    private void jButtonEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarMouseEntered
-        if (jButtonEliminar.isEnabled()){
-            jButtonEliminar.setBackground(new Color (113,163,188));
-        }
-    }//GEN-LAST:event_jButtonEliminarMouseEntered
-
-    private void jButtonEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarMouseExited
-        jButtonEliminar.setBackground(new Color (95,143,169));
-    }//GEN-LAST:event_jButtonEliminarMouseExited
-
     
     
     private void jTextFieldBuscarCoincidenciaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarCoincidenciaKeyReleased
@@ -1124,6 +1092,38 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
                
     
     }//GEN-LAST:event_jTextFieldBuscarCoincidenciaKeyReleased
+
+    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
+        InterfazEliminarProducto eliminarPro=new InterfazEliminarProducto();
+        eliminarPro.setVisible(true);
+        eliminarPro.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButtonEliminarActionPerformed
+
+    private void jButtonEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarMouseExited
+        jButtonEliminar.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButtonEliminarMouseExited
+
+    private void jButtonEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarMouseEntered
+        if (jButtonEliminar.isEnabled()){
+            jButtonEliminar.setBackground(new Color (113,163,188));
+        }
+    }//GEN-LAST:event_jButtonEliminarMouseEntered
+
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+        InterfazEditarProducto editarPro=new InterfazEditarProducto();
+        editarPro.setVisible(true);
+        editarPro.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButtonEditarActionPerformed
+
+    private void jButtonEditarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarMouseExited
+        jButtonEditar.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButtonEditarMouseExited
+
+    private void jButtonEditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarMouseEntered
+        if (jButtonEditar.isEnabled()){
+            jButtonEditar.setBackground(new Color (113,163,188));
+        }
+    }//GEN-LAST:event_jButtonEditarMouseEntered
 
     /**
      * @param args the command line arguments
