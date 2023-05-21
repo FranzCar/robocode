@@ -5,6 +5,8 @@
 package Vista;
 
 import Conexion.ConectarBD;
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
@@ -15,7 +17,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -85,6 +89,10 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jButtonEliminarProducto = new javax.swing.JButton();
         jButtonAgregarProducto = new javax.swing.JButton();
+        jLabelAvisoCi = new javax.swing.JLabel();
+        jLabelAvisoIdProducto = new javax.swing.JLabel();
+        jLabelAvisoIMEI = new javax.swing.JLabel();
+        jLabelAvisoNombre = new javax.swing.JLabel();
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("CI/NIT");
@@ -109,6 +117,18 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldNombreKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNombreKeyTyped(evt);
+            }
+        });
+
+        jTextFieldCiNit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldCiNitKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldCiNitKeyTyped(evt);
+            }
         });
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,6 +145,12 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldIdProductoKeyTyped(evt);
+            }
+        });
+
+        jTextFieldEsnImei.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldEsnImeiKeyTyped(evt);
             }
         });
 
@@ -224,13 +250,16 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jTextFieldIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jLabel6))
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabelAvisoIdProducto)
+                                        .addComponent(jLabelAvisoNombre))
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGap(54, 54, 54)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLabel5)
-                                                .addComponent(jTextFieldCiNit, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(jTextFieldCiNit, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabelAvisoCi)))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,7 +281,8 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                                             .addGap(65, 65, 65)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jTextFieldEsnImei, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jLabel9))
+                                                .addComponent(jLabel9)
+                                                .addComponent(jLabelAvisoIMEI))
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -302,7 +332,11 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextFieldCiNit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(56, 56, 56)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelAvisoCi, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelAvisoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
@@ -318,17 +352,24 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                     .addComponent(jTextFieldPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldEsnImei, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldTotalPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonbuscarProducto)
-                    .addComponent(jButtonImprimirProducto))
-                .addGap(48, 48, 48))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabelAvisoIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldTotalPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonbuscarProducto)
+                            .addComponent(jButtonImprimirProducto))
+                        .addGap(48, 48, 48))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabelAvisoIMEI, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -487,7 +528,27 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
 
     private void jTextFieldIdProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdProductoKeyTyped
         validacionNumero(evt);
+        avisoLongitudMaxMin(jTextFieldIdProducto,jLabelAvisoIdProducto,1,3,evt);
     }//GEN-LAST:event_jTextFieldIdProductoKeyTyped
+
+    private void jTextFieldEsnImeiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldEsnImeiKeyTyped
+        validacionNumero(evt);
+        avisoLongitudMaxMin(jTextFieldEsnImei,jLabelAvisoIMEI,15,16,evt);
+    }//GEN-LAST:event_jTextFieldEsnImeiKeyTyped
+
+    private void jTextFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyTyped
+        validacionCaracteresLetras(evt);
+        avisoLongitudMaxMin(jTextFieldNombre,jLabelAvisoNombre,3,20,evt);
+    }//GEN-LAST:event_jTextFieldNombreKeyTyped
+
+    private void jTextFieldCiNitKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiNitKeyTyped
+        validacionNumero(evt);                       
+        avisoLongitudMaxMin(jTextFieldCiNit,jLabelAvisoCi,7,9,evt);
+    }//GEN-LAST:event_jTextFieldCiNitKeyTyped
+
+    private void jTextFieldCiNitKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiNitKeyReleased
+
+    }//GEN-LAST:event_jTextFieldCiNitKeyReleased
 
     /**
      * @param args the command line arguments
@@ -524,13 +585,63 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         });
     }
     public void validacionNumero(java.awt.event.KeyEvent evento){
-    if((evento.getKeyChar()<48 || evento.getKeyChar()>57)&&
-        evento.getKeyChar()!=8&&evento.getKeyChar()!=10){
-            evento.consume();  
+        if((evento.getKeyChar()<48 || evento.getKeyChar()>57)&&
+            evento.getKeyChar()!=8&&evento.getKeyChar()!=10){
+            evento.consume();
             JOptionPane.showMessageDialog(null, "Solo se permiten Números");
         }
-    
-}
+    }
+    public void validacionCaracteresLetras(java.awt.event.KeyEvent evento){
+        if((evento.getKeyChar()<97 || evento.getKeyChar()>122)&& //a-z
+        (evento.getKeyChar()<65 || evento.getKeyChar()>90)&& //A-Z
+        evento.getKeyChar()!=209&&evento.getKeyChar()!=241&&
+        evento.getKeyChar()!=8&&evento.getKeyChar()!=32&&
+        evento.getKeyChar()!=225&&evento.getKeyChar()!=233&&
+        evento.getKeyChar()!=237&&evento.getKeyChar()!=243&&
+        evento.getKeyChar()!=250&&evento.getKeyChar()!=193&&
+        evento.getKeyChar()!=201&&evento.getKeyChar()!=205&&
+        evento.getKeyChar()!=211&&evento.getKeyChar()!=218){
+            evento.consume();
+            JOptionPane.showMessageDialog(null, "No se permiten Caracteres Especiales");
+        }
+    }
+    public void avisoLongitudMaxMin (JTextField a,JLabel b, int cantidad,int maximo,KeyEvent z){
+        if(a.getText().isEmpty()){
+            b.setText("Campo Obligatorio");
+        }else {
+            if (a.getText().length()<=cantidad){
+                b.setText("Se requiere de "+ cantidad +" caracteres");  
+            }else{
+                b.setText("");}
+        }
+        if(a.getText().length()>=maximo){
+            z.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
+    }
+    /*
+    public void habilitarBotonProv(){
+    if(jTextFieldNombreprov.getText().isEmpty()
+            || jTextFieldCiNIT.getText().isEmpty()
+            || jTextFieldTelefonoProv.getText().isEmpty()
+            || jTextFieldMail.getText().isEmpty()
+            || jTextFieldDireccionprov.getText().isEmpty()
+            || jTextFieldDescripcion.getText().isEmpty()
+            
+            || jTextFieldNombreprov.getText().length()<3
+            || jTextFieldCiNIT.getText().length()<7
+            || jTextFieldTelefonoProv.getText().length()<8
+            || jTextFieldMail.getText().length()<20
+            || jTextFieldDireccionprov.getText().length()<10
+            || jTextFieldDescripcion.getText().length()<10 ){
+        
+        jButtonGuardar.setEnabled(false);
+    }else{
+        jButtonGuardar.setEnabled(true);
+    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -550,6 +661,10 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelAvisoCi;
+    private javax.swing.JLabel jLabelAvisoIMEI;
+    private javax.swing.JLabel jLabelAvisoIdProducto;
+    private javax.swing.JLabel jLabelAvisoNombre;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableDetalleVenta;

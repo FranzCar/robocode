@@ -85,6 +85,8 @@
                                               <Component id="jTextFieldNombre" min="-2" pref="85" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelAvisoIdProducto" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelAvisoNombre" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
@@ -92,6 +94,7 @@
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jTextFieldCiNit" min="-2" pref="91" max="-2" attributes="0"/>
+                                                  <Component id="jLabelAvisoCi" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
@@ -121,6 +124,7 @@
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jTextFieldEsnImei" min="-2" pref="103" max="-2" attributes="0"/>
                                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabelAvisoIMEI" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
@@ -195,7 +199,12 @@
                           <Component id="jTextFieldCiNit" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jLabelAvisoCi" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="jLabelAvisoNombre" min="-2" pref="20" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -213,19 +222,29 @@
                       <Component id="jTextFieldStock" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldEsnImei" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="163" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldTotalPagar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jLabelAvisoIdProducto" min="-2" pref="20" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="163" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldTotalPagar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="116" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jButtonbuscarProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonImprimirProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabelAvisoIMEI" min="-2" pref="20" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="120" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButtonbuscarProducto" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonImprimirProducto" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -253,9 +272,14 @@
         <Component class="javax.swing.JTextField" name="jTextFieldNombre">
           <Events>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldNombreKeyPressed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldNombreKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldCiNit">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldCiNitKeyReleased"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldCiNitKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
@@ -280,6 +304,9 @@
         <Component class="javax.swing.JTextField" name="jTextFieldModelo">
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldEsnImei">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldEsnImeiKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldPrecio">
         </Component>
@@ -416,6 +443,14 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAgregarProductoActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAvisoCi">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAvisoIdProducto">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAvisoIMEI">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAvisoNombre">
         </Component>
       </SubComponents>
     </Container>
