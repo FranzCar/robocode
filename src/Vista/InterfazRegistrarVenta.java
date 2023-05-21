@@ -123,6 +123,9 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldIdProductoKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldIdProductoKeyTyped(evt);
+            }
         });
 
         jButtonbuscarProducto.setText("Buscar");
@@ -482,6 +485,10 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         buscarPro.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButtonbuscarProductoActionPerformed
 
+    private void jTextFieldIdProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdProductoKeyTyped
+        validacionNumero(evt);
+    }//GEN-LAST:event_jTextFieldIdProductoKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -516,6 +523,14 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
             }
         });
     }
+    public void validacionNumero(java.awt.event.KeyEvent evento){
+    if((evento.getKeyChar()<48 || evento.getKeyChar()>57)&&
+        evento.getKeyChar()!=8&&evento.getKeyChar()!=10){
+            evento.consume();  
+            JOptionPane.showMessageDialog(null, "Solo se permiten Números");
+        }
+    
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
