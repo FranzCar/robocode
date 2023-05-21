@@ -4,12 +4,26 @@
  */
 package Vista;
 
+import Conexion.ConectarBD;
+import Modelo.Proveedor;
+import static Vista.InterfazAdministrarUsuario.idUsuarioTabla;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 /**
  *
  * @author nando
  */
 public class InterfazEliminarProveedor extends javax.swing.JFrame {
 
+    static Connection conexion=null;
+    static Statement sentencia=null;
+    static ResultSet resultado=null;     
+    static Proveedor objProveedor;
+    ConectarBD con = new ConectarBD();
+    int id=idUsuarioTabla;
+    
     /**
      * Creates new form InterfazEliminarProveedor
      */
