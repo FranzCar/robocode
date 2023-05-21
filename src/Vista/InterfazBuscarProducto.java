@@ -6,6 +6,7 @@ package Vista;
 
 import Conexion.ConectarBD;
 import Controlador.ListarProducto;
+import static Vista.InterfazRegistrarVenta.jTextFieldIdProducto;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -673,6 +674,8 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
       /* InterfazRegistrarProducto registrarPro=new InterfazRegistrarProducto();
         registrarPro.setVisible(true);
         registrarPro.setLocationRelativeTo(null);*/
+      jTextFieldIdProducto.setText(codigoNumero+"");
+      
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
