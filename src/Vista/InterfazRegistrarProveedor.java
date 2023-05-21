@@ -441,25 +441,32 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldDescripcionKeyTyped
 
     public void habilitarBotonProv(){
-    if(jTextFieldNombreprov.getText().isEmpty()
+           String correo = jTextFieldMail.getText();
+           boolean contieneArroba = correo.contains("@") || correo.contains("&#64;");
+
+    if (jTextFieldNombreprov.getText().isEmpty()
             || jTextFieldCiNIT.getText().isEmpty()
             || jTextFieldTelefonoProv.getText().isEmpty()
             || jTextFieldMail.getText().isEmpty()
             || jTextFieldDireccionprov.getText().isEmpty()
             || jTextFieldDescripcion.getText().isEmpty()
-            
-            || jTextFieldNombreprov.getText().length()<3
-            || jTextFieldCiNIT.getText().length()<7
-            || jTextFieldTelefonoProv.getText().length()<8
-            || jTextFieldMail.getText().length()<20
-            || jTextFieldDireccionprov.getText().length()<10
-            || jTextFieldDescripcion.getText().length()<10 ){
+            || jTextFieldNombreprov.getText().length() < 3
+            || jTextFieldCiNIT.getText().length() < 7
+            || jTextFieldTelefonoProv.getText().length() < 8
+            || jTextFieldMail.getText().length() < 20
+            || jTextFieldDireccionprov.getText().length() < 10
+            || jTextFieldDescripcion.getText().length() < 10) {
         
         jButtonGuardar.setEnabled(false);
-    }else{
-        jButtonGuardar.setEnabled(true);
+    } else {
+        if (!contieneArroba) {
+            jButtonGuardar.setEnabled(false);
+            JOptionPane.showMessageDialog(this, "El correo electrónico debe contener el símbolo '@'");
+        } else {
+            jButtonGuardar.setEnabled(true);
+        }
     }
-    }
+}
     
         //Validar camposVacios
     public void validarCamposVacios(){
