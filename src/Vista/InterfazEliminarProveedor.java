@@ -27,11 +27,11 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblNombreProveedor = new javax.swing.JLabel();
+        lblCiONit = new javax.swing.JLabel();
+        lblTelefono = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
+        lblDescripcionProducto = new javax.swing.JLabel();
         jTextFieldIdUsuario = new javax.swing.JTextField();
         jTextFieldTelefono = new javax.swing.JTextField();
         jTextFieldCi = new javax.swing.JTextField();
@@ -40,7 +40,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
         jButtonCancelar = new javax.swing.JButton();
         jButtonEliminar = new javax.swing.JButton();
         jTextFieldContrasenia = new javax.swing.JPasswordField();
-        jLabel6 = new javax.swing.JLabel();
+        lblDireccion = new javax.swing.JLabel();
         jTextFieldContrasenia1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,30 +50,30 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(700, 608));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel1.setText("Nombre de Proveedor:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
+        lblNombreProveedor.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblNombreProveedor.setForeground(new java.awt.Color(245, 245, 245));
+        lblNombreProveedor.setText("Nombre de Proveedor:");
+        jPanel1.add(lblNombreProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel2.setText("CI / NIT:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
+        lblCiONit.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblCiONit.setForeground(new java.awt.Color(245, 245, 245));
+        lblCiONit.setText("CI / NIT:");
+        jPanel1.add(lblCiONit, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel3.setText("Teléfono");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
+        lblTelefono.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblTelefono.setForeground(new java.awt.Color(245, 245, 245));
+        lblTelefono.setText("Teléfono");
+        jPanel1.add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel7.setText("e-mail:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
+        lblEmail.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblEmail.setForeground(new java.awt.Color(245, 245, 245));
+        lblEmail.setText("e-mail:");
+        jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel5.setText("Descripción producto:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, -1, -1));
+        lblDescripcionProducto.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblDescripcionProducto.setForeground(new java.awt.Color(245, 245, 245));
+        lblDescripcionProducto.setText("Descripción producto:");
+        jPanel1.add(lblDescripcionProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, -1, -1));
 
         jTextFieldIdUsuario.setBackground(new java.awt.Color(165, 221, 251));
         jTextFieldIdUsuario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -178,10 +178,10 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, 300, 70));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel6.setText("Dirección:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, -1));
+        lblDireccion.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblDireccion.setForeground(new java.awt.Color(245, 245, 245));
+        lblDireccion.setText("Dirección:");
+        jPanel1.add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, -1, -1));
 
         jTextFieldContrasenia1.setBackground(new java.awt.Color(165, 221, 251));
         jTextFieldContrasenia1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -316,12 +316,6 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonEliminar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextFieldCi;
@@ -330,5 +324,11 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldIdUsuario;
     private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldTelefono;
+    private javax.swing.JLabel lblCiONit;
+    private javax.swing.JLabel lblDescripcionProducto;
+    private javax.swing.JLabel lblDireccion;
+    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblNombreProveedor;
+    private javax.swing.JLabel lblTelefono;
     // End of variables declaration//GEN-END:variables
 }
