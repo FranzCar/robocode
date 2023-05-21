@@ -4,18 +4,64 @@
  */
 package Vista;
 
-/**
- *
- * @author Konnycita
- */
-public class InterfazEditarProveedores extends javax.swing.JFrame {
+import Controlador.ListarProveedores;
+import Modelo.Proveedor;
+import static Vista.InterfazAdministrarProveedor.bEditar;
+import static Vista.InterfazAdministrarProveedor.bEliminar;
+import static Vista.InterfazAdministrarProveedor.bRegistrar;
+import static Vista.InterfazAdministrarProveedor.idUsuarioTabla;
+import static Vista.InterfazAdministrarProveedor.jTableUsuario;
 
-    /**
-     * Creates new form InterfazEditar
-     */
+import java.sql.PreparedStatement;
+import Conexion.ConectarBD;
+import Controlador.Validaciones;
+import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
+public class InterfazEditarProveedores extends javax.swing.JFrame {
+    static Connection conexion=null;
+    static Statement sentencia=null;
+    static ResultSet resultado=null;
+    static Proveedor objProveedor;
+    int id;
+    ConectarBD con = new ConectarBD(); 
+     static int cod=idUsuarioTabla;
+    
+    
     public InterfazEditarProveedores() {
-        initComponents();
+  
+    initComponents();
+    this.setDefaultCloseOperation(1);
+    this.setLocationRelativeTo(null);
+    objProveedor = new Proveedor();
+    
+    try {
+        conexion = con.establecerConexion();
+        PreparedStatement pst = conexion.prepareStatement("SELECT * FROM proveedor WHERE codProveedor = '" + idUsuarioTabla + "'");
+        ResultSet rs = pst.executeQuery();
+        
+        if (rs.next()) {
+            // Datos consultados
+            jTextFieldNombre.setText(rs.getString("nombreProveedor"));
+            jTextFieldNIT.setText(rs.getString("nitProveedor"));
+            jTextFieldTelef.setText(rs.getString("telefonoProveedor"));
+            jTextFieldEmail.setText(rs.getString("emailProveedor"));
+            jTextFieldDirec.setText(rs.getString("direccionProveedor"));
+            jTextFieldDesc.setText(rs.getString("descripcionProveedor"));
+        }
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "¡Error al cargar!");
+        System.out.println("Error al cargar los datos: " + e);
     }
+}
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,138 +72,484 @@ public class InterfazEditarProveedores extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextFieldId = new javax.swing.JTextField();
         jTextFieldNombre = new javax.swing.JTextField();
-        jTextFieldNit = new javax.swing.JTextField();
-        jTextFieldDireccion = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jButtonGuardar = new javax.swing.JButton();
-        lbAvisoMarca = new javax.swing.JLabel();
-        lbAvisoPrecio = new javax.swing.JLabel();
-        lbAvisoModelo = new javax.swing.JLabel();
-        lbAvisoStock = new javax.swing.JLabel();
-        lbAvisoCaracteristicas = new javax.swing.JLabel();
-        jButtonCancelar1 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        jTextFieldTelefono = new javax.swing.JTextField();
+        jTextFieldNIT = new javax.swing.JTextField();
+        jTextFieldTelef = new javax.swing.JTextField();
         jTextFieldEmail = new javax.swing.JTextField();
+        jTextFieldDirec = new javax.swing.JTextField();
+        jTextFieldDesc = new javax.swing.JTextField();
+        avisoNombreprov = new javax.swing.JLabel();
+        avisoCIprov = new javax.swing.JLabel();
+        avisoTelefonoprov = new javax.swing.JLabel();
+        avisoMailprov = new javax.swing.JLabel();
+        avisoDireccionprov = new javax.swing.JLabel();
+        avisoDescripcionProd = new javax.swing.JLabel();
+        jButtonCancelar = new javax.swing.JButton();
+        jButtonGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(37, 77, 116));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setBackground(new java.awt.Color(37, 77, 116));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(245, 245, 245));
+        jLabel8.setText("EDITAR PROVEEDOR");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(245, 245, 245));
+        jLabel1.setText("Nombre de Proveedor:");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Id:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, -1, -1));
+        jLabel2.setForeground(new java.awt.Color(245, 245, 245));
+        jLabel2.setText("CI/NIT:");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Nombre:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, -1, -1));
+        jLabel3.setForeground(new java.awt.Color(245, 245, 245));
+        jLabel3.setText("Teléfono:");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("NIT:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, -1, -1));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(245, 245, 245));
+        jLabel7.setText("e-mail:");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Telefono:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, -1, -1));
+        jLabel5.setForeground(new java.awt.Color(245, 245, 245));
+        jLabel5.setText("Descripcion Producto: ");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Direccion:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, -1, -1));
+        jLabel6.setForeground(new java.awt.Color(245, 245, 245));
+        jLabel6.setText("Dirección");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
 
-        jTextFieldId.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPanel1.add(jTextFieldId, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 288, -1));
+        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNombreActionPerformed(evt);
+            }
+        });
+        jTextFieldNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldNombreKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNombreKeyTyped(evt);
+            }
+        });
+        jPanel2.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 190, -1));
 
-        jTextFieldNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 288, -1));
+        jTextFieldNIT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldNITKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNITKeyTyped(evt);
+            }
+        });
+        jPanel2.add(jTextFieldNIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 190, -1));
 
-        jTextFieldNit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPanel1.add(jTextFieldNit, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 288, -1));
+        jTextFieldTelef.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldTelefKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldTelefKeyTyped(evt);
+            }
+        });
+        jPanel2.add(jTextFieldTelef, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 190, -1));
 
-        jTextFieldDireccion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPanel1.add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 288, -1));
+        jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldEmailActionPerformed(evt);
+            }
+        });
+        jTextFieldEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldEmailKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldEmailKeyTyped(evt);
+            }
+        });
+        jPanel2.add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 190, -1));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("EDITAR PROVEEDOR");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, -1, -1));
+        jTextFieldDirec.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldDirecKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldDirecKeyTyped(evt);
+            }
+        });
+        jPanel2.add(jTextFieldDirec, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 380, 190, -1));
+
+        jTextFieldDesc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldDescKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldDescKeyTyped(evt);
+            }
+        });
+        jPanel2.add(jTextFieldDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, 200, 40));
+
+        avisoNombreprov.setBackground(new java.awt.Color(204, 204, 255));
+        avisoNombreprov.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel2.add(avisoNombreprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 181, 30));
+
+        avisoCIprov.setBackground(new java.awt.Color(204, 204, 255));
+        avisoCIprov.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel2.add(avisoCIprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 181, 30));
+
+        avisoTelefonoprov.setBackground(new java.awt.Color(204, 204, 255));
+        avisoTelefonoprov.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel2.add(avisoTelefonoprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 181, 30));
+
+        avisoMailprov.setBackground(new java.awt.Color(204, 204, 255));
+        avisoMailprov.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel2.add(avisoMailprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, 181, 30));
+
+        avisoDireccionprov.setBackground(new java.awt.Color(204, 204, 255));
+        avisoDireccionprov.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel2.add(avisoDireccionprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 380, 181, 30));
+
+        avisoDescripcionProd.setBackground(new java.awt.Color(204, 204, 255));
+        avisoDescripcionProd.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel2.add(avisoDescripcionProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 450, 181, 30));
+
+        jButtonCancelar.setBackground(new java.awt.Color(95, 143, 169));
+        jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonCancelar.setForeground(new java.awt.Color(245, 245, 245));
+        jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar.png"))); // NOI18N
+        jButtonCancelar.setText("CANCELAR");
+        jButtonCancelar.setBorderPainted(false);
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 560, 190, -1));
 
         jButtonGuardar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonGuardar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButtonGuardar.setForeground(new java.awt.Color(245, 245, 245));
+        jButtonGuardar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonGuardar.setText("GUARDAR");
         jButtonGuardar.setBorderPainted(false);
-        jPanel1.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 180, 30));
-
-        lbAvisoMarca.setBackground(new java.awt.Color(204, 204, 255));
-        lbAvisoMarca.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel1.add(lbAvisoMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 190, 32));
-
-        lbAvisoPrecio.setBackground(new java.awt.Color(204, 204, 255));
-        lbAvisoPrecio.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel1.add(lbAvisoPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 190, 32));
-
-        lbAvisoModelo.setBackground(new java.awt.Color(204, 204, 255));
-        lbAvisoModelo.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel1.add(lbAvisoModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, 190, 32));
-
-        lbAvisoStock.setBackground(new java.awt.Color(204, 204, 255));
-        lbAvisoStock.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel1.add(lbAvisoStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 190, 32));
-
-        lbAvisoCaracteristicas.setBackground(new java.awt.Color(204, 204, 255));
-        lbAvisoCaracteristicas.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel1.add(lbAvisoCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, 290, 30));
-
-        jButtonCancelar1.setBackground(new java.awt.Color(95, 143, 169));
-        jButtonCancelar1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButtonCancelar1.setForeground(new java.awt.Color(245, 245, 245));
-        jButtonCancelar1.setText("CANCELAR");
-        jButtonCancelar1.setBorderPainted(false);
-        jPanel1.add(jButtonCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 510, 180, 30));
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Email:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, -1, -1));
-
-        jTextFieldTelefono.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPanel1.add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 288, -1));
-
-        jTextFieldEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPanel1.add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 288, -1));
+        jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGuardarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 560, 170, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 789, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 789, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 804, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 629, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNombreActionPerformed
+
+    private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldEmailActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        if(idUsuarioTabla>0){
+            bRegistrar.setEnabled(true);
+            bEditar.setEnabled(true);
+            bEliminar.setEnabled(true);
+        }else{
+            bRegistrar.setEnabled(true);
+        }
+        dispose();
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+                                                     
+    try {
+        sentencia = conexion.createStatement();
+        objProveedor.nombreProv = jTextFieldNombre.getText();
+        objProveedor.ciNIT = jTextFieldNIT.getText();
+        objProveedor.telefonoProv = jTextFieldTelef.getText();
+        objProveedor.emailProv = jTextFieldEmail.getText();
+        objProveedor.direccionProv = jTextFieldDirec.getText();
+        objProveedor.descripcionProducto = jTextFieldDesc.getText();
+        
+        String sentenciaSQL1 = new String();
+        sentenciaSQL1 = "UPDATE proveedor SET nombreProveedor = '" + objProveedor.nombreProv +
+                        "', nitProveedor = '" + objProveedor.ciNIT +
+                        "', telefonoProveedor = '" + objProveedor.telefonoProv +
+                        "', emailProveedor = '" + objProveedor.emailProv +
+                        "', direccionProveedor = '" + objProveedor.direccionProv +
+                        "', descripcionProveedor = '" + objProveedor.descripcionProducto +
+                        "' WHERE codProveedor = " + idUsuarioTabla;
+        
+        sentencia.execute(sentenciaSQL1); 
+        JOptionPane.showMessageDialog(this, "Editado correctamente"); 
+        dispose();
+    } catch (SQLException e) {
+        Logger.getLogger(InterfazEditarProveedores.class.getName()).log(Level.SEVERE, null, e);
+    }
+    
+    ListarProveedores Administrar = new ListarProveedores();
+    Administrar.MostrarTabla(jTableUsuario);
+    bRegistrar.setEnabled(true);
+    dispose();    
+
+    }//GEN-LAST:event_jButtonGuardarActionPerformed
+
+    public void validacionCaracteresEspeciales(java.awt.event.KeyEvent evento) {
+    char tecla = evento.getKeyChar();
+    if (tecla != '\b' && (tecla < '0' || tecla > '9')) {
+        evento.consume();
+        JOptionPane.showMessageDialog(null, "Solo se permiten numeros");
+    }
+}
+
+    
+    private void jTextFieldNITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNITKeyTyped
+        //Validaciones.validacionNumerica(evt);
+        validacionEspacio(evt);
+        validacionCaracteresEspeciales(evt);
+        //validacionCaracteres(evt);
+
+        if(jTextFieldNIT.getText().length()>=10){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
+    }//GEN-LAST:event_jTextFieldNITKeyTyped
+
+    private void jTextFieldTelefKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefKeyTyped
+        validacionCaracteresEspeciales(evt);
+        //Validaciones.validacionNumerica(evt);
+        validacionEspacio(evt);
+        //validacionCaracteres(evt);
+
+        if(jTextFieldTelef.getText().length()>=8){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
+    }//GEN-LAST:event_jTextFieldTelefKeyTyped
+
+    private void jTextFieldNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyReleased
+       validarCamposVacios();
+       habilitarBotonProv();
+    }//GEN-LAST:event_jTextFieldNombreKeyReleased
+
+    private void jTextFieldNITKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNITKeyReleased
+        validarCamposVacios();
+        habilitarBotonProv();
+    }//GEN-LAST:event_jTextFieldNITKeyReleased
+
+    private void jTextFieldTelefKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefKeyReleased
+        validarCamposVacios();
+        habilitarBotonProv();
+    }//GEN-LAST:event_jTextFieldTelefKeyReleased
+
+    private void jTextFieldEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldEmailKeyReleased
+        validarCamposVacios();
+        habilitarBotonProv();
+    }//GEN-LAST:event_jTextFieldEmailKeyReleased
+
+    private void jTextFieldDirecKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDirecKeyReleased
+        validarCamposVacios();
+        habilitarBotonProv();
+    }//GEN-LAST:event_jTextFieldDirecKeyReleased
+
+    private void jTextFieldDescKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescKeyReleased
+        validarCamposVacios();
+        habilitarBotonProv();
+    }//GEN-LAST:event_jTextFieldDescKeyReleased
+
+    private void jTextFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyTyped
+    validacionEspacio(evt);
+    validacionCaracteres(evt);
+
+        if(jTextFieldNombre.getText().length()>=30){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
+    }//GEN-LAST:event_jTextFieldNombreKeyTyped
+
+    private void jTextFieldEmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldEmailKeyTyped
+        validacionEspacio(evt);
+        //validacionCaracteres(evt);
+
+        if(jTextFieldEmail.getText().length()>=30){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
+    }//GEN-LAST:event_jTextFieldEmailKeyTyped
+
+    private void jTextFieldDirecKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDirecKeyTyped
+        validacionEspacio(evt);
+        validacionCaracteres(evt);
+
+        if(jTextFieldDirec.getText().length()>=30){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
+    }//GEN-LAST:event_jTextFieldDirecKeyTyped
+
+    private void jTextFieldDescKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescKeyTyped
+        validacionEspacio(evt);
+        validacionCaracteres(evt);
+
+        if(jTextFieldDesc.getText().length()>=50){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
+        }
+    }//GEN-LAST:event_jTextFieldDescKeyTyped
+
+    public void habilitarBotonProv(){
+    if(jTextFieldNombre.getText().isEmpty()
+            || jTextFieldNIT.getText().isEmpty()
+            || jTextFieldTelef.getText().isEmpty()
+            || jTextFieldEmail.getText().isEmpty()
+            || jTextFieldDirec.getText().isEmpty()
+            || jTextFieldDesc.getText().isEmpty()
+            
+            || jTextFieldNombre.getText().length()<3
+            || jTextFieldNIT.getText().length()<7
+            || jTextFieldTelef.getText().length()<8
+            || jTextFieldEmail.getText().length()<20
+            || jTextFieldDirec.getText().length()<10
+            || jTextFieldDesc.getText().length()<10 ){
+        
+        jButtonGuardar.setEnabled(false);
+    }else{
+        jButtonGuardar.setEnabled(true);
+    }
+    }
+    
+        //Validar camposVacios
+    public void validarCamposVacios(){
+    //Nombre proveedor
+    if(jTextFieldNombre.getText().isEmpty()){
+     avisoNombreprov.setText("Campo Obligatorio");
+     }else {
+            if (jTextFieldNombre.getText().length()<3){
+             avisoNombreprov.setText("Se requiere de 3 caracteres");  
+        }else{
+         avisoNombreprov.setText("");}
+            }
+    
+    //CI/NIT
+    if(jTextFieldNIT.getText().isEmpty()){
+     avisoCIprov.setText("Campo Obligatorio");
+    }else{
+        if(jTextFieldNIT.getText().length()<7){
+            avisoCIprov.setText("Se requiere de 7 caracteres");  
+        }else{
+         avisoCIprov.setText("");}
+    }
+    
+    //Telefono
+    if(jTextFieldTelef.getText().isEmpty()){
+     avisoTelefonoprov.setText("Campo Obligatorio");
+    }else{
+        if(jTextFieldTelef.getText().length()<8){
+             avisoTelefonoprov.setText("Se requiere 8 digitos");
+        }else{
+            avisoTelefonoprov.setText("");}        
+    }
+    
+    //Email
+    if(jTextFieldEmail.getText().isEmpty()){
+     avisoMailprov.setText("Campo Obligatorio");
+    }else{
+        if (jTextFieldEmail.getText().length()<20){
+            avisoMailprov.setText("Se requiere 20 digito");
+        }else{
+            avisoMailprov.setText("");}         
+    }
+    
+    //DireccionProveedor
+    if(jTextFieldDirec.getText().isEmpty()){
+    avisoDireccionprov.setText("Campo Obligatorio");
+    }else{
+        if(jTextFieldDirec.getText().length()<10){
+            avisoDireccionprov.setText("Se requiere 10 caracteres");
+        }
+        else{
+           avisoDireccionprov.setText("");}     
+    }
+    
+    //DescripcionProducto Prov
+    if(jTextFieldDesc.getText().isEmpty()){
+    avisoDescripcionProd.setText("Campo Obligatorio");
+    }else{
+        if(jTextFieldDesc.getText().length()<10){
+            avisoDescripcionProd.setText("Se requiere 10 caracteres");
+        }
+        else{
+           avisoDescripcionProd.setText("");}     
+    }
+}
+    public void validacionEspacio(java.awt.event.KeyEvent evento){
+    if (jTextFieldNombre.getText().startsWith(" ")
+         ||jTextFieldNIT.getText().startsWith(" ")
+         ||jTextFieldTelef.getText().startsWith(" ")
+         ||jTextFieldEmail.getText().startsWith(" ")
+         ||jTextFieldDirec.getText().startsWith(" ")
+         ||jTextFieldDesc.getText().startsWith(" ")){
+    evento.consume();
+            JOptionPane.showMessageDialog(this, "No puedes ingresar Espacio como primer caracter");
+    }
+}
+    
+        public void validacionCaracteres(java.awt.event.KeyEvent evento){
+        if((evento.getKeyChar()<97 || evento.getKeyChar()>122)&&
+           (evento.getKeyChar()<65 || evento.getKeyChar()>90)&&
+            evento.getKeyChar()!=209&&evento.getKeyChar()!=241&&
+            evento.getKeyChar()!=8&&evento.getKeyChar()!=32&&
+            evento.getKeyChar()!=225&&evento.getKeyChar()!=233&&
+            evento.getKeyChar()!=237&&evento.getKeyChar()!=243&&
+            evento.getKeyChar()!=250&&evento.getKeyChar()!=193&&
+            evento.getKeyChar()!=201&&evento.getKeyChar()!=205&&
+            evento.getKeyChar()!=211&&evento.getKeyChar()!=218){
+            evento.consume();
+  
+                JOptionPane.showMessageDialog(null, "No se permite Caracteres Especiales");
+                }
+    }
+                  
     /**
      * @param args the command line arguments
      */
@@ -195,26 +587,27 @@ public class InterfazEditarProveedores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCancelar1;
+    private javax.swing.JLabel avisoCIprov;
+    private javax.swing.JLabel avisoDescripcionProd;
+    private javax.swing.JLabel avisoDireccionprov;
+    private javax.swing.JLabel avisoMailprov;
+    private javax.swing.JLabel avisoNombreprov;
+    private javax.swing.JLabel avisoTelefonoprov;
+    private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonGuardar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextFieldDireccion;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jTextFieldDesc;
+    private javax.swing.JTextField jTextFieldDirec;
     private javax.swing.JTextField jTextFieldEmail;
-    private javax.swing.JTextField jTextFieldId;
-    private javax.swing.JTextField jTextFieldNit;
+    private javax.swing.JTextField jTextFieldNIT;
     private javax.swing.JTextField jTextFieldNombre;
-    private javax.swing.JTextField jTextFieldTelefono;
-    private javax.swing.JLabel lbAvisoCaracteristicas;
-    private javax.swing.JLabel lbAvisoMarca;
-    private javax.swing.JLabel lbAvisoModelo;
-    private javax.swing.JLabel lbAvisoPrecio;
-    private javax.swing.JLabel lbAvisoStock;
+    private javax.swing.JTextField jTextFieldTelef;
     // End of variables declaration//GEN-END:variables
 }
