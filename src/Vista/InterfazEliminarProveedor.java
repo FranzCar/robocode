@@ -40,9 +40,9 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
         btnCancelarProveedor = new javax.swing.JButton();
         btnEliminarProveedor = new javax.swing.JButton();
         lblDireccion = new javax.swing.JLabel();
-        txtDireccionProveedor = new javax.swing.JPasswordField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaDescripcionProveedor = new javax.swing.JTextArea();
+        txtDireccionProveedor = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -175,21 +175,20 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
         lblDireccion.setText("Dirección:");
         jPanel1.add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, -1, -1));
 
-        txtDireccionProveedor.setBackground(new java.awt.Color(165, 221, 251));
-        txtDireccionProveedor.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        txtDireccionProveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDireccionProveedorActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtDireccionProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 300, 32));
-
         txtAreaDescripcionProveedor.setBackground(new java.awt.Color(165, 221, 251));
         txtAreaDescripcionProveedor.setColumns(20);
         txtAreaDescripcionProveedor.setRows(5);
         jScrollPane1.setViewportView(txtAreaDescripcionProveedor);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, 300, 100));
+
+        txtDireccionProveedor.setBackground(new java.awt.Color(165, 221, 251));
+        txtDireccionProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDireccionProveedorActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtDireccionProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 300, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -220,7 +219,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTelefonoProveedorActionPerformed
 
     private void txtTelefonoProveedorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoProveedorKeyReleased
-      
+      habilitarBoton();
 
     }//GEN-LAST:event_txtTelefonoProveedorKeyReleased
 
@@ -234,7 +233,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNitProveedorActionPerformed
 
     private void txtNitProveedorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNitProveedorKeyReleased
-        
+        habilitarBoton();
     }//GEN-LAST:event_txtNitProveedorKeyReleased
 
     private void txtNitProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNitProveedorKeyTyped
@@ -246,7 +245,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreProveedorActionPerformed
 
     private void txtNombreProveedorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreProveedorKeyReleased
-        
+        habilitarBoton();
     }//GEN-LAST:event_txtNombreProveedorKeyReleased
 
     private void txtNombreProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreProveedorKeyTyped
@@ -254,7 +253,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreProveedorKeyTyped
 
     private void txtEmailProveedorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailProveedorKeyReleased
-        
+        habilitarBoton();
     }//GEN-LAST:event_txtEmailProveedorKeyReleased
 
     private void txtEmailProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailProveedorActionPerformed
@@ -265,12 +264,25 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
       
     }//GEN-LAST:event_btnEliminarProveedorActionPerformed
 
+    public void habilitarBoton(){
+    if(txtNombreProveedor.getText().isEmpty()
+            || txtNitProveedor.getText().isEmpty()
+            || txtTelefonoProveedor.getText().isEmpty()
+            || txtEmailProveedor.getText().isEmpty()
+            || txtDireccionProveedor.getText().isEmpty()
+            || txtAreaDescripcionProveedor.getText().isEmpty()){
+        btnEliminarProveedor.setEnabled(false);
+    }else{
+    btnEliminarProveedor.setEnabled(true);
+    }
+    
     private void btnCancelarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarProveedorActionPerformed
 
     }//GEN-LAST:event_btnCancelarProveedorActionPerformed
 
     private void txtDireccionProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionProveedorActionPerformed
         // TODO add your handling code here:
+        habilitarBoton();
     }//GEN-LAST:event_txtDireccionProveedorActionPerformed
 
     /**
@@ -321,7 +333,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombreProveedor;
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JTextArea txtAreaDescripcionProveedor;
-    private javax.swing.JPasswordField txtDireccionProveedor;
+    private javax.swing.JTextField txtDireccionProveedor;
     private javax.swing.JTextField txtEmailProveedor;
     private javax.swing.JTextField txtNitProveedor;
     private javax.swing.JTextField txtNombreProveedor;
