@@ -48,6 +48,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         jTextFieldStock.setEditable(false);
         jButtonAgregarProducto.setEnabled(false);
         jButtonEliminarProducto.setEnabled(false);
+        jButtonImprimirProducto.setEnabled(false);
     }
 
     /**
@@ -479,6 +480,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         String text=sumaImporte+"";
         jTextFieldTotalPagar.setText(text);
         jButtonEliminarProducto.setEnabled(false);
+        habilitarBotonImprimir();
     }//GEN-LAST:event_jButtonAgregarProductoActionPerformed
 
     private void jTableDetalleVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableDetalleVentaMouseClicked
@@ -507,6 +509,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         }        
         jTableDetalleVenta.setModel(modelo);
         jButtonEliminarProducto.setEnabled(false);
+        habilitarBotonImprimir();
     }//GEN-LAST:event_jButtonEliminarProductoActionPerformed
 
     private void jTextFieldIdProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdProductoActionPerformed
@@ -529,6 +532,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
     private void jTextFieldIdProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdProductoKeyTyped
         validacionNumero(evt);
         avisoLongitudMaxMin(jTextFieldIdProducto,jLabelAvisoIdProducto,1,3,evt);
+        
     }//GEN-LAST:event_jTextFieldIdProductoKeyTyped
 
     private void jTextFieldEsnImeiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldEsnImeiKeyTyped
@@ -539,11 +543,13 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
     private void jTextFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyTyped
         validacionCaracteresLetras(evt);
         avisoLongitudMaxMin(jTextFieldNombre,jLabelAvisoNombre,3,20,evt);
+        habilitarBotonImprimir();
     }//GEN-LAST:event_jTextFieldNombreKeyTyped
 
     private void jTextFieldCiNitKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiNitKeyTyped
         validacionNumero(evt);                       
         avisoLongitudMaxMin(jTextFieldCiNit,jLabelAvisoCi,7,9,evt);
+        habilitarBotonImprimir();
     }//GEN-LAST:event_jTextFieldCiNitKeyTyped
 
     private void jTextFieldCiNitKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiNitKeyReleased
@@ -609,7 +615,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         if(a.getText().isEmpty()){
             b.setText("Campo Obligatorio");
         }else {
-            if (a.getText().length()<=cantidad){
+            if (a.getText().length()<cantidad-1){
                 b.setText("Se requiere de "+ cantidad +" caracteres");  
             }else{
                 b.setText("");}
@@ -621,27 +627,19 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
         }
     }
-    /*
-    public void habilitarBotonProv(){
-    if(jTextFieldNombreprov.getText().isEmpty()
-            || jTextFieldCiNIT.getText().isEmpty()
-            || jTextFieldTelefonoProv.getText().isEmpty()
-            || jTextFieldMail.getText().isEmpty()
-            || jTextFieldDireccionprov.getText().isEmpty()
-            || jTextFieldDescripcion.getText().isEmpty()
-            
-            || jTextFieldNombreprov.getText().length()<3
-            || jTextFieldCiNIT.getText().length()<7
-            || jTextFieldTelefonoProv.getText().length()<8
-            || jTextFieldMail.getText().length()<20
-            || jTextFieldDireccionprov.getText().length()<10
-            || jTextFieldDescripcion.getText().length()<10 ){
-        
-        jButtonGuardar.setEnabled(false);
-    }else{
-        jButtonGuardar.setEnabled(true);
+    
+    public void habilitarBotonImprimir(){
+        if(jTextFieldNombre.getText().isEmpty()
+                || jTextFieldCiNit.getText().isEmpty()
+                || elementosTabla.isEmpty()
+
+                || jTextFieldNombre.getText().length()<3
+                || jTextFieldCiNit.getText().length()<7){
+            jButtonImprimirProducto.setEnabled(false);
+        }else{
+            jButtonImprimirProducto.setEnabled(true);
+        }
     }
-    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
