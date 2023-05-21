@@ -6,7 +6,13 @@ package Vista;
 
 import Conexion.ConectarBD;
 import Controlador.ListarProducto;
+import static Vista.InterfazRegistrarVenta.elementosTabla;
+import static Vista.InterfazRegistrarVenta.jTextFieldEsnImei;
 import static Vista.InterfazRegistrarVenta.jTextFieldIdProducto;
+import static Vista.InterfazRegistrarVenta.jTextFieldMarca;
+import static Vista.InterfazRegistrarVenta.jTextFieldModelo;
+import static Vista.InterfazRegistrarVenta.jTextFieldPrecio;
+import static Vista.InterfazRegistrarVenta.jTextFieldStock;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -675,6 +681,33 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         registrarPro.setVisible(true);
         registrarPro.setLocationRelativeTo(null);*/
       jTextFieldIdProducto.setText(codigoNumero+"");
+      jTextFieldEsnImei.setText("");
+      try {
+          conexion=con.establecerConexion();
+                PreparedStatement pst = conexion.prepareStatement("SELECT * FROM PRODUCTO WHERE codProducto ='"+codigoNumero+"'");
+                ResultSet rs = pst.executeQuery();                
+                if(rs.next()){
+                    //Datos consultados
+                    jTextFieldMarca.setText(rs.getString("marcaProducto"));
+                    jTextFieldModelo.setText(rs.getString("modeloProducto"));
+                    jTextFieldPrecio.setText(rs.getString("precioProducto"));
+                    int Stock=Integer.parseInt(rs.getString("stockProducto"));
+                    if(elementosTabla.isEmpty()!=true){
+                        for(int i=0; i<elementosTabla.size();i++){
+                            Object [] fila =elementosTabla.get(i);
+                            String id=(String)fila[0];
+                            if(id.contentEquals(jTextFieldIdProducto.getText())){
+                                Stock--;
+                            }
+                        }                        
+                    }
+                    jTextFieldStock.setText(Stock+"");
+                  }
+                
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "¡Error al cargar!");
+            }
+      dispose();
       
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 

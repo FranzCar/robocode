@@ -30,7 +30,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
     static Connection conexion=null;
     static Statement sentencia=null;
     ConectarBD con = new ConectarBD();
-    ArrayList<Object []> elementosTabla = new ArrayList<>();    
+    public static ArrayList<Object []> elementosTabla = new ArrayList<>();    
     private int itemDetalleVenta;    
     Date fechaActual = new Date();
     SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
@@ -494,6 +494,8 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         String text=sumaImporte+"";
         jTextFieldTotalPagar.setText(text);
         jButtonEliminarProducto.setEnabled(false);
+        jButtonAgregarProducto.setEnabled(false);
+        jTextFieldEsnImei.setText("");
         habilitarBotonImprimir();
     }//GEN-LAST:event_jButtonAgregarProductoActionPerformed
 
@@ -545,39 +547,41 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
 
     private void jTextFieldIdProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdProductoKeyTyped
         validacionNumero(evt);
-                
+        avisoLongitudMax(jTextFieldIdProducto,3,evt);        
     }//GEN-LAST:event_jTextFieldIdProductoKeyTyped
 
     private void jTextFieldEsnImeiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldEsnImeiKeyTyped
         validacionNumero(evt);
-        
+        avisoLongitudMax(jTextFieldEsnImei,16,evt);
     }//GEN-LAST:event_jTextFieldEsnImeiKeyTyped
 
     private void jTextFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyTyped
         validacionCaracteresLetras(evt);
+        avisoLongitudMax(jTextFieldNombre,20,evt);
     }//GEN-LAST:event_jTextFieldNombreKeyTyped
 
     private void jTextFieldCiNitKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiNitKeyTyped
         validacionNumero(evt);
+        avisoLongitudMax(jTextFieldCiNit,9,evt);
     }//GEN-LAST:event_jTextFieldCiNitKeyTyped
 
     private void jTextFieldCiNitKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiNitKeyReleased
-        avisoLongitudMaxMin(jTextFieldCiNit,jLabelAvisoCi,7,9,evt);
+        avisoLongitudMin(jTextFieldCiNit,jLabelAvisoCi,7);
         habilitarBotonImprimir();
     }//GEN-LAST:event_jTextFieldCiNitKeyReleased
 
     private void jTextFieldNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyReleased
-        avisoLongitudMaxMin(jTextFieldNombre,jLabelAvisoNombre,3,20,evt);
+        avisoLongitudMin(jTextFieldNombre,jLabelAvisoNombre,3);
         habilitarBotonImprimir();
     }//GEN-LAST:event_jTextFieldNombreKeyReleased
 
     private void jTextFieldIdProductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdProductoKeyReleased
-        avisoLongitudMaxMin(jTextFieldIdProducto,jLabelAvisoIdProducto,1,3,evt);
+        avisoLongitudMin(jTextFieldIdProducto,jLabelAvisoIdProducto,1);
         habilitarBotonAgregar();
     }//GEN-LAST:event_jTextFieldIdProductoKeyReleased
 
     private void jTextFieldEsnImeiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldEsnImeiKeyReleased
-        avisoLongitudMaxMin(jTextFieldEsnImei,jLabelAvisoIMEI,15,16,evt);
+        avisoLongitudMin(jTextFieldEsnImei,jLabelAvisoIMEI,15);
         habilitarBotonAgregar();
     }//GEN-LAST:event_jTextFieldEsnImeiKeyReleased
 
@@ -636,15 +640,8 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No se permiten Caracteres Especiales");
         }
     }
-    public void avisoLongitudMaxMin (JTextField a,JLabel b, int cantidad,int maximo,KeyEvent z){
-        if(a.getText().isEmpty()){
-            b.setText("Campo Obligatorio");
-        }else {
-            if (a.getText().length()<=cantidad-1){
-                b.setText("Se requiere de "+ cantidad +" caracteres");  
-            }else{
-                b.setText("");}
-        }
+    public void avisoLongitudMax (JTextField a, int maximo,KeyEvent z){
+
         if(a.getText().length()>=maximo){
             z.consume();
             Toolkit.getDefaultToolkit().beep();
@@ -653,10 +650,21 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         }
     }
     
+    public void avisoLongitudMin (JTextField a,JLabel b, int cantidad){
+        if(a.getText().isEmpty()){
+            b.setText("Campo Obligatorio");
+        }else {
+            if (a.getText().length()<=cantidad-1){
+                b.setText("Se requiere de "+ cantidad +" caracteres");  
+            }else{
+                b.setText("");}
+        }
+    }
+    
     public void habilitarBotonImprimir(){
         if(jTextFieldNombre.getText().isEmpty()
                 || jTextFieldCiNit.getText().isEmpty()
-                || elementosTabla.isEmpty()
+                || elementosTabla.isEmpty()                
                 || jTextFieldNombre.getText().length()<3
                 || jTextFieldCiNit.getText().length()<7){
             jButtonImprimirProducto.setEnabled(false);
@@ -668,6 +676,8 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
     public void habilitarBotonAgregar(){
         if(jTextFieldIdProducto.getText().isEmpty()
                 || jTextFieldEsnImei.getText().isEmpty()
+                || jTextFieldMarca.getText().isEmpty()
+                || jTextFieldStock.getText().contentEquals("0")
                 || jTextFieldIdProducto.getText().length()<1
                 || jTextFieldEsnImei.getText().length()<15){
             jButtonAgregarProducto.setEnabled(false);
@@ -702,14 +712,14 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableDetalleVenta;
     private javax.swing.JTextField jTextFieldCiNit;
-    private javax.swing.JTextField jTextFieldEsnImei;
+    public static javax.swing.JTextField jTextFieldEsnImei;
     private javax.swing.JTextField jTextFieldFecha;
     public static javax.swing.JTextField jTextFieldIdProducto;
-    private javax.swing.JTextField jTextFieldMarca;
-    private javax.swing.JTextField jTextFieldModelo;
+    public static javax.swing.JTextField jTextFieldMarca;
+    public static javax.swing.JTextField jTextFieldModelo;
     private javax.swing.JTextField jTextFieldNombre;
-    private javax.swing.JTextField jTextFieldPrecio;
-    private javax.swing.JTextField jTextFieldStock;
+    public static javax.swing.JTextField jTextFieldPrecio;
+    public static javax.swing.JTextField jTextFieldStock;
     private javax.swing.JTextField jTextFieldTotalPagar;
     // End of variables declaration//GEN-END:variables
 }
