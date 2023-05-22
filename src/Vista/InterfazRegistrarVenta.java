@@ -100,6 +100,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         jLabel4.setText("CI/NIT");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(37, 77, 116));
         jPanel1.setPreferredSize(new java.awt.Dimension(1100, 705));

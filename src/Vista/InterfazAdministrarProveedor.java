@@ -31,6 +31,7 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
     
     public InterfazAdministrarProveedor() {
         initComponents();
+        this.setDefaultCloseOperation(1);
         this.setLocationRelativeTo(null);
         ListarProveedores Administrar=new ListarProveedores();
         jButtonEditar.setEnabled(false);

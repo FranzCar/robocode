@@ -67,7 +67,6 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         jTextFieldTelefonoProv = new javax.swing.JTextField();
         jTextFieldMail = new javax.swing.JTextField();
         jTextFieldDireccionprov = new javax.swing.JTextField();
-        jTextFieldDescripcion = new javax.swing.JTextField();
         avisoNombreprov = new javax.swing.JLabel();
         avisoCIprov = new javax.swing.JLabel();
         avisoTelefonoprov = new javax.swing.JLabel();
@@ -76,8 +75,11 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         avisoDescripcionProd = new javax.swing.JLabel();
         jButtonCancelar = new javax.swing.JButton();
         jButtonGuardar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaDescripcionProducto = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel2.setBackground(new java.awt.Color(37, 77, 116));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -91,32 +93,32 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(245, 245, 245));
         jLabel1.setText("Nombre de Proveedor:");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(245, 245, 245));
         jLabel2.setText("CI/NIT:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(245, 245, 245));
         jLabel3.setText("Teléfono:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(245, 245, 245));
         jLabel7.setText("e-mail:");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(245, 245, 245));
         jLabel5.setText("Descripcion Producto: ");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(245, 245, 245));
         jLabel6.setText("Dirección");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, -1, -1));
 
         jTextFieldNombreprov.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +133,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
                 jTextFieldNombreprovKeyTyped(evt);
             }
         });
-        jPanel2.add(jTextFieldNombreprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 190, -1));
+        jPanel2.add(jTextFieldNombreprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 300, 27));
 
         jTextFieldCiNIT.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -141,7 +143,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
                 jTextFieldCiNITKeyTyped(evt);
             }
         });
-        jPanel2.add(jTextFieldCiNIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 190, -1));
+        jPanel2.add(jTextFieldCiNIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 300, 27));
 
         jTextFieldTelefonoProv.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -151,7 +153,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
                 jTextFieldTelefonoProvKeyTyped(evt);
             }
         });
-        jPanel2.add(jTextFieldTelefonoProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 190, -1));
+        jPanel2.add(jTextFieldTelefonoProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 300, 27));
 
         jTextFieldMail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,7 +168,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
                 jTextFieldMailKeyTyped(evt);
             }
         });
-        jPanel2.add(jTextFieldMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 190, -1));
+        jPanel2.add(jTextFieldMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 300, 27));
 
         jTextFieldDireccionprov.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -176,41 +178,31 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
                 jTextFieldDireccionprovKeyTyped(evt);
             }
         });
-        jPanel2.add(jTextFieldDireccionprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 380, 190, -1));
-
-        jTextFieldDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldDescripcionKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldDescripcionKeyTyped(evt);
-            }
-        });
-        jPanel2.add(jTextFieldDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, 200, 40));
+        jPanel2.add(jTextFieldDireccionprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, 300, 27));
 
         avisoNombreprov.setBackground(new java.awt.Color(204, 204, 255));
         avisoNombreprov.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel2.add(avisoNombreprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 181, 30));
+        jPanel2.add(avisoNombreprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 181, 30));
 
         avisoCIprov.setBackground(new java.awt.Color(204, 204, 255));
         avisoCIprov.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel2.add(avisoCIprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 181, 30));
+        jPanel2.add(avisoCIprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 181, 30));
 
         avisoTelefonoprov.setBackground(new java.awt.Color(204, 204, 255));
         avisoTelefonoprov.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel2.add(avisoTelefonoprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 181, 30));
+        jPanel2.add(avisoTelefonoprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 181, 30));
 
         avisoMailprov.setBackground(new java.awt.Color(204, 204, 255));
         avisoMailprov.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel2.add(avisoMailprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, 181, 30));
+        jPanel2.add(avisoMailprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 181, 30));
 
         avisoDireccionprov.setBackground(new java.awt.Color(204, 204, 255));
         avisoDireccionprov.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel2.add(avisoDireccionprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 380, 181, 30));
+        jPanel2.add(avisoDireccionprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 181, 30));
 
         avisoDescripcionProd.setBackground(new java.awt.Color(204, 204, 255));
         avisoDescripcionProd.setForeground(new java.awt.Color(204, 204, 255));
-        jPanel2.add(avisoDescripcionProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 450, 181, 30));
+        jPanel2.add(avisoDescripcionProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 500, 181, 30));
 
         jButtonCancelar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -236,6 +228,21 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 560, 170, 40));
+
+        jTextAreaDescripcionProducto.setColumns(20);
+        jTextAreaDescripcionProducto.setRows(5);
+        jTextAreaDescripcionProducto.setPreferredSize(new java.awt.Dimension(300, 84));
+        jTextAreaDescripcionProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextAreaDescripcionProductoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextAreaDescripcionProductoKeyTyped(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTextAreaDescripcionProducto);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, 300, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -276,7 +283,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
          String TelefonoProv=jTextFieldTelefonoProv.getText().trim();
          String MailProv=jTextFieldMail.getText().trim();
          String DireccionProv=jTextFieldDireccionprov.getText().trim();
-         String DescripcionProd=jTextFieldDescripcion.getText().trim();
+         String DescripcionProd=jTextAreaDescripcionProducto.getText().trim();
          
          
         try {
@@ -286,7 +293,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
             objProveedor.telefonoProv=jTextFieldTelefonoProv.getText();
             objProveedor.emailProv=jTextFieldMail.getText();
             objProveedor.direccionProv=jTextFieldDireccionprov.getText();
-            objProveedor.descripcionProducto=jTextFieldDescripcion.getText();
+            objProveedor.descripcionProducto=jTextAreaDescripcionProducto.getText();
 
 //Para validar que el correo del Proveedor no sea duplicado            
             String sentenciaSQLCo = "SELECT COUNT(*) FROM proveedor WHERE emailProveedor = '" + objProveedor.emailProv + "'";
@@ -322,7 +329,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
          jTextFieldMail.setText("");
          jTextFieldDireccionprov.setText("");
          jTextFieldTelefonoProv.setText("");
-         jTextFieldDescripcion.setText("");
+         jTextAreaDescripcionProducto.setText("");
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     public void validacionCaracteresEspeciales(java.awt.event.KeyEvent evento) {
@@ -387,11 +394,6 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         habilitarBotonProv();
     }//GEN-LAST:event_jTextFieldDireccionprovKeyReleased
 
-    private void jTextFieldDescripcionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescripcionKeyReleased
-        validarCamposVacios();
-        habilitarBotonProv();
-    }//GEN-LAST:event_jTextFieldDescripcionKeyReleased
-
     private void jTextFieldNombreprovKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreprovKeyTyped
     validacionEspacio(evt);
     validacionCaracteres(evt);
@@ -428,17 +430,22 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextFieldDireccionprovKeyTyped
 
-    private void jTextFieldDescripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDescripcionKeyTyped
-        validacionEspacio(evt);
-        validacionCaracteres(evt);
+    private void jTextAreaDescripcionProductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextAreaDescripcionProductoKeyReleased
+        validarCamposVacios();
+        habilitarBotonProv();
+    }//GEN-LAST:event_jTextAreaDescripcionProductoKeyReleased
 
-        if(jTextFieldDescripcion.getText().length()>=50){
+    private void jTextAreaDescripcionProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextAreaDescripcionProductoKeyTyped
+        validacionEspacio(evt);
+        validacionCaracteresEnter(evt);
+
+        if(jTextAreaDescripcionProducto.getText().length()>=50){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
             getToolkit().beep();
             JOptionPane.showMessageDialog(null, "LLEGO AL LIMITE PERMITIDO");
         }
-    }//GEN-LAST:event_jTextFieldDescripcionKeyTyped
+    }//GEN-LAST:event_jTextAreaDescripcionProductoKeyTyped
 
     public void habilitarBotonProv(){
            String correo = jTextFieldMail.getText();
@@ -449,13 +456,13 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
             || jTextFieldTelefonoProv.getText().isEmpty()
             || jTextFieldMail.getText().isEmpty()
             || jTextFieldDireccionprov.getText().isEmpty()
-            || jTextFieldDescripcion.getText().isEmpty()
+            || jTextAreaDescripcionProducto.getText().isEmpty()
             || jTextFieldNombreprov.getText().length() < 3
             || jTextFieldCiNIT.getText().length() < 7
             || jTextFieldTelefonoProv.getText().length() < 8
             || jTextFieldMail.getText().length() < 20
             || jTextFieldDireccionprov.getText().length() < 10
-            || jTextFieldDescripcion.getText().length() < 10) {
+            || jTextAreaDescripcionProducto.getText().length() < 10) {
         
         jButtonGuardar.setEnabled(false);
     } else {
@@ -522,10 +529,10 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
     }
     
     //DescripcionProducto Prov
-    if(jTextFieldDescripcion.getText().isEmpty()){
+    if(jTextAreaDescripcionProducto.getText().isEmpty()){
     avisoDescripcionProd.setText("Campo Obligatorio");
     }else{
-        if(jTextFieldDescripcion.getText().length()<10){
+        if(jTextAreaDescripcionProducto.getText().length()<10){
             avisoDescripcionProd.setText("Se requiere 10 caracteres");
         }
         else{
@@ -538,7 +545,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
          ||jTextFieldTelefonoProv.getText().startsWith(" ")
          ||jTextFieldMail.getText().startsWith(" ")
          ||jTextFieldDireccionprov.getText().startsWith(" ")
-         ||jTextFieldDescripcion.getText().startsWith(" ")){
+         ||jTextAreaDescripcionProducto.getText().startsWith(" ")){
     evento.consume();
             JOptionPane.showMessageDialog(this, "No puedes ingresar Espacio como primer caracter");
     }
@@ -549,6 +556,21 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
            (evento.getKeyChar()<65 || evento.getKeyChar()>90)&&
             evento.getKeyChar()!=209&&evento.getKeyChar()!=241&&
             evento.getKeyChar()!=8&&evento.getKeyChar()!=32&&
+            evento.getKeyChar()!=225&&evento.getKeyChar()!=233&&
+            evento.getKeyChar()!=237&&evento.getKeyChar()!=243&&
+            evento.getKeyChar()!=250&&evento.getKeyChar()!=193&&
+            evento.getKeyChar()!=201&&evento.getKeyChar()!=205&&
+            evento.getKeyChar()!=211&&evento.getKeyChar()!=218){
+            evento.consume();
+  
+                JOptionPane.showMessageDialog(null, "No se permite Caracteres Especiales");
+                }
+    }
+        public void validacionCaracteresEnter(java.awt.event.KeyEvent evento){
+        if((evento.getKeyChar()<97 || evento.getKeyChar()>122)&&
+           (evento.getKeyChar()<65 || evento.getKeyChar()>90)&&
+            evento.getKeyChar()!=209&&evento.getKeyChar()!=241&&
+            evento.getKeyChar()!=8&&evento.getKeyChar()!=32&&evento.getKeyChar()!=10&&
             evento.getKeyChar()!=225&&evento.getKeyChar()!=233&&
             evento.getKeyChar()!=237&&evento.getKeyChar()!=243&&
             evento.getKeyChar()!=250&&evento.getKeyChar()!=193&&
@@ -612,8 +634,9 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextAreaDescripcionProducto;
     private javax.swing.JTextField jTextFieldCiNIT;
-    private javax.swing.JTextField jTextFieldDescripcion;
     private javax.swing.JTextField jTextFieldDireccionprov;
     private javax.swing.JTextField jTextFieldMail;
     private javax.swing.JTextField jTextFieldNombreprov;
