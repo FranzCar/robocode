@@ -120,6 +120,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         jLabel6.setText("Dirección");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, -1, -1));
 
+        jTextFieldNombreprov.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextFieldNombreprov.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNombreprovActionPerformed(evt);
@@ -135,6 +136,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         });
         jPanel2.add(jTextFieldNombreprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 300, 27));
 
+        jTextFieldCiNIT.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextFieldCiNIT.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldCiNITKeyReleased(evt);
@@ -145,6 +147,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         });
         jPanel2.add(jTextFieldCiNIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 300, 27));
 
+        jTextFieldTelefonoProv.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextFieldTelefonoProv.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldTelefonoProvKeyReleased(evt);
@@ -155,6 +158,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         });
         jPanel2.add(jTextFieldTelefonoProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 300, 27));
 
+        jTextFieldMail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextFieldMail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldMailActionPerformed(evt);
@@ -170,6 +174,7 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         });
         jPanel2.add(jTextFieldMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 300, 27));
 
+        jTextFieldDireccionprov.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextFieldDireccionprov.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldDireccionprovKeyReleased(evt);
@@ -230,8 +235,8 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 560, 170, 40));
 
         jTextAreaDescripcionProducto.setColumns(20);
+        jTextAreaDescripcionProducto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextAreaDescripcionProducto.setRows(5);
-        jTextAreaDescripcionProducto.setPreferredSize(new java.awt.Dimension(300, 84));
         jTextAreaDescripcionProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextAreaDescripcionProductoKeyReleased(evt);

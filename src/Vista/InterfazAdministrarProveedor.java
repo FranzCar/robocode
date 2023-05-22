@@ -196,7 +196,11 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
             }
         });
 
-        jButtonHome.setText("home");
+        jButtonHome.setBackground(new java.awt.Color(95, 143, 169));
+        jButtonHome.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonHome.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonHome.setText("HOME");
+        jButtonHome.setToolTipText("");
         jButtonHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonHomeActionPerformed(evt);
