@@ -6,6 +6,13 @@ package Vista;
 
 import Conexion.ConectarBD;
 import Controlador.ListarProducto;
+import static Vista.InterfazRegistrarVenta.elementosTabla;
+import static Vista.InterfazRegistrarVenta.jTextFieldEsnImei;
+import static Vista.InterfazRegistrarVenta.jTextFieldIdProducto;
+import static Vista.InterfazRegistrarVenta.jTextFieldMarca;
+import static Vista.InterfazRegistrarVenta.jTextFieldModelo;
+import static Vista.InterfazRegistrarVenta.jTextFieldPrecio;
+import static Vista.InterfazRegistrarVenta.jTextFieldStock;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -669,22 +676,39 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonBuscarKeyPressed
 
-    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        InterfazEditarProducto editarPro=new InterfazEditarProducto();
-        editarPro.setVisible(true);
-        editarPro.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jButtonEditarActionPerformed
-
-    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
-        InterfazEliminarProducto eliminarPro=new InterfazEliminarProducto();
-        eliminarPro.setVisible(true);
-        eliminarPro.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jButtonEliminarActionPerformed
-
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
       /* InterfazRegistrarProducto registrarPro=new InterfazRegistrarProducto();
         registrarPro.setVisible(true);
         registrarPro.setLocationRelativeTo(null);*/
+      jTextFieldIdProducto.setText(codigoNumero+"");
+      jTextFieldEsnImei.setText("");
+      try {
+          conexion=con.establecerConexion();
+                PreparedStatement pst = conexion.prepareStatement("SELECT * FROM PRODUCTO WHERE codProducto ='"+codigoNumero+"'");
+                ResultSet rs = pst.executeQuery();                
+                if(rs.next()){
+                    //Datos consultados
+                    jTextFieldMarca.setText(rs.getString("marcaProducto"));
+                    jTextFieldModelo.setText(rs.getString("modeloProducto"));
+                    jTextFieldPrecio.setText(rs.getString("precioProducto"));
+                    int Stock=Integer.parseInt(rs.getString("stockProducto"));
+                    if(elementosTabla.isEmpty()!=true){
+                        for(int i=0; i<elementosTabla.size();i++){
+                            Object [] fila =elementosTabla.get(i);
+                            String id=(String)fila[0];
+                            if(id.contentEquals(jTextFieldIdProducto.getText())){
+                                Stock--;
+                            }
+                        }                        
+                    }
+                    jTextFieldStock.setText(Stock+"");
+                  }
+                
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "¡Error al cargar!");
+            }
+      dispose();
+      
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
@@ -1097,26 +1121,6 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         jButtonHome.setBackground(new Color (95,143,169));
     }//GEN-LAST:event_jButtonHomeMouseExited
 
-    private void jButtonEditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarMouseEntered
-        if (jButtonEditar.isEnabled()){
-            jButtonEditar.setBackground(new Color (113,163,188));
-        }
-    }//GEN-LAST:event_jButtonEditarMouseEntered
-
-    private void jButtonEditarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarMouseExited
-        jButtonEditar.setBackground(new Color (95,143,169));
-    }//GEN-LAST:event_jButtonEditarMouseExited
-
-    private void jButtonEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarMouseEntered
-        if (jButtonEliminar.isEnabled()){
-            jButtonEliminar.setBackground(new Color (113,163,188));
-        }
-    }//GEN-LAST:event_jButtonEliminarMouseEntered
-
-    private void jButtonEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarMouseExited
-        jButtonEliminar.setBackground(new Color (95,143,169));
-    }//GEN-LAST:event_jButtonEliminarMouseExited
-
     
     
     private void jTextFieldBuscarCoincidenciaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarCoincidenciaKeyReleased
@@ -1124,6 +1128,38 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
                
     
     }//GEN-LAST:event_jTextFieldBuscarCoincidenciaKeyReleased
+
+    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
+        InterfazEliminarProducto eliminarPro=new InterfazEliminarProducto();
+        eliminarPro.setVisible(true);
+        eliminarPro.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButtonEliminarActionPerformed
+
+    private void jButtonEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarMouseExited
+        jButtonEliminar.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButtonEliminarMouseExited
+
+    private void jButtonEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarMouseEntered
+        if (jButtonEliminar.isEnabled()){
+            jButtonEliminar.setBackground(new Color (113,163,188));
+        }
+    }//GEN-LAST:event_jButtonEliminarMouseEntered
+
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+        InterfazEditarProducto editarPro=new InterfazEditarProducto();
+        editarPro.setVisible(true);
+        editarPro.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButtonEditarActionPerformed
+
+    private void jButtonEditarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarMouseExited
+        jButtonEditar.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButtonEditarMouseExited
+
+    private void jButtonEditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarMouseEntered
+        if (jButtonEditar.isEnabled()){
+            jButtonEditar.setBackground(new Color (113,163,188));
+        }
+    }//GEN-LAST:event_jButtonEditarMouseEntered
 
     /**
      * @param args the command line arguments

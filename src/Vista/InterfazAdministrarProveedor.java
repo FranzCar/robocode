@@ -31,6 +31,7 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
     
     public InterfazAdministrarProveedor() {
         initComponents();
+        this.setDefaultCloseOperation(1);
         this.setLocationRelativeTo(null);
         ListarProveedores Administrar=new ListarProveedores();
         jButtonEditar.setEnabled(false);
@@ -195,7 +196,11 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
             }
         });
 
-        jButtonHome.setText("home");
+        jButtonHome.setBackground(new java.awt.Color(95, 143, 169));
+        jButtonHome.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButtonHome.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonHome.setText("HOME");
+        jButtonHome.setToolTipText("");
         jButtonHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonHomeActionPerformed(evt);
@@ -279,24 +284,24 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
         deshabilitar();
-        //InterfazEliminarUsuario ventanaEliminar=new InterfazEliminarUsuario();
-        //ventanaEliminar.setVisible(true);
-        //ventanaEliminar.setLocationRelativeTo(null);
+        InterfazEliminarProveedor ventanaEliminar=new InterfazEliminarProveedor();
+        ventanaEliminar.setVisible(true);
+        ventanaEliminar.setLocationRelativeTo(null);
         
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
         deshabilitar();
-        //InterfazEditarUsuario ventadaEditar=new InterfazEditarUsuario();
-        //ventadaEditar.setVisible(true);
-        //ventadaEditar.setLocationRelativeTo(null);
+        InterfazEditarProveedores ventadaEditar=new InterfazEditarProveedores();
+        ventadaEditar.setVisible(true);
+        ventadaEditar.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         deshabilitar();
-        //InterfazRegistrarUsuario ventana=new InterfazRegistrarUsuario();
-        //ventana.setVisible(true);
-        //ventana.setLocationRelativeTo(null);
+        InterfazRegistrarProveedor ventanaProv=new InterfazRegistrarProveedor();
+        ventanaProv.setVisible(true);
+        ventanaProv.setLocationRelativeTo(null);
 
         
     }//GEN-LAST:event_jButtonRegistrarActionPerformed

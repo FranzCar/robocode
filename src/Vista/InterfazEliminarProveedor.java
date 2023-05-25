@@ -3,18 +3,54 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
-
-/**
- *
- * @author nando
- */
+import Controlador.ListarProveedores;
+import Modelo.Proveedor;
+import static Vista.InterfazAdministrarProveedor.bEditar;
+import static Vista.InterfazAdministrarProveedor.bEliminar;
+import static Vista.InterfazAdministrarProveedor.bRegistrar;
+import static Vista.InterfazAdministrarProveedor.idUsuarioTabla;
+import static Vista.InterfazAdministrarProveedor.jTableUsuario;
+import java.sql.PreparedStatement;
+import Conexion.ConectarBD;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 public class InterfazEliminarProveedor extends javax.swing.JFrame {
-
-    /**
-     * Creates new form InterfazEliminarProveedor
-     */
+    static Connection conexion=null;
+    static Statement sentencia=null;
+    static ResultSet resultado=null;
+    static Proveedor objProveedor;
+    int id;
+    ConectarBD con = new ConectarBD(); 
+     static int cod=idUsuarioTabla;
     public InterfazEliminarProveedor() {
         initComponents();
+        this.setDefaultCloseOperation(1);
+    this.setLocationRelativeTo(null);
+    objProveedor = new Proveedor();
+    
+    try {
+        conexion = con.establecerConexion();
+        PreparedStatement pst = conexion.prepareStatement("SELECT * FROM proveedor WHERE codProveedor = '" + idUsuarioTabla + "'");
+        ResultSet rs = pst.executeQuery();
+        
+        if (rs.next()) {
+            // Datos consultados
+            jTextFieldNombre.setText(rs.getString("nombreProveedor"));
+            jTextFieldNIT.setText(rs.getString("nitProveedor"));
+            jTextFieldTelef.setText(rs.getString("telefonoProveedor"));
+            jTextFieldEmail.setText(rs.getString("emailProveedor"));
+            jTextFieldDirec.setText(rs.getString("direccionProveedor"));
+            jTextAreaDescripcionProducto.setText(rs.getString("descripcionProveedor"));
+        }
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "¡Error al cargar!");
+        System.out.println("Error al cargar los datos: " + e);
+    }
     }
 
     /**
@@ -32,18 +68,20 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextFieldIdUsuario = new javax.swing.JTextField();
-        jTextFieldTelefono = new javax.swing.JTextField();
-        jTextFieldCi = new javax.swing.JTextField();
+        jTextFieldDirec = new javax.swing.JTextField();
+        jTextFieldTelef = new javax.swing.JTextField();
+        jTextFieldNIT = new javax.swing.JTextField();
         jTextFieldNombre = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jButtonCancelar = new javax.swing.JButton();
         jButtonEliminar = new javax.swing.JButton();
-        jTextFieldContrasenia = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
-        jTextFieldContrasenia1 = new javax.swing.JPasswordField();
+        jTextFieldEmail = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaDescripcionProducto = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(37, 77, 116));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -53,12 +91,12 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(245, 245, 245));
         jLabel1.setText("Nombre de Proveedor:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(245, 245, 245));
         jLabel2.setText("CI / NIT:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(245, 245, 245));
@@ -68,63 +106,68 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(245, 245, 245));
         jLabel7.setText("e-mail:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(245, 245, 245));
         jLabel5.setText("Descripción producto:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, -1, -1));
 
-        jTextFieldIdUsuario.setBackground(new java.awt.Color(165, 221, 251));
-        jTextFieldIdUsuario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jTextFieldIdUsuario.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldDirec.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextFieldDirec.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldDirec.setEnabled(false);
+        jTextFieldDirec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldIdUsuarioActionPerformed(evt);
+                jTextFieldDirecActionPerformed(evt);
             }
         });
-        jTextFieldIdUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldDirec.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldIdUsuarioKeyReleased(evt);
+                jTextFieldDirecKeyReleased(evt);
             }
         });
-        jPanel1.add(jTextFieldIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 300, 27));
+        jPanel1.add(jTextFieldDirec, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 300, 27));
 
-        jTextFieldTelefono.setBackground(new java.awt.Color(165, 221, 251));
-        jTextFieldTelefono.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jTextFieldTelefono.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldTelef.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextFieldTelef.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldTelef.setEnabled(false);
+        jTextFieldTelef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldTelefonoActionPerformed(evt);
+                jTextFieldTelefActionPerformed(evt);
             }
         });
-        jTextFieldTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldTelef.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldTelefonoKeyReleased(evt);
+                jTextFieldTelefKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldTelefonoKeyTyped(evt);
+                jTextFieldTelefKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 300, -1));
+        jPanel1.add(jTextFieldTelef, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 300, 27));
 
-        jTextFieldCi.setBackground(new java.awt.Color(165, 221, 251));
-        jTextFieldCi.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jTextFieldCi.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldNIT.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextFieldNIT.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldNIT.setEnabled(false);
+        jTextFieldNIT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCiActionPerformed(evt);
+                jTextFieldNITActionPerformed(evt);
             }
         });
-        jTextFieldCi.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldNIT.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldCiKeyReleased(evt);
+                jTextFieldNITKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldCiKeyTyped(evt);
+                jTextFieldNITKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextFieldCi, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 300, 27));
+        jPanel1.add(jTextFieldNIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 300, 27));
 
-        jTextFieldNombre.setBackground(new java.awt.Color(165, 221, 251));
-        jTextFieldNombre.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jTextFieldNombre.setEditable(false);
+        jTextFieldNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextFieldNombre.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldNombre.setEnabled(false);
         jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNombreActionPerformed(evt);
@@ -138,7 +181,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
                 jTextFieldNombreKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 300, 27));
+        jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 300, 27));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -155,7 +198,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 520, -1, -1));
+        jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 540, -1, -1));
 
         jButtonEliminar.setBackground(new java.awt.Color(97, 150, 180));
         jButtonEliminar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -167,30 +210,36 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
                 jButtonEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 520, -1, -1));
-
-        jTextFieldContrasenia.setBackground(new java.awt.Color(165, 221, 251));
-        jTextFieldContrasenia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jTextFieldContrasenia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldContraseniaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextFieldContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, 300, 70));
+        jPanel1.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 540, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(245, 245, 245));
         jLabel6.setText("Dirección:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
 
-        jTextFieldContrasenia1.setBackground(new java.awt.Color(165, 221, 251));
-        jTextFieldContrasenia1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jTextFieldContrasenia1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextFieldEmail.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldEmail.setEnabled(false);
+        jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldContrasenia1ActionPerformed(evt);
+                jTextFieldEmailActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldContrasenia1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 300, 32));
+        jTextFieldEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldEmailKeyReleased(evt);
+            }
+        });
+        jPanel1.add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 300, 27));
+
+        jTextAreaDescripcionProducto.setColumns(20);
+        jTextAreaDescripcionProducto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextAreaDescripcionProducto.setRows(5);
+        jTextAreaDescripcionProducto.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextAreaDescripcionProducto.setEnabled(false);
+        jScrollPane1.setViewportView(jTextAreaDescripcionProducto);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 300, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -216,31 +265,31 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoActionPerformed
+    private void jTextFieldTelefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTelefActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldTelefonoActionPerformed
+    }//GEN-LAST:event_jTextFieldTelefActionPerformed
 
-    private void jTextFieldTelefonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoKeyReleased
+    private void jTextFieldTelefKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefKeyReleased
       
 
-    }//GEN-LAST:event_jTextFieldTelefonoKeyReleased
+    }//GEN-LAST:event_jTextFieldTelefKeyReleased
 
-    private void jTextFieldTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoKeyTyped
+    private void jTextFieldTelefKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefKeyTyped
        
 
-    }//GEN-LAST:event_jTextFieldTelefonoKeyTyped
+    }//GEN-LAST:event_jTextFieldTelefKeyTyped
 
-    private void jTextFieldCiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCiActionPerformed
+    private void jTextFieldNITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNITActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCiActionPerformed
+    }//GEN-LAST:event_jTextFieldNITActionPerformed
 
-    private void jTextFieldCiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiKeyReleased
+    private void jTextFieldNITKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNITKeyReleased
         
-    }//GEN-LAST:event_jTextFieldCiKeyReleased
+    }//GEN-LAST:event_jTextFieldNITKeyReleased
 
-    private void jTextFieldCiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCiKeyTyped
+    private void jTextFieldNITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNITKeyTyped
 
-    }//GEN-LAST:event_jTextFieldCiKeyTyped
+    }//GEN-LAST:event_jTextFieldNITKeyTyped
 
     private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
         // TODO add your handling code here:
@@ -254,29 +303,55 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTextFieldNombreKeyTyped
 
-    private void jTextFieldContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContraseniaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldContraseniaActionPerformed
-
-    private void jTextFieldIdUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdUsuarioKeyReleased
+    private void jTextFieldDirecKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDirecKeyReleased
         
-    }//GEN-LAST:event_jTextFieldIdUsuarioKeyReleased
+    }//GEN-LAST:event_jTextFieldDirecKeyReleased
 
-    private void jTextFieldIdUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdUsuarioActionPerformed
+    private void jTextFieldDirecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDirecActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldIdUsuarioActionPerformed
+    }//GEN-LAST:event_jTextFieldDirecActionPerformed
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
-      
+        int respuesta = JOptionPane.showConfirmDialog(this, "¿Está seguro de eliminar al proveedor?", "Confirmación de eliminación", JOptionPane.YES_NO_OPTION);
+        if (respuesta == JOptionPane.YES_OPTION) {
+            try {
+                sentencia=conexion.createStatement();
+                   
+                String sentenciaSQL1 = new String();
+                sentenciaSQL1="DELETE FROM proveedor WHERE codProveedor="+idUsuarioTabla;
+                 
+                sentencia.execute(sentenciaSQL1); 
+                JOptionPane.showMessageDialog(this, "Eliminado con exito"); 
+                dispose();
+
+            } catch (SQLException e) {
+                Logger.getLogger(InterfazRegistrarUsuario.class.getName()).log(Level.SEVERE,null,e);
+            }
+            ListarProveedores Administrar = new ListarProveedores();
+            Administrar.MostrarTabla(jTableUsuario);
+            bRegistrar.setEnabled(true);
+            dispose(); 
+        }
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
-
+        if(idUsuarioTabla>0){
+            bRegistrar.setEnabled(true);
+            bEditar.setEnabled(true);
+            bEliminar.setEnabled(true);
+        }else{
+            bRegistrar.setEnabled(true);
+        }
+        dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
-    private void jTextFieldContrasenia1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContrasenia1ActionPerformed
+    private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldContrasenia1ActionPerformed
+    }//GEN-LAST:event_jTextFieldEmailActionPerformed
+
+    private void jTextFieldEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldEmailKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldEmailKeyReleased
 
     /**
      * @param args the command line arguments
@@ -324,11 +399,12 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextFieldCi;
-    private javax.swing.JPasswordField jTextFieldContrasenia;
-    private javax.swing.JPasswordField jTextFieldContrasenia1;
-    private javax.swing.JTextField jTextFieldIdUsuario;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextAreaDescripcionProducto;
+    private javax.swing.JTextField jTextFieldDirec;
+    private javax.swing.JTextField jTextFieldEmail;
+    private javax.swing.JTextField jTextFieldNIT;
     private javax.swing.JTextField jTextFieldNombre;
-    private javax.swing.JTextField jTextFieldTelefono;
+    private javax.swing.JTextField jTextFieldTelef;
     // End of variables declaration//GEN-END:variables
 }
