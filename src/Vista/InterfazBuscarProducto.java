@@ -776,7 +776,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover1FocusGained
 
     private void jLabelHover1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover1MouseClicked
-        if(evt.getClickCount()==18){
+        if(evt.getClickCount()==19){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
