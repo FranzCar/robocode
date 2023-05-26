@@ -130,7 +130,7 @@ public class InterfazEditarProveedores extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel5.setText("Descripcion Producto: ");
+        jLabel5.setText("Descripción Producto: ");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -301,52 +301,53 @@ public class InterfazEditarProveedores extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-                                                     
-    try {
-        sentencia = conexion.createStatement();
-        objProveedor.nombreProv = jTextFieldNombre.getText();
-        objProveedor.ciNIT = jTextFieldNIT.getText();
-        objProveedor.telefonoProv = jTextFieldTelef.getText();
-        objProveedor.emailProv = jTextFieldEmail.getText();
-        objProveedor.direccionProv = jTextFieldDirec.getText();
-        objProveedor.descripcionProducto = jTextAreaDescripcionProducto.getText();
+                                                  
+    String correo = jTextFieldEmail.getText();
+    boolean esValido = validarCorreoElectronico(correo);
+    if (esValido) {
+        // El correo electrónico es válido
+        try {
+            sentencia = conexion.createStatement();
+            objProveedor.nombreProv = jTextFieldNombre.getText();
+            objProveedor.ciNIT = jTextFieldNIT.getText();
+            objProveedor.telefonoProv = jTextFieldTelef.getText();
+            objProveedor.emailProv = jTextFieldEmail.getText();
+            objProveedor.direccionProv = jTextFieldDirec.getText();
+            objProveedor.descripcionProducto = jTextAreaDescripcionProducto.getText();
+            
+            String sentenciaSQL1 = "UPDATE proveedor SET nombreProveedor = '" + objProveedor.nombreProv +
+                                    "', nitProveedor = '" + objProveedor.ciNIT +
+                                    "', telefonoProveedor = '" + objProveedor.telefonoProv +
+                                    "', emailProveedor = '" + objProveedor.emailProv +
+                                    "', direccionProveedor = '" + objProveedor.direccionProv +
+                                    "', descripcionProveedor = '" + objProveedor.descripcionProducto +
+                                    "' WHERE codProveedor = " + idUsuarioTabla;
+            
+            sentencia.execute(sentenciaSQL1); 
+            JOptionPane.showMessageDialog(this, "Editado correctamente"); 
+            dispose();
+        } catch (SQLException e) {
+            Logger.getLogger(InterfazEditarProveedores.class.getName()).log(Level.SEVERE, null, e);
+        }
         
-        String sentenciaSQL1 = new String();
-        sentenciaSQL1 = "UPDATE proveedor SET nombreProveedor = '" + objProveedor.nombreProv +
-                        "', nitProveedor = '" + objProveedor.ciNIT +
-                        "', telefonoProveedor = '" + objProveedor.telefonoProv +
-                        "', emailProveedor = '" + objProveedor.emailProv +
-                        "', direccionProveedor = '" + objProveedor.direccionProv +
-                        "', descripcionProveedor = '" + objProveedor.descripcionProducto +
-                        "' WHERE codProveedor = " + idUsuarioTabla;
-        
-        sentencia.execute(sentenciaSQL1); 
-        JOptionPane.showMessageDialog(this, "Editado correctamente"); 
-        dispose();
-    } catch (SQLException e) {
-        Logger.getLogger(InterfazEditarProveedores.class.getName()).log(Level.SEVERE, null, e);
+        ListarProveedores Administrar = new ListarProveedores();
+        Administrar.MostrarTabla(jTableUsuario);
+        bRegistrar.setEnabled(true);
+        dispose(); 
+    } else {
+        // El correo electrónico no es válido
+        JOptionPane.showMessageDialog(this, "Correo electrónico no válido", "Error", JOptionPane.ERROR_MESSAGE);
     }
-    
-    ListarProveedores Administrar = new ListarProveedores();
-    Administrar.MostrarTabla(jTableUsuario);
-    bRegistrar.setEnabled(true);
-    dispose();    
 
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
-    public void validacionCaracteresEspeciales(java.awt.event.KeyEvent evento) {
-    char tecla = evento.getKeyChar();
-    if (tecla != '\b' && (tecla < '0' || tecla > '9')) {
-        evento.consume();
-        JOptionPane.showMessageDialog(null, "Solo se permiten numeros");
-    }
-}
+   
 
     
     private void jTextFieldNITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNITKeyTyped
         //Validaciones.validacionNumerica(evt);
         validacionEspacio(evt);
-        validacionCaracteresEspeciales(evt);
+       Validaciones.validacionNumerica(evt);
         //validacionCaracteres(evt);
 
         if(jTextFieldNIT.getText().length()>=10){
@@ -358,7 +359,7 @@ public class InterfazEditarProveedores extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNITKeyTyped
 
     private void jTextFieldTelefKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldTelefKeyTyped
-        validacionCaracteresEspeciales(evt);
+        Validaciones.validacionNumerica(evt);
         //Validaciones.validacionNumerica(evt);
         validacionEspacio(evt);
         //validacionCaracteres(evt);
@@ -398,7 +399,7 @@ public class InterfazEditarProveedores extends javax.swing.JFrame {
 
     private void jTextFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyTyped
     validacionEspacio(evt);
-    validacionCaracteres(evt);
+    Validaciones.validacionCaracteres(evt);
 
         if(jTextFieldNombre.getText().length()>=30){
             evt.consume();
@@ -409,8 +410,7 @@ public class InterfazEditarProveedores extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNombreKeyTyped
 
     private void jTextFieldEmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldEmailKeyTyped
-        validacionEspacio(evt);
-        //validacionCaracteres(evt);
+        
 
         if(jTextFieldEmail.getText().length()>=30){
             evt.consume();
@@ -422,7 +422,7 @@ public class InterfazEditarProveedores extends javax.swing.JFrame {
 
     private void jTextFieldDirecKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDirecKeyTyped
         validacionEspacio(evt);
-        validacionCaracteres(evt);
+      // Validaciones.validacionCaracteres(evt);
 
         if(jTextFieldDirec.getText().length()>=30){
             evt.consume();
@@ -546,21 +546,23 @@ public class InterfazEditarProveedores extends javax.swing.JFrame {
     }
 }
     
-        public void validacionCaracteres(java.awt.event.KeyEvent evento){
-        if((evento.getKeyChar()<97 || evento.getKeyChar()>122)&&
-           (evento.getKeyChar()<65 || evento.getKeyChar()>90)&&
-            evento.getKeyChar()!=209&&evento.getKeyChar()!=241&&
-            evento.getKeyChar()!=8&&evento.getKeyChar()!=32&&
-            evento.getKeyChar()!=225&&evento.getKeyChar()!=233&&
-            evento.getKeyChar()!=237&&evento.getKeyChar()!=243&&
-            evento.getKeyChar()!=250&&evento.getKeyChar()!=193&&
-            evento.getKeyChar()!=201&&evento.getKeyChar()!=205&&
-            evento.getKeyChar()!=211&&evento.getKeyChar()!=218){
-            evento.consume();
-  
-                JOptionPane.showMessageDialog(null, "No se permite Caracteres Especiales");
-                }
+     public boolean validarCorreoElectronico(String correo) {
+    // Verificar si el correo contiene un "@"
+    if (!correo.contains("@")) {
+        return false;
     }
+    
+    // Verificar si el correo tiene espacios o cadenas cortadas
+    if (correo.contains(" ") || correo.startsWith("@") || correo.endsWith("@")) {
+        return false;
+    }
+    
+    // Verificar otros detalles del correo electrónico
+    // Puedes agregar más validaciones según tus necesidades, como verificar el formato del dominio, la extensión, etc.
+    // Aquí se utiliza una expresión regular básica para verificar la estructura general del correo electrónico
+    String regex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+    return correo.matches(regex);
+}
         
         public void validacionCaracteresEnter(java.awt.event.KeyEvent evento){
         if((evento.getKeyChar()<97 || evento.getKeyChar()>122)&&
