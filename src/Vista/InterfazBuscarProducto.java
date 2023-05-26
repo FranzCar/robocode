@@ -595,7 +595,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
                 jButtonDerechaActionPerformed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 530, 64, 64));
+        jPanelAdministrarProducto.add(jButtonDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 530, 64, 64));
 
         errocar.setForeground(new java.awt.Color(204, 0, 0));
         jPanelAdministrarProducto.add(errocar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
