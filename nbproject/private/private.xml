@@ -3,18 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/C:/Users/USUARIO/Documents/gitSofware/robocode/src/Vista/InterfazAdministrarProducto.java</file>
             <file>file:/C:/Users/USUARIO/Documents/gitSofware/robocode/src/Vista/InterfazMostrarProducto.java</file>
             <file>file:/C:/Users/USUARIO/Documents/gitSofware/robocode/src/Vista/InterfazRegistrarVenta.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/gitSofware/robocode/src/Conexion/ConectarBD.java</file>
             <file>file:/C:/Users/USUARIO/Documents/gitSofware/robocode/src/Vista/InterfazBuscarProducto.java</file>
-=======
-            <file>file:/D:/MY%20STUFF/UMSS/INGENIERIA%20DE%20SOFTWARE/proyecto/robocode/src/Vista/InterfazRegistrarVenta.java</file>
-            <file>file:/D:/MY%20STUFF/UMSS/INGENIERIA%20DE%20SOFTWARE/proyecto/robocode/src/Conexion/ConectarBD.java</file>
-            <file>file:/D:/MY%20STUFF/UMSS/INGENIERIA%20DE%20SOFTWARE/proyecto/robocode/src/Vista/InterfazBuscarProducto.java</file>
-            <file>file:/D:/MY%20STUFF/UMSS/INGENIERIA%20DE%20SOFTWARE/proyecto/robocode/src/Vista/InterfazRegistrarProveedor.java</file>
-            <file>file:/D:/MY%20STUFF/UMSS/INGENIERIA%20DE%20SOFTWARE/proyecto/robocode/src/Vista/InterfazRegistrarProducto.java</file>
->>>>>>> develop
+            <file>file:/C:/Users/USUARIO/Documents/gitSofware/robocode/src/Controlador/ListarProducto.java</file>
         </group>
     </open-files>
 </project-private>
