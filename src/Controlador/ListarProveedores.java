@@ -33,13 +33,13 @@ public class ListarProveedores {
             }
         };
                 
-        modelo.addColumn("Cod Proveedor");
-        modelo.addColumn("Nombre Proveedor");
-        modelo.addColumn("Nit Proveedor");
-        modelo.addColumn("Telefono Proveedor");
-        modelo.addColumn("Email Proveedor");
-        modelo.addColumn("Direccion Proveedor");
-        modelo.addColumn("Descripcion Proveedor");
+        modelo.addColumn("Cod");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("NIT/CI");
+        modelo.addColumn("Teléfono");
+        modelo.addColumn("Email");
+        modelo.addColumn("Direccion");
+        modelo.addColumn("Descripción");
         String consultasql = new String();
         consultasql = "SELECT * From proveedor ORDER BY nombreProveedor ASC";
         Statement st;
@@ -64,13 +64,13 @@ public class ListarProveedores {
                 return false;
             }
         };
-    modelo.addColumn("Cod Proveedor");
-    modelo.addColumn("Nombre Proveedor");
-    modelo.addColumn("Nit Proveedor");
-    modelo.addColumn("Telefono Proveedor");
-    modelo.addColumn("Email Proveedor");
-    modelo.addColumn("Direccion Proveedor");
-    modelo.addColumn("Descripcion Proveedor");
+    modelo.addColumn("Cod");
+    modelo.addColumn("Nombre");
+    modelo.addColumn("NIT/CI");
+    modelo.addColumn("Teléfono");
+    modelo.addColumn("Email");
+    modelo.addColumn("Direccion");
+    modelo.addColumn("Descripción");
     String consultasql = new String();
     consultasql = "SELECT * FROM proveedor WHERE nombreProveedor LIKE \"%"+palabra+"%\"  ORDER BY nombreProveedor";
     
