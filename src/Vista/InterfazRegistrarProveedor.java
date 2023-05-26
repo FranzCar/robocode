@@ -289,8 +289,9 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
          String MailProv=jTextFieldMail.getText().trim();
          String DireccionProv=jTextFieldDireccionprov.getText().trim();
          String DescripcionProd=jTextAreaDescripcionProducto.getText().trim();
-         
-         
+         //String correo = jTextFieldEmail.getText();
+        boolean esValido = validarCorreoElectronico(MailProv);
+        if(esValido){
         try {
             sentencia=conexion.createStatement();
             objProveedor.nombreProv=jTextFieldNombreprov.getText();
@@ -334,9 +335,15 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
          jTextFieldMail.setText("");
          jTextFieldDireccionprov.setText("");
          jTextFieldTelefonoProv.setText("");
-         jTextAreaDescripcionProducto.setText("");
+         jTextAreaDescripcionProducto.setText("");  
+         
     }//GEN-LAST:event_jButtonGuardarActionPerformed
-
+        else{
+            // El correo electrónico no es válido
+        JOptionPane.showMessageDialog(this, "Correo electrónico no válido", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }   
+   
     public void validacionCaracteresEspeciales(java.awt.event.KeyEvent evento) {
     char tecla = evento.getKeyChar();
     if (tecla != '\b' && (tecla < '0' || tecla > '9')) {
@@ -453,31 +460,40 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextAreaDescripcionProductoKeyTyped
 
     public void habilitarBotonProv(){
-           String correo = jTextFieldMail.getText();
-           boolean contieneArroba = correo.contains("@") || correo.contains("&#64;");
-
-    if (jTextFieldNombreprov.getText().isEmpty()
+       if(jTextFieldNombreprov.getText().isEmpty()
             || jTextFieldCiNIT.getText().isEmpty()
             || jTextFieldTelefonoProv.getText().isEmpty()
             || jTextFieldMail.getText().isEmpty()
             || jTextFieldDireccionprov.getText().isEmpty()
-            || jTextAreaDescripcionProducto.getText().isEmpty()
-            || jTextFieldNombreprov.getText().length() < 3
-            || jTextFieldCiNIT.getText().length() < 7
-            || jTextFieldTelefonoProv.getText().length() < 8
-            || jTextFieldMail.getText().length() < 20
-            || jTextFieldDireccionprov.getText().length() < 10
-            || jTextAreaDescripcionProducto.getText().length() < 10) {
+            || jTextAreaDescripcionProducto.getText().isEmpty() 
+            || jTextFieldNombreprov.getText().length()<3
+            || jTextFieldCiNIT.getText().length()<7
+            || jTextFieldTelefonoProv.getText().length()<8
+            || jTextFieldMail.getText().length()<20
+            || jTextFieldDireccionprov.getText().length()<10
+            || jTextAreaDescripcionProducto.getText().length()<10 ){
         
         jButtonGuardar.setEnabled(false);
-    } else {
-        if (!contieneArroba) {
-            jButtonGuardar.setEnabled(false);
-            JOptionPane.showMessageDialog(this, "El correo electrónico debe contener el símbolo '@'");
-        } else {
-            jButtonGuardar.setEnabled(true);
-        }
+    }else{
+        jButtonGuardar.setEnabled(true);
+} 
+}
+     public boolean validarCorreoElectronico(String correo) {
+    // Verificar si el correo contiene un "@"
+    if (!correo.contains("@")) {
+        return false;
     }
+    
+    // Verificar si el correo tiene espacios o cadenas cortadas
+    if (correo.contains(" ") || correo.startsWith("@") || correo.endsWith("@")) {
+        return false;
+    }
+    
+    // Verificar otros detalles del correo electrónico
+    // Puedes agregar más validaciones según tus necesidades, como verificar el formato del dominio, la extensión, etc.
+    // Aquí se utiliza una expresión regular básica para verificar la estructura general del correo electrónico
+    String regex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+    return correo.matches(regex);
 }
     
         //Validar camposVacios
