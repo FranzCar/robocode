@@ -776,7 +776,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover1FocusGained
 
     private void jLabelHover1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover1MouseClicked
-        if(evt.getClickCount()==19){
+        if(evt.getClickCount()==20){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
@@ -900,7 +900,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover10MouseExited
 
     private void jLabelHover2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover2MouseClicked
-        if(evt.getClickCount()==18){
+        if(evt.getClickCount()==19){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
@@ -921,7 +921,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover2MouseClicked
 
     private void jLabelHover3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover3MouseClicked
-        if(evt.getClickCount()==18){
+        if(evt.getClickCount()==17){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
@@ -941,7 +941,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover3MouseClicked
 
     private void jLabelHover4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover4MouseClicked
-        if(evt.getClickCount()==18){
+        if(evt.getClickCount()==16){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
@@ -961,7 +961,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover4MouseClicked
 
     private void jLabelHover5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover5MouseClicked
-       if(evt.getClickCount()==18){
+       if(evt.getClickCount()==15){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
@@ -981,7 +981,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover5MouseClicked
 
     private void jLabelHover6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover6MouseClicked
-        if(evt.getClickCount()==19){
+        if(evt.getClickCount()==14){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
@@ -1001,7 +1001,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover6MouseClicked
 
     private void jLabelHover7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover7MouseClicked
-        if(evt.getClickCount()==19){
+        if(evt.getClickCount()==15){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
@@ -1021,7 +1021,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover7MouseClicked
 
     private void jLabelHover8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover8MouseClicked
-        if(evt.getClickCount()==19){
+        if(evt.getClickCount()==16){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
@@ -1041,7 +1041,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover8MouseClicked
 
     private void jLabelHover9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover9MouseClicked
-        if(evt.getClickCount()==19){
+        if(evt.getClickCount()==17){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
