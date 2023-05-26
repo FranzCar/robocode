@@ -301,7 +301,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
                 jButtonHomeActionPerformed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
+        jPanelAdministrarProducto.add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
         jLabelHover1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -584,7 +584,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
                 jButtonIzquierdaActionPerformed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, 64, 64));
+        jPanelAdministrarProducto.add(jButtonIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 530, 64, 64));
 
         jButtonDerecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/derecha.png"))); // NOI18N
         jButtonDerecha.setBorder(null);
