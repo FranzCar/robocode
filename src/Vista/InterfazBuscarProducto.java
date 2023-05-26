@@ -164,7 +164,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("BUSCAR PRODUCTO");
-        jPanelAdministrarProducto.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
+        jPanelAdministrarProducto.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, -1, -1));
 
         jTextFieldBuscarCoincidencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldBuscarCoincidencia.addActionListener(new java.awt.event.ActionListener() {
@@ -212,7 +212,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
                 jButtonBuscarKeyPressed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, -1, 30));
+        jPanelAdministrarProducto.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, -1, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
