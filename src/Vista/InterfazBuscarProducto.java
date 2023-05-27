@@ -164,7 +164,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("BUSCAR PRODUCTO");
-        jPanelAdministrarProducto.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
+        jPanelAdministrarProducto.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, -1, -1));
 
         jTextFieldBuscarCoincidencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldBuscarCoincidencia.addActionListener(new java.awt.event.ActionListener() {
@@ -212,7 +212,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
                 jButtonBuscarKeyPressed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, -1, 30));
+        jPanelAdministrarProducto.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, -1, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -301,7 +301,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
                 jButtonHomeActionPerformed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
+        jPanelAdministrarProducto.add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
         jLabelHover1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -584,7 +584,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
                 jButtonIzquierdaActionPerformed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, 64, 64));
+        jPanelAdministrarProducto.add(jButtonIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 530, 64, 64));
 
         jButtonDerecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/derecha.png"))); // NOI18N
         jButtonDerecha.setBorder(null);
@@ -776,7 +776,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover1FocusGained
 
     private void jLabelHover1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover1MouseClicked
-        if(evt.getClickCount()==2){
+        if(evt.getClickCount()==20){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
@@ -900,7 +900,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover10MouseExited
 
     private void jLabelHover2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover2MouseClicked
-        if(evt.getClickCount()==2){
+        if(evt.getClickCount()==19){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
@@ -921,7 +921,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover2MouseClicked
 
     private void jLabelHover3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover3MouseClicked
-        if(evt.getClickCount()==2){
+        if(evt.getClickCount()==17){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
@@ -941,7 +941,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover3MouseClicked
 
     private void jLabelHover4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover4MouseClicked
-        if(evt.getClickCount()==2){
+        if(evt.getClickCount()==16){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
@@ -961,7 +961,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover4MouseClicked
 
     private void jLabelHover5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover5MouseClicked
-        if(evt.getClickCount()==2){
+       if(evt.getClickCount()==15){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
@@ -981,7 +981,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover5MouseClicked
 
     private void jLabelHover6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover6MouseClicked
-        if(evt.getClickCount()==2){
+        if(evt.getClickCount()==14){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
@@ -1001,7 +1001,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover6MouseClicked
 
     private void jLabelHover7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover7MouseClicked
-        if(evt.getClickCount()==2){
+        if(evt.getClickCount()==15){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
@@ -1021,7 +1021,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover7MouseClicked
 
     private void jLabelHover8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover8MouseClicked
-        if(evt.getClickCount()==2){
+        if(evt.getClickCount()==16){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
@@ -1037,11 +1037,11 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
                 jButtonEditar.setEnabled(false);
                 jButtonEliminar.setEnabled(false);
             }
-        }        
+        }       
     }//GEN-LAST:event_jLabelHover8MouseClicked
 
     private void jLabelHover9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover9MouseClicked
-        if(evt.getClickCount()==2){
+        if(evt.getClickCount()==17){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
@@ -1057,11 +1057,11 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
                 jButtonEditar.setEnabled(false);
                 jButtonEliminar.setEnabled(false);
             }
-        }        
+        }      
     }//GEN-LAST:event_jLabelHover9MouseClicked
 
     private void jLabelHover10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover10MouseClicked
-        if(evt.getClickCount()==2){
+        if(evt.getClickCount()==19){
             InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
@@ -1077,7 +1077,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
                 jButtonEditar.setEnabled(false);
                 jButtonEliminar.setEnabled(false);
             }
-        }        
+        }    
     }//GEN-LAST:event_jLabelHover10MouseClicked
 
     private void jLabelMark1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLabelMark1FocusGained
