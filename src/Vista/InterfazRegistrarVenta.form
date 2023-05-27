@@ -222,11 +222,13 @@
                               </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldFecha" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButtonEliminarProducto" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jButtonAgregarProducto" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jTextFieldNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldFecha" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonEliminarProducto" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>

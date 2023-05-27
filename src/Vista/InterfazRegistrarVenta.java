@@ -408,11 +408,12 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel3)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonEliminarProducto)
-                            .addComponent(jButtonAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonEliminarProducto)))))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -633,7 +634,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
 
     private void jTextFieldEsnImeiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldEsnImeiKeyReleased
         avisoLongitudMin(jTextFieldEsnImei,jLabelAvisoIMEI,15);
-        habilitarBotonAgregar();
+        habilitarBotonAgregarImei();
     }//GEN-LAST:event_jTextFieldEsnImeiKeyReleased
 
     /**
@@ -711,6 +712,23 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                 b.setText("");}
         }
     }
+    public boolean valorRepetidoImei(JTextField a,ArrayList<Object []> b){
+        if(b.isEmpty()!=true){
+            for(int i=0; i<b.size();i++){
+                Object [] fila =b.get(i);
+                String Imei=(String)fila[4];
+                if(Imei.contentEquals(a.getText())){
+                    jLabelAvisoIMEI.setText("Codigo ESN/IMEI repetido");
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+            return false;
+        }else{
+            return false;
+        }
+    }
     
     public void habilitarBotonImprimir(){
         if(jTextFieldNombre.getText().isEmpty()
@@ -741,6 +759,30 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                 }else{
                     jButtonAgregarProducto.setEnabled(true);
                 }
+            }
+        }
+    }
+    public void habilitarBotonAgregarImei(){
+        if(jTextFieldIdProducto.getText().isEmpty()
+                || jTextFieldEsnImei.getText().isEmpty()
+                || jTextFieldMarca.getText().isEmpty()
+                || jTextFieldStock.getText().contentEquals("0")
+                || jTextFieldIdProducto.getText().length()<1
+                || jTextFieldEsnImei.getText().length()<15){
+            jButtonAgregarProducto.setEnabled(false);
+        }else{
+            if (jTextFieldStock.getText().equals("")){
+                jButtonAgregarProducto.setEnabled(false);
+            }else{
+                if (valorRepetidoImei(jTextFieldEsnImei,elementosTabla)){
+                    jButtonAgregarProducto.setEnabled(false);
+                }else{
+                    if (Integer.parseInt(jTextFieldStock.getText())==0){
+                        jButtonAgregarProducto.setEnabled(false);
+                    }else{
+                        jButtonAgregarProducto.setEnabled(true);
+                    }
+                }                
             }
         }
     }
