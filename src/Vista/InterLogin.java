@@ -24,6 +24,7 @@ public class InterLogin extends javax.swing.JFrame {
     static String nombreUsuario;
     Toolkit toolkit = Toolkit.getDefaultToolkit();
     boolean isCapsLockOn;
+    public static String nombreUsuarioVendedor;
     
     /**
      * Creates new form InterLogin
@@ -327,12 +328,13 @@ public class InterLogin extends javax.swing.JFrame {
             else {
              try {
                 conexion = con.establecerConexion();
-                String sql = "SELECT idUsuario, contraseniaUsuario FROM usuarios WHERE idUsuario = ? AND contraseniaUsuario = ?";
+                String sql = "SELECT nombreUsuario, idUsuario, contraseniaUsuario FROM usuarios WHERE idUsuario = ? AND contraseniaUsuario = ?";
                 PreparedStatement pst = conexion.prepareStatement(sql);
                 pst.setString(1, user);
                 pst.setString(2, pass);
                 ResultSet rs = pst.executeQuery();
-                if (rs.next()) {                    
+                if (rs.next()) {
+                    nombreUsuarioVendedor=rs.getString("nombreUsuario");
                      JOptionPane.showMessageDialog(this, "Ingresando como Vendedor.!!!");
                      new InterfazRegistrarVenta().setVisible(true);
                      this.dispose();

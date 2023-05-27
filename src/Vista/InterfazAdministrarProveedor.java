@@ -78,22 +78,25 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
         jTextFieldBuscarCoincidencia = new javax.swing.JTextField();
         jButtonBuscar = new javax.swing.JButton();
         jButtonHome = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(37, 77, 116));
         jPanel1.setPreferredSize(new java.awt.Dimension(1042, 650));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("ADMINISTRAR PROVEEDORES");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, 120));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre de Proveedor");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 137, -1, -1));
 
         jTableUsuario.setBackground(new java.awt.Color(240, 240, 240));
         jTableUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -123,6 +126,8 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableUsuario);
 
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 226, 959, 230));
+
         jButtonEditar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonEditar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonEditar.setForeground(new java.awt.Color(245, 245, 245));
@@ -137,6 +142,7 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
                 jButtonEditarActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 528, -1, -1));
 
         jButtonEliminar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonEliminar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -152,6 +158,7 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
                 jButtonEliminarActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(394, 528, -1, -1));
 
         jButtonRegistrar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -167,6 +174,7 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
                 jButtonRegistrarActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(647, 528, -1, -1));
 
         jTextFieldBuscarCoincidencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldBuscarCoincidencia.addActionListener(new java.awt.event.ActionListener() {
@@ -182,6 +190,7 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
                 jTextFieldBuscarCoincidenciaKeyTyped(evt);
             }
         });
+        jPanel1.add(jTextFieldBuscarCoincidencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 183, 284, -1));
 
         jButtonBuscar.setBackground(new java.awt.Color(0, 102, 153));
         jButtonBuscar.setFont(new java.awt.Font("Segoe UI", 3, 20)); // NOI18N
@@ -202,6 +211,7 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
                 jButtonBuscarKeyPressed(evt);
             }
         });
+        jPanel1.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(422, 182, -1, -1));
 
         jButtonHome.setBackground(new java.awt.Color(95, 143, 169));
         jButtonHome.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -213,79 +223,26 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
                 jButtonHomeActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 40, -1, -1));
 
-        jLabel3.setBackground(new java.awt.Color(37, 77, 116));
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/logo_user.png"))); // NOI18N
-        jLabel3.setText("jLabel3");
-        jLabel3.setOpaque(true);
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/user.png"))); // NOI18N
+        jLabel6.setText("   JUAN CARLOS");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(856, 38, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(151, 151, 151)
-                .addComponent(jButtonEditar)
-                .addGap(140, 140, 140)
-                .addComponent(jButtonEliminar)
-                .addGap(126, 126, 126)
-                .addComponent(jButtonRegistrar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(jButtonHome)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(46, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jTextFieldBuscarCoincidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(59, 59, 59)
-                                        .addComponent(jButtonBuscar))
-                                    .addComponent(jLabel1))
-                                .addGap(521, 521, 521))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING))))
-                .addGap(45, 45, 45))
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/nombre usuario.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 30, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1086, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(40, 40, 40)
-                            .addComponent(jButtonHome))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addGap(17, 17, 17)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(jLabel3)))
-                .addGap(36, 36, 36)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldBuscarCoincidencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonBuscar))
-                .addGap(9, 9, 9)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonEditar)
-                    .addComponent(jButtonEliminar)
-                    .addComponent(jButtonRegistrar))
-                .addGap(48, 48, 48))
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1050, 660));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -428,7 +385,8 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable jTableUsuario;
