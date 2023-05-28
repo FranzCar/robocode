@@ -449,7 +449,8 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
 
     private void jTextAreaDescripcionProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextAreaDescripcionProductoKeyTyped
         validacionEspacio(evt);
-        validacionCaracteresEnter(evt);
+        //validacionCaracteresEnter(evt);
+        validacionCaracteresNumLetras(evt);
 
         if(jTextAreaDescripcionProducto.getText().length()>=50){
             evt.consume();
@@ -616,6 +617,25 @@ public void validacionCaracteresNumLetras2(java.awt.event.KeyEvent evento){
         evento.getKeyChar()!=35&&
         evento.getKeyChar()!=46&&
         evento.getKeyChar()!=44){
+        evento.consume();
+  
+           JOptionPane.showMessageDialog(null, "No se permite Caracteres Especiales");
+        }
+    
+}
+
+public void validacionCaracteresNumLetras(java.awt.event.KeyEvent evento){
+    if((evento.getKeyChar()<97 || evento.getKeyChar()>122)&& //a-z
+        (evento.getKeyChar()<65 || evento.getKeyChar()>90)&& //A-Z
+        (evento.getKeyChar()<48 || evento.getKeyChar()>57)&& //0-9
+        evento.getKeyChar()!=209&&evento.getKeyChar()!=241&&
+        evento.getKeyChar()!=8&&evento.getKeyChar()!=32&&
+        evento.getKeyChar()!=225&&evento.getKeyChar()!=233&&
+        evento.getKeyChar()!=237&&evento.getKeyChar()!=243&&
+        evento.getKeyChar()!=250&&evento.getKeyChar()!=193&&
+        evento.getKeyChar()!=201&&evento.getKeyChar()!=205&&
+        evento.getKeyChar()!=211&&evento.getKeyChar()!=218&&
+            evento.getKeyChar()!=10){
         evento.consume();
   
            JOptionPane.showMessageDialog(null, "No se permite Caracteres Especiales");
