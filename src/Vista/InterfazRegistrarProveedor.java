@@ -357,7 +357,6 @@ public class InterfazRegistrarProveedor extends javax.swing.JFrame {
         //Validaciones.validacionNumerica(evt);
         validacionEspacio(evt);
         validacionCaracteresEspeciales(evt);
-        //validacionCaracteres(evt);
 
         if(jTextFieldCiNIT.getText().length()>=10){
             evt.consume();
