@@ -225,11 +225,11 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, -1, -1));
 
-        jButtonHome.setBackground(new java.awt.Color(95, 143, 169));
-        jButtonHome.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButtonHome.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonHome.setText("HOME");
-        jButtonHome.setToolTipText("");
+        jButtonHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton backbutton.png"))); // NOI18N
+        jButtonHome.setBorder(null);
+        jButtonHome.setBorderPainted(false);
+        jButtonHome.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable backbutton.png"))); // NOI18N
+        jButtonHome.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover backbutton.png"))); // NOI18N
         jButtonHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonHomeActionPerformed(evt);
