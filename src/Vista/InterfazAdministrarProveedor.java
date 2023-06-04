@@ -7,6 +7,8 @@ package Vista;
 import Conexion.ConectarBD;
 import Modelo.Usuario;
 import Controlador.ListarProveedores;
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -40,7 +42,11 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
         Administrar.MostrarTabla(jTableUsuario);
         bEditar=jButtonEditar;
         bEliminar=jButtonEliminar;
-        bRegistrar=jButtonRegistrar;
+        bRegistrar=jButtonRegistrar;        
+        jTableUsuario.getTableHeader().setBackground(new Color(155,184,200));
+        jTableUsuario.getTableHeader().setForeground(Color.white);        
+        Font newHeaderFont = jTableUsuario.getFont().deriveFont(Font.BOLD, 18f);
+        jTableUsuario.getTableHeader().setFont(newHeaderFont);
         
     }
     
@@ -98,7 +104,9 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
         jLabel1.setText("Nombre de Proveedor");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 137, -1, -1));
 
-        jTableUsuario.setBackground(new java.awt.Color(240, 240, 240));
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
         jTableUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTableUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -116,6 +124,10 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTableUsuario.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        jTableUsuario.setRowHeight(27);
+        jTableUsuario.setSelectionBackground(new java.awt.Color(195, 224, 229));
+        jTableUsuario.setShowVerticalLines(false);
         jTableUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableUsuarioMouseClicked(evt);
@@ -126,7 +138,7 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableUsuario);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 226, 959, 230));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 959, 230));
 
         jButtonEditar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonEditar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N

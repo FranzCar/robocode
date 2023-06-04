@@ -6,6 +6,8 @@ package Vista;
 
 import Conexion.ConectarBD;
 import static Vista.InterLogin.nombreUsuarioVendedor;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -48,10 +50,15 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         jTextFieldModelo.setEditable(false);
         jTextFieldPrecio.setEditable(false);
         jTextFieldStock.setEditable(false);
+        jTextFieldTotalPagar.setEditable(false);
         jButtonAgregarProducto.setEnabled(false);
         jButtonEliminarProducto.setEnabled(false);
         jButtonImprimirProducto.setEnabled(false);
         jButtonAgregarProducto.setEnabled(false);
+        jTableDetalleVenta.getTableHeader().setBackground(new Color(155,184,200));
+        jTableDetalleVenta.getTableHeader().setForeground(Color.white);        
+        Font newHeaderFont = jTableDetalleVenta.getFont().deriveFont(Font.BOLD, 18f);
+        jTableDetalleVenta.getTableHeader().setFont(newHeaderFont);
     }
 
     /**
@@ -111,16 +118,18 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1100, 705));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(95, 143, 169));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("HOME");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton backbutton.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable backbutton.png"))); // NOI18N
+        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover backbutton.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 60, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,7 +148,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                 jTextFieldNombreKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 146, 140, -1));
+        jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 140, -1));
 
         jTextFieldCiNit.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jTextFieldCiNit.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -150,12 +159,12 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                 jTextFieldCiNitKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextFieldCiNit, new org.netbeans.lib.awtextra.AbsoluteConstraints(338, 140, 91, -1));
+        jPanel1.add(jTextFieldCiNit, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 91, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre/Razon Social");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 108, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
 
         jTextFieldIdProducto.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jTextFieldIdProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -174,13 +183,13 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                 jTextFieldIdProductoKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextFieldIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 304, 100, -1));
+        jPanel1.add(jTextFieldIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 100, -1));
 
         jTextFieldMarca.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel1.add(jTextFieldMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 304, 116, -1));
+        jPanel1.add(jTextFieldMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 116, -1));
 
         jTextFieldModelo.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel1.add(jTextFieldModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 304, 124, -1));
+        jPanel1.add(jTextFieldModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 124, -1));
 
         jTextFieldEsnImei.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jTextFieldEsnImei.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -191,36 +200,50 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                 jTextFieldEsnImeiKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextFieldEsnImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(606, 304, 170, -1));
+        jPanel1.add(jTextFieldEsnImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, 170, -1));
 
         jTextFieldPrecio.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel1.add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(783, 304, 128, -1));
+        jPanel1.add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 300, 128, -1));
 
         jTextFieldStock.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel1.add(jTextFieldStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 304, 108, -1));
+        jPanel1.add(jTextFieldStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 300, 108, -1));
 
         jTextFieldTotalPagar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jTextFieldTotalPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldTotalPagarActionPerformed(evt);
+            }
+        });
         jPanel1.add(jTextFieldTotalPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(898, 548, 150, -1));
 
         jTextFieldFecha.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel1.add(jTextFieldFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(606, 146, 98, -1));
+        jPanel1.add(jTextFieldFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, 98, -1));
 
-        jButtonbuscarProducto.setBackground(new java.awt.Color(95, 143, 169));
-        jButtonbuscarProducto.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonbuscarProducto.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonbuscarProducto.setText("BUSCAR");
+        jButtonbuscarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton Buscar.png"))); // NOI18N
+        jButtonbuscarProducto.setBorder(null);
+        jButtonbuscarProducto.setContentAreaFilled(false);
+        jButtonbuscarProducto.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable Buscar.png"))); // NOI18N
+        jButtonbuscarProducto.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover Buscar.png"))); // NOI18N
         jButtonbuscarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonbuscarProductoActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonbuscarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(794, 622, -1, -1));
+        jPanel1.add(jButtonbuscarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 620, -1, -1));
 
-        jButtonImprimirProducto.setBackground(new java.awt.Color(95, 143, 169));
-        jButtonImprimirProducto.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButtonImprimirProducto.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonImprimirProducto.setText("IMPRIMIR");
-        jPanel1.add(jButtonImprimirProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(921, 622, -1, -1));
+        jButtonImprimirProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton imprimir.png"))); // NOI18N
+        jButtonImprimirProducto.setBorder(null);
+        jButtonImprimirProducto.setBorderPainted(false);
+        jButtonImprimirProducto.setContentAreaFilled(false);
+        jButtonImprimirProducto.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable imprimir.png"))); // NOI18N
+        jButtonImprimirProducto.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover imprimir.png"))); // NOI18N
+        jButtonImprimirProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonImprimirProductoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonImprimirProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 620, -1, -1));
 
         jTableDetalleVenta.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jTableDetalleVenta.setModel(new javax.swing.table.DefaultTableModel(
@@ -231,6 +254,9 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                 "ID producto", "Marca", "Modelo", "Cantidad", "ESN/IMEI", "Importe"
             }
         ));
+        jTableDetalleVenta.setRowHeight(25);
+        jTableDetalleVenta.setSelectionBackground(new java.awt.Color(195, 224, 229));
+        jTableDetalleVenta.setShowVerticalLines(false);
         jTableDetalleVenta.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTableDetalleVentaFocusLost(evt);
@@ -248,42 +274,42 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Fecha");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 108, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 150, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("CI/NIT");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(338, 108, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Id producto");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 272, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Marca");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 272, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Modelo");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 272, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("ESN/IMEI");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(606, 272, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Stock");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1007, 272, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 270, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("precio");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(858, 272, -1, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 270, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -446,24 +472,34 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
     }//GEN-LAST:event_jTableDetalleVentaMouseClicked
 
     private void jButtonEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarProductoActionPerformed
+        int respuesta = JOptionPane.showConfirmDialog(this, "¿Está seguro de eliminar el producto?", "Confirmación de eliminación", JOptionPane.YES_NO_OPTION);
+        if (respuesta == JOptionPane.YES_OPTION) {
+            int sumaImporte=0;
+            DefaultTableModel modelo = new DefaultTableModel(){};
+            
+            modelo.addColumn("ID Producto");
+            modelo.addColumn("Marca");
+            modelo.addColumn("Modelo");
+            modelo.addColumn("Cantidad");
+            modelo.addColumn("ESN/IMEI");
+            modelo.addColumn("Importe");
 
-        DefaultTableModel modelo = new DefaultTableModel(){
-        };                
-        modelo.addColumn("ID Producto");
-        modelo.addColumn("Marca");
-        modelo.addColumn("Modelo");
-        modelo.addColumn("Cantidad");
-        modelo.addColumn("ESN/IMEI");
-        modelo.addColumn("Importe");
-        
-        elementosTabla.remove(itemDetalleVenta);
-        for(int i=0; i<elementosTabla.size();i++){
-            Object [] a =elementosTabla.get(i);
-            modelo.addRow(a);
-        }        
-        jTableDetalleVenta.setModel(modelo);
-        jButtonEliminarProducto.setEnabled(false);
-        habilitarBotonImprimir();
+            elementosTabla.remove(itemDetalleVenta);
+            for(int i=0; i<elementosTabla.size();i++){
+                Object [] a =elementosTabla.get(i);
+                modelo.addRow(a);
+            }
+            for(int i=0; i<elementosTabla.size();i++){
+                Object [] fila =elementosTabla.get(i);
+                String elemento = (String)fila[5];
+                sumaImporte=sumaImporte+Integer.parseInt(elemento);            
+            }
+            String text=sumaImporte+"";
+            jTextFieldTotalPagar.setText(text);
+            jTableDetalleVenta.setModel(modelo);
+            jButtonEliminarProducto.setEnabled(false);
+            habilitarBotonImprimir();
+        }
     }//GEN-LAST:event_jButtonEliminarProductoActionPerformed
 
     private void jTextFieldIdProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdProductoActionPerformed
@@ -522,6 +558,14 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         avisoLongitudMin(jTextFieldEsnImei,jLabelAvisoIMEI,15);
         habilitarBotonAgregarImei();
     }//GEN-LAST:event_jTextFieldEsnImeiKeyReleased
+
+    private void jButtonImprimirProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImprimirProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonImprimirProductoActionPerformed
+
+    private void jTextFieldTotalPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTotalPagarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldTotalPagarActionPerformed
 
     /**
      * @param args the command line arguments
