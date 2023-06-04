@@ -131,7 +131,10 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
         jButtonEditar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonEditar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonEditar.setForeground(new java.awt.Color(245, 245, 245));
-        jButtonEditar.setText("EDITAR");
+        jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton editar.png"))); // NOI18N
+        jButtonEditar.setBorder(null);
+        jButtonEditar.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable editar.png"))); // NOI18N
+        jButtonEditar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover editar.png"))); // NOI18N
         jButtonEditar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonEditarMouseClicked(evt);
@@ -142,12 +145,15 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
                 jButtonEditarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 530, -1, -1));
+        jPanel1.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 530, -1, -1));
 
         jButtonEliminar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonEliminar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonEliminar.setForeground(new java.awt.Color(245, 245, 245));
-        jButtonEliminar.setText("ELIMINAR");
+        jButtonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton eliminar.png"))); // NOI18N
+        jButtonEliminar.setBorder(null);
+        jButtonEliminar.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable eliminar.png"))); // NOI18N
+        jButtonEliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover eliminar.png"))); // NOI18N
         jButtonEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonEliminarMouseClicked(evt);
@@ -158,12 +164,15 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
                 jButtonEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 530, -1, -1));
+        jPanel1.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 530, -1, -1));
 
         jButtonRegistrar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButtonRegistrar.setForeground(new java.awt.Color(245, 245, 245));
-        jButtonRegistrar.setText("REGISTRAR");
+        jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton registrar.png"))); // NOI18N
+        jButtonRegistrar.setBorder(null);
+        jButtonRegistrar.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable registrar.png"))); // NOI18N
+        jButtonRegistrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover registrar.png"))); // NOI18N
         jButtonRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonRegistrarMouseClicked(evt);
@@ -174,7 +183,7 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
                 jButtonRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 530, -1, -1));
+        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 530, -1, -1));
 
         jTextFieldBuscarCoincidencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextFieldBuscarCoincidencia.addActionListener(new java.awt.event.ActionListener() {
@@ -195,7 +204,10 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
         jButtonBuscar.setBackground(new java.awt.Color(0, 102, 153));
         jButtonBuscar.setFont(new java.awt.Font("Segoe UI", 3, 20)); // NOI18N
         jButtonBuscar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonBuscar.setText("Buscar");
+        jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton Buscar.png"))); // NOI18N
+        jButtonBuscar.setBorder(null);
+        jButtonBuscar.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable Buscar.png"))); // NOI18N
+        jButtonBuscar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover Buscar.png"))); // NOI18N
         jButtonBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonBuscarMouseClicked(evt);
@@ -211,7 +223,7 @@ public class InterfazAdministrarProveedor extends javax.swing.JFrame {
                 jButtonBuscarKeyPressed(evt);
             }
         });
-        jPanel1.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(422, 182, -1, -1));
+        jPanel1.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, -1, -1));
 
         jButtonHome.setBackground(new java.awt.Color(95, 143, 169));
         jButtonHome.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
