@@ -185,12 +185,12 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         });
         jPanelAdministrarProducto.add(jTextFieldBuscarCoincidencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 260, 30));
 
-        jButtonBuscar.setBackground(new java.awt.Color(95, 143, 169));
-        jButtonBuscar.setFont(new java.awt.Font("Segoe UI", 3, 20)); // NOI18N
-        jButtonBuscar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/searchSmall.png"))); // NOI18N
-        jButtonBuscar.setText("Buscar");
+        jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton Buscar.png"))); // NOI18N
+        jButtonBuscar.setBorder(null);
         jButtonBuscar.setBorderPainted(false);
+        jButtonBuscar.setContentAreaFilled(false);
+        jButtonBuscar.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable Buscar.png"))); // NOI18N
+        jButtonBuscar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover Buscar.png"))); // NOI18N
         jButtonBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonBuscarMouseClicked(evt);
@@ -212,7 +212,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
                 jButtonBuscarKeyPressed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, -1, 30));
+        jPanelAdministrarProducto.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -238,7 +238,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
                 jButtonEditarActionPerformed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 640, -1, 30));
+        jPanelAdministrarProducto.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 640, -1, 30));
 
         jButtonEliminar.setBackground(new java.awt.Color(95, 143, 169));
         jButtonEliminar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -259,14 +259,14 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
                 jButtonEliminarActionPerformed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 640, 170, 30));
+        jPanelAdministrarProducto.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 640, 170, 30));
 
-        jButtonRegistrar.setBackground(new java.awt.Color(95, 143, 169));
-        jButtonRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButtonRegistrar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/addSmall.png"))); // NOI18N
-        jButtonRegistrar.setText("AÑADIR");
+        jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton aniadir.png"))); // NOI18N
+        jButtonRegistrar.setBorder(null);
         jButtonRegistrar.setBorderPainted(false);
+        jButtonRegistrar.setContentAreaFilled(false);
+        jButtonRegistrar.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable aniadir.png"))); // NOI18N
+        jButtonRegistrar.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover aniadir.png"))); // NOI18N
         jButtonRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButtonRegistrarMouseEntered(evt);
@@ -280,14 +280,14 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
                 jButtonRegistrarActionPerformed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 640, -1, 30));
+        jPanelAdministrarProducto.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 640, -1, -1));
 
-        jButtonHome.setBackground(new java.awt.Color(95, 143, 169));
-        jButtonHome.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
-        jButtonHome.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/homeSmall.png"))); // NOI18N
-        jButtonHome.setText("HOME");
+        jButtonHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton backbutton.png"))); // NOI18N
+        jButtonHome.setBorder(null);
         jButtonHome.setBorderPainted(false);
+        jButtonHome.setContentAreaFilled(false);
+        jButtonHome.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable backbutton.png"))); // NOI18N
+        jButtonHome.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover backbutton.png"))); // NOI18N
         jButtonHome.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButtonHomeMouseEntered(evt);
