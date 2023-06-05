@@ -78,11 +78,12 @@ public class InterLogin extends javax.swing.JFrame {
         jLabel3.setText("Contraseña :");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 140, 40));
 
-        btnAcceder.setBackground(new java.awt.Color(95, 143, 169));
-        btnAcceder.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        btnAcceder.setForeground(new java.awt.Color(255, 255, 255));
-        btnAcceder.setText("Acceder");
+        btnAcceder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton acceder.png"))); // NOI18N
+        btnAcceder.setBorder(null);
         btnAcceder.setBorderPainted(false);
+        btnAcceder.setContentAreaFilled(false);
+        btnAcceder.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable acceder.png"))); // NOI18N
+        btnAcceder.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover acceder.png"))); // NOI18N
         btnAcceder.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 btnAccederFocusGained(evt);
@@ -101,13 +102,14 @@ public class InterLogin extends javax.swing.JFrame {
                 btnAccederActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAcceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, -1, -1));
+        jPanel1.add(btnAcceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, -1, -1));
 
-        btnSalir.setBackground(new java.awt.Color(95, 143, 169));
-        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("Salir");
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton salir.png"))); // NOI18N
+        btnSalir.setBorder(null);
         btnSalir.setBorderPainted(false);
+        btnSalir.setContentAreaFilled(false);
+        btnSalir.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable salir.png"))); // NOI18N
+        btnSalir.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover salir.png"))); // NOI18N
         btnSalir.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 btnSalirFocusGained(evt);
@@ -126,7 +128,7 @@ public class InterLogin extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 100, -1));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, -1, -1));
 
         txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
