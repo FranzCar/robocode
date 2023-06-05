@@ -227,30 +227,31 @@ public class InterfazEditarProveedores extends javax.swing.JFrame {
         avisoDescripcionProd.setForeground(new java.awt.Color(204, 204, 255));
         jPanel2.add(avisoDescripcionProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 480, 181, 30));
 
-        jButtonCancelar.setBackground(new java.awt.Color(95, 143, 169));
-        jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButtonCancelar.setForeground(new java.awt.Color(245, 245, 245));
-        jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar.png"))); // NOI18N
-        jButtonCancelar.setText("CANCELAR");
+        jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton cancelar.png"))); // NOI18N
+        jButtonCancelar.setBorder(null);
         jButtonCancelar.setBorderPainted(false);
+        jButtonCancelar.setContentAreaFilled(false);
+        jButtonCancelar.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable cancelar.png"))); // NOI18N
+        jButtonCancelar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover cancelar.png"))); // NOI18N
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 560, 190, -1));
+        jPanel2.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 550, -1, -1));
 
-        jButtonGuardar.setBackground(new java.awt.Color(95, 143, 169));
-        jButtonGuardar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButtonGuardar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonGuardar.setText("GUARDAR");
+        jButtonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton guardar.png"))); // NOI18N
+        jButtonGuardar.setBorder(null);
         jButtonGuardar.setBorderPainted(false);
+        jButtonGuardar.setContentAreaFilled(false);
+        jButtonGuardar.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable guardar.png"))); // NOI18N
+        jButtonGuardar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover guardar.png"))); // NOI18N
         jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 560, 170, 40));
+        jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 550, -1, -1));
 
         jTextAreaDescripcionProducto.setColumns(20);
         jTextAreaDescripcionProducto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N

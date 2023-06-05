@@ -188,29 +188,31 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
         jLabel9.setText("ELIMINAR PROVEEDOR");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
 
-        jButtonCancelar.setBackground(new java.awt.Color(97, 150, 180));
-        jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar.png"))); // NOI18N
-        jButtonCancelar.setText("CANCELAR");
+        jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton cancelar.png"))); // NOI18N
+        jButtonCancelar.setBorder(null);
+        jButtonCancelar.setBorderPainted(false);
+        jButtonCancelar.setContentAreaFilled(false);
+        jButtonCancelar.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable cancelar.png"))); // NOI18N
+        jButtonCancelar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover cancelar.png"))); // NOI18N
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 540, -1, -1));
+        jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 560, -1, -1));
 
-        jButtonEliminar.setBackground(new java.awt.Color(97, 150, 180));
-        jButtonEliminar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButtonEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
-        jButtonEliminar.setText("ELIMINAR");
+        jButtonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton eliminar_1.png"))); // NOI18N
+        jButtonEliminar.setBorder(null);
+        jButtonEliminar.setBorderPainted(false);
+        jButtonEliminar.setContentAreaFilled(false);
+        jButtonEliminar.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable eliminar_1.png"))); // NOI18N
+        jButtonEliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover eliminar_1.png"))); // NOI18N
         jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 540, -1, -1));
+        jPanel1.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 560, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(245, 245, 245));
@@ -245,21 +247,11 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 724, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 608, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
         );
 
         pack();
