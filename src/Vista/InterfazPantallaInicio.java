@@ -149,11 +149,12 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(95, 143, 169));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Cerrar Sesión");
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton cerrar sesion.png"))); // NOI18N
+        jButton5.setBorder(null);
         jButton5.setBorderPainted(false);
+        jButton5.setContentAreaFilled(false);
+        jButton5.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable cerrar sesion.png"))); // NOI18N
+        jButton5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover cerrar sesion.png"))); // NOI18N
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButton5MouseEntered(evt);
@@ -211,7 +212,7 @@ public class InterfazPantallaInicio extends javax.swing.JFrame {
                     .addComponent(jButtonVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(56, 56, 56)
                 .addComponent(jButton5)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
