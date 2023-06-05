@@ -113,6 +113,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
         jLabel5.setText("Descripción producto:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, -1, -1));
 
+        jTextFieldDirec.setBackground(new java.awt.Color(216, 210, 203));
         jTextFieldDirec.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextFieldDirec.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextFieldDirec.setEnabled(false);
@@ -128,6 +129,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldDirec, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 300, 27));
 
+        jTextFieldTelef.setBackground(new java.awt.Color(216, 210, 203));
         jTextFieldTelef.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextFieldTelef.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextFieldTelef.setEnabled(false);
@@ -146,6 +148,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldTelef, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 300, 27));
 
+        jTextFieldNIT.setBackground(new java.awt.Color(216, 210, 203));
         jTextFieldNIT.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextFieldNIT.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextFieldNIT.setEnabled(false);
@@ -165,6 +168,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
         jPanel1.add(jTextFieldNIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 300, 27));
 
         jTextFieldNombre.setEditable(false);
+        jTextFieldNombre.setBackground(new java.awt.Color(216, 210, 203));
         jTextFieldNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextFieldNombre.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextFieldNombre.setEnabled(false);
@@ -219,6 +223,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
         jLabel6.setText("Dirección:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
 
+        jTextFieldEmail.setBackground(new java.awt.Color(216, 210, 203));
         jTextFieldEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextFieldEmail.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextFieldEmail.setEnabled(false);
@@ -234,6 +239,7 @@ public class InterfazEliminarProveedor extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 300, 27));
 
+        jTextAreaDescripcionProducto.setBackground(new java.awt.Color(216, 210, 203));
         jTextAreaDescripcionProducto.setColumns(20);
         jTextAreaDescripcionProducto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextAreaDescripcionProducto.setRows(5);

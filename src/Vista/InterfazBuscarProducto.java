@@ -71,7 +71,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         
         bProdEditar=jButtonEditar;
         bProdEliminar=jButtonEliminar;
-        bProdRegistrar=jButtonRegistrar;
+        bProdRegistrar=jButtonAniadir;
         bProdEditar.setEnabled(false);
         bProdEliminar.setEnabled(false);
         jButtonIzquierda.setEnabled(false);
@@ -98,7 +98,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButtonEditar = new javax.swing.JButton();
         jButtonEliminar = new javax.swing.JButton();
-        jButtonRegistrar = new javax.swing.JButton();
+        jButtonAniadir = new javax.swing.JButton();
         jButtonHome = new javax.swing.JButton();
         jLabelHover1 = new javax.swing.JLabel();
         jLabelHover2 = new javax.swing.JLabel();
@@ -261,26 +261,26 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         });
         jPanelAdministrarProducto.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 640, 170, 30));
 
-        jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton aniadir.png"))); // NOI18N
-        jButtonRegistrar.setBorder(null);
-        jButtonRegistrar.setBorderPainted(false);
-        jButtonRegistrar.setContentAreaFilled(false);
-        jButtonRegistrar.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable aniadir.png"))); // NOI18N
-        jButtonRegistrar.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover aniadir.png"))); // NOI18N
-        jButtonRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonAniadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton aniadir.png"))); // NOI18N
+        jButtonAniadir.setBorder(null);
+        jButtonAniadir.setBorderPainted(false);
+        jButtonAniadir.setContentAreaFilled(false);
+        jButtonAniadir.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/disable aniadir.png"))); // NOI18N
+        jButtonAniadir.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hover aniadir.png"))); // NOI18N
+        jButtonAniadir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButtonRegistrarMouseEntered(evt);
+                jButtonAniadirMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButtonRegistrarMouseExited(evt);
+                jButtonAniadirMouseExited(evt);
             }
         });
-        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAniadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegistrarActionPerformed(evt);
+                jButtonAniadirActionPerformed(evt);
             }
         });
-        jPanelAdministrarProducto.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 640, -1, -1));
+        jPanelAdministrarProducto.add(jButtonAniadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 640, -1, -1));
 
         jButtonHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/boton backbutton.png"))); // NOI18N
         jButtonHome.setBorder(null);
@@ -676,7 +676,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonBuscarKeyPressed
 
-    private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
+    private void jButtonAniadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAniadirActionPerformed
       /* InterfazRegistrarProducto registrarPro=new InterfazRegistrarProducto();
         registrarPro.setVisible(true);
         registrarPro.setLocationRelativeTo(null);*/
@@ -709,7 +709,7 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
             }
       dispose();
       
-    }//GEN-LAST:event_jButtonRegistrarActionPerformed
+    }//GEN-LAST:event_jButtonAniadirActionPerformed
 
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
         dispose();
@@ -776,8 +776,8 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover1FocusGained
 
     private void jLabelHover1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover1MouseClicked
-        if(evt.getClickCount()==20){
-            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+        if(evt.getClickCount()==2){
+            InterfazMostrarProducto1 mostrar=new InterfazMostrarProducto1();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
         }else{
@@ -900,8 +900,8 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover10MouseExited
 
     private void jLabelHover2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover2MouseClicked
-        if(evt.getClickCount()==19){
-            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+        if(evt.getClickCount()==2){
+            InterfazMostrarProducto1 mostrar=new InterfazMostrarProducto1();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
         }else{
@@ -921,8 +921,8 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover2MouseClicked
 
     private void jLabelHover3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover3MouseClicked
-        if(evt.getClickCount()==17){
-            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+        if(evt.getClickCount()==2){
+            InterfazMostrarProducto1 mostrar=new InterfazMostrarProducto1();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
         }else{
@@ -941,8 +941,8 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover3MouseClicked
 
     private void jLabelHover4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover4MouseClicked
-        if(evt.getClickCount()==16){
-            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+        if(evt.getClickCount()==2){
+            InterfazMostrarProducto1 mostrar=new InterfazMostrarProducto1();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
         }else{
@@ -961,8 +961,8 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover4MouseClicked
 
     private void jLabelHover5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover5MouseClicked
-       if(evt.getClickCount()==15){
-            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+       if(evt.getClickCount()==2){
+            InterfazMostrarProducto1 mostrar=new InterfazMostrarProducto1();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
         }else{
@@ -981,8 +981,8 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover5MouseClicked
 
     private void jLabelHover6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover6MouseClicked
-        if(evt.getClickCount()==14){
-            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+        if(evt.getClickCount()==2){
+            InterfazMostrarProducto1 mostrar=new InterfazMostrarProducto1();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
         }else{
@@ -1001,8 +1001,8 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover6MouseClicked
 
     private void jLabelHover7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover7MouseClicked
-        if(evt.getClickCount()==15){
-            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+        if(evt.getClickCount()==2){
+            InterfazMostrarProducto1 mostrar=new InterfazMostrarProducto1();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
         }else{
@@ -1021,8 +1021,8 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover7MouseClicked
 
     private void jLabelHover8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover8MouseClicked
-        if(evt.getClickCount()==16){
-            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+        if(evt.getClickCount()==2){
+            InterfazMostrarProducto1 mostrar=new InterfazMostrarProducto1();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
         }else{
@@ -1041,8 +1041,8 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover8MouseClicked
 
     private void jLabelHover9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover9MouseClicked
-        if(evt.getClickCount()==17){
-            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+        if(evt.getClickCount()==2){
+            InterfazMostrarProducto1 mostrar=new InterfazMostrarProducto1();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
         }else{
@@ -1061,8 +1061,8 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHover9MouseClicked
 
     private void jLabelHover10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHover10MouseClicked
-        if(evt.getClickCount()==19){
-            InterfazMostrarProducto mostrar=new InterfazMostrarProducto();
+        if(evt.getClickCount()==2){
+            InterfazMostrarProducto1 mostrar=new InterfazMostrarProducto1();
             mostrar.setVisible(true);
             mostrar.setLocationRelativeTo(null);
         }else{
@@ -1096,14 +1096,14 @@ public class InterfazBuscarProducto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabelMark1MouseExited
 
-    private void jButtonRegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistrarMouseEntered
-        jButtonRegistrar.setBackground(new Color (113,163,188));
-    }//GEN-LAST:event_jButtonRegistrarMouseEntered
+    private void jButtonAniadirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAniadirMouseEntered
+        jButtonAniadir.setBackground(new Color (113,163,188));
+    }//GEN-LAST:event_jButtonAniadirMouseEntered
 
-    private void jButtonRegistrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistrarMouseExited
+    private void jButtonAniadirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAniadirMouseExited
         
-        jButtonRegistrar.setBackground(new Color (95,143,169));
-    }//GEN-LAST:event_jButtonRegistrarMouseExited
+        jButtonAniadir.setBackground(new Color (95,143,169));
+    }//GEN-LAST:event_jButtonAniadirMouseExited
 
     private void jButtonBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBuscarMouseEntered
         jButtonBuscar.setBackground(new Color (113,163,188));
@@ -1271,13 +1271,13 @@ private void disableCopy(JComponent component){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel errocar;
     private javax.swing.JLabel errorcar;
+    private javax.swing.JButton jButtonAniadir;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonDerecha;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonHome;
     private javax.swing.JButton jButtonIzquierda;
-    private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -129,7 +129,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -185,9 +185,11 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 100, -1));
 
+        jTextFieldMarca.setBackground(new java.awt.Color(216, 210, 203));
         jTextFieldMarca.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jPanel1.add(jTextFieldMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 116, -1));
 
+        jTextFieldModelo.setBackground(new java.awt.Color(216, 210, 203));
         jTextFieldModelo.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jPanel1.add(jTextFieldModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 124, -1));
 
@@ -202,12 +204,15 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldEsnImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, 170, -1));
 
+        jTextFieldPrecio.setBackground(new java.awt.Color(216, 210, 203));
         jTextFieldPrecio.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jPanel1.add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 300, 128, -1));
 
+        jTextFieldStock.setBackground(new java.awt.Color(216, 210, 203));
         jTextFieldStock.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jPanel1.add(jTextFieldStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 300, 108, -1));
 
+        jTextFieldTotalPagar.setBackground(new java.awt.Color(216, 210, 203));
         jTextFieldTotalPagar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jTextFieldTotalPagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,6 +221,7 @@ public class InterfazRegistrarVenta extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldTotalPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(898, 548, 150, -1));
 
+        jTextFieldFecha.setBackground(new java.awt.Color(216, 210, 203));
         jTextFieldFecha.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jPanel1.add(jTextFieldFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, 98, -1));
 
